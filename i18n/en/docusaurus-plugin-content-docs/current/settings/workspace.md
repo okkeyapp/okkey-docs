@@ -72,7 +72,7 @@ Built-in roles cannot be changed or deleted:
 | "Admin" | Every settings section. |
 | "User" | No access to workspace settings. |
 
-Sections in the permissions table: "General", "Items", "Capsules", "Roles", "Profiles", "Members", "Vaults", "Billing".
+Sections in the permissions table: "General", "Items", "Capsules", "Roles", "Profiles", "Members", "Vaults".
 
 "Custom roles" exist on Enterprise. On Free the editor is replaced by a note that the feature is unavailable. To get Enterprise, contact the Okkey team.
 
@@ -139,7 +139,7 @@ The personal vault and shared vaults. Learn more about how a vault stores items 
 
 One per workspace. Only you can see it. You cannot grant access to it or delete it.
 
-In "Edit vault" you can change the icon, name, and description.
+On Free, "Edit vault" changes the icon, name, and description.
 
 ### Shared vaults
 

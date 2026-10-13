@@ -6,7 +6,7 @@ plans: [free, enterprise]
 
 # Settings
 
-Personal settings and the device open from the account menu: "My settings" and "Device settings".
+Personal settings and the device open from the account menu: "My settings" and "Device settings". "My settings" is a window with its own address, `?popup=settings`. Language switches in the web header. "Change server" is in the extension.
 
 Workspace rules open from the sidebar item "Settings".
 

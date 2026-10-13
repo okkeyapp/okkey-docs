@@ -6,97 +6,94 @@ plans: [free, enterprise]
 
 # Personal settings
 
-Open “My settings” from the account menu when you want to change your profile, your master password, or how you get back in. The items below exist on every plan unless a row says otherwise. Paid recovery pieces are called out separately.
+"My settings" in the account menu. This is the profile, the master password, and ways to get access back.
 
-The “General” page shows an “Account security” block at the top.
+The "General" page shows the "Account security" block at the top.
 
 ## General
 
-Page title: “General settings”.
+Name, email, language, and region of the profile.
 
-| Setting | Label | What it does |
-| --- | --- | --- |
-| First name | “First name” / “Your first name” | Profile first name. |
-| Last name | “Last name” / “Your last name” | Profile last name. |
-| Email | “Change email” | Opens “Change email”. |
-| Language | “Language” / “Choose your language” | Group “Language and region”. Web string locales in core are `ru` and `en`. |
-| Region | “Region of residence” | A select with search “Search region...”. Empty result: “No region”. |
+| Setting | How to change it |
+| --- | --- |
+| "First name", "Last name" | Profile fields. |
+| "Change email" | Opens "Change email". |
+| "Language" | Russian and English are available in the interface. |
+| "Region of residence" | A list with search "Search region...". |
 
-Theme, accent, and tint are not on this popup. They live in [device personalization](./devices#personalization).
+Theme and browser color are set in [device personalization](./devices#personalization).
 
 ## Master password
 
-Menu item: “Master password”. This is the only password that opens the vault. The server does not store it.
+The master password opens the vault. The server does not store it.
 
-The “Master password” section shows when the password was set: today, yesterday, “N ago”, or an unknown date. “Change” opens “Change master password”: the current master password and the new password twice.
+The page shows when the password was set. "Change" opens "Change master password": the current password and the new password twice.
 
-“Require master password” - “Extra confidential sections that require the master password”. You can mark zones. Group “Sections”: “Items”, “Capsules”, “Monitoring”, “Tools”, “Vault settings”, “My settings”. Group “Popups”: “Items”, “Capsules”, “Vaults”, “Folders”. Group “Actions”: “Deletion”. Until a zone is confirmed, the UI shows “Confirm access” and “Section “…” requires re-authentication”.
+"Require master password" marks zones where access must be confirmed again.
 
-Idle time, lock on sleep, clipboard, biometrics, and PIN are described by strings next to the master password, but the current web UI puts them in [device settings](./devices). They are stored on the device and are not copied between devices.
+- Sections: "Items", "Capsules", "Monitoring", "Tools", "Vault settings", "My settings".
+- Windows: "Items", "Capsules", "Vaults", "Folders".
+- Actions: "Deletion".
+
+Until a zone is confirmed, the screen is "Confirm access".
+
+Idle time, lock on sleep, clipboard, biometrics, and PIN are set in [device settings](./devices). They stay on this device.
 
 ## Sign-in methods
 
-The “Sign-in methods” item is built into the popup, but `ACCOUNT_LOGIN_METHODS_UI_ENABLED` is `false`. While the flag is off, opening that item returns to “General”. Actual core sign-in is email plus a code, plus 2FA.
-
-:::note
-**TODO:** do not document the “Sign-in methods” screen (password, passkey, other providers) until the flag is on. The screen is not shown.
-:::
+The "Sign-in methods" item is not shown in the menu. Sign-in uses email and a code from the message. You can also turn on [two-factor authentication](#two-factor-authentication).
 
 ## Two-factor authentication
 
-Item “2FA authentication”, title “Two-factor authentication”. A second factor means the email code alone is not enough to sign in. Available on every core plan.
+A second factor means the email code alone is not enough to sign in. Available on Free and on Enterprise.
 
-| Setting | Label | Behavior |
-| --- | --- | --- |
-| App | “Authenticator app” | “A third-party authenticator app (for example, Google Authenticator) that generates one-time codes”. |
-| Codes | “Backup codes” | “One-time codes you can use to sign in when you do not have your phone or authenticator app”. |
-| Disable | “Disable 2FA” | Asks for a code from the authenticator app. |
-
-This core screen has no SMS and no hardware keys.
+| Setting | What it does |
+| --- | --- |
+| "Authenticator app" | One-time codes from an app, for example Google Authenticator. |
+| "Backup codes" | One-time codes for when the app is not at hand. |
+| "Disable 2FA" | Asks for a code from the authenticator app. |
 
 ## Recovery
 
-Item “Recovery”, title “Access recovery”. Set up a recovery method before you need it. If the master password is forgotten, the server cannot guess it.
+Set up a recovery method in advance. If the master password is forgotten, the server cannot guess it.
 
-| Block | Label | Plan |
+| Method | Plan | How to turn it on |
 | --- | --- | --- |
-| Key | “Recovery key”. “This key helps restore access to your account if you forget your master password”. | Every plan. The key can be enrolled and rotated. Registration offers the same key immediately. |
-| Devices | “Trusted devices”. “Helps restore your account through your other trusted devices if you are signed in on them”. | Flag `accountRecovery` is on for Enterprise. The wizard is `@okkey-enterprise/account-recovery` (plugin `account-recovery-advanced`). On Free, core says remote recovery is unavailable in the web client. The method can be turned on when there are at least two trusted devices and one of them is the current device. Otherwise: “Add another trusted device before enabling this recovery method”. |
-| Contacts | “Trusted contacts”. “Add at least 3 trusted contacts who can help restore access”. | Flag `trustedContacts` is on for Enterprise. The confirmed minimum is 3. Status: “Need … more confirmed contacts”, “Ready”. Invite: “Trusted contact invitation”, “Enter contact email”. The contact must already be an Okkey user. Remove: “Remove trusted contact?”. |
-| Reverse role | “I am a trusted contact”. “Accounts that listed you to help restore access if they lose their master password”. Leave: “Leave trusted contacts?”. | The same contacts module. |
+| "Recovery key" | Free and Enterprise | Turn the key on or issue a new one. The same key is offered at registration. |
+| "Trusted devices" | Enterprise | You need at least two trusted devices, and one of them must be the current device. Otherwise you are asked to add another device. |
+| "Trusted contacts" | Enterprise | At least 3 confirmed contacts. A contact must already be an Okkey user. |
+| "I am a trusted contact" | Enterprise | Accounts you can help. You can leave that list. |
 
-On Free the paid parts are unavailable and a “Note” is shown. Both the Enterprise flag and the module are required. The right is counted on the account: any workspace where the user is an owner or a member and the plan grants the flag is enough. The wizards are web screens. This repository has no separate mobile or desktop wizard.
+On Free, "Trusted devices" and "Trusted contacts" are unavailable. To get Enterprise, contact the Okkey team. See [Plans](../plans).
 
-While the vault is unlocked and contacts are on, the module prepares shares for confirmed contacts by itself. There is no separate “write shares” button. The threshold is 3. The UI does not offer another number. A device request and a contact request last 1 hour.
+While the vault is open, shares for confirmed contacts are prepared automatically. The threshold is 3 contacts. A recovery request lasts 1 hour.
 
 :::warning
 A recovery request lasts 1 hour. After that you create it again.
 :::
 
-Page “Forgot master password?”.
+### Trusted devices
 
-**Trusted devices** (“Use another device that already trusts this account”):
+Page "Forgot master password?", option "Use another device that already trusts this account".
 
-1. “Start a recovery request, then approve it on another trusted device where your vault is unlocked.”
-2. “Request recovery from trusted device”.
-3. “Device recovery”, “Waiting for approval on a trusted device…”.
-4. On another trusted device with an open vault, popup “Account recovery request”. It cannot be closed with the cross; the close label is “Resolve request”. The text asks you to confirm only a device you recognize. The card shows the device name, client and OS, date, “IP: …”, “Country: …”. If there is no place: “Unknown location”. If the vault is locked: “Unlock the vault on this device to approve recovery.”
-5. “Confirm”, “Reject”, and under “More actions” - “Block device”. Toasts: “Recovery approved”, “Recovery request rejected”, “Device blocked”.
-6. After approval: “Approved. Set a new master password to finish.” Fields “New master password”, “Repeat new master password”, “Restore access”.
-7. Rejection: “Recovery request rejected” and “Start again”. Expired: “Recovery request expired”. Blocked: “This device is blocked” - “A trusted device permanently blocked this browser. Sign-in from this device is no longer allowed.” There is no “Start again” button in that state.
+1. Click "Request recovery from trusted device".
+2. On another trusted device with the vault open, confirm "Account recovery request". The window cannot be closed without a decision.
+3. The card shows the device name, client, OS, date, IP, and country. Confirm only a device you recognize.
+4. "Confirm" or "Reject". Extra actions include "Block device".
+5. After confirmation, set "New master password" and click "Restore access".
 
-If the local session is gone: “Missing local recovery session. Start the request again in this browser.”
+If the request was rejected or expired, start again. If the device was blocked, you can no longer sign in from that browser.
 
-**Trusted contacts** (“Ask your confirmed trusted contacts for help”):
+### Trusted contacts
 
-1. “Ask your trusted contacts to release their recovery shares, then set a new master password.”
-2. “Request help from trusted contacts”.
-3. “Contacts recovery”, “Waiting for enough contacts to release their shares…”, counter “Shares released: … / …”.
-4. The contact sees “Help a contact restore access”. The card shows the owner’s name and email, “Requested: …”, “Expires: …”. “Release share”. Toast: “Share released”. The contact’s vault must be open.
-5. When enough shares arrive, the same new-master-password fields and “Restore access”.
-6. The owner can “Revoke request”.
+Option "Ask your confirmed trusted contacts for help".
 
-Unlocking the vault revokes a contact request that is still open. After the master password changes, shares are prepared again the next time the vault is open.
+1. Click "Request help from trusted contacts".
+2. A contact with an open vault clicks "Release share" in "Help a contact restore access".
+3. When enough shares have arrived, set a new master password and click "Restore access".
+4. The request can be revoked with "Revoke request".
+
+If you open the vault while a contact request is still waiting, the request is cancelled. After the master password changes, shares are prepared again the next time the vault is opened.
 
 ## Next steps
 

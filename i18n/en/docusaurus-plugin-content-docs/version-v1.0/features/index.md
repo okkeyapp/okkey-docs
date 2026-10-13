@@ -6,14 +6,14 @@ plans: [free, enterprise]
 
 # Features
 
-The four properties below are not a slogan. They are fixed in the architecture and in the crypto code. They are why the server cannot read your items.
+The four properties below explain why the server cannot read your items.
 
-- [Q-Day ready](./qday) - post-quantum readiness of profile v2.
-- [Protection](./security) - split key, per-vault keys, client-side AEAD.
-- [Zero-knowledge](./zero-knowledge) - the server stores ciphertext and metadata, not open secrets.
-- [Open source, including encryption](./open-source) - the Rust engine and the clients live in `okkey`.
+- [Q-Day ready](./qday) - hybrid encryption of new items, with a post-quantum part.
+- [Protection](./security) - a key from three shares, and a separate key for each vault.
+- [Zero-knowledge](./zero-knowledge) - the server stores ciphertext, and open secrets stay with you.
+- [Open source, including encryption](./open-source) - the encryption is published with Okkey.
 
-Menu items that sit on top of this are “All items”, “Capsules”, “Monitoring”, “Tools”, and “Settings”.
+Menu items: "All items", "Capsules", "Monitoring", "Tools", "Settings".
 
 ## Next steps
 

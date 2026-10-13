@@ -6,13 +6,9 @@ plans: [free, enterprise]
 
 # Apps and extensions
 
-Core architecture lists web, a mobile app (React Native), a desktop app (Tauri), and a browser extension. The web app is installed with self-hosted Okkey. The other clients exist in the repository, but they do not have an end-user install yet.
+The web app is installed with Okkey. The mobile app and the desktop app are not published in app stores yet.
 
-:::note
-The `dev` tree has `apps/mobile` and `apps/desktop`. There is no end-user store install or packaged installer in the public READMEs. **TODO:** how an end user installs the mobile and desktop apps is not described in code.
-:::
-
-Only the [browser extension](./extension) is documented here.
+How to use the [browser extension](./extension) is described separately. It is not in the extension stores yet either.
 
 ## Next steps
 

@@ -6,54 +6,50 @@ plans: [free, enterprise]
 
 # Devices
 
-These are two different lists, and they are easy to mix up. “My devices” is the account’s trusted devices and is synced. “Device settings” is this browser only. The subtitle says: “These preferences apply only to the current browser on this device and are not carried over to other devices.”
-
-The legacy menu id `deviceSettings` opens “Personalization”.
+"My devices" is the list of trusted devices on the account. It is synced. "Device settings" apply only in this browser and are not carried to other devices.
 
 ## My devices
 
-Item “My devices”. Text: “Devices that can unlock your vault. They can also help restore access if the master password is lost.”
+These are the devices that can open the vault. You can also use them to restore access if the master password is forgotten. Recovery through another device is available on Enterprise. See [Recovery](./personal#recovery).
 
-An unconfirmed device is shown as “New device”. It must be approved before it is trusted. Per-device actions use “Device actions”, including “Rename device”.
-
-The new device itself waits on a separate page until approval arrives.
+A "New device" must be confirmed. Until it is confirmed, it does not open the vault. You can rename a device in the "Device actions" menu.
 
 :::note
-A new device cannot open the vault until you approve it on a device that is already trusted.
+A new device will not open the vault until you confirm it on a device you already trust.
 :::
 
 ## Personalization
 
-Item “Personalization” in the “Device settings” group. These settings stay on this browser.
+Theme and color for this browser.
 
 | Setting | Values |
 | --- | --- |
-| “Theme” | “Light”, “Dark”, “System”. |
-| “Accent color” | Accent palette. The button label includes the color id. |
-| “Accent tint” | “Tint neutral surfaces with the selected accent.” |
+| "Theme" | "Light", "Dark", "System". |
+| "Accent color" | Accent palette. |
+| "Accent tint" | "Tint neutral surfaces with the selected accent." |
 
-The workspace tile color is a different setting, under [workspace general](./workspace#general).
+The workspace tile color is set separately, in [workspace general](./workspace#general).
 
 ## Security
 
-Item “Security”. The same local prefs that the master-password strings also describe. They lock the vault when you step away.
+These settings lock the vault on this device.
 
-| Setting | Label | Values in code |
+| Setting | What it does | Values |
 | --- | --- | --- |
-| Idle | “Device idle timeout”. “After this time the vault locks automatically”. | 60, 300, 900, 1800, 3600, 14400 seconds. The UI renders seconds, minutes, or “N hour”. Until the user sets a value, `idleLockSeconds` may be absent. |
-| Sleep | “Lock vault when the device locks”. “The vault locks automatically if the device sleeps or becomes inactive”. | On by default (`lockOnDeviceSleep: true`). |
-| Clipboard | “Clear clipboard”. “After this time the clipboard is cleared of copied passwords”. | 0 (“Never”, the default), 10, 30, 60, 120, 300 seconds. Zero means the clipboard is not cleared automatically. |
+| "Device idle timeout" | After a pause the vault locks. | 60, 300, 900, 1800, 3600, or 14400 seconds. The interface shows seconds, minutes, or hours. |
+| "Lock vault when the device locks" | The vault locks when the device sleeps. | On by default. |
+| "Clear clipboard" | A copied password is cleared from the clipboard. | "Never" (the default), 10, 30, 60, 120, or 300 seconds. "Never" leaves the password in the clipboard. |
 
 ## Unlock
 
-Item “Unlock”. A PIN and biometrics do not replace the master password on other devices. They live only here.
+PIN and biometrics work only on this device. Other devices still need the master password.
 
-| Setting | Label | Behavior |
-| --- | --- | --- |
-| Biometrics | “Biometric unlock”. “Unlock the vault with your device biometrics instead of the master password”. | A switch, then setup / reconfigure. If the vault is locked, the text asks you to unlock it first. `biometricEnabled` is local to this device. If the platform cannot provide biometrics, the switch is disabled. |
-| PIN | “PIN code”. “Unlock the vault with a short PIN on this device”. | 6 digits (`PIN_LENGTH`). PIN material is not copied to other devices. |
+| Setting | What it does |
+| --- | --- |
+| "Biometric unlock" | Opens the vault with the device biometrics. If the system does not provide biometrics, the switch is unavailable. |
+| "PIN code" | 6 digits. The code is stored only on this device. |
 
-The “Confirm access” screen for locked zones tries biometrics, then PIN, then the master password, in that order, when they are enabled. Otherwise only the master password remains.
+The "Confirm access" screen tries biometrics, then PIN, then the master password, when they are enabled.
 
 ## Next steps
 

@@ -6,29 +6,21 @@ plans: [free, enterprise]
 
 # Folders
 
-Folders help you organize items without changing the items and without showing that organization to other people. Sidebar section "Folders". Empty: "No folders". Buttons: "Create folder" and "Folder settings".
+Folders group your items. The items stay in the vault. Only you see a folder, on Free and on Enterprise.
 
-The "Folders" window states the rule in full: "Folders help you organize items. Create as many folders as you need, reorder them, and nest them without limits. Changes to folder structure do not affect your items. Only you can see your folders."
-
-Folders exist on every plan. A folder is not a vault and not a shared workspace catalog.
+Sidebar section "Folders". If there are no folders, the section shows "No folders". Buttons: "Create folder" and "Folder settings".
 
 ## Create and edit
 
-In the window: "Add folder", "Edit folder", "Delete folder", "Save", "Cancel". Nesting is not limited by this copy. Deleting a folder does not delete items: they stay in the vault, just without that folder.
+In the "Folders" window: "Add folder", "Edit folder", "Delete folder", "Save", "Cancel". Nesting is unlimited. Deleting a folder leaves the items in the vault.
 
-Folder order is changed in the same window. In the extension, create-folder and folder-settings items are hidden in the menu: folders are visible, and you manage them in the web app.
-
-:::note
-Only you can see a folder. Even when an item lives in a shared vault, the folder does not become shared.
-:::
+Order is changed in the same window. In the extension, folders are visible, and you create and rearrange them in the web app.
 
 ## How a folder relates to items
 
-An item has one folder in the vault where it lives. The list filter "Folders" shows the tree and keeps items in the selected branch. A text search drops the folder and the vault and searches all items, see [Lists](./lists).
+An item has one folder in the vault where it lives. The "Folders" filter keeps items in the selected branch. A text search drops the folder and the vault. See [Lists](./lists).
 
-Import with "Import folders" creates a tree under the selected folder and places the items. Export with "Include folders" writes paths when the format supports them.
-
-The extension card can assign a folder, but the tree settings live in the web app.
+Import with "Import folders" creates the tree and places the items. Export with "Include folders" writes paths when the format supports them.
 
 ## Next steps
 

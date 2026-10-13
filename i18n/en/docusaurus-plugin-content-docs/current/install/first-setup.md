@@ -6,24 +6,24 @@ plans: [free, enterprise]
 
 # First-time setup
 
-The first account does not need an email. While the `users` table is empty, `POST /auth/email/start` returns `bootstrapRequired: true` and `authStateId`. The web UI skips the email code and opens registration. SMTP is not required for the first account.
+Until Okkey has users, the first account is created without an email. Mail is not required for this step.
 
-As soon as a user exists, the same address goes through the normal one-time code.
+Once an account exists, sign-in with the same address uses a one-time code.
 
 ## Screens
 
-1. “Welcome to Okkey”. Field “Email”, button “Sign in”. Under the button, agreement with the “Privacy policy”.
-2. If the database is no longer empty: “Confirmation code”, 6 digits, “Send again”, “Sign in with a different email”.
-3. “Sign up for Okkey”. Fields: “First name”, “Last name”, “Master password”, “Repeat master password”. The hint says this is the only password you need to remember and that you use it to unlock the vault. The checklist “Before signing up” requires every field, a password of at least 4 characters (`MIN_MASTER_PASSWORD_LENGTH`), and matching passwords. Button “Sign up”.
-4. “Save your recovery key”. You can “Copy” or “Download PDF”. The warning says that after “Next” the key is not shown again and the server cannot restore it. If saving the key fails, the UI says you can set it later: Settings → Recovery.
+1. "Welcome to Okkey". Field "Email", button "Sign in".
+2. If users already exist: "Confirmation code", 6 digits.
+3. "Sign up for Okkey". Fields: "First name", "Last name", "Master password", "Repeat master password". The password is at least 4 characters, and the two passwords must match. Button "Sign up".
+4. "Save your recovery key". You can "Copy" the key or "Download PDF".
 
 :::warning
-Save the recovery key before you press “Next”. The screen will not show it again, and the server cannot restore it.
+Save the recovery key before "Next". After that the screen will not show it again, and the server cannot restore the key.
 :::
 
-Registration creates a personal workspace named “Personal” (`auth.registration.personalWorkspaceName` is “Личный” in the Russian bundle) and a “Personal vault”. On self-hosted an owner has one workspace, and a second one cannot be created. The new workspace is Free when `ENTERPRISE_MODULES=false` or the variable is unset, and Enterprise when `ENTERPRISE_MODULES=true`.
+Registration creates a workspace named "Personal" and a "Personal vault". A second workspace cannot be created. This install's plan is Free. An Okkey employee sets up Enterprise. See [Plans](../plans).
 
-The vault opens next. A later sign-in on this device is the master-password unlock screen (“Master password”). Account menu items: “My settings”, “Device settings”, “Log out”, “Change server”, “Language: …”.
+The vault opens next. Signing in again on this device uses the "Master password" screen. The account menu has "My settings", "Device settings", "Log out", "Change server", and "Language: …".
 
 ## Next steps
 

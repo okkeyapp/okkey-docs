@@ -16,24 +16,24 @@ The "File" field and the "Secure files" category appear when "Allow files in ite
 
 ## Types you can add
 
-Groups in code: `general`, `secret`, `file`. Labels:
+Labels of types you can add:
 
-| Type | Label | Group |
-| --- | --- | --- |
-| `text` | "Text" | general |
-| `email` | "Email" | general |
-| `phone` | "Phone" | general |
-| `address` | "Address" | general |
-| `date` | "Date" | general |
-| `url` | "Website URL" | general |
-| `select` | "Select" | general |
-| `multiline-text` | "Multiline text" | general |
-| `secret` | "Secret" | secret |
-| `totp` | "TOTP" | secret |
-| `recovery-codes` | "Recovery codes" | secret |
-| `file` | "File" | file |
+| Type |
+| --- |
+| "Text" |
+| "Email" |
+| "Phone" |
+| "Address" |
+| "Date" |
+| "Website URL" |
+| "Select" |
+| "Multiline text" |
+| "Secret" |
+| "TOTP" |
+| "Recovery codes" |
+| "File" |
 
-"Password" and the CVC pin are preset kinds. They are not in this add list. A password in the generator and in a login is a separate secret kind.
+"Password" and CVC are already on the "Login / Password" and "Credit card" presets.
 
 An address splits into "Street", "House / building", "Apartment", "City/Town/Suburb", "State/Province", "ZIP/Postal code", "Country". Country search: "Search countries", empty - "No countries found".
 
@@ -49,7 +49,7 @@ A secret is hidden by default. "Show value" reveals it when the field has no men
 
 ## Field gear
 
-The settings button is labeled for accessibility as "\{fieldLabel\} settings". The menu depends on the type. These are the hidden field settings: they stay hidden until the gear is opened.
+The gear opens extra settings for the field. The menu depends on the type.
 
 | Field | Items |
 | --- | --- |

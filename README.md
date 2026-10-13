@@ -2,7 +2,7 @@
 
 Documentation for [Okkey](https://github.com/okkeyapp/okkey), a self-hosted password manager. The site is Docusaurus 3. The default locale is Russian. English is a full translation of the pages. The published docs line is `v1.0`, which tracks the current Okkey release [1.0.0-beta.1](https://github.com/okkeyapp/okkey/releases/tag/v1.0.0-beta.1).
 
-Pages are checked against the public `okkey` repository and against `okkey-enterprise` where that module exists. Only modules that exist in the tree are described. If a screen is missing, the page does not call the feature ready. Remaining gaps are marked **TODO**.
+The pages describe what a person sees when they install and use Okkey. There are two plans: Free and Enterprise. A person who installs Okkey gets Free. Enterprise is set up by an Okkey employee.
 
 Russian text lives in `docs/`, `versioned_docs/`, and `i18n/ru/`. Everything else in this repository is English.
 
@@ -65,7 +65,7 @@ An edit to the current minor line goes into both the working copy and `version-v
 
 ## Plan badge
 
-`src/theme/DocItem/Layout` is a theme swizzle. On every page it renders `PlanBadges` from frontmatter. These docs cover self-hosted only. There are two plans: `free` (`plan_tier` `FREE`, when `ENTERPRISE_MODULES=false` or the variable is unset) and `enterprise` (`plan_tier` `ENTERPRISE`, when `ENTERPRISE_MODULES=true`).
+`src/theme/DocItem/Layout` is a theme swizzle. On every page it renders `PlanBadges` from frontmatter. These docs cover self-hosted only. There are two plans: `free` and `enterprise`. A person who installs Okkey gets Free. Enterprise is set up by an Okkey employee.
 
 ```yaml
 plans: [free, enterprise]
@@ -81,4 +81,4 @@ Missing frontmatter, a non-array, or a value other than `free` / `enterprise` sh
 
 ## Where the facts come from
 
-Pages follow the public `okkey` repository: the matrix in `packages/types/src/plan-features.ts`, the locales in `packages/i18n/src/locales/web/{ru,en}.json`, the install in `deploy/docker`, and the crypto profile in `packages/crypto`. The site URL in the config is `https://okkey.app`. The sources do not name a separate docs host. **TODO:** if the docs move to another domain, change `url` in `docusaurus.config.ts`.
+Feature names follow the product UI in Russian and English. The site URL in the config is `https://okkey.app`. If the docs move to another domain, change `url` in `docusaurus.config.ts`.

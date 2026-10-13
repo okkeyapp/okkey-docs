@@ -14,11 +14,7 @@ The category decides which fields a new item starts with, so you do not assemble
 4. "Finance".
 5. "Personal data".
 
-"Secure files" show up when "Allow files in items" is on for the workspace. That setting is available on Free and on Enterprise.
-
-:::note
-The code has a category `ssh_key` and the string "SSH key", but it is commented out of `ITEM_CATEGORY_DEFINITIONS`. It is not in the picker. **TODO:** do not describe SSH as an available category until that line is enabled again.
-:::
+"Secure files" show up when "Allow files in items" is on for the workspace. That setting is available on Free and on Enterprise. How to turn it on is in [item settings](../settings/workspace#items).
 
 ## Favorites and order
 
@@ -32,7 +28,7 @@ Order inside the group is the order declared in the catalog.
 
 ### Login / Password
 
-Preset sections with no titles of their own in the section catalog (ids `credentials` and `websites`):
+Login and website fields:
 
 | Field | Type | Required | Can be deleted | Label can be changed |
 | --- | --- | --- | --- | --- |
@@ -43,8 +39,6 @@ Preset sections with no titles of their own in the section catalog (ids `credent
 A URL defaults to "Fill on entire site". More URLs are added with "Add URL". TOTP is not in the preset; it is added separately ("Add TOTP") when needed.
 
 ### API credentials
-
-Section `api-access`.
 
 | Field | Type | Required | Deletable |
 | --- | --- | --- | --- |
@@ -143,11 +137,9 @@ One field "note".
 
 A template keeps the category and the field set so the next item like it does not have to be built again.
 
-"Save as template". Field "Template name", placeholder "Enter template name". Checkbox "Add to favorites". Hint: "The new template will appear in the all categories list". Success: "Template saved". Error: "Could not save template".
+"Save as template" asks for a name and can add the template to favorites immediately. After saving, it appears in the "Templates" block.
 
-A template stores the category and the field set. In the picker it sits in the "Templates" block and can be added to favorites.
-
-Updating an already saved template is the "Update template" window. Text: "After saving, your template \"…\" will be updated". Success: "Template updated". Error: "Could not update template".
+An already saved template is updated in the "Update template" window. After saving, the category list has the new version of that template.
 
 ## Next steps
 

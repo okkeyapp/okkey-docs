@@ -6,21 +6,21 @@ plans: [free, enterprise]
 
 # Tools
 
-Sidebar item "Tools" is where you create a password or move items without leaving the vault. Inside there are three sections: "Generator", "Import", "Export". There are no other tools in the menu. The stub "This tool is coming soon." exists in the strings. **TODO:** which menu item it is bound to, apart from these three sections, is not visible - the tools sidebar only has these three.
+The sidebar item "Tools" creates a password or moves items without leaving the vault. The menu has three sections: "Generator", "Import", "Export".
 
 The generator, import, and export are available on Free. Files inside a ZIP are saved when "Allow files in items" is on. That setting is available on Free too. How to turn it on is in [item settings](./settings/workspace#items).
 
 ## Generator
 
-"A fast, convenient generator helps you create strong passwords to keep your information secure." Switch "Generator type": "Password", "Passphrase", "Username". Buttons "Regenerate" and "Copy generated value".
+Switch "Generator type": "Password", "Passphrase", "Username". Buttons "Regenerate" and "Copy generated value".
+
+The password is built by the browser. Generator settings are remembered in this browser and are not written into the vault.
 
 ### Password
 
-Length 4–128, default 16. Default sets: A-Z on, a-z on, 0-9 on, symbols `!@#$%^&*` off. The same labels appear on the item card: "A-Z", "a-z", "0-9", "!@#$%^&*", "Characters: N". Next to them "Strength:" and "Crack time:". Time is an entropy estimate. Scale labels: "Instantly", "Hours", "Days", "Months", "Years", "Decades", "Centuries", "Never". That is a scale caption, not a promise of real resistance.
+Length 4–128, default 16. Default sets: A-Z on, a-z on, 0-9 on, symbols `!@#$%^&*` off. The same labels appear on the item card: "A-Z", "a-z", "0-9", "!@#$%^&*", "Characters: N". Next to them "Strength:" and "Crack time:". Time is an entropy estimate. Scale labels: "Instantly", "Hours", "Days", "Months", "Years", "Decades", "Centuries", "Never". The scale shows an entropy estimate.
 
 The same generator opens from the gear on a password field in an item: "Generator", then "Insert" or "Cancel".
-
-Randomness is `crypto.getRandomValues`.
 
 ### Passphrase
 
@@ -30,30 +30,28 @@ Words come from the EFF large list. Default is 3 words, separator `-`, without c
 
 One word from the same list. "Capitalize". "Include number" appends 4 digits from 0000 to 9999. Both switches are off by default.
 
-Generator settings are stored in the browser `localStorage`, not in the vault.
-
 ## Import
 
-Import moves items from another manager into the vault you pick. "Move data from other services into Okkey in a few steps. Standard formats and popular password managers are supported."
+Import moves items from another manager into the vault you pick. Standard formats and files from popular password managers are supported.
 
 Fields:
 
-- "Select a vault to import records into" - the item goes into the selected vault. No write permission: "You cannot write to the selected vault".
-- "Format", search "Search format", empty: "No format found".
-- Input method: "File" or "Text". "Upload file", "Remove file", and for text "Paste export contents".
-- "Import folders". "All folders and subfolders from the export will be created under the selected folder above, and items will be placed into those folders." Folders are personal, see [Folders](./folders).
+- "Select a vault to import records into" - the item goes into the selected vault. Without write permission the vault cannot be used.
+- "Format", search "Search format", empty: "Format not found".
+- Input: "File" or "Text". "Upload file", "Remove file", and for text "Paste export contents".
+- "Import folders" creates the folder tree and places the items. Folders are personal, see [Folders](./folders).
 
-If the file is locked with an export password: window "Export password", "Unlock". Wrong password: "Invalid export password".
+If the file is locked with an export password: window "Export password", "Unlock". Wrong password: "Wrong export password".
 
-Progress: "Parsing file…", then "Importing N/M: title". Success: "Imported N records. Skipped: M." Some items may be left out: "Some records were not imported (N)." Empty parse: "No records found to import".
+Progress: "Parsing file…", then "Import N/M: title". Success: "Imported N records. Skipped: M." Some records may be left out: "Some records were not imported (N)." Empty parse: "No records found to import".
 
-ZIP attachments note: the archive can be large, each attachment is limited by the workspace setting in megabytes, and "Only file formats allowed in settings will be imported".
+For a ZIP with attachments: the archive can be large, each attachment is limited by the workspace size setting, and only formats allowed in settings are uploaded.
 
 :::note
-Files from a ZIP are saved into items only when "Allow files in items" is on. The setting is available on Free and on Enterprise.
+Files from a ZIP land in items only when "Allow files in items" is on. The setting exists on Free and on Enterprise.
 :::
 
-Import formats (`featured` marks the ones the code flags as featured):
+Import formats:
 
 | Format | File | Paste as text | Folders | Export password |
 | --- | --- | --- | --- | --- |
@@ -80,18 +78,18 @@ Import formats (`featured` marks the ones the code flags as featured):
 | Passwork (json) | json | yes | | |
 | Custom CSV | csv | yes | | |
 
-An unknown format id falls through to Custom CSV. Format names are hardcoded and are not translated: the Okkey and Bitwarden ZIP names include the Russian words "с файлами" in the English UI as well.
+An unknown format is treated as Custom CSV.
 
 ## Export
 
-Export builds the file in your browser, from the vault you already unlocked. "Export your data to a file for backup or transfer to another service."
+Export builds the file in your browser, from the vault you already opened. The file is for a backup or a transfer to another service.
 
-- "Select a vault to export records from". No permission: "You cannot export from the selected vault".
+- "Select a vault to export records from". Without export permission for that vault, the command is unavailable.
 - "Format".
-- "Include folders" - "Folder paths will be written into the export so they can be restored on import." Not every format supports folder paths (see the table).
-- "Protect with password" - "Encrypt the export file. You will need this password to import it later." Field "Export password". The flag exists only on formats with `supportsExportPassword`.
+- "Include folders" writes folder paths so import can restore them. Not every format supports folder paths (see the table).
+- "Protect with password" encrypts the file. Field "Export password". The password is available on formats where the table marks "Password" as yes.
 
-Before the button, the UI shows how many records will go into the file. Progress: "Preparing records…", "Building export file…". Success: "Exported N records to file". Error: "Export failed".
+Before the button, the page shows how many records will go into the file. Progress: "Preparing records…", "Building export file…". Success: "Exported N records to file". Error: "Export failed".
 
 | Format | Extension | Password | Folders | Attachments |
 | --- | --- | --- | --- | --- |
@@ -117,12 +115,12 @@ Before the button, the UI shows how many records will go into the file. Progress
 | Passwork (json) | json | no | yes | no |
 | Custom CSV | csv | no | yes | no |
 
-Yandex Browser (zip) is import-only. It is not in `exportFormatOptions`.
+Yandex Browser (zip) can only be imported. It is not in the export list. The Okkey and Bitwarden ZIP names in the interface include "с файлами" in English too.
 
-Export runs from the unlocked vault on the client: the file is built in the browser. The export password is a separate file password, not the master password.
+Export builds the file in the browser from the open vault. The export password is set separately and is required when that file is imported.
 
 :::warning
-The export password is not the master password. Without it, an encrypted import file will not open.
+Remember the export password separately from the master password. It opens the encrypted file on import.
 :::
 
 ## Next steps

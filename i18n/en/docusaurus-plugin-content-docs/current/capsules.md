@@ -6,25 +6,23 @@ plans: [free, enterprise]
 
 # Capsules
 
-A capsule shares text, a file, or an item by link. The contents are encrypted on the client, so the recipient sees only what you allowed.
+A capsule shares text, a file, or an item by link. The contents are encrypted on your device. The recipient sees only what the card allowed.
 
-Sidebar item "Capsules". List intro: "Capsules are encrypted records for secure sharing via email or chat."
+Sidebar item "Capsules". A capsule exists on Free and on Enterprise.
 
-A capsule exists on Free and on Enterprise. On Free it is a link without access settings: `capsuleAccessSettings` is off. On Enterprise the "Advanced settings" block is on. While the block is closed, the UI says: "Advanced settings are available on the Enterprise plan." Next to each disabled row: "Not available on your current plan".
+On Free it is a link without advanced access settings. On Enterprise the "Advanced settings" block is available: a view limit, an expiry, a recipient list, a password, and owner approval.
 
-Workspace policies can force some of these settings. They are set in [capsule settings](./settings/workspace#capsules). If a member is not allowed to create capsules, the item does not work for them.
+Workspace policies can make some of these settings required. They are set in [capsule settings](./settings/workspace#capsules). If a member is not allowed to create capsules, the item is closed for them.
 
 ## List
 
-Empty list: "No capsules yet". Button "Create capsule". Search: "Search by name…". If nothing matches: "No results found for \"…\"".
+Button "Create capsule". Search looks up the name.
 
-"Columns": "Name", "Type", "Created", "Updated", "Active", "Views", "Password protected".
+Columns: "Name", "Type", "Created", "Updated", "Active", "Views", "Password protected". Type: "Text", "File", "Item".
 
-Type: "Text", "File", "Item". Password column: "Yes" or "No". Dates relative to today: "Today", "Yesterday". Activity: "From …", "Until …".
+A row can be selected. Deactivate, activate, delete, and copy link are available.
 
-A row can be selected. The counter is the number of capsules. Bulk actions from toasts: deactivate ("Capsule deactivated"), activate, delete, copy link ("Link copied"). Creating and copying the link: "Capsule created, link copied".
-
-Deletion asks "Delete capsule?" or "Delete capsules?". Copy: the capsule is permanently deleted and the link stops working. This is not the item trash.
+Deletion is final: the capsule does not go to the item trash, and the link stops working.
 
 ## New capsule
 
@@ -32,21 +30,21 @@ Window "New capsule" or "Edit capsule". Field "Name".
 
 Contents:
 
-- text - "Enter the text you want to share";
-- file - "Upload file" / "Remove file", subject to the workspace file limits;
-- item - "Search items", "Enter text to search". Search looks at non-secret preset section fields, not at secrets. Empty: "No items found". Item field scope: "All", "All except", "Selected", label "Available fields:".
+- text;
+- a file, with the workspace file limits;
+- an item. Search looks at open fields, not at secrets. You can share all fields, all except the selected ones, or only the selected ones.
 
-The "Advanced settings" button shows how many blocks are on.
+"Advanced settings" shows how many blocks are on.
 
-| Block | Title | What it sets |
-| --- | --- | --- |
-| Views | "Views". "Limit views and choose what happens when the limit is reached". | "View limit:". "Then:" - "Deactivate" or "Delete capsule". |
-| Time | "Time". "Activate, deactivate, and delete the capsule on a schedule". | "Activate:", "Deactivate at:", "Delete at:". Presets: "Never", "Immediately", "In 15 minutes", "In 1 hour", "In 6 hours", "In 12 hours", "In 24 hours", "After activation", or a date and time ("Hr", "Min", "Today", "Done"). Deactivation before activation: "Deactivation time cannot be earlier than activation time". Deletion before activation is the same kind of error. |
-| Access | "Access". "Allow viewing only for specific users". | "Select users", search "First name, last name, or email…". A foreign email can be added ("Add …"). Invalid address: "Invalid email". |
-| Password | "Password". "Require a password to view". | "Set password:". While editing, an empty field is "Leave blank to keep unchanged". "Failed attempt limit:". |
-| Approval | "Approval". "Require owner approval before showing". | The owner sees "Approve capsule access". Text: "… wants to view capsule \"…\"." Request fields: "Device", "Platform", "Country", "City", "Time". Buttons: "Approve", "Deny access". "More deny actions" → "Add to blacklist" ("This email or IP will no longer be able to request access to this capsule"). A guest with no name is "Guest" or "Unknown user". |
+| Block | What it sets |
+| --- | --- |
+| "Views" | A view count and the action after the limit: "Deactivate" or "Delete capsule". |
+| "Time" | When to turn the capsule on, off, and delete it. You can pick a preset period or a date. Deactivation earlier than activation cannot be saved. |
+| "Access" | Who can open the link. A foreign email can be added. |
+| "Password" | A view password and the number of failed attempts. While editing, an empty field keeps the previous password. |
+| "Approval" | Showing waits for the owner's decision. The request shows the device, system, country, city, and time. Buttons: "Approve", "Deny access". An email or IP can be added to this capsule's blacklist. |
 
-"Use these settings as my default" remembers advanced settings for this user's next capsules.
+"Use these settings as my default" remembers the blocks for the next capsules.
 
 If a workspace policy already turned a block on, it cannot be turned off on the card.
 
@@ -56,9 +54,11 @@ On Free a capsule is created without "Advanced settings". Limits, a password, an
 
 ## Recipient link
 
-The public capsule page opens without signing in to the vault. The recipient sees only what the card allowed: a password, waiting for approval, a view limit, or an expiry. Request geolocation, when GeoIP is enabled on the server, is resolved locally from MMDB. Self-host compose leaves GeoIP off by default, so country and city can stay "Unknown".
+The capsule page opens without signing in to the vault. The recipient sees the password, the approval wait, the view limit, or the expiry - whichever the card turned on.
 
-Capsule contents are encrypted with client-side XChaCha20-Poly1305, the same as other core envelopes. The server stores ciphertext and access rules, not plaintext.
+Country and city of a request appear when location lookup is on on the server. On a normal install it is off, so country and city stay unknown.
+
+The server stores ciphertext and access rules.
 
 ## Next steps
 

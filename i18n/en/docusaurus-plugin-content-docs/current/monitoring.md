@@ -6,23 +6,21 @@ plans: [free, enterprise]
 
 # Monitoring
 
-"Monitoring" is in the sidebar on both Free and Enterprise. Use it to see weak and reused passwords without sending the passwords themselves to the server. Analysis runs on your device. The card badge is "Beta".
+"Monitoring" is in the sidebar on Free and on Enterprise. It shows weak and reused passwords. The count runs on your device, and the passwords themselves are not sent to the server. The card badge is "Beta".
 
-Page text: "The security score is calculated from records you can access in the current workspace. Analysis runs locally and does not collect or send statistics about your data."
+The score is built from items you can access in the current workspace.
 
-Empty: "Nothing to analyze yet". "Add records with passwords to vaults you can access - monitoring will calculate metrics locally on your device." Button "Go to items". If no issues are found: "Everything looks good" and "No security issues detected for passwords you can access in this workspace."
+If there are no passwords, the page offers to go to items. If no issues are found, it shows "Everything looks good".
 
-"Show" opens the item list with a filter already selected. "Back to items" returns to the list. Vault scope on the page: "All vaults", "Personal", "Shared".
+"Show" opens the item list with a filter already selected. Vault scope: "All vaults", "Personal", "Shared".
 
-Which cards are visible is set by the workspace (`monitoring_card_settings`). All of them are on by default: overall score, strength, reused, weak, compromised, outdated, passkeys, 2FA. A disabled card does not penalize the score and does not return a list. The open locale strings do not name a separate screen that toggles the cards. **TODO:** find the "Configure" screen (`web.monitoring.configure`) and describe it if it is wired to these flags.
+By default every card is visible: overall score, strength, reused, weak, compromised, outdated, passkeys, and 2FA. A turned-off card does not lower the score and does not open a list.
 
 ## Overall score
 
-"Overall score". "This indicator reflects the overall security level across all records available to you in the workspace".
+Score from 0 to 100. Labels: from 90 "Excellent", from 70 "Good", from 45 "Fair", below that "Poor".
 
-Score 0–100. Labels: from 90 "Excellent", from 70 "Good", from 45 "Fair", below that "Poor". If there are no passwords, the score function returns 100, but the empty screen shows "Nothing to analyze yet", not that hundred.
-
-Penalties are a share of problematic passwords (a disabled card type is left out of the penalty):
+The penalty is taken from the share of problematic passwords. A turned-off card type is left out of the penalty.
 
 | Issue | Up to |
 | --- | --- |
@@ -32,27 +30,27 @@ Penalties are a share of problematic passwords (a disabled card type is left out
 | Outdated | 15 |
 | Compromised | 35 |
 
-2FA and passkey gaps are not part of the score.
+2FA and passkey gaps are not part of this score.
 
 ## Cards
 
 The count is passwords from items that are not archived and not deleted, in the selected vaults.
 
-| Card | How an item gets in |
+| Card | When an item is listed |
 | --- | --- |
-| "Password strength" | Shares of "strong", "medium", "weak". Entropy in `getPasswordEntropyBits`: length and character set, a bonus for passphrase shape, penalties for repeats, patterns `1234` / `abcd` / `qwerty` / `password` / `admin` / `letmein`, keyboard runs, and nearly a single character. Weak is under 36 bits, medium in monitoring is the fair and good labels (36–64 bits), strong is strong and excellent (from 64). |
-| "Reused passwords" | The same password in two or more items. "The same password may be used across multiple accounts." |
-| "Weak passwords" | The weak bucket. "Weak passwords may be easier to guess." |
-| "Compromised passwords" | Have I Been Pwned: only a SHA-1 prefix is sent to the server, the device does not send the full password. "Passwords found in known data breaches." |
-| "Outdated passwords" | The password has not changed for longer than `STALE_PASSWORD_AGE_MS` - 365 days. "Passwords that have not been changed for more than a year." |
-| "2FA available but not set up" | The item has a password, no configured TOTP, and a domain from a URL is in the catalog with `supports2FA`. The catalog is downloaded from the public Okkey domain-capabilities list. Attribution: "Upstream: Data sourced from 2FA Directory by 2factorauth." If the catalog is empty, the list is empty. |
-| "Passkeys available but not set up" | The card exists, and the text promises services with passkeys. The list in code is always empty until an item has a passkey field and a catalog check. **TODO:** do not describe this card as a working report. |
+| "Password strength" | Shares of strong, medium, and weak passwords. A weak password is short or built from simple patterns. |
+| "Reused passwords" | The same password in two or more items. |
+| "Weak passwords" | Passwords that are easier to guess. |
+| "Compromised passwords" | The password was found in known breaches. Only the start of a hash is sent. The device does not send the password itself. |
+| "Outdated passwords" | The password has not changed for more than a year. |
+| "2FA available but not set up" | The item has a password, no one-time code, and the site from the URL supports a second factor. If the site catalog is empty, the list is empty too. |
+| "Passkeys available but not set up" | The card is in the list. It has no items right now. |
 
 :::warning
-The passkeys card is not a report yet. "Show" on it opens an empty list.
+The passkeys list is empty. "Show" on this card opens an empty item list.
 :::
 
-"Show" sets the list filter. The list filter dropdown itself does not contain these items: they come from the monitoring page. See [Item lists](./lists).
+"Show" sets the list filter. These items are not in the ordinary filter menu: they come from the monitoring page. See [Item lists](./lists).
 
 ## Next steps
 

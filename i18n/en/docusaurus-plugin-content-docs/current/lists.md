@@ -14,20 +14,18 @@ Search, filter, and sort are three different mechanisms. The filter does not rep
 
 Field "Search…", clear control "Clear search".
 
-While the field has text, vault, vault view, folder, and category are not part of the sample: every loaded item is searched, then the filter (favorites, archive, and so on) is applied on top. Sort during search is match weight first, then the selected sort.
+While the field has text, vault, vault view, folder, and category stay out of the sample: every loaded item is searched, then the filter (favorites, archive, and so on) is applied on top. Sort during search is match strength first, then the selected sort.
 
-Weight (`scoreItemsListRecordSearch`):
+A match in the title counts more than a match in an address. The first address counts more than the next one.
 
-- a substring match in the title - 10;
-- a substring match in a field of type URL - `10 / (URL number starting at 1)`;
-- a query that starts with `#` and has text after the hash looks up the whole tag, case-insensitive, and nothing else. A different tag scores 0 and the item is hidden.
+A query that starts with `#` and has text after the hash looks up the whole tag, ignoring letter case. Other fields are left out of that query. A different tag hides the item.
 
-Secrets, passwords, and notes are not part of this weight. The row description is on screen, but it is not searched. Search inside the capsule window is different: it looks at non-secret preset section fields.
+Secrets, passwords, and notes stay out of this match. The row description is on screen, and search does not use it. Search inside the capsule window is separate: it looks at open preset-section fields.
 
 A tag can also be chosen from the filter, item "Tags": search "Search tags", empty - "No tags found". The choice puts `#tag` into the search field.
 
 :::tip
-A text search drops the vault and the folder. Stay inside a vault with the filter, not with the search box.
+A text search drops the vault and the folder. To stay inside a vault, use the filter.
 :::
 
 ## Filters
@@ -52,7 +50,7 @@ Scopes in the same menu:
 | "Categories" | Only items of that category. Empty: "No categories with items". A category is not combined with a search you already typed: search wins. |
 | "Tags" | Turns the choice into a `#tag` search. |
 
-The monitoring page also has "Personal" and "Shared" - that is a vault view, not a filter-menu item. In the list they show up as a chip.
+"Personal" and "Shared" on the monitoring page choose a set of vaults. In the list they show up as a chip.
 
 Monitoring filters are not listed in the filter menu. "Show" on [monitoring](./monitoring) sets them. "Monitoring" is available on Free and on Enterprise. If the parameter is still in the address, the list keeps non-archived, non-deleted items from the report:
 
@@ -67,29 +65,29 @@ Monitoring filters are not listed in the filter menu. "Show" on [monitoring](./m
 | 2fa-gap | "2FA available but not set up" |
 | passkey-gap | "Passkeys available but not set up" |
 
-The strings "2FA not set up" and "Passkeys not set up" exist in the filter dictionary, but the monitoring trigger uses the card titles, not those short strings.
+"Show" labels the filter with the monitoring card title.
 
 While a monitoring report is loading, the list waits for it if such a filter is active. The passkey card is always empty right now, so "Show" on it returns an empty list.
 
 ## Sort
 
-Button "Sort item list". The default is "Newest first": an empty sort parameter means `date_desc`.
+Button "Sort item list". The default is "Newest first".
 
 Group "By date:":
 
 | Item | Order |
 | --- | --- |
-| "Newest first" | Descending `updatedAtMs`, that is the item update time, not the creation time. List sections are month and year. |
-| "Oldest first" | Ascending on the same field. |
+| "Newest first" | By the item's update time. List sections are month and year. |
+| "Oldest first" | The same field, oldest first. |
 
 Group "By alphabet:":
 
 | Item | Order |
 | --- | --- |
-| "Alphabet" | Title, `localeCompare` with locale `ru` even in the English UI. |
+| "Alphabet" | By title. Letter order follows the Russian alphabet in the English interface too. |
 | "Reverse alphabet" | The reverse order. |
 
-Alphabet sections are the first letter of the title in the UI locale (`ru` or `en`). If the first character is not a letter, the section is `#`. `#` always comes before letters in section order. Inside a section, row order is the selected sort.
+Alphabet sections are the first letter of the title in the uppercase of the interface language. If the first character is not a letter, the section is `#`. `#` always comes before letters in section order. Inside a section, row order is the selected sort.
 
 ## Next steps
 

@@ -17,8 +17,8 @@ const COPY = {
       enterprise: 'Предприятие',
     },
     hints: {
-      free: 'plan_tier FREE. ENTERPRISE_MODULES=false или переменная не задана.',
-      enterprise: 'plan_tier ENTERPRISE. ENTERPRISE_MODULES=true.',
+      free: 'Тариф Free. Его получает установка, которую вы делаете сами.',
+      enterprise: 'Тариф Enterprise. Его настраивает сотрудник Okkey.',
     },
   },
   en: {
@@ -31,8 +31,8 @@ const COPY = {
       enterprise: 'Enterprise',
     },
     hints: {
-      free: 'plan_tier FREE. ENTERPRISE_MODULES=false, or the variable is unset.',
-      enterprise: 'plan_tier ENTERPRISE. ENTERPRISE_MODULES=true.',
+      free: 'Free. You get this plan when you install Okkey yourself.',
+      enterprise: 'Enterprise. An Okkey employee sets this plan up.',
     },
   },
 } as const;

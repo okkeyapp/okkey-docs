@@ -8,8 +8,18 @@ plans: [free, enterprise]
 
 Поставьте Okkey одной командой. Репозиторий клонировать не нужно.
 
+Рабочая установка берёт файлы из ветки `main`. Установка для разработки берёт файлы из ветки `dev`.
+
+## Рабочая установка
+
 ```bash
-curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/dev/deploy/docker/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/main/deploy/docker/install.sh | OKKEY_REF=main bash
+```
+
+## Установка для разработки
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/dev/deploy/docker/install.sh | OKKEY_REF=dev bash
 ```
 
 Каталог установки - `~/okkey`.
@@ -33,6 +43,7 @@ curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/dev/deploy/docker/in
 
 | Переменная | Смысл |
 | --- | --- |
+| `OKKEY_REF` | Ветка файлов установки: `main` для рабочей установки, `dev` для разработки. |
 | `OKKEY_INSTALL_DIR` | Каталог. По умолчанию `~/okkey`. |
 | `OKKEY_RESET_VOLUMES=1` | Удалить данные базы, сессий и файлов перед стартом. |
 
@@ -40,10 +51,12 @@ curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/dev/deploy/docker/in
 
 1. Скачайте файлы установки.
 
+Для рабочей установки в адресе стоит `main`. Для разработки замените `main` на `dev`.
+
 ```bash
 mkdir -p ~/okkey && cd ~/okkey
-curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/dev/deploy/docker/docker-compose.prod.yml"
-curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/dev/deploy/docker/.env.example"
+curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/main/deploy/docker/docker-compose.prod.yml"
+curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/main/deploy/docker/.env.example"
 cp .env.example .env
 ```
 

@@ -8,8 +8,18 @@ plans: [free, enterprise]
 
 Install Okkey with one command. You do not need to clone the repository.
 
+A production install takes files from the `main` branch. A development install takes files from the `dev` branch.
+
+## Production install
+
 ```bash
-curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/dev/deploy/docker/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/main/deploy/docker/install.sh | OKKEY_REF=main bash
+```
+
+## Development install
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/dev/deploy/docker/install.sh | OKKEY_REF=dev bash
 ```
 
 The install directory is `~/okkey`.
@@ -33,6 +43,7 @@ Useful installer variables:
 
 | Variable | Meaning |
 | --- | --- |
+| `OKKEY_REF` | Branch of the install files: `main` for production, `dev` for development. |
 | `OKKEY_INSTALL_DIR` | Directory. Default `~/okkey`. |
 | `OKKEY_RESET_VOLUMES=1` | Delete database, session, and file data before start. |
 
@@ -40,10 +51,12 @@ Useful installer variables:
 
 1. Download the install files.
 
+A production install uses `main` in the address. For development, replace `main` with `dev`.
+
 ```bash
 mkdir -p ~/okkey && cd ~/okkey
-curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/dev/deploy/docker/docker-compose.prod.yml"
-curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/dev/deploy/docker/.env.example"
+curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/main/deploy/docker/docker-compose.prod.yml"
+curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/main/deploy/docker/.env.example"
 cp .env.example .env
 ```
 

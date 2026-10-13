@@ -6,7 +6,7 @@ plans: [free, enterprise]
 
 # Personal settings
 
-"My settings" in the account menu. This is the profile, the master password, and ways to get access back.
+"My settings" in the account menu. The window opens at its own address, `?popup=settings`. This is the profile, the master password, and ways to get access back.
 
 The "General" page shows the "Account security" block at the top.
 
@@ -18,14 +18,14 @@ Name, email, language, and region of the profile.
 | --- | --- |
 | "First name", "Last name" | Profile fields. |
 | "Change email" | Opens "Change email". |
-| "Language" | Russian and English are available in the interface. |
+| "Language" | Russian and English. The same "Language" switch is in the web header and in the extension. |
 | "Region of residence" | A list with search "Search region...". |
 
 Theme and browser color are set in [device personalization](./devices#personalization).
 
 ## Master password
 
-The master password opens the vault. The server does not store it.
+The master password opens the vault. The server does not store it. Re-confirmation zones are set in this window. The item address is `?popup=settings|vault`.
 
 The page shows when the password was set. "Change" opens "Change master password": the current password and the new password twice.
 

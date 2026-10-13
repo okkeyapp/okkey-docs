@@ -16,7 +16,7 @@ Each workspace has one personal vault. It is created with the workspace and name
 
 Folders inside a vault stay personal: only the folder owner sees the folder. See [Folders](./folders).
 
-You can change the name, icon, and description of the personal vault. A second personal vault cannot be created, and access cannot be granted to other members. The window fields are in [vault settings](./settings/workspace#vaults).
+On Free you change the name, icon, and description of the personal vault. A second personal vault cannot be created, and access cannot be granted to other members. The window fields are in [vault settings](./settings/workspace#vaults). Enterprise is required for shared vaults.
 
 ## Shared vaults
 

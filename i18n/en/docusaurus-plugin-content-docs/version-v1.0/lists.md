@@ -46,7 +46,7 @@ Scopes in the same menu:
 | Scope | Why |
 | --- | --- |
 | "Vaults" | One vault. The list narrows to its items when there is no text search. |
-| "Folders" | A branch of your personal folders. |
+| "Folders" | The selected folder and nested folders. The extension filter works the same way. |
 | "Categories" | Only items of that category. Empty: "No categories with items". A category is not combined with a search you already typed: search wins. |
 | "Tags" | Turns the choice into a `#tag` search. |
 

@@ -33,7 +33,7 @@ Archiving clears the favorite. Deleting clears the favorite and the archive flag
 
 The "Deletion" zone can ask for the master password, PIN, or biometrics again if you turned that on in [master password](../settings/personal#master-password).
 
-In the extension the same commands exist, except local editing: edit, capsule, favorite, and archive open the web app.
+In the extension, "Archive" and "Delete" run inside the extension. Editing an item opens the web app.
 
 :::note
 Delete moves the item to "Recently deleted". How long it stays there is set in workspace settings.

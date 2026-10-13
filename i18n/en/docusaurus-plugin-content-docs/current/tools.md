@@ -12,7 +12,7 @@ The generator, import, and export are available on Free. Files inside a ZIP are 
 
 ## Generator
 
-Switch "Generator type": "Password", "Passphrase", "Username". Buttons "Regenerate" and "Copy generated value".
+Three generators: "Password", "Passphrase", "Username". They work the same way in the web app, in the extension, and on a website page. Buttons "Regenerate" and "Copy generated value". The extension window is described in the [browser extension](./apps/extension).
 
 The password is built by the browser. Generator settings are remembered in this browser and are not written into the vault.
 

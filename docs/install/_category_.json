@@ -1,0 +1,8 @@
+{
+  "label": "Установка self-hosted",
+  "position": 4,
+  "link": {
+    "type": "doc",
+    "id": "install/index"
+  }
+}

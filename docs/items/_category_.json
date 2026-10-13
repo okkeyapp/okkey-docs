@@ -1,0 +1,8 @@
+{
+  "label": "Записи",
+  "position": 12,
+  "link": {
+    "type": "doc",
+    "id": "items/index"
+  }
+}

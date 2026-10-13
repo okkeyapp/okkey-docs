@@ -1,0 +1,10 @@
+{
+  "title": {
+    "message": "Okkey",
+    "description": "The title in the navbar"
+  },
+  "item.label.Документация": {
+    "message": "Documentation",
+    "description": "Navbar item with label Документация"
+  }
+}

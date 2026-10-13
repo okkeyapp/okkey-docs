@@ -35,7 +35,7 @@ When access changes, the vault key is rotated.
 - For some zones you can ask for confirmation again: "Items", "Capsules", "Monitoring", "Tools", "Vault settings", "My settings", the item, capsule, vault, and folder windows, and the "Deletion" action.
 - A profile decides which items a member sees. A role decides which workspace settings they can open.
 
-On Enterprise, password checks in monitoring run on the device. Only the start of a hash is sent to the breach service. The device does not send the password itself. See [Monitoring](../monitoring).
+Password checks in monitoring run on the device. Only the start of a hash is sent to the breach service. The device does not send the password itself. See [Monitoring](../monitoring).
 
 ## Next steps
 

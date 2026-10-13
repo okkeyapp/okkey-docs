@@ -12,7 +12,7 @@ On the card: "Item name" (placeholder "Name"), "Tags", "Upload icon" (JPG or PNG
 
 Preset sections come first. Custom sections can be reordered together with their fields. A custom section title uses the placeholder "Add title". Deleting a section is "Delete section", when the section allows it. Deleting a field is "Delete field". Required preset fields (login, password, the first URL, API name, API secrets, card number, expiry, CVC, personal first and last name) are not deleted that way.
 
-The "File" field and the "Secure files" category appear when "Allow files in items" is on. That setting is on Enterprise.
+The "File" field and the "Secure files" category appear when "Allow files in items" is on. That setting is available on Free and on Enterprise.
 
 ## Types you can add
 

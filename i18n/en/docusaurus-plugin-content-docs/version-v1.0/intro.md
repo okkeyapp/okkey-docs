@@ -27,7 +27,7 @@ Clients: web, mobile app, desktop, and a browser extension. The open source is i
 - **Folder** - your own grouping of items. Only the folder owner sees it.
 - **Capsule** - an encrypted share of text, a file, or an item by link.
 
-The sidebar has "All items", "Capsules", "Tools", "Settings", and the "Vaults" and "Folders" sections. "Monitoring" is on Enterprise.
+The sidebar has "All items", "Capsules", "Monitoring", "Tools", "Settings", and the "Vaults" and "Folders" sections.
 
 ## Main properties
 

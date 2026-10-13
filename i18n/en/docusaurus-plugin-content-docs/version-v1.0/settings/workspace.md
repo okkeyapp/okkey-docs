@@ -33,7 +33,7 @@ Trash retention and the rules for files in items. Learn more in [Items](../items
 | Setting | What it does | How to set it |
 | --- | --- | --- |
 | "Deleted items retention" | After this period, deleted items are removed from the server. | 1, 3, 7, 14, or 30 days. |
-| "Allow files in items" | Allows the "File" field and the "Secure files" category. | A switch. The setting is on Enterprise. |
+| "Allow files in items" | Allows the "File" field and the "Secure files" category. | A switch. The setting is on Free and on Enterprise. |
 | "Allowed upload file formats" | A list of extensions, for example `jpg, png, pdf`. | An empty field does not limit formats in the interface. |
 | "Maximum file size" | The size limit of one file in an item. | A number from 1 to 1024 MB. |
 

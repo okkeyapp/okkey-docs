@@ -8,7 +8,7 @@ plans: [free, enterprise]
 
 The sidebar item "Tools" creates a password or moves items without leaving the vault. The menu has three sections: "Generator", "Import", "Export".
 
-The generator, import, and export are available on Free. Files inside a ZIP are saved when "Allow files in items" is on. That setting is on Enterprise. How to turn it on is in [item settings](./settings/workspace#items).
+The generator, import, and export are available on Free. Files inside a ZIP are saved when "Allow files in items" is on. That setting is available on Free too. How to turn it on is in [item settings](./settings/workspace#items).
 
 ## Generator
 
@@ -48,7 +48,7 @@ Progress: "Parsing file…", then "Import N/M: title". Success: "Imported N reco
 For a ZIP with attachments: the archive can be large, each attachment is limited by the workspace size setting, and only formats allowed in settings are uploaded.
 
 :::note
-Files from a ZIP land in items when "Allow files in items" is on. The setting is on Enterprise.
+Files from a ZIP land in items only when "Allow files in items" is on. The setting exists on Free and on Enterprise.
 :::
 
 Import formats:

@@ -6,7 +6,7 @@ plans: [free, enterprise]
 
 # Plans
 
-Self-hosted Okkey has two plans: Free and Enterprise. The plan decides whether you can store files in items, open Monitoring, invite people, share vaults, and turn on advanced recovery.
+Self-hosted Okkey has two plans: Free and Enterprise. The plan decides whether you can invite people, share vaults, and turn on advanced recovery.
 
 You install Okkey yourself. That install runs on Free.
 
@@ -20,8 +20,8 @@ On self-hosted, an owner has one workspace.
 | --- | --- | --- |
 | Capsules | yes | yes |
 | Advanced settings | no | yes |
-| Allow files in items | no | yes |
-| Monitoring | no | yes |
+| Allow files in items | yes | yes |
+| Monitoring | yes | yes |
 | Recovery key | yes | yes |
 | Trusted devices | no | yes |
 | Trusted contacts | no | yes |

@@ -18,7 +18,7 @@ Each workspace has one personal vault. It is created together with the workspace
 
 Items, folders, and favorites inside the personal vault belong to you. Folders stay personal even when an item lives in a shared vault: only the folder owner sees the folder. See [Folders](./folders).
 
-The personal vault name is set when it is created. The metadata popup is not wired in the open build. **TODO:** personal vault popup fields (icon, name) are described only as the `workspace-shared-vaults` plugin.
+The personal vault name is set when it is created. The “Edit vault” popup is `workspace-shared-vaults`: “Icon”, “Name”, “Description”, and a note that only the owner can see the vault. This popup does not create a second personal vault. The fields and the ban on granting access are in [vault settings](./settings/workspace#vaults).
 
 ## Shared vaults
 
@@ -26,7 +26,7 @@ From Family (and on self-hosted enterprise, when the license includes shared vau
 
 Catalog limits: Family — 5, Team — 50, Enterprise — no limit.
 
-Creating, deleting, and granting access are a plugin. The core stores the list, reads it, and serves `GET …/key`. Wrap and rotate are done by `VaultSharingService`. A recipient cannot open the vault until its key is wrapped to their public key (hybrid v2 envelope).
+Creating, deleting, and granting access are the `workspace-shared-vaults` plugin. The core stores the list, reads it, and serves `GET …/key`. Wrap and rotate are done by `VaultSharingService`. A recipient cannot open the vault until its key is wrapped to their public key (hybrid v2 envelope). The popup has an icon, a name, a description, and a profile select for each member. On create, the owner, admin, and creator get “Extended”. Everyone else gets “No access”. Popup details are in [vault settings](./settings/workspace#vaults).
 
 What a member sees inside a shared vault is decided by the profile: categories, fields, and the functions "Move to archive", "Add to favorites", "Create capsules", "Copy record". The role does not affect that.
 

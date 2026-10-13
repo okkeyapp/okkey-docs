@@ -24,13 +24,17 @@ Encryption is not hidden in a closed module. Profiles v1/v2, the hybrid envelope
 
 `okkey-enterprise` is separate plugins. Core must boot with `ENTERPRISE_MODULES=false`. A plugin does not alter core tables (it only adds its own), does not bypass authentication, and does not downgrade the crypto profile.
 
-Open core lists these extensions. Their sources were not reviewed here (**TODO**, the repository was unavailable):
+`okkey-enterprise` registers these plugins (`backend/api-plugin/index.ts`):
 
-- SSO / SAML / OIDC;
-- SCIM and directory sync;
-- audit;
-- organization policies and admin reports;
-- workspace create in `saas` mode (`workspace-tenancy`);
-- custom roles and profiles, additional members, shared vaults (plugin UI and routes; vault key wrap/rotate stays in core).
+- `workspace-roles` — custom roles;
+- `workspace-profiles` — custom profiles;
+- `workspace-tenancy` — SaaS only: creating workspaces and deleting a workspace;
+- `workspace-members` — invitations;
+- `workspace-shared-vaults` — personal and shared vault popups;
+- `account-recovery-advanced` — recovery through devices and trusted contacts.
+
+Plan cards in the web app are drawn by `@okkey-enterprise/workspace-plan`. Vault key wrap/rotate stays in core.
+
+SSO, SAML, OIDC, SCIM, an organization audit log, and organization policies are not implemented in this tree: there are no screens, routes, or plan flags. Architecture overviews name them as future domains.
 
 Without the plugins the web uses stubs: no second workspace, no custom role or profile CRUD, no member invites, no shared-vault UI, no SaaS plan cards. Core still shows built-in roles and built-in profiles itself.

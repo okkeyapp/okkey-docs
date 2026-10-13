@@ -2,7 +2,7 @@
 
 Документация [Okkey](https://github.com/okkeyapp/okkey): self-hosted менеджер паролей. Сайт на Docusaurus 3. Язык по умолчанию — русский, английский — полный перевод страниц. Опубликована версия `dev`: снимок ветки `dev` открытого репозитория `okkey`.
 
-Приватный репозиторий `okkey-enterprise` при подготовке этих страниц был недоступен. Всё ниже сверено с открытым кодом. Где поведения enterprise-сборки в открытом коде нет, на странице стоит **TODO**.
+Страницы сверены с `okkey` и с `okkey-enterprise`, ветка `dev`. Описаны только модули, которые есть в дереве. Если экрана нет, страница не называет функцию готовой. Оставшиеся пробелы помечены **TODO**.
 
 ## Локально
 
@@ -78,4 +78,4 @@ Russian is the default locale. English pages live under `i18n/en`. `npm run buil
 
 Published docs are the `dev` snapshot only. `docs/` is the working copy for the next cut and is not served. To cut a version, update `docs/` and `i18n/en/docusaurus-plugin-content-docs/current/`, temporarily set `includeCurrentVersion: true`, run `npm run docusaurus docs:version <name>`, then set `includeCurrentVersion: false` and `lastVersion` if the new version should be the default. Translate the new sidebar strings in `i18n/en/docusaurus-plugin-content-docs/version-<name>.json`.
 
-`okkey-enterprise` was not available when these pages were written. Claims are checked against the public `okkey` `dev` branch. Missing enterprise behavior is marked **TODO** on the page.
+Pages are checked against `okkey` and `okkey-enterprise`, branch `dev`. Only modules that exist in the tree are described. Remaining gaps are marked **TODO**.

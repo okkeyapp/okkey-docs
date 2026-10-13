@@ -10,7 +10,7 @@ plans:
 
 Self-hosting runs Okkey core on your machine. Encryption stays on the client: the server administrator cannot read vaults.
 
-Cloud plans do not use this install. SaaS is built from Enterprise images, and that repository was unavailable. **TODO:** a cloud install procedure is not described in open core.
+Cloud plans do not use this install. `deploy/docker` has no step-by-step SaaS install. **TODO:** how an end user brings up a cloud instance is not described in the public install docs.
 
 Next:
 

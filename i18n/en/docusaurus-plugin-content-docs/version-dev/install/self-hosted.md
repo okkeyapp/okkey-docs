@@ -69,6 +69,23 @@ Put your own reverse proxy in front of `web` and `api` (core docs name Caddy, Tr
 
 The default is `EMAIL_PROVIDER=logger` and `EMAIL_DELIVERY_MODE=queue`. Confirmation codes show up in **worker** logs, not API logs: the API only enqueues mail in Redis (`okkey:email:queue`, `okkey:email:delayed`, `okkey:email:dead`). For real mail set SMTP in `.env` (`EMAIL_SMTP_HOST`, `EMAIL_SMTP_PORT`, `EMAIL_SMTP_SECURE`, `EMAIL_SMTP_USER`, `EMAIL_SMTP_PASSWORD`, `EMAIL_FROM`).
 
+## Enterprise modules
+
+Paid self-hosted screens (custom roles, invitations, shared vaults, advanced recovery) turn on with two flags, and both are required.
+
+- API: `ENTERPRISE_MODULES=true`. Optional `ENTERPRISE_MODULES_PATH` is the path to the `okkey-enterprise` directory.
+- Web: `VITE_ENTERPRISE_MODULES=true`.
+
+While the flag is off, the API serves only built-in roles and profiles. There are no custom roles, invitations, shared-vault creation, or `POST /workspaces`.
+
+Deployment mode is read from the enterprise env once the modules are on. Those files are not in the public core `.env` examples.
+
+- API, `okkey-enterprise/backend/.env`: `OKKEY_DEPLOYMENT_MODE=self_hosted` or `saas`. The value in that file overrides the same name in the process. `saas` registers `POST /workspaces`. On `self_hosted` an owner still has at most one workspace.
+- Web, `okkey-enterprise/web/.env`: `VITE_DEPLOYMENT_MODE=self_hosted` or `saas`. `saas` turns on the plan catalog, creating more than one workspace, the delete danger zone, and the full SaaS policy text.
+- Optional: `VITE_OKKEY_LICENSE_EXPIRES_AT`, an ISO-8601 date. It is shown on self-hosted when the plan is not `FREE`.
+
+With `ENTERPRISE_MODULES=true`, registering a new workspace sets `plan_tier` to `ENTERPRISE`. An additional SaaS workspace is created as `FREE`. Self-hosted has no self-serve checkout: Free shows “License request”, any other tier shows “Лицензия активна”. A license validator is not implemented in the repository; the architecture note marks it as future work.
+
 ## Crypto policy for this install
 
 Keep this for the current web client:

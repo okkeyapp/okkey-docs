@@ -11,7 +11,7 @@ plans:
 
 Okkey is a password manager that encrypts on the client. The public `okkey` repository is the core and must run without Enterprise code. Core clients are the web app, the mobile app, the desktop app, and the browser extension. Deployment is designed for both SaaS and self-hosting.
 
-This documentation was checked against the `dev` branch of the public repository [okkeyapp/okkey](https://github.com/okkeyapp/okkey). The private `okkey-enterprise` repository was not available while the site was written, so Enterprise-module behavior is described only where core records it (stubs, the plan matrix, architecture notes). Those places are marked **TODO**.
+This documentation was checked against the `dev` branch of the public repository [okkeyapp/okkey](https://github.com/okkeyapp/okkey) and against `okkey-enterprise` `dev` where that module actually exists in the tree. If a screen is not in the code, the page does not describe it as a finished feature. Remaining gaps are marked **TODO**.
 
 ## How the product is put together
 

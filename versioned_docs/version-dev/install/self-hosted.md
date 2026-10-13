@@ -69,6 +69,23 @@ docker compose -f docker-compose.prod.yml --env-file .env up -d
 
 По умолчанию `EMAIL_PROVIDER=logger` и `EMAIL_DELIVERY_MODE=queue`. Коды подтверждения видны в логах **worker**, не API: API только кладёт письмо в Redis (`okkey:email:queue`, `okkey:email:delayed`, `okkey:email:dead`). Для настоящей почты задайте SMTP в `.env` (`EMAIL_SMTP_HOST`, `EMAIL_SMTP_PORT`, `EMAIL_SMTP_SECURE`, `EMAIL_SMTP_USER`, `EMAIL_SMTP_PASSWORD`, `EMAIL_FROM`).
 
+## Модули Enterprise
+
+Платные экраны self-hosted (свои роли, приглашения, общие сейфы, расширенное восстановление) включаются двумя флагами, и нужны оба.
+
+- API: `ENTERPRISE_MODULES=true`. Необязательно `ENTERPRISE_MODULES_PATH` — путь к каталогу `okkey-enterprise`.
+- Web: `VITE_ENTERPRISE_MODULES=true`.
+
+Пока флаг выключен, API отдаёт только встроенные роли и профили. Нет своих ролей, приглашений, создания общих сейфов и `POST /workspaces`.
+
+Режим поставки читается из env enterprise, когда модули включены. Эти файлы не входят в публичные примеры `.env` ядра.
+
+- API, `okkey-enterprise/backend/.env`: `OKKEY_DEPLOYMENT_MODE=self_hosted` или `saas`. Значение из файла перекрывает одноимённое в процессе. `saas` регистрирует `POST /workspaces`. На `self_hosted` у владельца по-прежнему не больше одного пространства.
+- Web, `okkey-enterprise/web/.env`: `VITE_DEPLOYMENT_MODE=self_hosted` или `saas`. `saas` включает каталог тарифов, создание нескольких пространств, опасную зону удаления и полный текст политики SaaS.
+- Необязательно: `VITE_OKKEY_LICENSE_EXPIRES_AT` — дата ISO-8601. Показывается на self-hosted, если тариф не `FREE`.
+
+При `ENTERPRISE_MODULES=true` регистрация нового пространства ставит `plan_tier` `ENTERPRISE`. Дополнительное пространство SaaS создаётся с `FREE`. На self-hosted самообслуживаемой оплаты нет: при `FREE` — «Заявка на лицензию», при другом тарифе — «Лицензия активна». Лицензионный валидатор в репозитории не реализован, в архитектурной заметке он помечен как будущая работа.
+
 ## Криптополитика при установке
 
 Оставьте для текущего веб-клиента:

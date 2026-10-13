@@ -6,38 +6,50 @@ plans: [free, enterprise]
 
 # Plans
 
-This documentation covers self-hosted installs. A workspace has two plans.
+Self-hosted Okkey has two plans. The plan decides what you can do in a workspace: invite people, share vaults, and turn on extra recovery.
 
-| Badge | `plan_tier` | When it is assigned |
-| --- | --- | --- |
-| Free | `FREE` | `ENTERPRISE_MODULES` is off. A new workspace is registered with this tier. |
-| Enterprise | `ENTERPRISE` | `ENTERPRISE_MODULES=true`. A new workspace is registered with this tier. |
+A new workspace gets its plan when you register. An existing Free workspace moves to Enterprise separately, on request.
 
-An unknown `plan_tier` string is normalized to `FREE`.
+## How the plan is chosen
 
-Features are checked with `hasPlanFeature(planTier)`. `okkey-enterprise` plugins load only when `ENTERPRISE_MODULES=true`. On a new install those line up: without modules the tier is `FREE` and there are no plugins; with modules the tier is `ENTERPRISE` and the plugins are loaded. How to turn the modules on is in the [install guide](./install/self-hosted#enterprise-modules).
+The modules switch is an environment variable. The rest of these docs write it only this way:
 
-On self-hosted an owner has one workspace.
+- `ENTERPRISE_MODULES=false`, or the variable is unset. A new workspace is Free (`plan_tier` `FREE`).
+- `ENTERPRISE_MODULES=true`. A new workspace is Enterprise (`plan_tier` `ENTERPRISE`), and the enterprise plugins load.
+
+An unknown `plan_tier` string also becomes `FREE`.
+
+How to set the variable during install is in the [install guide](./install/self-hosted#enterprise-modules).
+
+On self-hosted, an owner has one workspace.
 
 ## An existing workspace
 
-A new install receives its plan at registration. An existing Free workspace is moved to Enterprise only manually, on request, by an Okkey specialist. That requires SSH access to the VPS where Okkey is installed. Contact the Okkey team and provide that access.
+:::note
+If the workspace was already created as Free, only an Okkey specialist can move it to Enterprise, and only when you ask. Contact the Okkey team and provide SSH access to the VPS where Okkey is installed.
+:::
 
-## What is on
-
-Flags from `PLAN_FEATURE_MATRIX` for `FREE` and `ENTERPRISE`.
+## What's included
 
 | Capability | Free | Enterprise |
 | --- | --- | --- |
 | Capsules | yes | yes |
-| Capsule access settings | no | yes |
-| Files in items | no | yes |
-| Monitoring | no | yes |
-| Recovery through trusted devices | no | yes |
+| Advanced settings | no | yes |
+| Allow files in items | yes | yes |
+| Monitoring | yes | yes |
+| Recovery key | yes | yes |
+| Trusted devices | no | yes |
 | Trusted contacts | no | yes |
 | Shared vaults | no | yes |
 | Additional members | no | yes |
+| Built-in roles ("Owner", "Admin", "User") | yes | yes |
 | Custom roles | no | yes |
+| Built-in profiles ("Simple", "Extended") | yes | yes |
 | Custom profiles | no | yes |
 
-The recovery key (not devices and not contacts) exists on both plans. Core shows the built-in roles “Owner”, “Admin”, and “User”, and the built-in profiles “Simple” and “Extended”, by itself. Custom roles, custom profiles, invitations, shared vaults, and the recovery wizards come from the Enterprise plugins.
+## Next steps
+
+- [Self-hosted install](./install)
+- [Workspace settings](./settings/workspace)
+- [Monitoring](./monitoring)
+- [Capsules](./capsules)

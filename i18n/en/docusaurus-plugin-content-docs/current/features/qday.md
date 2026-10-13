@@ -23,14 +23,14 @@ On `stage` and `prod`, new writes are v2 only. v1 remains for explicit dev/test 
 
 The engine is `rust/crypto-engine`, compiled to WASM for clients. Public code and the architecture notes fix these primitives:
 
-- **Argon2id** — the master-password share (KDF).
-- **XChaCha20-Poly1305** — symmetric encryption of vault items, attachments, and the hybrid-envelope payload. The nonce is 24 bytes.
-- **AES-256-GCM** — declared among the engine primitives.
-- **X25519** — the ephemeral ECC key in the hybrid envelope, 32 bytes.
-- **ML-KEM-768** — post-quantum encapsulation. The ciphertext field in the envelope is 1088 bytes. A user keypair is decapsulation key plus encapsulation key.
-- **Ed25519** — signatures. Critical sync events (`VAULT_SHARE`, `VAULT_KEY_ROTATION`, and share/revoke/rotate/update-role) are signed with the hybrid envelope `hybrid_ed25519_pq_bind_v1`: Ed25519 plus a bind to the signer’s PQ key.
-- **HKDF / SHA-256** — the hybrid envelope KDF is `SHA-256(domain || ecc_shared || pq_shared || aad)`, `kdf_id = 1`.
-- **OS RNG** — keys and generator output.
+- **Argon2id** - the master-password share (KDF).
+- **XChaCha20-Poly1305** - symmetric encryption of vault items, attachments, and the hybrid-envelope payload. The nonce is 24 bytes.
+- **AES-256-GCM** - declared among the engine primitives.
+- **X25519** - the ephemeral ECC key in the hybrid envelope, 32 bytes.
+- **ML-KEM-768** - post-quantum encapsulation. The ciphertext field in the envelope is 1088 bytes. A user keypair is decapsulation key plus encapsulation key.
+- **Ed25519** - signatures. Critical sync events (`VAULT_SHARE`, `VAULT_KEY_ROTATION`, and share/revoke/rotate/update-role) are signed with the hybrid envelope `hybrid_ed25519_pq_bind_v1`: Ed25519 plus a bind to the signer’s PQ key.
+- **HKDF / SHA-256** - the hybrid envelope KDF is `SHA-256(domain || ecc_shared || pq_shared || aad)`, `kdf_id = 1`.
+- **OS RNG** - keys and generator output.
 
 The v2 hybrid envelope (header version `1`, `aead_id = 1` = XChaCha20-Poly1305) combines the ECC and PQ secrets. Decryption follows verified capabilities, with no silent downgrade. There is no JS fallback for hybrid/PQ: WASM failures become `CryptoSdkError` with codes `UNSUPPORTED_ALGORITHM`, `INVALID_KEY_LENGTH`, `MALFORMED_ENVELOPE`, `DECRYPT_FAILED`, `INTERNAL`.
 

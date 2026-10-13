@@ -18,13 +18,13 @@ While the field has text, vault, vault view, folder, and category are not part o
 
 Weight (`scoreItemsListRecordSearch`):
 
-- a substring match in the title — 10;
-- a substring match in a field of type URL — `10 / (URL number starting at 1)`;
+- a substring match in the title - 10;
+- a substring match in a field of type URL - `10 / (URL number starting at 1)`;
 - a query that starts with `#` and has text after the hash looks up the whole tag, case-insensitive, and nothing else. A different tag scores 0 and the item is hidden.
 
 Secrets, passwords, and notes are not part of this weight. The row description is on screen, but it is not searched. Search inside the capsule window is different: it looks at non-secret preset section fields.
 
-A tag can also be chosen from the filter, item "Tags": search "Search tags", empty — "No tags found". The choice puts `#tag` into the search field.
+A tag can also be chosen from the filter, item "Tags": search "Search tags", empty - "No tags found". The choice puts `#tag` into the search field.
 
 ## Filters
 
@@ -48,7 +48,7 @@ Scopes in the same menu:
 | "Categories" | Only items of that category. Empty: "No categories with items". A category is not combined with a search you already typed: search wins. |
 | "Tags" | Turns the choice into a `#tag` search. |
 
-The monitoring page also has "Personal" and "Shared" — that is a vault view, not a filter-menu item. In the list they show up as a chip.
+The monitoring page also has "Personal" and "Shared" - that is a vault view, not a filter-menu item. In the list they show up as a chip.
 
 Monitoring filters are not listed in the filter menu. "Show" on [monitoring](./monitoring) sets them, and Free has no monitoring. If the parameter is still in the address, the list keeps non-archived, non-deleted items from the report:
 

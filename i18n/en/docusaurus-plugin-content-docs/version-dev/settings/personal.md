@@ -30,7 +30,7 @@ Menu item: “Master password”.
 
 The “Master password” section shows when the password was set: today, yesterday, “N ago”, or an unknown date. “Change” opens “Change master password”: the current master password and the new password twice.
 
-“Require master password” — “Extra confidential sections that require the master password”. You can mark zones. Group “Sections”: “Items”, “Capsules”, “Monitoring”, “Tools”, “Vault settings”, “My settings”. Group “Popups”: “Items”, “Capsules”, “Vaults”, “Folders”. Group “Actions”: “Deletion”. Until a zone is confirmed, the UI shows “Confirm access” and “Section “…” requires re-authentication”.
+“Require master password” - “Extra confidential sections that require the master password”. You can mark zones. Group “Sections”: “Items”, “Capsules”, “Monitoring”, “Tools”, “Vault settings”, “My settings”. Group “Popups”: “Items”, “Capsules”, “Vaults”, “Folders”. Group “Actions”: “Deletion”. Until a zone is confirmed, the UI shows “Confirm access” and “Section “…” requires re-authentication”.
 
 Idle time, lock on sleep, clipboard, biometrics, and PIN are described by strings next to the master password, but the current web UI puts them in [device settings](./devices). They are stored on the device and are not copied between devices.
 
@@ -73,9 +73,9 @@ Page “Forgot master password?”.
 2. “Request recovery from trusted device”.
 3. “Device recovery”, “Waiting for approval on a trusted device…”.
 4. On another trusted device with an open vault, popup “Account recovery request”. It cannot be closed with the cross; the close label is “Resolve request”. The text asks you to confirm only a device you recognize. The card shows the device name, client and OS, date, “IP: …”, “Country: …”. If there is no place: “Unknown location”. If the vault is locked: “Unlock the vault on this device to approve recovery.”
-5. “Confirm”, “Reject”, and under “More actions” — “Block device”. Toasts: “Recovery approved”, “Recovery request rejected”, “Device blocked”.
+5. “Confirm”, “Reject”, and under “More actions” - “Block device”. Toasts: “Recovery approved”, “Recovery request rejected”, “Device blocked”.
 6. After approval: “Approved. Set a new master password to finish.” Fields “New master password”, “Repeat new master password”, “Restore access”.
-7. Rejection: “Recovery request rejected” and “Start again”. Expired: “Recovery request expired”. Blocked: “This device is blocked” — “A trusted device permanently blocked this browser. Sign-in from this device is no longer allowed.” There is no “Start again” button in that state.
+7. Rejection: “Recovery request rejected” and “Start again”. Expired: “Recovery request expired”. Blocked: “This device is blocked” - “A trusted device permanently blocked this browser. Sign-in from this device is no longer allowed.” There is no “Start again” button in that state.
 
 If the local session is gone: “Missing local recovery session. Start the request again in this browser.”
 

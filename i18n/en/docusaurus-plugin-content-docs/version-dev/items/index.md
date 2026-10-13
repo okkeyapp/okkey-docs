@@ -10,7 +10,7 @@ plans: [free, enterprise]
 
 Next:
 
-- [Categories and templates](./categories) — what you can create and the order it is shown in.
-- [Fields and sections](./fields) — types, the field gear menu, hidden modes.
-- [Item actions](./actions) — row and card menus.
-- [Lists](../lists) — search, filters, sort.
+- [Categories and templates](./categories) - what you can create and the order it is shown in.
+- [Fields and sections](./fields) - types, the field gear menu, hidden modes.
+- [Item actions](./actions) - row and card menus.
+- [Lists](../lists) - search, filters, sort.

@@ -6,7 +6,9 @@ plans: [free, enterprise]
 
 # Self-hosted install
 
-Self-hosting runs Okkey core on your machine. Encryption stays on the client: the server administrator cannot read vaults. Without the modules a new workspace is Free. With `ENTERPRISE_MODULES` it is Enterprise. Details are on [Plans](../plans).
+Self-hosting runs Okkey on your machine. Encryption stays on the client, so the server administrator cannot read your vaults.
+
+A new workspace is Free when `ENTERPRISE_MODULES=false` or the variable is unset. It is Enterprise when `ENTERPRISE_MODULES=true`. What each plan includes is on [Plans](../plans).
 
 Next:
 

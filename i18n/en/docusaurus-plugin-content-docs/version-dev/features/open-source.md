@@ -24,11 +24,11 @@ Encryption is not hidden in a closed module. Profiles v1/v2, the hybrid envelope
 
 With `ENTERPRISE_MODULES=true` on a self-hosted install, these plugins load (`backend/api-plugin/index.ts`):
 
-- `workspace-roles` — custom roles;
-- `workspace-profiles` — custom profiles;
-- `workspace-members` — invitations;
-- `workspace-shared-vaults` — personal and shared vault popups;
-- `account-recovery-advanced` — recovery through devices and trusted contacts.
+- `workspace-roles` - "Custom roles";
+- `workspace-profiles` - "Custom profiles";
+- `workspace-members` - invitations;
+- `workspace-shared-vaults` - personal and shared vault popups;
+- `account-recovery-advanced` - recovery through devices and trusted contacts.
 
 Vault key wrap/rotate stays in core.
 

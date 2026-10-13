@@ -8,13 +8,13 @@ plans: [free, enterprise]
 
 The new-item window groups categories like this:
 
-1. "Favorite categories" — if the favorites list is not empty.
-2. "Templates" — if you saved your own templates. The block sits before the authorization group.
+1. "Favorite categories" - if the favorites list is not empty.
+2. "Templates" - if you saved your own templates. The block sits before the authorization group.
 3. "Authorization".
 4. "Finance".
 5. "Personal data".
 
-"Secure files" disappear when files in items are off in the workspace. On Free, files are off in the matrix.
+"Secure files" show up when "Allow files in items" is on for the workspace. That setting is available on Free and on Enterprise.
 
 The code has a category `ssh_key` and the string "SSH key", but it is commented out of `ITEM_CATEGORY_DEFINITIONS`. It is not in the picker. **TODO:** do not describe SSH as an available category until that line is enabled again.
 
@@ -131,13 +131,13 @@ Passport section, preset fields: "type", "issuing country", "number", "full name
 
 ### Secure files
 
-One file field. The category is hidden while "Allow files in items" is off. The `filesInItems` flag is on for Enterprise and off for Free.
+One file field. The category stays hidden until "Allow files in items" is on. The setting itself is available on Free and on Enterprise.
 
 ### Secure note
 
 One field "note".
 
-## Your templates
+## Templates
 
 "Save as template". Field "Template name", placeholder "Enter template name". Checkbox "Add to favorites". Hint: "The new template will appear in the all categories list". Success: "Template saved". Error: "Could not save template".
 

@@ -10,7 +10,7 @@ An item is a name, tags, sections, and fields. On the card: "Item name" (placeho
 
 Preset sections come first. Custom sections can be reordered together with their fields. A custom section title uses the placeholder "Add title". Deleting a section is "Delete section", when the section allows it. Deleting a field is "Delete field". Required preset fields (login, password, the first URL, API name, API secrets, card number, expiry, CVC, personal first and last name) are not deleted that way.
 
-The "File" field and the files category depend on the workspace setting. On Free they are absent.
+The "File" field and the "Secure files" category appear when "Allow files in items" is on. That setting is available on Free and on Enterprise.
 
 ## Types you can add
 
@@ -33,7 +33,7 @@ Groups in code: `general`, `secret`, `file`. Labels:
 
 "Password" and the CVC pin are preset kinds. They are not in this add list. A password in the generator and in a login is a separate secret kind.
 
-An address splits into "Street", "House / building", "Apartment", "City/Town/Suburb", "State/Province", "ZIP/Postal code", "Country". Country search: "Search countries", empty — "No countries found".
+An address splits into "Street", "House / building", "Apartment", "City/Town/Suburb", "State/Province", "ZIP/Postal code", "Country". Country search: "Search countries", empty - "No countries found".
 
 File: "Upload file", "Delete file". Size limit and extensions come from the workspace settings. The hint shows the maximum.
 
@@ -64,4 +64,4 @@ The in-field generator: length 4–128, sets "A-Z", "a-z", "0-9", "!@#$%^&*", "S
 
 Copying a field on the card is "Copy". Secrets are not included in list search.
 
-Leaving a new item without saving asks "Leave without saving?" — "Any data you entered will be lost." Button "Continue".
+Leaving a new item without saving asks "Leave without saving?" - "Any data you entered will be lost." Button "Continue".

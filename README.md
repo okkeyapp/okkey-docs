@@ -60,7 +60,7 @@ The first version in this repository is named `dev` because the source is the `d
 
 ## Plan badge
 
-`src/theme/DocItem/Layout` is a theme swizzle. On every page it renders `PlanBadges` from frontmatter. These docs cover self-hosted only. There are two plans: `free` (`plan_tier` `FREE`, modules off) and `enterprise` (`plan_tier` `ENTERPRISE`, `ENTERPRISE_MODULES` on).
+`src/theme/DocItem/Layout` is a theme swizzle. On every page it renders `PlanBadges` from frontmatter. These docs cover self-hosted only. There are two plans: `free` (`plan_tier` `FREE`, when `ENTERPRISE_MODULES=false` or the variable is unset) and `enterprise` (`plan_tier` `ENTERPRISE`, when `ENTERPRISE_MODULES=true`).
 
 ```yaml
 plans: [free, enterprise]

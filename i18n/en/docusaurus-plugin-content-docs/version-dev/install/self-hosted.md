@@ -69,16 +69,16 @@ The default is `EMAIL_PROVIDER=logger` and `EMAIL_DELIVERY_MODE=queue`. Confirma
 
 ## Enterprise modules
 
-Paid self-hosted screens (custom roles and profiles, invitations, shared vaults, files in items, monitoring, advanced recovery, capsule access settings) turn on together with the modules.
+Some screens appear only when enterprise modules are on: "Custom roles", "Custom profiles", "Additional members", "Shared vaults", "Trusted devices", "Trusted contacts", and capsule "Advanced settings". "Allow files in items" and "Monitoring" are available on Free as well.
 
 - API: `ENTERPRISE_MODULES=true`. Optional `ENTERPRISE_MODULES_PATH` is the path to the `okkey-enterprise` directory.
 - Web: `VITE_ENTERPRISE_MODULES=true`.
 
-While the flag is off, registration sets `plan_tier` to `FREE`. The API serves only built-in roles and profiles. There are no custom roles or profiles, invitations, or shared-vault creation.
+When `ENTERPRISE_MODULES=false` or the variable is unset, registration sets `plan_tier` to `FREE`. The API serves "Built-in roles" and "Built-in profiles". "Custom roles", "Custom profiles", "Additional members", and "Shared vaults" do not appear.
 
-With `ENTERPRISE_MODULES=true`, registering a new workspace sets `plan_tier` to `ENTERPRISE`. Feature checks use that tier. On self-hosted an owner has one workspace. What each plan opens is on [Plans](../plans).
+With `ENTERPRISE_MODULES=true`, a new workspace is registered as `plan_tier` `ENTERPRISE`. On self-hosted, an owner has one workspace. The plan comparison is on [Plans](../plans).
 
-An existing Free workspace is moved to Enterprise only manually, on request, by an Okkey specialist. That requires SSH access to the VPS where Okkey is installed. Contact the Okkey team and provide that access. More is in [Plans](../plans#an-existing-workspace).
+An existing Free workspace is moved to Enterprise only manually, when you ask, by an Okkey specialist. Contact the Okkey team and provide SSH access to the VPS where Okkey is installed. More is in [Plans](../plans#an-existing-workspace).
 
 ## Crypto policy for this install
 

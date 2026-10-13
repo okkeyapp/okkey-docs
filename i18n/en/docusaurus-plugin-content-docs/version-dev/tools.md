@@ -6,9 +6,9 @@ plans: [free, enterprise]
 
 # Tools
 
-Sidebar item "Tools". Inside there are three sections: "Generator", "Import", "Export". There are no other tools in the menu. The stub "This tool is coming soon." exists in the strings. **TODO:** which menu item it is bound to, apart from these three sections, is not visible — the tools sidebar only has these three.
+Sidebar item "Tools". Inside there are three sections: "Generator", "Import", "Export". There are no other tools in the menu. The stub "This tool is coming soon." exists in the strings. **TODO:** which menu item it is bound to, apart from these three sections, is not visible - the tools sidebar only has these three.
 
-Generator, import, and export are available on Free. Files inside a ZIP run into the [file setting](./settings/workspace#items) and are not saved on Free when files in items are off.
+The generator, import, and export are available on Free. Files inside a ZIP are saved when "Allow files in items" is on. That setting is available on Free too. How to turn it on is in [item settings](./settings/workspace#items).
 
 ## Generator
 
@@ -38,7 +38,7 @@ Generator settings are stored in the browser `localStorage`, not in the vault.
 
 Fields:
 
-- "Select a vault to import records into" — the item goes into the selected vault. No write permission: "You cannot write to the selected vault".
+- "Select a vault to import records into" - the item goes into the selected vault. No write permission: "You cannot write to the selected vault".
 - "Format", search "Search format", empty: "No format found".
 - Input method: "File" or "Text". "Upload file", "Remove file", and for text "Paste export contents".
 - "Import folders". "All folders and subfolders from the export will be created under the selected folder above, and items will be placed into those folders." Folders are personal, see [Folders](./folders).
@@ -84,8 +84,8 @@ An unknown format id falls through to Custom CSV. Format names are hardcoded and
 
 - "Select a vault to export records from". No permission: "You cannot export from the selected vault".
 - "Format".
-- "Include folders" — "Folder paths will be written into the export so they can be restored on import." Not every format supports folder paths (see the table).
-- "Protect with password" — "Encrypt the export file. You will need this password to import it later." Field "Export password". The flag exists only on formats with `supportsExportPassword`.
+- "Include folders" - "Folder paths will be written into the export so they can be restored on import." Not every format supports folder paths (see the table).
+- "Protect with password" - "Encrypt the export file. You will need this password to import it later." Field "Export password". The flag exists only on formats with `supportsExportPassword`.
 
 Before the button, the UI shows how many records will go into the file. Progress: "Preparing records…", "Building export file…". Success: "Exported N records to file". Error: "Export failed".
 

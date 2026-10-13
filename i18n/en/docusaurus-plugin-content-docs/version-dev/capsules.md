@@ -30,15 +30,15 @@ Window "New capsule" or "Edit capsule". Field "Name".
 
 Contents:
 
-- text — "Enter the text you want to share";
-- file — "Upload file" / "Remove file", subject to the workspace file limits;
-- item — "Search items", "Enter text to search". Search looks at non-secret preset section fields, not at secrets. Empty: "No items found". Item field scope: "All", "All except", "Selected", label "Available fields:".
+- text - "Enter the text you want to share";
+- file - "Upload file" / "Remove file", subject to the workspace file limits;
+- item - "Search items", "Enter text to search". Search looks at non-secret preset section fields, not at secrets. Empty: "No items found". Item field scope: "All", "All except", "Selected", label "Available fields:".
 
 The "Advanced settings" button shows how many blocks are on.
 
 | Block | Title | What it sets |
 | --- | --- | --- |
-| Views | "Views". "Limit views and choose what happens when the limit is reached". | "View limit:". "Then:" — "Deactivate" or "Delete capsule". |
+| Views | "Views". "Limit views and choose what happens when the limit is reached". | "View limit:". "Then:" - "Deactivate" or "Delete capsule". |
 | Time | "Time". "Activate, deactivate, and delete the capsule on a schedule". | "Activate:", "Deactivate at:", "Delete at:". Presets: "Never", "Immediately", "In 15 minutes", "In 1 hour", "In 6 hours", "In 12 hours", "In 24 hours", "After activation", or a date and time ("Hr", "Min", "Today", "Done"). Deactivation before activation: "Deactivation time cannot be earlier than activation time". Deletion before activation is the same kind of error. |
 | Access | "Access". "Allow viewing only for specific users". | "Select users", search "First name, last name, or email…". A foreign email can be added ("Add …"). Invalid address: "Invalid email". |
 | Password | "Password". "Require a password to view". | "Set password:". While editing, an empty field is "Leave blank to keep unchanged". "Failed attempt limit:". |

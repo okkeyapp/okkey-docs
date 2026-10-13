@@ -19,7 +19,7 @@ Profile functions that turn commands on:
 | "Move to archive" | "Archive" / "Unarchive" |
 | permission to delete | "Delete" / "Restore" |
 
-"Select" is always in the row menu and turns selection mode on. In selection mode, rows have circles, a counter "\{count\} item" / "\{count\} items" sits at the top, plus "Actions" and "Cancel selection". In bulk you can add to favorites, remove from favorites, archive, unarchive, delete, and restore — only for rows where the profile allows it.
+"Select" is always in the row menu and turns selection mode on. In selection mode, rows have circles, a counter "\{count\} item" / "\{count\} items" sits at the top, plus "Actions" and "Cancel selection". In bulk you can add to favorites, remove from favorites, archive, unarchive, delete, and restore - only for rows where the profile allows it.
 
 ## When a command is present
 

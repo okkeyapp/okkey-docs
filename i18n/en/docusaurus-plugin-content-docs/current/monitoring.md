@@ -1,16 +1,16 @@
 ---
 title: Monitoring
 sidebar_position: 8
-plans: [enterprise]
+plans: [free, enterprise]
 ---
 
 # Monitoring
 
-Sidebar item "Monitoring". The `monitoring` flag is on for Enterprise. On Free the item is absent. The page badge is "Beta".
+"Monitoring" is in the sidebar on both Free and Enterprise. Use it to see weak and reused passwords without sending the passwords themselves to the server. The card badge is "Beta".
 
 Page text: "The security score is calculated from records you can access in the current workspace. Analysis runs locally and does not collect or send statistics about your data."
 
-Empty: "Nothing to analyze yet". "Add records with passwords to vaults you can access — monitoring will calculate metrics locally on your device." Button "Go to items". If no issues are found: "Everything looks good" and "No security issues detected for passwords you can access in this workspace."
+Empty: "Nothing to analyze yet". "Add records with passwords to vaults you can access - monitoring will calculate metrics locally on your device." Button "Go to items". If no issues are found: "Everything looks good" and "No security issues detected for passwords you can access in this workspace."
 
 "Show" opens the item list with a filter already selected. "Back to items" returns to the list. Vault scope on the page: "All vaults", "Personal", "Shared".
 
@@ -44,7 +44,7 @@ The count is passwords from items that are not archived and not deleted, in the 
 | "Reused passwords" | The same password in two or more items. "The same password may be used across multiple accounts." |
 | "Weak passwords" | The weak bucket. "Weak passwords may be easier to guess." |
 | "Compromised passwords" | Have I Been Pwned: only a SHA-1 prefix is sent to the server, the device does not send the full password. "Passwords found in known data breaches." |
-| "Outdated passwords" | The password has not changed for longer than `STALE_PASSWORD_AGE_MS` — 365 days. "Passwords that have not been changed for more than a year." |
+| "Outdated passwords" | The password has not changed for longer than `STALE_PASSWORD_AGE_MS` - 365 days. "Passwords that have not been changed for more than a year." |
 | "2FA available but not set up" | The item has a password, no configured TOTP, and a domain from a URL is in the catalog with `supports2FA`. The catalog is downloaded from the public Okkey domain-capabilities list. Attribution: "Upstream: Data sourced from 2FA Directory by 2factorauth." If the catalog is empty, the list is empty. |
 | "Passkeys available but not set up" | The card exists, and the text promises services with passkeys. The list in code is always empty until an item has a passkey field and a catalog check. **TODO:** do not describe this card as a working report. |
 

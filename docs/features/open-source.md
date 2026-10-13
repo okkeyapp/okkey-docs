@@ -6,7 +6,7 @@ plans: [free, enterprise]
 
 # Полностью открытый код, включая шифрование
 
-Модель — open core.
+Модель - open core.
 
 Открытый репозиторий `okkey` содержит:
 
@@ -20,15 +20,15 @@ plans: [free, enterprise]
 
 ## Граница с Enterprise
 
-`okkey-enterprise` — отдельные плагины. Ядро обязано запускаться при `ENTERPRISE_MODULES=false`. Плагин не меняет таблицы ядра (только добавляет свои), не обходит аутентификацию и не понижает криптопрофиль.
+`okkey-enterprise` - отдельные плагины. Ядро обязано запускаться при `ENTERPRISE_MODULES=false`. Плагин не меняет таблицы ядра (только добавляет свои), не обходит аутентификацию и не понижает криптопрофиль.
 
 В self-hosted при `ENTERPRISE_MODULES=true` подключаются плагины (`backend/api-plugin/index.ts`):
 
-- `workspace-roles` — свои роли;
-- `workspace-profiles` — свои профили;
-- `workspace-members` — приглашения;
-- `workspace-shared-vaults` — попапы личного и общего сейфа;
-- `account-recovery-advanced` — восстановление через устройства и доверенные контакты.
+- `workspace-roles` - «Пользовательские роли»;
+- `workspace-profiles` - «Пользовательские профили»;
+- `workspace-members` - приглашения;
+- `workspace-shared-vaults` - попапы личного и общего сейфа;
+- `account-recovery-advanced` - восстановление через устройства и доверенные контакты.
 
 Криптография wrap/rotate ключа сейфа остаётся в ядре.
 

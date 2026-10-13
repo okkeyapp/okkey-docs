@@ -6,7 +6,7 @@ plans: [free, enterprise]
 
 # Требования к серверу
 
-Прод-установка — Docker Compose, без клонирования монорепозитория. Kubernetes в ядре помечен как planned и в этот compose не входит.
+Прод-установка - Docker Compose, без клонирования монорепозитория. Kubernetes в ядре помечен как planned и в этот compose не входит.
 
 ## Что поднимает compose
 
@@ -26,6 +26,6 @@ plans: [free, enterprise]
 
 Пакеты `ghcr.io/okkeyapp/{api,web,worker}` должны быть публичными, либо Docker должен быть залогинен в GHCR (`read:packages`). Анонимный pull закрытого пакета возвращает 401/403.
 
-В `.env.example` на ветке `dev` тег образов — `OKKEY_IMAGE_TAG=0.0.0-pr19.4`. Корневой README при этом предлагает установщик с `dev`. Расхождение описано в [этапах установки](./self-hosted).
+В `.env.example` на ветке `dev` тег образов - `OKKEY_IMAGE_TAG=0.0.0-pr19.4`. Корневой README при этом предлагает установщик с `dev`. Расхождение описано в [этапах установки](./self-hosted).
 
-Отдельно: корневой `docker-compose.yml` репозитория — только инфраструктура для разработки (`yarn infra:up`: Postgres, Redis, MinIO). Это не прод-установка приложения.
+Отдельно: корневой `docker-compose.yml` репозитория - только инфраструктура для разработки (`yarn infra:up`: Postgres, Redis, MinIO). Это не прод-установка приложения.

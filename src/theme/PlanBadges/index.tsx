@@ -17,8 +17,8 @@ const COPY = {
       enterprise: 'Предприятие',
     },
     hints: {
-      free: 'plan_tier FREE. Модули выключены.',
-      enterprise: 'plan_tier ENTERPRISE. ENTERPRISE_MODULES включён.',
+      free: 'plan_tier FREE. ENTERPRISE_MODULES=false или переменная не задана.',
+      enterprise: 'plan_tier ENTERPRISE. ENTERPRISE_MODULES=true.',
     },
   },
   en: {
@@ -31,8 +31,8 @@ const COPY = {
       enterprise: 'Enterprise',
     },
     hints: {
-      free: 'plan_tier FREE. Modules are off.',
-      enterprise: 'plan_tier ENTERPRISE. ENTERPRISE_MODULES is on.',
+      free: 'plan_tier FREE. ENTERPRISE_MODULES=false, or the variable is unset.',
+      enterprise: 'plan_tier ENTERPRISE. ENTERPRISE_MODULES=true.',
     },
   },
 } as const;

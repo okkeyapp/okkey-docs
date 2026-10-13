@@ -21,16 +21,16 @@ yarn build:extension:firefox    # apps/extension/output/firefox-mv3
 
 Chromium: `chrome://extensions` или `edge://extensions`, режим разработчика, «Load unpacked», папка `apps/extension/output/chrome-mv3`.
 
-Firefox: `about:debugging#/runtime/this-firefox`, «Load Temporary Add-on…», файл `apps/extension/output/firefox-mv3/manifest.json`. Временное дополнение Firefox пропадёт после перезапуска браузера — так устроен этот способ установки, отдельного постоянного пакета в репозитории нет.
+Firefox: `about:debugging#/runtime/this-firefox`, «Load Temporary Add-on…», файл `apps/extension/output/firefox-mv3/manifest.json`. Временное дополнение Firefox пропадёт после перезапуска браузера - так устроен этот способ установки, отдельного постоянного пакета в репозитории нет.
 
 Разрешения: `storage`, `tabs`, `idle`, доступ к сайтам `<all_urls>` (автозаполнение).
 
 ## Вход
 
-1. В попапе укажите URL сервера. Для локальной разработки веб — `http://localhost:5173`, рядом должны работать API и web.
+1. В попапе укажите URL сервера. Для локальной разработки веб - `http://localhost:5173`, рядом должны работать API и web.
 2. Вход открывает веб и PKCE. Веб-маршрут расширения не уводит в хранилище, пока передача сессии не закончена.
 3. Новое устройство ждёт подтверждения на уже доверенном устройстве.
-4. «Разблокировать» — тот же мастер-пароль, что в вебе.
+4. «Разблокировать» - тот же мастер-пароль, что в вебе.
 
 «Выйти» и «Сменить сервер» стирают сессию, устройство и кэш сейфа расширения и оставляют только последний URL сервера.
 

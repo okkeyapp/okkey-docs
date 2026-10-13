@@ -38,14 +38,15 @@ const config: Config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: './sidebars.ts',
-          // The published site is the versioned snapshot of the current `dev` sources.
-          // `docs/` stays the working copy for the next cut and is not served.
+          // Published docs follow Okkey minor lines: v1.0, v1.1, v2.0.
+          // Betas and patches update the current minor in place.
+          // `docs/` stays the working copy and is not served.
           includeCurrentVersion: false,
-          lastVersion: 'dev',
+          lastVersion: 'v1.0',
           versions: {
-            dev: {
-              label: 'dev',
-              banner: 'none',
+            'v1.0': {
+              label: 'v1.0',
+              banner: 'unreleased',
             },
           },
         },
@@ -79,7 +80,7 @@ const config: Config = {
     footer: {
       style: 'dark',
       copyright:
-        'Документация Okkey. Утверждения сверены с открытым репозиторием okkey, ветка dev.',
+        'Документация Okkey v1.0. Текущий релиз - 1.0.0-beta.1.',
     },
     colorMode: {
       respectPrefersColorScheme: true,

@@ -6,7 +6,7 @@ plans: [free, enterprise]
 
 # Этапы установки
 
-Предпочтительный путь из корневого README ветки `dev` - одна команда, без клонирования монорепозитория:
+Самый короткий путь - одна команда из корневого README ветки `dev`. Монорепозиторий клонировать не нужно.
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/dev/deploy/docker/install.sh | bash
@@ -14,7 +14,7 @@ curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/dev/deploy/docker/in
 
 `OKKEY_REF` по умолчанию - `dev`. Каталог установки - `~/okkey` (`OKKEY_INSTALL_DIR`).
 
-Скрипт:
+Скрипт делает четыре шага:
 
 1. Создаёт каталог установки.
 2. Скачивает `docker-compose.prod.yml` и `.env.example` с выбранного ref.
@@ -23,9 +23,9 @@ curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/dev/deploy/docker/in
 
 После старта веб открывается на `PUBLIC_APP_URL` или `http://localhost:$WEB_PORT` (по умолчанию `http://localhost:8080`). Проверка API: `http://localhost:4000/health`.
 
-## Что важно на ветке dev
+## Если pull не находит образы
 
-`deploy/docker/README.md` в той же ветке всё ещё описывает временный ref `cursor/self-host-docker-2ea1` и тег `0.0.0-pr19.4`, пока пакеты GHCR могут быть закрыты. Если `docker compose pull` с `dev` не находит образы, ориентируйтесь на этот README и переменную `OKKEY_IMAGE_TAG`, а не выдумывайте тег. **TODO:** какой тег считать стабильным релизом, в `dev` не зафиксирован: публикация идёт с git-тегов `v*` плюс `latest`.
+`deploy/docker/README.md` в той же ветке всё ещё описывает временный ref `cursor/self-host-docker-2ea1` и тег `0.0.0-pr19.4`, пока пакеты GHCR могут быть закрыты. Если `docker compose pull` с `dev` не находит образы, ориентируйтесь на этот README и переменную `OKKEY_IMAGE_TAG`. Не выдумывайте тег. **TODO:** какой тег считать стабильным релизом, в `dev` не зафиксирован: публикация идёт с git-тегов `v*` плюс `latest`.
 
 Полезные переменные установщика:
 
@@ -36,9 +36,13 @@ curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/dev/deploy/docker/in
 | `OKKEY_SKIP_PULL=1` | Не тянуть образы (локальная сборка). |
 | `OKKEY_RESET_VOLUMES=1` | `docker compose down -v` перед стартом. Сотрёт данные Postgres, Redis и MinIO. |
 
+:::warning
 Пароль Postgres применяется только при первом создании тома. Если удалить `.env`, заново сгенерировать секреты и поднять старый том `okkey_okkey-postgres`, API уйдёт в цикл с ошибкой аутентификации Postgres.
+:::
 
 ## Ручная установка
+
+1. Скачайте compose и пример окружения.
 
 ```bash
 mkdir -p ~/okkey && cd ~/okkey
@@ -47,15 +51,8 @@ curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/dev/deploy/docke
 cp .env.example .env
 ```
 
-В `.env` замените пароли и при домене с TLS задайте:
-
-- `PUBLIC_APP_URL`
-- `OKKEY_API_PUBLIC_URL`
-- `CORS_ORIGIN`
-- `WEBAUTHN_ORIGINS`
-- `WEBAUTHN_RP_ID`
-
-Затем:
+2. В `.env` замените пароли. При домене с TLS задайте `PUBLIC_APP_URL`, `OKKEY_API_PUBLIC_URL`, `CORS_ORIGIN`, `WEBAUTHN_ORIGINS`, `WEBAUTHN_RP_ID`.
+3. Запустите контейнеры.
 
 ```bash
 docker compose -f docker-compose.prod.yml --env-file .env up -d
@@ -66,6 +63,10 @@ docker compose -f docker-compose.prod.yml --env-file .env up -d
 ## Почта
 
 По умолчанию `EMAIL_PROVIDER=logger` и `EMAIL_DELIVERY_MODE=queue`. Коды подтверждения видны в логах **worker**, не API: API только кладёт письмо в Redis (`okkey:email:queue`, `okkey:email:delayed`, `okkey:email:dead`). Для настоящей почты задайте SMTP в `.env` (`EMAIL_SMTP_HOST`, `EMAIL_SMTP_PORT`, `EMAIL_SMTP_SECURE`, `EMAIL_SMTP_USER`, `EMAIL_SMTP_PASSWORD`, `EMAIL_FROM`).
+
+:::note
+Первому аккаунту письмо не нужно. SMTP понадобится со второго входа. См. [первую настройку](./first-setup).
+:::
 
 ## Модули Enterprise
 
@@ -112,3 +113,9 @@ docker build -f apps/web/Dockerfile -t ghcr.io/okkeyapp/web:local .
 ```
 
 В `.env`: `OKKEY_IMAGE_TAG=local` и при необходимости `OKKEY_API_IMAGE`, `OKKEY_WEB_IMAGE`, `OKKEY_WORKER_IMAGE`. Установщик: `OKKEY_SKIP_PULL=1`.
+
+## Дальше
+
+- [Первая настройка](./first-setup)
+- [Тарифы](../plans)
+- [Q-Day ready](../features/qday)

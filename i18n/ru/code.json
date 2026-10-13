@@ -87,7 +87,7 @@
     "message": "Версия: {versionLabel}"
   },
   "theme.docs.versions.unreleasedVersionLabel": {
-    "message": "Это ещё не выпущенная документация {siteTitle}, версия {versionLabel}.",
+    "message": "Линия документации {versionLabel}. Текущий релиз Okkey в этой линии - 1.0.0-beta.1.",
     "description": "The label used to tell the user that he's browsing an unreleased doc version"
   },
   "theme.docs.versions.unmaintainedVersionLabel": {
@@ -95,7 +95,7 @@
     "description": "The label used to tell the user that he's browsing an unmaintained doc version"
   },
   "theme.docs.versions.latestVersionSuggestionLabel": {
-    "message": "Актуальная документация — {latestVersionLink} ({versionLabel}).",
+    "message": "Актуальная документация - {latestVersionLink} ({versionLabel}).",
     "description": "The label used to tell the user to check the latest version"
   },
   "theme.docs.versions.latestVersionLinkLabel": {
@@ -279,7 +279,7 @@
     "description": "The title of the page for a blog tag"
   },
   "theme.blog.author.pageTitle": {
-    "message": "{authorName} — {nPosts}",
+    "message": "{authorName} - {nPosts}",
     "description": "The title of the page for a blog author"
   },
   "theme.blog.authorsList.pageTitle": {

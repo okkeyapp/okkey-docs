@@ -6,7 +6,7 @@ plans: [free, enterprise]
 
 # Personal settings
 
-The “My settings” popup from the account menu. The items below exist on every plan unless a row says otherwise. Paid recovery pieces are called out separately.
+Open “My settings” from the account menu when you want to change your profile, your master password, or how you get back in. The items below exist on every plan unless a row says otherwise. Paid recovery pieces are called out separately.
 
 The “General” page shows an “Account security” block at the top.
 
@@ -26,7 +26,7 @@ Theme, accent, and tint are not on this popup. They live in [device personalizat
 
 ## Master password
 
-Menu item: “Master password”.
+Menu item: “Master password”. This is the only password that opens the vault. The server does not store it.
 
 The “Master password” section shows when the password was set: today, yesterday, “N ago”, or an unknown date. “Change” opens “Change master password”: the current master password and the new password twice.
 
@@ -36,11 +36,15 @@ Idle time, lock on sleep, clipboard, biometrics, and PIN are described by string
 
 ## Sign-in methods
 
-The “Sign-in methods” item is built into the popup, but `ACCOUNT_LOGIN_METHODS_UI_ENABLED` is `false`. While the flag is off, opening that item returns to “General”. Actual core sign-in is email plus a code, plus 2FA. **TODO:** do not document the “Sign-in methods” screen (password, passkey, other providers) until the flag is on. The screen is not shown.
+The “Sign-in methods” item is built into the popup, but `ACCOUNT_LOGIN_METHODS_UI_ENABLED` is `false`. While the flag is off, opening that item returns to “General”. Actual core sign-in is email plus a code, plus 2FA.
+
+:::note
+**TODO:** do not document the “Sign-in methods” screen (password, passkey, other providers) until the flag is on. The screen is not shown.
+:::
 
 ## Two-factor authentication
 
-Item “2FA authentication”, title “Two-factor authentication”. Available on every core plan.
+Item “2FA authentication”, title “Two-factor authentication”. A second factor means the email code alone is not enough to sign in. Available on every core plan.
 
 | Setting | Label | Behavior |
 | --- | --- | --- |
@@ -52,7 +56,7 @@ This core screen has no SMS and no hardware keys.
 
 ## Recovery
 
-Item “Recovery”, title “Access recovery”.
+Item “Recovery”, title “Access recovery”. Set up a recovery method before you need it. If the master password is forgotten, the server cannot guess it.
 
 | Block | Label | Plan |
 | --- | --- | --- |
@@ -64,6 +68,10 @@ Item “Recovery”, title “Access recovery”.
 On Free the paid parts are unavailable and a “Note” is shown. Both the Enterprise flag and the module are required. The right is counted on the account: any workspace where the user is an owner or a member and the plan grants the flag is enough. The wizards are web screens. This repository has no separate mobile or desktop wizard.
 
 While the vault is unlocked and contacts are on, the module prepares shares for confirmed contacts by itself. There is no separate “write shares” button. The threshold is 3. The UI does not offer another number. A device request and a contact request last 1 hour.
+
+:::warning
+A recovery request lasts 1 hour. After that you create it again.
+:::
 
 Page “Forgot master password?”.
 
@@ -89,3 +97,9 @@ If the local session is gone: “Missing local recovery session. Start the reque
 6. The owner can “Revoke request”.
 
 Unlocking the vault revokes a contact request that is still open. After the master password changes, shares are prepared again the next time the vault is open.
+
+## Next steps
+
+- [Devices](./devices)
+- [Plans](../plans)
+- [First-time setup](../install/first-setup)

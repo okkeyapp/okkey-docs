@@ -6,7 +6,9 @@ plans: [free, enterprise]
 
 # Fields and sections
 
-An item is a name, tags, sections, and fields. On the card: "Item name" (placeholder "Name"), "Tags", "Upload icon" (JPG or PNG, otherwise "Choose a JPG or PNG image."). Where to save: label "Save to", vault placeholder "Select vault", folder "No folder". Buttons "Save" and "Cancel". Custom fields and sections: "Add field", "Add section with field".
+An item is a name, tags, sections, and fields. Secret fields stay hidden until you reveal them, so they are not sitting in the open on the card.
+
+On the card: "Item name" (placeholder "Name"), "Tags", "Upload icon" (JPG or PNG, otherwise "Choose a JPG or PNG image."). Where to save: label "Save to", vault placeholder "Select vault", folder "No folder". Buttons "Save" and "Cancel". Custom fields and sections: "Add field", "Add section with field".
 
 Preset sections come first. Custom sections can be reordered together with their fields. A custom section title uses the placeholder "Add title". Deleting a section is "Delete section", when the section allows it. Deleting a field is "Delete field". Required preset fields (login, password, the first URL, API name, API secrets, card number, expiry, CVC, personal first and last name) are not deleted that way.
 
@@ -65,3 +67,14 @@ The in-field generator: length 4–128, sets "A-Z", "a-z", "0-9", "!@#$%^&*", "S
 Copying a field on the card is "Copy". Secrets are not included in list search.
 
 Leaving a new item without saving asks "Leave without saving?" - "Any data you entered will be lost." Button "Continue".
+
+:::tip
+URL autofill modes live in the field gear menu. They decide whether the extension fills the password on the whole site or only on this address.
+:::
+
+## Next steps
+
+- [Categories and templates](./categories)
+- [Item actions](./actions)
+- [Browser extension](../apps/extension)
+- [Item settings](../settings/workspace#items)

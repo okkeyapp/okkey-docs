@@ -6,7 +6,7 @@ plans: [free, enterprise]
 
 # Браузерное расширение
 
-Расширение называется «Okkey», описание в манифесте: `Okkey password manager extension`, версия `0.0.1`. Это Manifest V3, одна кодовая база для Chromium (Chrome, Edge, Opera, Yandex) и Firefox. Идентификатор Firefox: `extension@okkey.io`, минимальная версия Firefox `121.0`.
+Расширение подставляет логин и пароль на сайте, пока хранилище разблокировано. Оно называется «Okkey». Описание в манифесте: `Okkey password manager extension`, версия `0.0.1`. Это Manifest V3, одна кодовая база для Chromium (Chrome, Edge, Opera, Yandex) и Firefox. Идентификатор Firefox: `extension@okkey.io`, минимальная версия Firefox `121.0`.
 
 Готового магазинного листинга в репозитории нет. Ставится распакованная сборка. **TODO:** публикация в Chrome Web Store и Firefox Add-ons не описана.
 
@@ -19,9 +19,12 @@ yarn build:extension:chromium   # apps/extension/output/chrome-mv3
 yarn build:extension:firefox    # apps/extension/output/firefox-mv3
 ```
 
-Chromium: `chrome://extensions` или `edge://extensions`, режим разработчика, «Load unpacked», папка `apps/extension/output/chrome-mv3`.
+1. Chromium: откройте `chrome://extensions` или `edge://extensions`, включите режим разработчика, нажмите «Load unpacked» и выберите папку `apps/extension/output/chrome-mv3`.
+2. Firefox: откройте `about:debugging#/runtime/this-firefox`, нажмите «Load Temporary Add-on…» и выберите файл `apps/extension/output/firefox-mv3/manifest.json`.
 
-Firefox: `about:debugging#/runtime/this-firefox`, «Load Temporary Add-on…», файл `apps/extension/output/firefox-mv3/manifest.json`. Временное дополнение Firefox пропадёт после перезапуска браузера - так устроен этот способ установки, отдельного постоянного пакета в репозитории нет.
+:::note
+Временное дополнение Firefox пропадёт после перезапуска браузера. Так устроен этот способ установки. Отдельного постоянного пакета в репозитории нет.
+:::
 
 Разрешения: `storage`, `tabs`, `idle`, доступ к сайтам `<all_urls>` (автозаполнение).
 
@@ -53,3 +56,9 @@ Firefox: `about:debugging#/runtime/this-firefox`, «Load Temporary Add-on…», 
 - «Без автозаполнения»
 
 Если хранилище расширения закрыто, оверлей показывает «Разблокировать». Копирование логина или пароля на вкладке, которая не совпадает ни с одним URL записи, спрашивает подтверждение. Предложение сохранить пароль со страницы в коде есть. Генератор пароля прямо на странице README расширения относит к ещё не сделанному шагу. **TODO:** не считать страничный генератор доступным.
+
+## Дальше
+
+- [Поля и секции](../items/fields)
+- [Первая настройка](../install/first-setup)
+- [Устройства](../settings/devices)

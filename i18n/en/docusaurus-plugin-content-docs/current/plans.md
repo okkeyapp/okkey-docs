@@ -6,7 +6,7 @@ plans: [free, enterprise]
 
 # Plans
 
-Self-hosted Okkey has two plans. The plan decides what you can do in a workspace: invite people, share vaults, and turn on extra recovery.
+Self-hosted Okkey has two plans: Free and Enterprise. The plan decides whether you can invite people, share vaults, and turn on extra recovery.
 
 A new workspace gets its plan when you register. An existing Free workspace moves to Enterprise separately, on request.
 
@@ -18,6 +18,10 @@ The modules switch is an environment variable. The rest of these docs write it o
 - `ENTERPRISE_MODULES=true`. A new workspace is Enterprise (`plan_tier` `ENTERPRISE`), and the enterprise plugins load.
 
 An unknown `plan_tier` string also becomes `FREE`.
+
+:::tip
+Set the variable before the first registration. That is when a new workspace receives its plan.
+:::
 
 How to set the variable during install is in the [install guide](./install/self-hosted#enterprise-modules).
 

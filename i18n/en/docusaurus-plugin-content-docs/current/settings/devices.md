@@ -6,7 +6,7 @@ plans: [free, enterprise]
 
 # Devices
 
-Two different lists. “My devices” is the account’s trusted devices and is synced. “Device settings” is this browser only. The subtitle says: “These preferences apply only to the current browser on this device and are not carried over to other devices.”
+These are two different lists, and they are easy to mix up. “My devices” is the account’s trusted devices and is synced. “Device settings” is this browser only. The subtitle says: “These preferences apply only to the current browser on this device and are not carried over to other devices.”
 
 The legacy menu id `deviceSettings` opens “Personalization”.
 
@@ -18,9 +18,13 @@ An unconfirmed device is shown as “New device”. It must be approved before i
 
 The new device itself waits on a separate page until approval arrives.
 
+:::note
+A new device cannot open the vault until you approve it on a device that is already trusted.
+:::
+
 ## Personalization
 
-Item “Personalization” in the “Device settings” group.
+Item “Personalization” in the “Device settings” group. These settings stay on this browser.
 
 | Setting | Values |
 | --- | --- |
@@ -32,7 +36,7 @@ The workspace tile color is a different setting, under [workspace general](./wor
 
 ## Security
 
-Item “Security”. The same local prefs that the master-password strings also describe.
+Item “Security”. The same local prefs that the master-password strings also describe. They lock the vault when you step away.
 
 | Setting | Label | Values in code |
 | --- | --- | --- |
@@ -42,7 +46,7 @@ Item “Security”. The same local prefs that the master-password strings also 
 
 ## Unlock
 
-Item “Unlock”.
+Item “Unlock”. A PIN and biometrics do not replace the master password on other devices. They live only here.
 
 | Setting | Label | Behavior |
 | --- | --- | --- |
@@ -50,3 +54,9 @@ Item “Unlock”.
 | PIN | “PIN code”. “Unlock the vault with a short PIN on this device”. | 6 digits (`PIN_LENGTH`). PIN material is not copied to other devices. |
 
 The “Confirm access” screen for locked zones tries biometrics, then PIN, then the master password, in that order, when they are enabled. Otherwise only the master password remains.
+
+## Next steps
+
+- [Personal settings](./personal)
+- [Recovery](./personal#recovery)
+- [Browser extension](../apps/extension)

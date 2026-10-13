@@ -6,7 +6,7 @@ plans: [free, enterprise]
 
 # Item lists
 
-The "All items" list is built on the client from decrypted items. Empty: "No items". While data is in flight: "Loading items". A long list loads more as you scroll.
+The "All items" list is built on the client from decrypted items. That is why search does not go to the server and does not look at secrets. Empty: "No items". While data is in flight: "Loading items". A long list loads more as you scroll.
 
 Search, filter, and sort are three different mechanisms. The filter does not replace search.
 
@@ -25,6 +25,10 @@ Weight (`scoreItemsListRecordSearch`):
 Secrets, passwords, and notes are not part of this weight. The row description is on screen, but it is not searched. Search inside the capsule window is different: it looks at non-secret preset section fields.
 
 A tag can also be chosen from the filter, item "Tags": search "Search tags", empty - "No tags found". The choice puts `#tag` into the search field.
+
+:::tip
+A text search drops the vault and the folder. Stay inside a vault with the filter, not with the search box.
+:::
 
 ## Filters
 
@@ -50,7 +54,7 @@ Scopes in the same menu:
 
 The monitoring page also has "Personal" and "Shared" - that is a vault view, not a filter-menu item. In the list they show up as a chip.
 
-Monitoring filters are not listed in the filter menu. "Show" on [monitoring](./monitoring) sets them, and Free has no monitoring. If the parameter is still in the address, the list keeps non-archived, non-deleted items from the report:
+Monitoring filters are not listed in the filter menu. "Show" on [monitoring](./monitoring) sets them. "Monitoring" is available on Free and on Enterprise. If the parameter is still in the address, the list keeps non-archived, non-deleted items from the report:
 
 | Address filter | Label the trigger shows |
 | --- | --- |
@@ -86,3 +90,9 @@ Group "By alphabet:":
 | "Reverse alphabet" | The reverse order. |
 
 Alphabet sections are the first letter of the title in the UI locale (`ru` or `en`). If the first character is not a letter, the section is `#`. `#` always comes before letters in section order. Inside a section, row order is the selected sort.
+
+## Next steps
+
+- [Monitoring](./monitoring)
+- [Folders](./folders)
+- [Item actions](./items/actions)

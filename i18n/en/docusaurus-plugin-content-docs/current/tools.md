@@ -6,7 +6,7 @@ plans: [free, enterprise]
 
 # Tools
 
-Sidebar item "Tools". Inside there are three sections: "Generator", "Import", "Export". There are no other tools in the menu. The stub "This tool is coming soon." exists in the strings. **TODO:** which menu item it is bound to, apart from these three sections, is not visible - the tools sidebar only has these three.
+Sidebar item "Tools" is where you create a password or move items without leaving the vault. Inside there are three sections: "Generator", "Import", "Export". There are no other tools in the menu. The stub "This tool is coming soon." exists in the strings. **TODO:** which menu item it is bound to, apart from these three sections, is not visible - the tools sidebar only has these three.
 
 The generator, import, and export are available on Free. Files inside a ZIP are saved when "Allow files in items" is on. That setting is available on Free too. How to turn it on is in [item settings](./settings/workspace#items).
 
@@ -34,7 +34,7 @@ Generator settings are stored in the browser `localStorage`, not in the vault.
 
 ## Import
 
-"Move data from other services into Okkey in a few steps. Standard formats and popular password managers are supported."
+Import moves items from another manager into the vault you pick. "Move data from other services into Okkey in a few steps. Standard formats and popular password managers are supported."
 
 Fields:
 
@@ -48,6 +48,10 @@ If the file is locked with an export password: window "Export password", "Unlock
 Progress: "Parsing file…", then "Importing N/M: title". Success: "Imported N records. Skipped: M." Some items may be left out: "Some records were not imported (N)." Empty parse: "No records found to import".
 
 ZIP attachments note: the archive can be large, each attachment is limited by the workspace setting in megabytes, and "Only file formats allowed in settings will be imported".
+
+:::note
+Files from a ZIP are saved into items only when "Allow files in items" is on. The setting is available on Free and on Enterprise.
+:::
 
 Import formats (`featured` marks the ones the code flags as featured):
 
@@ -80,7 +84,7 @@ An unknown format id falls through to Custom CSV. Format names are hardcoded and
 
 ## Export
 
-"Export your data to a file for backup or transfer to another service."
+Export builds the file in your browser, from the vault you already unlocked. "Export your data to a file for backup or transfer to another service."
 
 - "Select a vault to export records from". No permission: "You cannot export from the selected vault".
 - "Format".
@@ -116,3 +120,13 @@ Before the button, the UI shows how many records will go into the file. Progress
 Yandex Browser (zip) is import-only. It is not in `exportFormatOptions`.
 
 Export runs from the unlocked vault on the client: the file is built in the browser. The export password is a separate file password, not the master password.
+
+:::warning
+The export password is not the master password. Without it, an encrypted import file will not open.
+:::
+
+## Next steps
+
+- [Folders](./folders)
+- [Items](./items)
+- [Item settings](./settings/workspace#items)

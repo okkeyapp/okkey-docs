@@ -6,6 +6,8 @@ plans: [free, enterprise]
 
 # Capsules
 
+A capsule shares text, a file, or an item by link. The contents are encrypted on the client, so the recipient sees only what you allowed.
+
 Sidebar item "Capsules". List intro: "Capsules are encrypted records for secure sharing via email or chat."
 
 A capsule exists on Free and on Enterprise. On Free it is a link without access settings: `capsuleAccessSettings` is off. On Enterprise the "Advanced settings" block is on. While the block is closed, the UI says: "Advanced settings are available on the Enterprise plan." Next to each disabled row: "Not available on your current plan".
@@ -48,8 +50,18 @@ The "Advanced settings" button shows how many blocks are on.
 
 If a workspace policy already turned a block on, it cannot be turned off on the card.
 
+:::tip
+On Free a capsule is created without "Advanced settings". Limits, a password, and a recipient list appear on Enterprise.
+:::
+
 ## Recipient link
 
 The public capsule page opens without signing in to the vault. The recipient sees only what the card allowed: a password, waiting for approval, a view limit, or an expiry. Request geolocation, when GeoIP is enabled on the server, is resolved locally from MMDB. Self-host compose leaves GeoIP off by default, so country and city can stay "Unknown".
 
 Capsule contents are encrypted with client-side XChaCha20-Poly1305, the same as other core envelopes. The server stores ciphertext and access rules, not plaintext.
+
+## Next steps
+
+- [Capsule settings](./settings/workspace#capsules)
+- [Plans](./plans)
+- [Items](./items)

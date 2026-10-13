@@ -6,7 +6,7 @@ plans: [free, enterprise]
 
 # Categories and templates
 
-The new-item window groups categories like this:
+The category decides which fields a new item starts with, so you do not assemble a login or a card from scratch. The new-item window groups categories like this:
 
 1. "Favorite categories" - if the favorites list is not empty.
 2. "Templates" - if you saved your own templates. The block sits before the authorization group.
@@ -16,7 +16,9 @@ The new-item window groups categories like this:
 
 "Secure files" show up when "Allow files in items" is on for the workspace. That setting is available on Free and on Enterprise.
 
+:::note
 The code has a category `ssh_key` and the string "SSH key", but it is commented out of `ITEM_CATEGORY_DEFINITIONS`. It is not in the picker. **TODO:** do not describe SSH as an available category until that line is enabled again.
+:::
 
 ## Favorites and order
 
@@ -139,8 +141,16 @@ One field "note".
 
 ## Templates
 
+A template keeps the category and the field set so the next item like it does not have to be built again.
+
 "Save as template". Field "Template name", placeholder "Enter template name". Checkbox "Add to favorites". Hint: "The new template will appear in the all categories list". Success: "Template saved". Error: "Could not save template".
 
 A template stores the category and the field set. In the picker it sits in the "Templates" block and can be added to favorites.
 
 Updating an already saved template is the "Update template" window. Text: "After saving, your template \"…\" will be updated". Success: "Template updated". Error: "Could not update template".
+
+## Next steps
+
+- [Fields and sections](./fields)
+- [Item actions](./actions)
+- [Item settings](../settings/workspace#items)

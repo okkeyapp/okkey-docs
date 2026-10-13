@@ -6,7 +6,7 @@ plans: [free, enterprise]
 
 # Install steps
 
-The preferred path from the `dev` root README is one command, with no monorepo clone:
+The shortest path is one command from the `dev` root README. You do not clone the monorepo.
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/dev/deploy/docker/install.sh | bash
@@ -14,7 +14,7 @@ curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/dev/deploy/docker/in
 
 `OKKEY_REF` defaults to `dev`. The install directory is `~/okkey` (`OKKEY_INSTALL_DIR`).
 
-The script:
+The script does four steps:
 
 1. Creates the install directory.
 2. Downloads `docker-compose.prod.yml` and `.env.example` from the selected ref.
@@ -23,7 +23,7 @@ The script:
 
 After start, the web UI is at `PUBLIC_APP_URL` or `http://localhost:$WEB_PORT` (default `http://localhost:8080`). API check: `http://localhost:4000/health`.
 
-## What is still true on dev
+## If pull cannot find images
 
 `deploy/docker/README.md` on the same branch still describes a temporary ref `cursor/self-host-docker-2ea1` and tag `0.0.0-pr19.4`, while GHCR packages may be private. If `docker compose pull` from `dev` cannot find images, follow that README and `OKKEY_IMAGE_TAG`. Do not invent a tag. **TODO:** `dev` does not name a stable release tag. Images are published from git tags `v*` plus `latest`.
 
@@ -36,9 +36,13 @@ Installer variables:
 | `OKKEY_SKIP_PULL=1` | Do not pull images (local build). |
 | `OKKEY_RESET_VOLUMES=1` | `docker compose down -v` before start. Wipes Postgres, Redis, and MinIO data. |
 
-Postgres applies `POSTGRES_PASSWORD` only when the volume is first created. If you delete `.env`, generate new secrets, and reuse the old `okkey_okkey-postgres` volume, the API crash-loops on Postgres authentication.
+:::warning
+Postgres applies the password only when the volume is first created. If you delete `.env`, generate new secrets, and reuse the old `okkey_okkey-postgres` volume, the API crash-loops on Postgres authentication.
+:::
 
 ## Manual install
+
+1. Download the compose file and the env example.
 
 ```bash
 mkdir -p ~/okkey && cd ~/okkey
@@ -47,15 +51,8 @@ curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/dev/deploy/docke
 cp .env.example .env
 ```
 
-In `.env`, replace the passwords. For a domain with TLS set:
-
-- `PUBLIC_APP_URL`
-- `OKKEY_API_PUBLIC_URL`
-- `CORS_ORIGIN`
-- `WEBAUTHN_ORIGINS`
-- `WEBAUTHN_RP_ID`
-
-Then:
+2. In `.env`, replace the passwords. For a domain with TLS set `PUBLIC_APP_URL`, `OKKEY_API_PUBLIC_URL`, `CORS_ORIGIN`, `WEBAUTHN_ORIGINS`, and `WEBAUTHN_RP_ID`.
+3. Start the containers.
 
 ```bash
 docker compose -f docker-compose.prod.yml --env-file .env up -d
@@ -66,6 +63,10 @@ Put your own reverse proxy in front of `web` and `api` (core docs name Caddy, Tr
 ## Email
 
 The default is `EMAIL_PROVIDER=logger` and `EMAIL_DELIVERY_MODE=queue`. Confirmation codes show up in **worker** logs, not API logs: the API only enqueues mail in Redis (`okkey:email:queue`, `okkey:email:delayed`, `okkey:email:dead`). For real mail set SMTP in `.env` (`EMAIL_SMTP_HOST`, `EMAIL_SMTP_PORT`, `EMAIL_SMTP_SECURE`, `EMAIL_SMTP_USER`, `EMAIL_SMTP_PASSWORD`, `EMAIL_FROM`).
+
+:::note
+The first account does not need mail. SMTP matters from the second sign-in. See [first-time setup](./first-setup).
+:::
 
 ## Enterprise modules
 
@@ -112,3 +113,9 @@ docker build -f apps/web/Dockerfile -t ghcr.io/okkeyapp/web:local .
 ```
 
 In `.env` set `OKKEY_IMAGE_TAG=local` and, if needed, `OKKEY_API_IMAGE`, `OKKEY_WEB_IMAGE`, `OKKEY_WORKER_IMAGE`. Install with `OKKEY_SKIP_PULL=1`.
+
+## Next steps
+
+- [First-time setup](./first-setup)
+- [Plans](../plans)
+- [Q-Day ready](../features/qday)

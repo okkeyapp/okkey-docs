@@ -6,7 +6,9 @@ plans: [free, enterprise]
 
 # Q-Day ready
 
-Q-Day ready in Okkey is not a switch in the UI. It is the core crypto policy: from the first production release, new writes use profile v2, with no silent fallback to a weaker profile. Enterprise cannot override that policy.
+Q-Day ready is not a switch in the UI. It is the core crypto policy: from the first production release, new writes use profile v2, with no silent fallback to a weaker profile. Enterprise cannot override that policy.
+
+This matters because the v2 envelope already carries a post-quantum share, even if classical keys are weakened later.
 
 ## Profiles
 
@@ -18,6 +20,10 @@ The registry is `packages/crypto/src/config`:
 | v2 | `qday_default`, hybrid envelope | `dev`, `test`, `stage`, `prod` |
 
 On `stage` and `prod`, new writes are v2 only. v1 remains for explicit dev/test fixtures. Self-host compose defaults to `DEPLOY_ENV=dev` and `CRYPTO_ALLOWED_PROFILE_VERSIONS=1,2`, because web registration still sends `password_kdf_params_version=1` while the identity blob is already v2. `DEPLOY_ENV=prod` allows only profile 2 and returns `CRYPTO_PROFILE_NOT_ALLOWED`. The process refuses to boot if `CRYPTO_ALLOWED_PROFILE_VERSIONS=1,2` is combined with `DEPLOY_ENV=prod`.
+
+:::warning
+Do not set `DEPLOY_ENV=prod` together with profiles `1,2`. The process will not start, and registration on profile 2 alone answers “Encryption profile is not allowed” with the current web client. The working set for an install is in [Install steps](../install/self-hosted#crypto-policy-for-this-install).
+:::
 
 ## Algorithms that are actually used
 
@@ -39,3 +45,9 @@ A v2 user identity is Ed25519 plus ML-KEM-768 (`ed25519_mlkem768_v1`). The priva
 ## What is not in the code
 
 A pure post-quantum profile without ECC is reserved as v3+ and is not implemented in the config registry. **TODO:** this page does not map every call site that still uses AES-256-GCM instead of XChaCha20-Poly1305. Client wrappers for items, capsules, and vault metadata name XChaCha20-Poly1305.
+
+## Next steps
+
+- [Protection](./security)
+- [Zero-knowledge](./zero-knowledge)
+- [Install steps](../install/self-hosted)

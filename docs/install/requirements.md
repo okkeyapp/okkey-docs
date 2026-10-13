@@ -6,7 +6,9 @@ plans: [free, enterprise]
 
 # Требования к серверу
 
-Прод-установка - Docker Compose, без клонирования монорепозитория. Kubernetes в ядре помечен как planned и в этот compose не входит.
+Прод-установка - Docker Compose. Клонировать монорепозиторий не нужно. Kubernetes в ядре помечен как planned и в этот compose не входит.
+
+Вам понадобятся Docker, Docker Compose, исходящий доступ к GHCR и место под тома Postgres, Redis и MinIO. Число ядер и объём RAM в репозитории не заданы. **TODO:** аппаратный минимум не указан.
 
 ## Что поднимает compose
 
@@ -22,10 +24,16 @@ plans: [free, enterprise]
 
 Порты по умолчанию из `.env.example`: веб `8080`, API `4000`.
 
-Нужны Docker и Docker Compose, исходящий доступ к GHCR, чтобы скачать образы, и место под тома Postgres, Redis и MinIO. Число ядер и объём RAM в репозитории не заданы. **TODO:** аппаратный минимум не указан.
-
+:::warning
 Пакеты `ghcr.io/okkeyapp/{api,web,worker}` должны быть публичными, либо Docker должен быть залогинен в GHCR (`read:packages`). Анонимный pull закрытого пакета возвращает 401/403.
+:::
 
 В `.env.example` на ветке `dev` тег образов - `OKKEY_IMAGE_TAG=0.0.0-pr19.4`. Корневой README при этом предлагает установщик с `dev`. Расхождение описано в [этапах установки](./self-hosted).
 
 Отдельно: корневой `docker-compose.yml` репозитория - только инфраструктура для разработки (`yarn infra:up`: Postgres, Redis, MinIO). Это не прод-установка приложения.
+
+## Дальше
+
+- [Этапы установки](./self-hosted)
+- [Первая настройка](./first-setup)
+- [Тарифы](../plans)

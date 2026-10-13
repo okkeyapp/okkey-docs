@@ -6,9 +6,13 @@ plans: [free, enterprise]
 
 # Workspace settings
 
-Sidebar item “Settings”. The page opens on “General”. Nested “Items” and “Capsules” sit under “General” and use the same permission as the general section.
+Sidebar item “Settings” sets rules for the whole workspace: trash retention, capsules, who can see settings, and who can see items. The page opens on “General”. Nested “Items” and “Capsules” sit under “General” and use the same permission as the general section.
 
 Who can see a section is decided by the role. The role matrix resources are “General”, “Items”, “Capsules”, “Roles”, “Profiles”, “Members”, “Vaults”, “Billing”. A role does not grant access to items. Profiles do.
+
+:::tip
+A role opens settings sections. A profile opens items, fields, and actions inside a vault. They are different.
+:::
 
 ## General
 
@@ -36,6 +40,10 @@ ZIP import uses the same limits: the archive may be large, and each attachment i
 Section “Capsules”. Text: “Configure how securely capsules can be used in this workspace: who may create them and which limits are required.”
 
 Capsules themselves exist on Free and on Enterprise. The policies below force the creator to turn access settings on. On Free, capsule create does not let you turn those settings on (`capsuleAccessSettings` is off). On Enterprise the flag is on.
+
+:::note
+You can save capsule policies on Free, but a Free creator cannot turn on "Advanced settings". That needs Enterprise.
+:::
 
 | Setting | Label | Values |
 | --- | --- | --- |
@@ -131,7 +139,7 @@ Simple seed: categories and fields are “All”, functions are “Selected”: 
 
 On Free, `additionalWorkspaceMembers` is off. The invite section is a stub. An invite link without the plugin opens an unavailable-invite page.
 
-On Enterprise the flag is on. The invite UI is the `workspace-members` plugin.
+On Enterprise the flag is on. The invite UI is the `workspace-members` plugin. For a new workspace that is `ENTERPRISE_MODULES=true`.
 
 Button “Invite”. Popup “Invite members”. Subtitle: “New members will receive an email with a link to join the workspace”. A row has only a number, an email (“Enter member email…”), and a role. The default role is “User”. Owner is not in the list, and the server rejects an invitation with that role. Custom roles appear in the select when they exist. “Add more”. The last row cannot be removed (“Remove row”). Submit: “Send invitations (…)”. Rows count when the email contains `@` and a role is selected. Toasts: “Sending invitations…”, “Invitations sent”.
 
@@ -152,3 +160,10 @@ On self-hosted the owner still has one workspace, even when the plan is Enterpri
 “Personal vault” - “Your personal vault in this workspace”, “Available only to you”. One personal vault per workspace. The edit popup is `workspace-shared-vaults`, title “Edit vault”, badge “Personal vault”. Fields: “Icon” (default 🏠, the emoji grid from `@okkey/ui`), “Name”, “Description”. If the vault has no description, the field is filled with “Your personal vault in this workspace”. “Vault access” has no member list: “Only you can see this personal vault. Other workspace members cannot open it, view its contents, or obtain an access key.” The popup cannot grant access or delete the personal vault. “Save”, “Cancel”.
 
 “Shared vaults” - “Vaults with shared access for workspace members”, button “Create”. Flag `sharedVaults` is on for Enterprise. On Free the section is absent: the flag is off and the plugin is not loaded. Who may create and delete is the Vaults resource (POST / DELETE). Create: “Create vault”, badge “Shared vault”. The same icon (default 💼), name, and description. The description starts empty. “Vault access”: search “Search...”, filters “All (…)”, “With access”, “No access”, and each profile by name. Empty search: “No members found”. The select is “No access” or a profile name. On create, the owner, admin, and creator get “Extended”, the owner and admin selects are locked, and everyone else is “No access”. The creator cannot choose “No access” for themselves. Deleting a shared vault, when DELETE is allowed: “Delete vault?”, “The vault and all items inside it will be deleted. This cannot be undone.” Saving wraps the vault key to the recipients on the client. While the vault is locked, it cannot be saved. More in [Vaults](../vaults).
+
+## Next steps
+
+- [Vaults](../vaults)
+- [Capsules](../capsules)
+- [Plans](../plans)
+- [Items](../items)

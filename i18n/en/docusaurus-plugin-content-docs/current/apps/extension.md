@@ -6,7 +6,7 @@ plans: [free, enterprise]
 
 # Browser extension
 
-The extension name is “Okkey”. The manifest description is `Okkey password manager extension`, version `0.0.1`. It is Manifest V3, one source tree for Chromium (Chrome, Edge, Opera, Yandex) and Firefox. The Firefox id is `extension@okkey.io`, minimum Firefox `121.0`.
+The extension fills a username and password on a site while the vault is unlocked. The extension name is “Okkey”. The manifest description is `Okkey password manager extension`, version `0.0.1`. It is Manifest V3, one source tree for Chromium (Chrome, Edge, Opera, Yandex) and Firefox. The Firefox id is `extension@okkey.io`, minimum Firefox `121.0`.
 
 There is no store listing in the repository. You load an unpacked build. **TODO:** Chrome Web Store and Firefox Add-ons publishing is not described.
 
@@ -19,9 +19,12 @@ yarn build:extension:chromium   # apps/extension/output/chrome-mv3
 yarn build:extension:firefox    # apps/extension/output/firefox-mv3
 ```
 
-Chromium: `chrome://extensions` or `edge://extensions`, developer mode, “Load unpacked”, folder `apps/extension/output/chrome-mv3`.
+1. Chromium: open `chrome://extensions` or `edge://extensions`, turn on developer mode, click “Load unpacked”, and choose the folder `apps/extension/output/chrome-mv3`.
+2. Firefox: open `about:debugging#/runtime/this-firefox`, click “Load Temporary Add-on…”, and choose the file `apps/extension/output/firefox-mv3/manifest.json`.
 
-Firefox: `about:debugging#/runtime/this-firefox`, “Load Temporary Add-on…”, file `apps/extension/output/firefox-mv3/manifest.json`. A temporary Firefox add-on disappears when the browser restarts. The repository does not ship a permanent package.
+:::note
+A temporary Firefox add-on disappears when the browser restarts. That is how this install method works. The repository does not ship a permanent package.
+:::
 
 Permissions: `storage`, `tabs`, `idle`, and host access `<all_urls>` for autofill.
 
@@ -53,3 +56,9 @@ The page script fills username, password, and TOTP for the “Login / Password�
 - “No autofill”
 
 If the extension vault is locked, the overlay shows “Unlock”. Copying a username or password on a tab that matches none of the item’s URLs asks for confirmation. A save-password prompt from the page exists in code. The extension README treats an on-page password generator as not done yet. **TODO:** do not treat the on-page generator as available.
+
+## Next steps
+
+- [Fields and sections](../items/fields)
+- [First-time setup](../install/first-setup)
+- [Devices](../settings/devices)

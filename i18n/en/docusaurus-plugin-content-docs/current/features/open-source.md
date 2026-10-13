@@ -6,7 +6,7 @@ plans: [free, enterprise]
 
 # Open source, including encryption
 
-The model is open core.
+The model is open core. Encryption is not hidden in a closed module, so you can read how items are protected.
 
 The public `okkey` repository contains:
 
@@ -16,7 +16,7 @@ The public `okkey` repository contains:
 - the Rust engine `rust/crypto-engine` and the WASM wrapper `packages/crypto`;
 - self-host: Docker Compose under `deploy/docker`.
 
-Encryption is not hidden in a closed module. Profiles v1/v2, the hybrid envelope, Argon2id, XChaCha20-Poly1305, X25519, ML-KEM-768, and Ed25519 are described and called from this repository. See [Q-Day ready](./qday) and [Protection](./security).
+Profiles v1/v2, the hybrid envelope, Argon2id, XChaCha20-Poly1305, X25519, ML-KEM-768, and Ed25519 are described and called from this repository. See [Q-Day ready](./qday) and [Protection](./security).
 
 ## The Enterprise boundary
 
@@ -32,6 +32,14 @@ With `ENTERPRISE_MODULES=true` on a self-hosted install, these plugins load (`ba
 
 Vault key wrap/rotate stays in core.
 
+:::note
 SSO, SAML, OIDC, SCIM, an organization audit log, and organization policies are not implemented in this tree: there are no screens, routes, or plan flags. Architecture overviews name them as future domains.
+:::
 
-Without the plugins the web uses stubs: no custom role or profile CRUD, no member invites, and no shared-vault UI. Core still shows built-in roles and built-in profiles itself. On self-hosted an owner has one workspace.
+Without the plugins the web uses stubs: there is no UI for "Custom roles" or "Custom profiles", no member invites, and no "Shared vaults" UI. Core still shows "Built-in roles" and "Built-in profiles" itself. On self-hosted an owner has one workspace.
+
+## Next steps
+
+- [Plans](../plans)
+- [Workspace settings](../settings/workspace)
+- [Q-Day ready](./qday)

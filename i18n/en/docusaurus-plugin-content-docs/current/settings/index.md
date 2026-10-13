@@ -6,7 +6,7 @@ plans: [free, enterprise]
 
 # Settings
 
-The interface has two different places.
+Settings live in two places so your account does not mix with workspace rules. Personal settings and devices open from the account menu. Workspace rules open from the sidebar.
 
 **Personal settings and devices** open from the account menu: “My settings” and “Device settings”. This is a popup, not a workspace sidebar section. Popup items:
 
@@ -31,3 +31,9 @@ The interface has two different places.
 | “Vaults” | [Workspace](./workspace#vaults) |
 
 Who can see a workspace settings section is decided by the role. Built-in roles: “Owner”, “Admin”, “User”. The user role’s description is “No access to workspace settings”.
+
+## Next steps
+
+- [Personal settings](./personal)
+- [Devices](./devices)
+- [Workspace settings](./workspace)

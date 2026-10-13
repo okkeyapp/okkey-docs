@@ -6,7 +6,9 @@ plans: [free, enterprise]
 
 # Server requirements
 
-The production install is Docker Compose, with no monorepo clone. Kubernetes is marked planned in core and is not part of this compose file.
+The production install is Docker Compose. You do not clone the monorepo. Kubernetes is marked planned in core and is not part of this compose file.
+
+You need Docker, Docker Compose, outbound access to GHCR, and disk for the Postgres, Redis, and MinIO volumes. CPU and RAM are not specified in the repository. **TODO:** there is no hardware minimum.
 
 ## What compose starts
 
@@ -22,10 +24,16 @@ The production install is Docker Compose, with no monorepo clone. Kubernetes is 
 
 Default ports from `.env.example`: web `8080`, API `4000`.
 
-You need Docker and Docker Compose, outbound access to GHCR to pull images, and disk for the Postgres, Redis, and MinIO volumes. CPU and RAM are not specified in the repository. **TODO:** there is no hardware minimum.
-
+:::warning
 The packages `ghcr.io/okkeyapp/{api,web,worker}` must be public, or Docker must be logged in to GHCR (`read:packages`). An anonymous pull of a private package returns 401/403.
+:::
 
 On the `dev` branch, `.env.example` sets `OKKEY_IMAGE_TAG=0.0.0-pr19.4`. The root README still offers the installer from `dev`. That mismatch is covered in [Install steps](./self-hosted).
 
 Separately, the repository-root `docker-compose.yml` is development infrastructure only (`yarn infra:up`: Postgres, Redis, MinIO). It does not install the app.
+
+## Next steps
+
+- [Install steps](./self-hosted)
+- [First-time setup](./first-setup)
+- [Plans](../plans)

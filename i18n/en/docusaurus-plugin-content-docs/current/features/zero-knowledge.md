@@ -6,15 +6,13 @@ plans: [free, enterprise]
 
 # Zero-knowledge
 
-Zero-knowledge in Okkey means the server never sees decrypted items, the master password, or the whole vault key. Encryption and decryption happen only on the client.
+The server never sees decrypted items, the master password, or the whole vault key. Encryption and decryption happen only on the client. A self-hosted administrator cannot read vault contents either: the API, worker, and web images do not change this scheme.
 
 The path for vault data:
 
 1. The client encrypts.
 2. The server stores ciphertext, events, and metadata.
 3. The client decrypts.
-
-A self-hosted administrator cannot read vault contents either: the same client-side scheme applies, and the API, worker, and web images do not change it.
 
 ## What the server does store
 
@@ -28,8 +26,15 @@ The sign-in email is sent by the server (or written to worker logs when `EMAIL_P
 
 Optional capsule GeoIP is resolved locally from an MMDB file. The requester IP is not sent to a third party. Production compose leaves GeoIP off (`GEOIP_ENABLED=false`).
 
-The compromised-password check sends only a SHA-1 prefix to Have I Been Pwned. That is the only outbound password-related request described in the UI, and the full password is not part of it.
+The compromised-password check sends only a SHA-1 prefix to Have I Been Pwned. That is the only outbound password-related request described in the UI. The full password is not part of it.
 
 ## What the server does not do
 
 Cryptography is not moved to the backend. Enterprise plugins cannot redefine core crypto flows, the version policy, or zeroization of vault key material.
+
+## Next steps
+
+- [Protection](./security)
+- [Open source](./open-source)
+- [Monitoring](../monitoring)
+- [Capsules](../capsules)

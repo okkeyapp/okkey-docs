@@ -14,7 +14,7 @@ The category decides which fields a new item starts with, so you do not assemble
 4. "Finance".
 5. "Personal data".
 
-"Secure files" show up when "Allow files in items" is on for the workspace. That setting is available on Free and on Enterprise. How to turn it on is in [item settings](../settings/workspace#items).
+"Secure files" show up when "Allow files in items" is on for the workspace. That setting is on Enterprise. How to turn it on is in [item settings](../settings/workspace#items).
 
 ## Favorites and order
 
@@ -127,7 +127,7 @@ Passport section, preset fields: "type", "issuing country", "number", "full name
 
 ### Secure files
 
-One file field. The category stays hidden until "Allow files in items" is on. The setting itself is available on Free and on Enterprise.
+One file field. The category appears when "Allow files in items" is on. The setting itself is on Enterprise.
 
 ### Secure note
 

@@ -52,7 +52,7 @@ Scopes in the same menu:
 
 "Personal" and "Shared" on the monitoring page choose a set of vaults. In the list they show up as a chip.
 
-Monitoring filters are not listed in the filter menu. "Show" on [monitoring](./monitoring) sets them. "Monitoring" is available on Free and on Enterprise. If the parameter is still in the address, the list keeps non-archived, non-deleted items from the report:
+"Show" on [monitoring](./monitoring) sets the monitoring filters. "Monitoring" is on Enterprise. If the parameter is still in the address, the list keeps non-archived, non-deleted items from the report:
 
 | Address filter | Label the trigger shows |
 | --- | --- |

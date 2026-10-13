@@ -24,7 +24,7 @@ The server creates the sign-in code and sends it by email. If mail is not config
 
 For capsules, the country and city of a request are resolved on the server itself when that function is on. The requester's address is not sent to a third party. On a normal install this function is off.
 
-A breached-password check sends only the start of a hash. The full password is not part of the request.
+On Enterprise, a breached-password check sends only the start of a hash. The full password stays out of the request.
 
 The Enterprise plan does not change encryption.
 

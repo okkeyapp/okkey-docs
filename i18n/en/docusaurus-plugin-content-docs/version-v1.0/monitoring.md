@@ -1,12 +1,14 @@
 ---
 title: Monitoring
 sidebar_position: 8
-plans: [free, enterprise]
+plans: [enterprise]
 ---
 
 # Monitoring
 
-"Monitoring" is in the sidebar on Free and on Enterprise. It shows weak and reused passwords. The count runs on your device, and the passwords themselves are not sent to the server. The card badge is "Beta".
+"Monitoring" is in the sidebar on Enterprise. It shows weak and reused passwords. The count runs on your device, and the passwords themselves are not sent to the server. The card badge is "Beta".
+
+On Free this item is absent. To get Enterprise, contact the Okkey team. See [Plans](./plans).
 
 The score is built from items you can access in the current workspace.
 

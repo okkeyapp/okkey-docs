@@ -13,7 +13,7 @@ The four properties below explain why the server cannot read your items.
 - [Zero-knowledge](./zero-knowledge) - the server stores ciphertext, and open secrets stay with you.
 - [Open source, including encryption](./open-source) - the encryption is published with Okkey.
 
-Menu items: "All items", "Capsules", "Monitoring", "Tools", "Settings".
+Menu items: "All items", "Capsules", "Tools", "Settings". "Monitoring" is on Enterprise.
 
 ## Next steps
 

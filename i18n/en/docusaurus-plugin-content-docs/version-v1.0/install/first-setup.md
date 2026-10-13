@@ -16,6 +16,7 @@ Once an account exists, sign-in with the same address uses a one-time code.
 2. If users already exist: "Confirmation code", 6 digits.
 3. "Sign up for Okkey". Fields: "First name", "Last name", "Master password", "Repeat master password". The password is at least 4 characters, and the two passwords must match. Button "Sign up".
 4. "Save your recovery key". You can "Copy" the key or "Download PDF".
+5. "Vault is locked". Field "Master password", button "Unlock". The vault opens after unlock.
 
 :::warning
 Save the recovery key before "Next". After that the screen will not show it again, and the server cannot restore the key.
@@ -23,7 +24,7 @@ Save the recovery key before "Next". After that the screen will not show it agai
 
 Registration creates a workspace named "Personal" and a "Personal vault". A second workspace cannot be created. This install's plan is Free. An Okkey employee sets up Enterprise. See [Plans](../plans).
 
-The vault opens next. Signing in again on this device uses the "Master password" screen. The account menu has "My settings", "Device settings", and "Log out". Language switches in the header. "Change server" is in the extension.
+Signing in again on this device opens the same "Vault is locked" screen. The account menu has "My settings", "Device settings", and "Log out". Language switches in the header. "Change server" is in the extension.
 
 ## Next steps
 

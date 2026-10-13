@@ -1,9 +1,7 @@
 ---
 title: Папки
 sidebar_position: 11
-plans:
-  selfhosted: [free, enterprise]
-  cloud: [free, pro, family, team, enterprise]
+plans: [free, enterprise]
 ---
 
 # Папки

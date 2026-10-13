@@ -1,16 +1,14 @@
 ---
 title: Capsules
 sidebar_position: 7
-plans:
-  selfhosted: [free, enterprise]
-  cloud: [free, pro, family, team, enterprise]
+plans: [free, enterprise]
 ---
 
 # Capsules
 
 Sidebar item "Capsules". List intro: "Capsules are encrypted records for secure sharing via email or chat."
 
-A capsule exists on every plan. On Free it is a link without access settings. The "Advanced settings" block is enabled by the `capsuleAccessSettings` flag (cloud: Pro, Family, Team, Enterprise; self-hosted: enterprise). The string shown when the block is closed says something else: "Advanced settings are available on the Enterprise plan." That is copy, not the plan check. The check is `hasPlanFeature(..., "capsuleAccessSettings")`. Next to each disabled row: "Not available on your current plan".
+A capsule exists on Free and on Enterprise. On Free it is a link without access settings: `capsuleAccessSettings` is off. On Enterprise the "Advanced settings" block is on. While the block is closed, the UI says: "Advanced settings are available on the Enterprise plan." Next to each disabled row: "Not available on your current plan".
 
 Workspace policies can force some of these settings. They are set in [capsule settings](./settings/workspace#capsules). If a member is not allowed to create capsules, the item does not work for them.
 

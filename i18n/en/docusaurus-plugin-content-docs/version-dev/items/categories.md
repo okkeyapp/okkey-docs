@@ -1,9 +1,7 @@
 ---
 title: Categories and templates
 sidebar_position: 2
-plans:
-  selfhosted: [free, enterprise]
-  cloud: [free, pro, family, team, enterprise]
+plans: [free, enterprise]
 ---
 
 # Categories and templates
@@ -133,7 +131,7 @@ Passport section, preset fields: "type", "issuing country", "number", "full name
 
 ### Secure files
 
-One file field. The category is hidden while "Allow files in items" is off. That is Pro and above in cloud, and self-hosted enterprise.
+One file field. The category is hidden while "Allow files in items" is off. The `filesInItems` flag is on for Enterprise and off for Free.
 
 ### Secure note
 

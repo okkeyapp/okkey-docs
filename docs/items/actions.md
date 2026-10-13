@@ -1,9 +1,7 @@
 ---
 title: Действия с записью
 sidebar_position: 4
-plans:
-  selfhosted: [free, enterprise]
-  cloud: [free, pro, family, team, enterprise]
+plans: [free, enterprise]
 ---
 
 # Действия с записью

@@ -1,9 +1,7 @@
 ---
 title: Item lists
 sidebar_position: 13
-plans:
-  selfhosted: [free, enterprise]
-  cloud: [free, pro, family, team, enterprise]
+plans: [free, enterprise]
 ---
 
 # Item lists

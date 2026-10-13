@@ -1,9 +1,7 @@
 ---
 title: Инструменты
 sidebar_position: 9
-plans:
-  selfhosted: [free, enterprise]
-  cloud: [free, pro, family, team, enterprise]
+plans: [free, enterprise]
 ---
 
 # Инструменты

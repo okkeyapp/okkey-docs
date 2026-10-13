@@ -1,9 +1,7 @@
 ---
 title: Apps
 sidebar_position: 1
-plans:
-  selfhosted: [free, enterprise]
-  cloud: [free, pro, family, team, enterprise]
+plans: [free, enterprise]
 ---
 
 # Apps and extensions

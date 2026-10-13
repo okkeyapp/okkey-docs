@@ -1,9 +1,7 @@
 ---
 title: Требования
 sidebar_position: 2
-plans:
-  selfhosted: [free, enterprise]
-  cloud: []
+plans: [free, enterprise]
 ---
 
 # Требования к серверу

@@ -1,9 +1,7 @@
 ---
 title: Категории и шаблоны
 sidebar_position: 2
-plans:
-  selfhosted: [free, enterprise]
-  cloud: [free, pro, family, team, enterprise]
+plans: [free, enterprise]
 ---
 
 # Категории и шаблоны
@@ -133,7 +131,7 @@ plans:
 
 ### Защищённые файлы
 
-Одно поле файла. Категория скрыта, пока «Разрешить файлы в записях» выключено. Это Pro и выше в cloud и self-hosted enterprise.
+Одно поле файла. Категория скрыта, пока «Разрешить файлы в записях» выключено. Флаг `filesInItems` включён на Enterprise и выключен на Free.
 
 ### Защищённая заметка
 

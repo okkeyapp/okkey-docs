@@ -1,9 +1,7 @@
 ---
 title: Item actions
 sidebar_position: 4
-plans:
-  selfhosted: [free, enterprise]
-  cloud: [free, pro, family, team, enterprise]
+plans: [free, enterprise]
 ---
 
 # Item actions

@@ -1,9 +1,7 @@
 ---
 title: Devices
 sidebar_position: 3
-plans:
-  selfhosted: [free, enterprise]
-  cloud: [free, pro, family, team, enterprise]
+plans: [free, enterprise]
 ---
 
 # Devices

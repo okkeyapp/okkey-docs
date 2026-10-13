@@ -1,9 +1,7 @@
 ---
 title: Requirements
 sidebar_position: 2
-plans:
-  selfhosted: [free, enterprise]
-  cloud: []
+plans: [free, enterprise]
 ---
 
 # Server requirements

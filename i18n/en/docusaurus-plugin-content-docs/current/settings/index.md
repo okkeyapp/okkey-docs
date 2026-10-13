@@ -1,9 +1,7 @@
 ---
 title: Settings
 sidebar_position: 1
-plans:
-  selfhosted: [free, enterprise]
-  cloud: [free, pro, family, team, enterprise]
+plans: [free, enterprise]
 ---
 
 # Settings
@@ -31,7 +29,5 @@ The interface has two different places.
 | “Profiles” | [Workspace](./workspace#profiles) |
 | “Members” | [Workspace](./workspace#members) |
 | “Vaults” | [Workspace](./workspace#vaults) |
-| “Change plan” | [Workspace](./workspace#change-plan) |
-| “Billing & invoices” | The section exists in types and permissions, but it is hidden from the menu. [Workspace](./workspace#billing--invoices). |
 
 Who can see a workspace settings section is decided by the role. Built-in roles: “Owner”, “Admin”, “User”. The user role’s description is “No access to workspace settings”.

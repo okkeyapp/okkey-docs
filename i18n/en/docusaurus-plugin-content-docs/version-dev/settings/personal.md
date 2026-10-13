@@ -1,9 +1,7 @@
 ---
 title: Personal settings
 sidebar_position: 2
-plans:
-  selfhosted: [free, enterprise]
-  cloud: [free, pro, family, team, enterprise]
+plans: [free, enterprise]
 ---
 
 # Personal settings
@@ -59,11 +57,11 @@ Item “Recovery”, title “Access recovery”.
 | Block | Label | Plan |
 | --- | --- | --- |
 | Key | “Recovery key”. “This key helps restore access to your account if you forget your master password”. | Every plan. The key can be enrolled and rotated. Registration offers the same key immediately. |
-| Devices | “Trusted devices”. “Helps restore your account through your other trusted devices if you are signed in on them”. | Flag `accountRecovery` — Pro and above on cloud, self-hosted enterprise. The wizard is `@okkey-enterprise/account-recovery` (plugin `account-recovery-advanced`). Without the module, core says remote recovery is unavailable in the web client. The method can be turned on when there are at least two trusted devices and one of them is the current device. Otherwise: “Add another trusted device before enabling this recovery method”. |
-| Contacts | “Trusted contacts”. “Add at least 3 trusted contacts who can help restore access”. | Flag `trustedContacts`, same plans. The confirmed minimum is 3. Status: “Need … more confirmed contacts”, “Ready”. Invite: “Trusted contact invitation”, “Enter contact email”. The contact must already be an Okkey user. Remove: “Remove trusted contact?”. |
+| Devices | “Trusted devices”. “Helps restore your account through your other trusted devices if you are signed in on them”. | Flag `accountRecovery` is on for Enterprise. The wizard is `@okkey-enterprise/account-recovery` (plugin `account-recovery-advanced`). On Free, core says remote recovery is unavailable in the web client. The method can be turned on when there are at least two trusted devices and one of them is the current device. Otherwise: “Add another trusted device before enabling this recovery method”. |
+| Contacts | “Trusted contacts”. “Add at least 3 trusted contacts who can help restore access”. | Flag `trustedContacts` is on for Enterprise. The confirmed minimum is 3. Status: “Need … more confirmed contacts”, “Ready”. Invite: “Trusted contact invitation”, “Enter contact email”. The contact must already be an Okkey user. Remove: “Remove trusted contact?”. |
 | Reverse role | “I am a trusted contact”. “Accounts that listed you to help restore access if they lose their master password”. Leave: “Leave trusted contacts?”. | The same contacts module. |
 
-If the paid parts are unavailable, a “Note” points at changing the plan. Both the flag and the module are required. The right is counted on the account: any workspace where the user is an owner or a member and the plan grants the flag is enough. The wizards are web screens. This repository has no separate mobile or desktop wizard.
+On Free the paid parts are unavailable and a “Note” is shown. Both the Enterprise flag and the module are required. The right is counted on the account: any workspace where the user is an owner or a member and the plan grants the flag is enough. The wizards are web screens. This repository has no separate mobile or desktop wizard.
 
 While the vault is unlocked and contacts are on, the module prepares shares for confirmed contacts by itself. There is no separate “write shares” button. The threshold is 3. The UI does not offer another number. A device request and a contact request last 1 hour.
 

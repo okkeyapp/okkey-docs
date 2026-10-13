@@ -1,81 +1,79 @@
 # okkey-docs
 
-Документация [Okkey](https://github.com/okkeyapp/okkey): self-hosted менеджер паролей. Сайт на Docusaurus 3. Язык по умолчанию — русский, английский — полный перевод страниц. Опубликована версия `dev`: снимок ветки `dev` открытого репозитория `okkey`.
+Documentation for [Okkey](https://github.com/okkeyapp/okkey), a self-hosted password manager. The site is Docusaurus 3. The default locale is Russian. English is a full translation of the pages. The published version is `dev`: a snapshot of the `dev` branch of the public `okkey` repository.
 
-Страницы сверены с `okkey` и с `okkey-enterprise`, ветка `dev`. Описаны только модули, которые есть в дереве. Если экрана нет, страница не называет функцию готовой. Оставшиеся пробелы помечены **TODO**.
+Pages are checked against `okkey` and `okkey-enterprise`, branch `dev`. Only modules that exist in the tree are described. If a screen is missing, the page does not call the feature ready. Remaining gaps are marked **TODO**.
 
-## Локально
+Russian text lives in `docs/`, `versioned_docs/`, and `i18n/ru/`. Everything else in this repository is English.
 
-Нужен Node.js 20 или новее (в CI — 22).
+## Local
+
+Node.js 20 or newer (CI uses 22).
 
 ```bash
 npm ci
 npm start
 ```
 
-Сайт открывается на `http://localhost:3000`. Английская локаль — `http://localhost:3000/en/`.
+The site opens at `http://localhost:3000`. The English locale is `http://localhost:3000/en/`.
 
 ```bash
 npm run build
 npm run serve
 ```
 
-`npm run build` собирает обе локали и падает на битой ссылке или якоре.
+`npm run build` builds both locales and fails on a broken link or anchor.
 
-## Как устроено версионирование
+## Versioning
 
-Опубликованный сайт — это только снимки из `versioned_docs/`. Текущая рабочая копия в `docs/` на сайт не выкладывается (`includeCurrentVersion: false`). Версия по умолчанию — `dev` (`lastVersion`).
+The published site is only the snapshots in `versioned_docs/`. The working copy in `docs/` is not served (`includeCurrentVersion: false`). The default version is `dev` (`lastVersion`).
 
-- Русский текст версии: `versioned_docs/version-dev/`.
-- Английский текст версии: `i18n/en/docusaurus-plugin-content-docs/version-dev/`.
-- Подписи разделов сайдбара на английском: `i18n/en/docusaurus-plugin-content-docs/version-dev.json`.
-- Рабочая копия следующей версии: `docs/` и `i18n/en/docusaurus-plugin-content-docs/current/`.
+- Russian text of the version: `versioned_docs/version-dev/`.
+- English text of the version: `i18n/en/docusaurus-plugin-content-docs/version-dev/`.
+- English sidebar category labels: `i18n/en/docusaurus-plugin-content-docs/version-dev.json`.
+- Working copy for the next cut: `docs/` and `i18n/en/docusaurus-plugin-content-docs/current/`.
 
-Правка уже выпущенной версии делается в `versioned_docs` и в `version-dev`, не только в `docs/`.
+An edit to an already published version goes into `versioned_docs` and `version-dev`, not only into `docs/`.
 
-## Как срезать новую версию
+## Cutting a new version
 
-1. Обновите русские страницы в `docs/` и английские в `i18n/en/docusaurus-plugin-content-docs/current/`. У каждой страницы во frontmatter должен быть `plans`.
-2. В `docusaurus.config.ts` на время команды включите `includeCurrentVersion: true` и уберите `versions.<новое имя>`, если такой версии ещё нет. Иначе CLI не стартует: при `includeCurrentVersion: false` и пустом `versions.json` плагин считает, что версий нет.
-3. Снимите снимок:
+1. Update the Russian pages in `docs/` and the English pages in `i18n/en/docusaurus-plugin-content-docs/current/`. Every page needs `plans` in the frontmatter.
+2. In `docusaurus.config.ts`, set `includeCurrentVersion: true` for the command and remove `versions.<new name>` if that version does not exist yet. Otherwise the CLI will not start: with `includeCurrentVersion: false` and an empty `versions.json`, the plugin treats the site as having no versions.
+3. Cut the snapshot:
 
    ```bash
    npm run docusaurus docs:version 1.0.0
    ```
 
-   Имя замените на версию продукта. Команда копирует `docs/` в `versioned_docs/version-1.0.0/` и текущие английские переводы в `i18n/en/docusaurus-plugin-content-docs/version-1.0.0/`.
-4. Верните `includeCurrentVersion: false`. Если новая версия должна открываться по умолчанию, поставьте `lastVersion: '1.0.0'` и добавьте подпись в `versions`.
-5. Достаньте строки интерфейса и переведите сайдбар и навбар:
+   Replace the name with the product version. The command copies `docs/` to `versioned_docs/version-1.0.0/` and the current English translations to `i18n/en/docusaurus-plugin-content-docs/version-1.0.0/`.
+4. Set `includeCurrentVersion: false` again. If the new version should be the default, set `lastVersion: '1.0.0'` and add a label under `versions`.
+5. Extract UI strings and translate the sidebar and navbar:
 
    ```bash
    npm run docusaurus write-translations -- --locale en
    ```
 
-   В `i18n/en/docusaurus-plugin-content-docs/version-1.0.0.json` замените русские `message` разделов на английские. Навбар «Документация» — в `i18n/en/docusaurus-theme-classic/navbar.json`.
-6. `npm run build`.
+   In `i18n/en/docusaurus-plugin-content-docs/version-1.0.0.json`, replace the Russian `message` values for categories with English. The navbar label is in `i18n/en/docusaurus-theme-classic/navbar.json`.
+6. Run `npm run build`.
 
-Первая версия в этом репозитории называется `dev`, потому что источник — ветка `dev`, а не тег релиза.
+The first version in this repository is named `dev` because the source is the `dev` branch, not a release tag.
 
-## Бейдж тарифа
+## Plan badge
 
-`src/theme/DocItem/Layout` — swizzle темы. На каждой странице он рисует `PlanBadges` из frontmatter:
+`src/theme/DocItem/Layout` is a theme swizzle. On every page it renders `PlanBadges` from frontmatter. These docs cover self-hosted only. There are two plans: `free` (`plan_tier` `FREE`, modules off) and `enterprise` (`plan_tier` `ENTERPRISE`, `ENTERPRISE_MODULES` on).
 
 ```yaml
-plans:
-  selfhosted: [free, enterprise]
-  cloud: [free, pro, family, team, enterprise]
+plans: [free, enterprise]
 ```
 
-Пустой массив значит, что на этом канале страницы нет. Нет frontmatter или значение вне списка — красная плашка TODO, сборка при этом не падает. `pro` в бейдже — это `plan_tier` `PREMIUM`. В интерфейсе пункт называется «Премиум» / Premium.
+A page that describes an Enterprise-only capability:
 
-## Откуда факты
+```yaml
+plans: [enterprise]
+```
 
-Страницы опираются на `okkey` ветки `dev`: матрицу `packages/types/src/plan-features.ts`, локали `packages/i18n/src/locales/web/{ru,en}.json`, установку `deploy/docker`, криптопрофиль `packages/crypto`. Адрес сайта в конфиге — `https://okkey.app`. Отдельного хоста документации в исходниках нет. **TODO:** если документация будет на другом домене, поменять `url` в `docusaurus.config.ts`.
+Missing frontmatter, a non-array, or a value other than `free` / `enterprise` shows a red TODO banner. The build still succeeds.
 
-## English
+## Where the facts come from
 
-Russian is the default locale. English pages live under `i18n/en`. `npm run build` builds both and fails on a broken link or anchor.
-
-Published docs are the `dev` snapshot only. `docs/` is the working copy for the next cut and is not served. To cut a version, update `docs/` and `i18n/en/docusaurus-plugin-content-docs/current/`, temporarily set `includeCurrentVersion: true`, run `npm run docusaurus docs:version <name>`, then set `includeCurrentVersion: false` and `lastVersion` if the new version should be the default. Translate the new sidebar strings in `i18n/en/docusaurus-plugin-content-docs/version-<name>.json`.
-
-Pages are checked against `okkey` and `okkey-enterprise`, branch `dev`. Only modules that exist in the tree are described. Remaining gaps are marked **TODO**.
+Pages follow `okkey` branch `dev`: the matrix in `packages/types/src/plan-features.ts`, the locales in `packages/i18n/src/locales/web/{ru,en}.json`, the install in `deploy/docker`, and the crypto profile in `packages/crypto`. The site URL in the config is `https://okkey.app`. The sources do not name a separate docs host. **TODO:** if the docs move to another domain, change `url` in `docusaurus.config.ts`.

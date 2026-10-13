@@ -1,16 +1,12 @@
 ---
 title: Self-hosted install
 sidebar_position: 1
-plans:
-  selfhosted: [free, enterprise]
-  cloud: []
+plans: [free, enterprise]
 ---
 
 # Self-hosted install
 
-Self-hosting runs Okkey core on your machine. Encryption stays on the client: the server administrator cannot read vaults.
-
-Cloud plans do not use this install. `deploy/docker` has no step-by-step SaaS install. **TODO:** how an end user brings up a cloud instance is not described in the public install docs.
+Self-hosting runs Okkey core on your machine. Encryption stays on the client: the server administrator cannot read vaults. Without the modules a new workspace is Free. With `ENTERPRISE_MODULES` it is Enterprise. Details are on [Plans](../plans).
 
 Next:
 

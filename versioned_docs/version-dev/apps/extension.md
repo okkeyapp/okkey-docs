@@ -1,9 +1,7 @@
 ---
 title: Браузерное расширение
 sidebar_position: 2
-plans:
-  selfhosted: [free, enterprise]
-  cloud: [free, pro, family, team, enterprise]
+plans: [free, enterprise]
 ---
 
 # Браузерное расширение

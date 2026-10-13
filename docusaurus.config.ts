@@ -40,8 +40,6 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // The published site is the versioned snapshot of the current `dev` sources.
           // `docs/` stays the working copy for the next cut and is not served.
-          // The published site is the versioned snapshot of the current `dev` sources.
-          // `docs/` stays the working copy for the next cut and is not served.
           includeCurrentVersion: false,
           lastVersion: 'dev',
           versions: {

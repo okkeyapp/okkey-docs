@@ -1,9 +1,7 @@
 ---
 title: Browser extension
 sidebar_position: 2
-plans:
-  selfhosted: [free, enterprise]
-  cloud: [free, pro, family, team, enterprise]
+plans: [free, enterprise]
 ---
 
 # Browser extension

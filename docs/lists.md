@@ -1,9 +1,7 @@
 ---
 title: Списки записей
 sidebar_position: 13
-plans:
-  selfhosted: [free, enterprise]
-  cloud: [free, pro, family, team, enterprise]
+plans: [free, enterprise]
 ---
 
 # Списки записей

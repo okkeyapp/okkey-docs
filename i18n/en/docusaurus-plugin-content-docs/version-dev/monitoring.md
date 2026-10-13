@@ -1,14 +1,12 @@
 ---
 title: Monitoring
 sidebar_position: 8
-plans:
-  selfhosted: [enterprise]
-  cloud: [pro, family, team, enterprise]
+plans: [enterprise]
 ---
 
 # Monitoring
 
-Sidebar item "Monitoring". On Free the item is effectively absent: the `monitoring` flag is off. The page badge is "Beta".
+Sidebar item "Monitoring". The `monitoring` flag is on for Enterprise. On Free the item is absent. The page badge is "Beta".
 
 Page text: "The security score is calculated from records you can access in the current workspace. Analysis runs locally and does not collect or send statistics about your data."
 

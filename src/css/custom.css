@@ -1,0 +1,64 @@
+:root {
+  --ifm-color-primary: #2563eb;
+  --ifm-color-primary-dark: #1d4ed8;
+  --ifm-color-primary-darker: #1e40af;
+  --ifm-color-primary-darkest: #1e3a8a;
+  --ifm-color-primary-light: #3b82f6;
+  --ifm-color-primary-lighter: #60a5fa;
+  --ifm-color-primary-lightest: #93c5fd;
+  --ifm-code-font-size: 95%;
+  --ifm-font-family-base: Inter, system-ui, -apple-system, Segoe UI, sans-serif;
+}
+
+.plan-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin: 0.85rem 0 1.35rem;
+  padding: 0.8rem 0.95rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 10px;
+  background: var(--ifm-background-surface-color);
+}
+
+.plan-badges__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.4rem;
+}
+
+.plan-badges__channel {
+  min-width: 6.75rem;
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+}
+
+.plan-chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 999px;
+  padding: 0.05rem 0.55rem;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: var(--ifm-color-emphasis-600);
+  background: transparent;
+}
+
+.plan-chip--on {
+  border-color: transparent;
+  background: var(--ifm-color-primary);
+  color: #fff;
+}
+
+.plan-badges--missing {
+  border-color: var(--ifm-color-danger);
+  color: var(--ifm-color-danger-darkest, var(--ifm-color-danger));
+  font-weight: 600;
+}
+
+html[data-theme='dark'] .plan-chip--on {
+  color: #fff;
+}

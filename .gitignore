@@ -1,0 +1,6 @@
+node_modules
+.docusaurus
+build
+.npm
+*.log
+.DS_Store

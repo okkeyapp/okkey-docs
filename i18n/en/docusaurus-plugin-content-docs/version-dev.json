@@ -1,0 +1,26 @@
+{
+  "version.label": {
+    "message": "dev",
+    "description": "The label for version dev"
+  },
+  "sidebar.docs.category.Возможности": {
+    "message": "Features",
+    "description": "The label for category 'Возможности' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Установка self-hosted": {
+    "message": "Self-hosted install",
+    "description": "The label for category 'Установка self-hosted' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Приложения": {
+    "message": "Apps",
+    "description": "The label for category 'Приложения' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Настройки": {
+    "message": "Settings",
+    "description": "The label for category 'Настройки' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Записи": {
+    "message": "Items",
+    "description": "The label for category 'Записи' in sidebar 'docs'"
+  }
+}

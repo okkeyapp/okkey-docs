@@ -1,0 +1,8 @@
+{
+  "label": "Возможности",
+  "position": 3,
+  "link": {
+    "type": "doc",
+    "id": "features/index"
+  }
+}

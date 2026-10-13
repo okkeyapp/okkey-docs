@@ -78,6 +78,8 @@ While the flag is off, registration sets `plan_tier` to `FREE`. The API serves o
 
 With `ENTERPRISE_MODULES=true`, registering a new workspace sets `plan_tier` to `ENTERPRISE`. Feature checks use that tier. On self-hosted an owner has one workspace. What each plan opens is on [Plans](../plans).
 
+An existing Free workspace is moved to Enterprise only manually, on request, by an Okkey specialist. That requires SSH access to the VPS where Okkey is installed. Contact the Okkey team and provide that access. More is in [Plans](../plans#an-existing-workspace).
+
 ## Crypto policy for this install
 
 Keep this for the current web client:

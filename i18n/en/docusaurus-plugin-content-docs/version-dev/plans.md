@@ -19,6 +19,10 @@ Features are checked with `hasPlanFeature(planTier)`. `okkey-enterprise` plugins
 
 On self-hosted an owner has one workspace.
 
+## An existing workspace
+
+A new install receives its plan at registration. An existing Free workspace is moved to Enterprise only manually, on request, by an Okkey specialist. That requires SSH access to the VPS where Okkey is installed. Contact the Okkey team and provide that access.
+
 ## What is on
 
 Flags from `PLAN_FEATURE_MATRIX` for `FREE` and `ENTERPRISE`.

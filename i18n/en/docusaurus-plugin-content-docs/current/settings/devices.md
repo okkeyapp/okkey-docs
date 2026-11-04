@@ -18,6 +18,14 @@ A "New device" must be confirmed. Until it is confirmed, it does not open the va
 A new device will not open the vault until you confirm it on a device you already trust.
 :::
 
+If you sign in again from the same device before it is approved, the new request replaces the previous one, so no duplicate appears in the list.
+
+### Waiting for approval screen
+
+The new device shows "Confirm this device" and "Waiting for approval…". Approve the sign-in on a trusted device. If a trusted device rejects the sign-in or the device is revoked, you see "This device was denied". You can request approval again or restore access with your recovery key.
+
+If you see an error that too many devices are waiting for approval, reject the extra requests on a trusted device.
+
 ## Personalization
 
 Theme and color for this browser.

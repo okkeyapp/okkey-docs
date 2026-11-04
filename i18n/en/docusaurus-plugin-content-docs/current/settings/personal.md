@@ -59,7 +59,7 @@ Set up a recovery method in advance. If the master password is forgotten, the se
 
 | Method | Plan | How to turn it on |
 | --- | --- | --- |
-| "Recovery key" | Free and Enterprise | Turn the key on or issue a new one. The same key is offered at registration. |
+| "Recovery key" | Free and Enterprise | Turn the key on or issue a new one. The same key is offered at registration. After you recover with the key, the device where you entered it becomes trusted. If you enter the key again in the same session, only the latest entry counts. |
 | "Trusted devices" | Enterprise | You need at least two trusted devices, and one of them must be the current device. Otherwise you are asked to add another device. |
 | "Trusted contacts" | Enterprise | At least 3 confirmed contacts. A contact must already be an Okkey user. |
 | "I am a trusted contact" | Enterprise | Accounts you can help. You can leave that list. |

@@ -12,7 +12,7 @@ The web app, the mobile app, the desktop app, the browser extension, and the Doc
 
 Overviews: [Q-Day ready](./qday), [Protection](./security).
 
-An Okkey employee sets up Enterprise. When the Enterprise license expires, the installation automatically switches to the FREE plan. The plan changes which workspace features are available. It does not replace encryption.
+An Okkey employee sets up Enterprise. The plan changes which workspace features are available. It does not replace encryption.
 
 Free includes built-in roles and built-in profiles. Custom roles, custom profiles, additional members, and shared vaults appear on Enterprise. On self-hosted, an owner has one workspace.
 

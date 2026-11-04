@@ -31,7 +31,7 @@ The script does four steps:
 
 After start, the web app opens at `http://localhost:8080` unless you set another address. API check: `http://localhost:4000/health`.
 
-The install runs on Free. To get Enterprise, contact the Okkey team. When the Enterprise license expires, the installation automatically switches to the FREE plan. The plan comparison is on [Plans](../plans).
+The install runs on Free. To get Enterprise, contact the Okkey team. The plan comparison is on [Plans](../plans).
 
 :::warning
 The database password is applied when the data is first created. If you delete `.env`, create new secrets, and start the old data, the API cannot sign in to the database.

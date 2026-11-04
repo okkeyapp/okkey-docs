@@ -8,7 +8,7 @@ plans: [free, enterprise]
 
 Self-hosted puts Okkey on your machine. Encryption stays on your device, so vault contents cannot be read from the server.
 
-An install you do yourself runs on Free. An Okkey employee sets up Enterprise. When the Enterprise license expires, the installation automatically switches to the FREE plan. What each plan includes is on [Plans](../plans).
+An install you do yourself runs on Free. An Okkey employee sets up Enterprise. What each plan includes is on [Plans](../plans).
 
 Only Docker Compose is supported. Kubernetes and Helm are planned and are not part of v1.0.0.
 

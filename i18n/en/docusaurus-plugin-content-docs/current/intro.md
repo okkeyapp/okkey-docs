@@ -9,7 +9,7 @@ plans: [free, enterprise]
 
 Okkey is a password manager you install yourself. Items are encrypted on your device. The server stores ciphertext and cannot read the vaults.
 
-These pages are about self-hosted Okkey. You install it yourself and get the Free plan. An Okkey employee sets up Enterprise. When the Enterprise license expires, the installation automatically switches to the FREE plan. See [Plans](./plans).
+These pages are about self-hosted Okkey. You install it yourself and get the Free plan. An Okkey employee sets up Enterprise. See [Plans](./plans).
 
 :::note
 This is the v1.0 docs line. It currently covers release [1.0.0-beta.1](https://github.com/okkeyapp/okkey/releases/tag/v1.0.0-beta.1). Later 1.0.x betas and patches update these same pages.

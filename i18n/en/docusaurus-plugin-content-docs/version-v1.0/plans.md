@@ -12,6 +12,8 @@ You install Okkey yourself. That install runs on Free.
 
 An Okkey employee sets up Enterprise. To get Enterprise, contact the Okkey team.
 
+When the Enterprise license expires, the installation automatically switches to the FREE plan.
+
 On self-hosted, an owner has one workspace.
 
 ## What's included

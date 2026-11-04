@@ -23,7 +23,6 @@ Save the recovery key before "Next". After that the screen will not show it agai
 :::
 
 Registration creates a workspace named "Personal" and a "Personal vault". A second workspace cannot be created. This install's plan is Free. An Okkey employee sets up Enterprise. See [Plans](../plans).
-
 Signing in again on this device opens the same "Vault is locked" screen. The account menu has "My settings", "Device settings", and "Log out". Language switches in the header. "Change server" is in the extension.
 
 ## Next steps

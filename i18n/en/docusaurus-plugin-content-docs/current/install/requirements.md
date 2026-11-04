@@ -6,9 +6,9 @@ plans: [free, enterprise]
 
 # Server requirements
 
-A production install uses Docker Compose. You do not need to clone the repository.
+Only Docker Compose is supported. Kubernetes and Helm are planned and are not part of v1.0.0. You do not need to clone the repository.
 
-You need Docker, Docker Compose, and disk for the database, the queue, and files. The installer does not set a CPU or RAM number.
+You need Docker, Docker Compose, cosign, and disk for the database, the queue, and files. The installer does not set a CPU or RAM number.
 
 ## What starts
 

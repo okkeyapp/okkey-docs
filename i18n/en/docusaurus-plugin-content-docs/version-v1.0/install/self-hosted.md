@@ -8,19 +8,17 @@ plans: [free, enterprise]
 
 Install Okkey with one command. You do not need to clone the repository.
 
-A production install takes files from the `main` branch. A development install takes files from the `dev` branch.
+Only Docker Compose is supported. Kubernetes and Helm are planned and are not part of v1.0.0.
 
-## Production install
+Install files come from release `v1.0.0-beta.2`, and images use the tag `1.0.0-beta.2`. The script checks image signatures with cosign. The check is on by default.
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/main/deploy/docker/install.sh | OKKEY_REF=main bash
-```
-
-## Development install
+## Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/dev/deploy/docker/install.sh | OKKEY_REF=dev bash
+curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.2/deploy/docker/install.sh | OKKEY_REF=v1.0.0-beta.2 OKKEY_IMAGE_TAG=1.0.0-beta.2 bash
 ```
+
+The machine needs `cosign`. Before start, the script checks the signatures of the `api`, `web`, and `worker` images.
 
 The install directory is `~/okkey`.
 
@@ -43,24 +41,23 @@ Useful installer variables:
 
 | Variable | Meaning |
 | --- | --- |
-| `OKKEY_REF` | Branch of the install files: `main` for production, `dev` for development. |
+| `OKKEY_REF` | Git ref of the install files. For this release: `v1.0.0-beta.2`. |
+| `OKKEY_IMAGE_TAG` | Container image tag. For this release: `1.0.0-beta.2`. |
 | `OKKEY_INSTALL_DIR` | Directory. Default `~/okkey`. |
 | `OKKEY_RESET_VOLUMES=1` | Delete database, session, and file data before start. |
 
 ## Manual install
 
-1. Download the install files.
-
-A production install uses `main` in the address. For development, replace `main` with `dev`.
+1. Download the files for release `v1.0.0-beta.2`.
 
 ```bash
 mkdir -p ~/okkey && cd ~/okkey
-curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/main/deploy/docker/docker-compose.prod.yml"
-curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/main/deploy/docker/.env.example"
+curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.2/deploy/docker/docker-compose.prod.yml"
+curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.2/deploy/docker/.env.example"
 cp .env.example .env
 ```
 
-2. In `.env`, replace the passwords. For an HTTPS site, set the app address, the API address, the allowed origin, and the device-key sign-in parameters: `PUBLIC_APP_URL`, `OKKEY_API_PUBLIC_URL`, `CORS_ORIGIN`, `WEBAUTHN_ORIGINS`, `WEBAUTHN_RP_ID`.
+2. In `.env`, replace the passwords. Leave `OKKEY_IMAGE_TAG=1.0.0-beta.2`. For an HTTPS site, set the app address, the API address, the allowed origin, and the device-key sign-in parameters: `PUBLIC_APP_URL`, `OKKEY_API_PUBLIC_URL`, `CORS_ORIGIN`, `WEBAUTHN_ORIGINS`, `WEBAUTHN_RP_ID`.
 3. Start the containers.
 
 ```bash
@@ -69,7 +66,7 @@ docker compose -f docker-compose.prod.yml --env-file .env up -d
 
 Put your own reverse proxy in front of the web app and the API. The install itself does not enable HTTPS.
 
-Do not change the encryption settings the installer wrote into `.env`. Registration can fail if you do.
+Do not change the encryption settings in `.env`. Only profile 2 is allowed: `CRYPTO_ALLOWED_PROFILE_VERSIONS=2`. New registrations use KDF v2. Registration can fail if you set another value.
 
 ## Email
 

@@ -8,7 +8,7 @@ plans: [free, enterprise]
 
 Okkey encryption is published. You can read it in the public repository [okkeyapp/okkey](https://github.com/okkeyapp/okkey).
 
-The web app, the mobile app, the desktop app, the browser extension, and the Docker install are there too.
+The web app, the mobile app, the desktop app, the browser extension, and the Docker install are there too. Only Docker Compose is supported. Kubernetes and Helm are planned and are not part of v1.0.0.
 
 Overviews: [Q-Day ready](./qday), [Protection](./security).
 

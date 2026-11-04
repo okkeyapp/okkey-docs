@@ -10,6 +10,8 @@ Self-hosted puts Okkey on your machine. Encryption stays on your device, so vaul
 
 An install you do yourself runs on Free. An Okkey employee sets up Enterprise. What each plan includes is on [Plans](../plans).
 
+Only Docker Compose is supported. Kubernetes and Helm are planned and are not part of v1.0.0.
+
 ## Where to start
 
 1. Check the [requirements](./requirements): Docker and disk for the data.

@@ -8,19 +8,17 @@ plans: [free, enterprise]
 
 Поставьте Okkey одной командой. Репозиторий клонировать не нужно.
 
-Рабочая установка берёт файлы из ветки `main`. Установка для разработки берёт файлы из ветки `dev`.
+Поддерживается только Docker Compose. Kubernetes и Helm запланированы и не входят в v1.0.0.
 
-## Рабочая установка
+Файлы установки берутся с релиза `v1.0.0-beta.2`, образы - с тега `1.0.0-beta.2`. Скрипт проверяет подписи образов через cosign. Проверка включена по умолчанию.
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/main/deploy/docker/install.sh | OKKEY_REF=main bash
-```
-
-## Установка для разработки
+## Установка
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/dev/deploy/docker/install.sh | OKKEY_REF=dev bash
+curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.2/deploy/docker/install.sh | OKKEY_REF=v1.0.0-beta.2 OKKEY_IMAGE_TAG=1.0.0-beta.2 bash
 ```
+
+На машине нужен `cosign`. Перед запуском скрипт проверяет подписи образов `api`, `web` и `worker`.
 
 Каталог установки - `~/okkey`.
 
@@ -43,24 +41,23 @@ curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/dev/deploy/docker/in
 
 | Переменная | Смысл |
 | --- | --- |
-| `OKKEY_REF` | Ветка файлов установки: `main` для рабочей установки, `dev` для разработки. |
+| `OKKEY_REF` | Git-ref файлов установки. Для этого релиза: `v1.0.0-beta.2`. |
+| `OKKEY_IMAGE_TAG` | Тег образов. Для этого релиза: `1.0.0-beta.2`. |
 | `OKKEY_INSTALL_DIR` | Каталог. По умолчанию `~/okkey`. |
 | `OKKEY_RESET_VOLUMES=1` | Удалить данные базы, сессий и файлов перед стартом. |
 
 ## Ручная установка
 
-1. Скачайте файлы установки.
-
-Для рабочей установки в адресе стоит `main`. Для разработки замените `main` на `dev`.
+1. Скачайте файлы релиза `v1.0.0-beta.2`.
 
 ```bash
 mkdir -p ~/okkey && cd ~/okkey
-curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/main/deploy/docker/docker-compose.prod.yml"
-curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/main/deploy/docker/.env.example"
+curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.2/deploy/docker/docker-compose.prod.yml"
+curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.2/deploy/docker/.env.example"
 cp .env.example .env
 ```
 
-2. В `.env` замените пароли. Для сайта с HTTPS задайте адрес приложения, адрес API, разрешённый источник и параметры входа по ключу устройства: `PUBLIC_APP_URL`, `OKKEY_API_PUBLIC_URL`, `CORS_ORIGIN`, `WEBAUTHN_ORIGINS`, `WEBAUTHN_RP_ID`.
+2. В `.env` замените пароли. Оставьте `OKKEY_IMAGE_TAG=1.0.0-beta.2`. Для сайта с HTTPS задайте адрес приложения, адрес API, разрешённый источник и параметры входа по ключу устройства: `PUBLIC_APP_URL`, `OKKEY_API_PUBLIC_URL`, `CORS_ORIGIN`, `WEBAUTHN_ORIGINS`, `WEBAUTHN_RP_ID`.
 3. Запустите контейнеры.
 
 ```bash
@@ -69,7 +66,7 @@ docker compose -f docker-compose.prod.yml --env-file .env up -d
 
 Перед вебом и API поставьте свой reverse proxy. Сама установка HTTPS не включает.
 
-Не меняйте параметры шифрования, которые установщик записал в `.env`. Иначе регистрация может не пройти.
+Не меняйте параметры шифрования в `.env`. Допустим только профиль 2: `CRYPTO_ALLOWED_PROFILE_VERSIONS=2`. Новые регистрации используют KDF v2. Иначе регистрация может не пройти.
 
 ## Почта
 

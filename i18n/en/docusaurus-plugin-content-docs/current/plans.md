@@ -12,7 +12,7 @@ You install Okkey yourself. That install runs on Free.
 
 An Okkey employee sets up Enterprise. To get Enterprise, contact the Okkey team.
 
-When the Enterprise license expires, a soft lock applies: Enterprise features are restricted until the license is renewed.
+When your Enterprise license expires, a soft lock turns on. Everything you've already created stays available. Until you renew, you can't create anything new or change what exists in Enterprise features, only delete it, and Enterprise updates stop.
 
 On self-hosted, an owner has one workspace.
 

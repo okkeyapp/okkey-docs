@@ -15,10 +15,12 @@ The access key is assembled from three shares:
 | Share | Where it lives |
 | --- | --- |
 | Server share | On the server. This share alone cannot open the vault. |
-| Device share | On the device, in the protected storage of the system or the browser. |
+| Device share | The key that opens it stays on the device. Since 1.0.0-beta.3 the server stores this share only in sealed form. |
 | Password share | Derived from the master password. The password itself is not stored on the server. |
 
 To open the vault, the client fetches the server share, reads the device share, derives the password share, and only then decrypts the vault keys.
+
+Since 1.0.0-beta.3, a leak of the server database or a server backup does not allow anyone to brute-force the master password offline. See [Server database leak](./server-db-leak.md).
 
 ## Vault keys and items
 
@@ -39,6 +41,7 @@ Password checks in monitoring run on the device. Only the start of a hash is sen
 
 ## Next steps
 
+- [Server database leak](./server-db-leak.md)
 - [Zero-knowledge](./zero-knowledge.md)
 - [Q-Day ready](./qday.md)
 - [Personal settings](../account/personal.md)

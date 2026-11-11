@@ -1,6 +1,6 @@
 ---
 title: Monitoring
-sidebar_position: 8
+sidebar_position: 9
 plans: [free, enterprise]
 ---
 
@@ -50,10 +50,10 @@ The count is passwords from items that are not archived and not deleted, in the 
 The passkeys list is empty. "Show" on this card opens an empty item list.
 :::
 
-"Show" sets the list filter. These items are not in the ordinary filter menu: they come from the monitoring page. See [Item lists](./lists).
+"Show" sets the list filter. These items are not in the ordinary filter menu: they come from the monitoring page. See [Item lists](./items/lists.md).
 
 ## Next steps
 
-- [Item lists](./lists)
-- [Tools](./tools)
-- [Protection](./features/security)
+- [Item lists](./items/lists.md)
+- [Tools](./tools/index.md)
+- [Protection](./security/keys.md)

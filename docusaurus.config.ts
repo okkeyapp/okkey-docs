@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Okkey',
   tagline: 'Документация self-hosted менеджера паролей Okkey',
-  url: 'https://okkey.app',
+  url: 'https://docs.okkey.io',
   baseUrl: '/',
   organizationName: 'okkeyapp',
   projectName: 'okkey-docs',
@@ -31,6 +31,35 @@ const config: Config = {
       },
     },
   },
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        // Pages moved in the structure change (PR1). The plugin writes a small
+        // page at each old path that forwards to the new one and keeps
+        // `?query` and `#hash`. Paths are relative to the locale base, so the
+        // same list covers `/` (ru) and `/en/`.
+        // Old anchors of `/settings/workspace` and `/tools` that now live on
+        // their own pages are forwarded by `src/components/HashRedirect`.
+        redirects: [
+          {from: '/install/self-hosted', to: '/install/free'},
+          {from: '/install/first-setup', to: '/getting-started/first-setup'},
+          {from: '/features', to: '/security/'},
+          {from: '/features/qday', to: '/security/qday'},
+          {from: '/features/security', to: '/security/keys'},
+          {from: '/features/zero-knowledge', to: '/security/zero-knowledge'},
+          {from: '/features/open-source', to: '/security/open-source'},
+          {from: '/settings', to: '/account/'},
+          {from: '/settings/personal', to: '/account/personal'},
+          {from: '/settings/devices', to: '/account/devices'},
+          {from: '/settings/workspace', to: '/workspace/'},
+          {from: '/vaults', to: '/workspace/vaults'},
+          {from: '/lists', to: '/items/lists'},
+          {from: '/folders', to: '/items/folders'},
+        ],
+      },
+    ],
+  ],
   presets: [
     [
       'classic',

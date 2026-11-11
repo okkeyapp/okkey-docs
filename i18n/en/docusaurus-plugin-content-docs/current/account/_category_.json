@@ -1,0 +1,8 @@
+{
+  "label": "Account and devices",
+  "position": 10,
+  "link": {
+    "type": "doc",
+    "id": "account/index"
+  }
+}

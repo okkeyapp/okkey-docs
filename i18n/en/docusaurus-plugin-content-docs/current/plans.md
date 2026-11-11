@@ -1,6 +1,6 @@
 ---
 title: Plans
-sidebar_position: 2
+sidebar_position: 4
 plans: [free, enterprise]
 ---
 
@@ -36,7 +36,7 @@ On self-hosted, an owner has one workspace.
 
 ## Next steps
 
-- [Self-hosted install](./install)
-- [Workspace settings](./settings/workspace)
-- [Monitoring](./monitoring)
-- [Capsules](./capsules)
+- [Self-hosted install](./install/index.md)
+- [Workspace settings](./workspace/index.md)
+- [Monitoring](./monitoring.md)
+- [Capsules](./capsules.md)

@@ -1,6 +1,6 @@
 ---
 title: Тарифы
-sidebar_position: 2
+sidebar_position: 4
 plans: [free, enterprise]
 ---
 
@@ -12,7 +12,7 @@ plans: [free, enterprise]
 
 Enterprise настраивает сотрудник Okkey. Чтобы получить Enterprise, напишите команде Okkey.
 
-Когда лицензия Enterprise заканчивается, включается мягкая блокировка: функции Enterprise ограничиваются до продления лицензии.
+Когда лицензия Enterprise заканчивается, включается мягкая блокировка. Всё, что вы уже создали, остаётся доступным. До продления в функциях Enterprise нельзя создавать новое и менять существующее, можно только удалять, и обновления Enterprise не приходят.
 
 В self-hosted у владельца одно пространство.
 
@@ -36,7 +36,7 @@ Enterprise настраивает сотрудник Okkey. Чтобы полу�
 
 ## Дальше
 
-- [Установка self-hosted](./install)
-- [Настройки пространства](./settings/workspace)
-- [Мониторинг](./monitoring)
-- [Капсулы](./capsules)
+- [Установка self-hosted](./install/index.md)
+- [Настройки пространства](./workspace/index.md)
+- [Мониторинг](./monitoring.md)
+- [Капсулы](./capsules.md)

@@ -27,11 +27,11 @@ While the item is not archived and not deleted, edit, copy, favorite, and capsul
 
 Archive and delete hide those commands: an archived item has no favorite and no capsule, and the trash has no archive either. An archived item keeps "Unarchive". A deleted item keeps "Restore".
 
-Archiving clears the favorite. Deleting clears the favorite and the archive flag and closes the open card. Deletion is not immediate: the "Delete item" / "Delete items" window says the item will be moved to "Recently deleted" for the number of days from [retention settings](../settings/workspace#items), then permanently deleted. The confirm button is "Delete".
+Archiving clears the favorite. Deleting clears the favorite and the archive flag and closes the open card. Deletion is not immediate: the "Delete item" / "Delete items" window says the item will be moved to "Recently deleted" for the number of days from [retention settings](../workspace/index.md#items), then permanently deleted. The confirm button is "Delete".
 
 "Copy" opens a new item of the same category with the source data. "Create capsule" opens a capsule already bound to the item. "Edit" opens the same card in edit mode.
 
-The "Deletion" zone can ask for the master password, PIN, or biometrics again if you turned that on in [master password](../settings/personal#master-password).
+The "Deletion" zone can ask for the master password, PIN, or biometrics again if you turned that on in [master password](../account/personal.md#master-password).
 
 In the extension, "Archive" and "Delete" run inside the extension. Editing an item opens the web app.
 
@@ -41,6 +41,6 @@ Delete moves the item to "Recently deleted". How long it stays there is set in w
 
 ## Next steps
 
-- [Item lists](../lists)
-- [Item settings](../settings/workspace#items)
-- [Capsules](../capsules)
+- [Item lists](./lists.md)
+- [Item settings](../workspace/index.md#items)
+- [Capsules](../capsules.md)

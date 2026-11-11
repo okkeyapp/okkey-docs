@@ -1,6 +1,6 @@
 ---
 title: Тарифы
-sidebar_position: 2
+sidebar_position: 4
 plans: [free, enterprise]
 ---
 
@@ -36,7 +36,7 @@ Enterprise настраивает сотрудник Okkey. Чтобы полу�
 
 ## Дальше
 
-- [Установка self-hosted](./install)
-- [Настройки пространства](./settings/workspace)
-- [Мониторинг](./monitoring)
-- [Капсулы](./capsules)
+- [Установка self-hosted](./install/index.md)
+- [Настройки пространства](./workspace/index.md)
+- [Мониторинг](./monitoring.md)
+- [Капсулы](./capsules.md)

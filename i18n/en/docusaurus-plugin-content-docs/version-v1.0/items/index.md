@@ -10,13 +10,13 @@ An item is a login, a card, a note, or another secret inside a vault. "All items
 
 ## Where to look
 
-1. [Categories and templates](./categories) - what you can create and the order it is shown in.
-2. [Fields and sections](./fields) - types, the field gear menu, hidden modes.
-3. [Item actions](./actions) - row and card menus.
-4. [Lists](../lists) - search, filters, sort.
+1. [Categories and templates](./categories.md) - what you can create and the order it is shown in.
+2. [Fields and sections](./fields.md) - types, the field gear menu, hidden modes.
+3. [Item actions](./actions.md) - row and card menus.
+4. [Lists](./lists.md) - search, filters, sort.
 
 ## Next steps
 
-- [Categories and templates](./categories)
-- [Vaults](../vaults)
-- [Item lists](../lists)
+- [Categories and templates](./categories.md)
+- [Vaults](../workspace/vaults.md)
+- [Item lists](./lists.md)

@@ -25,6 +25,6 @@ Default ports: web `8080`, API `4000`.
 
 ## Next steps
 
-- [Install steps](./self-hosted)
-- [First-time setup](./first-setup)
-- [Plans](../plans)
+- [Install steps](./free.md)
+- [First-time setup](../getting-started/first-setup.md)
+- [Plans](../plans.md)

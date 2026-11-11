@@ -12,7 +12,7 @@ Sidebar item "Capsules". A capsule exists on Free and on Enterprise.
 
 On Free it is a link without advanced access settings. On Enterprise the "Advanced settings" block is available: a view limit, an expiry, a recipient list, a password, and owner approval.
 
-Workspace policies can make some of these settings required. They are set in [capsule settings](./settings/workspace#capsules). If a member is not allowed to create capsules, the item is closed for them.
+Workspace policies can make some of these settings required. They are set in [capsule settings](./workspace/index.md#capsules). If a member is not allowed to create capsules, the item is closed for them.
 
 ## List
 
@@ -62,6 +62,6 @@ The server stores ciphertext and access rules.
 
 ## Next steps
 
-- [Capsule settings](./settings/workspace#capsules)
-- [Plans](./plans)
-- [Items](./items)
+- [Capsule settings](./workspace/index.md#capsules)
+- [Plans](./plans.md)
+- [Items](./items/index.md)

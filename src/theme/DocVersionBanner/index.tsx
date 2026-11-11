@@ -34,7 +34,7 @@ export default function DocVersionBanner({className}: Props): ReactNode {
         values={{
           versionLabel: <b>{versionMetadata.label}</b>,
         }}>
-        {'Docs line {versionLabel}. The current Okkey release in this line is 1.0.0-beta.1.'}
+        {'Docs line {versionLabel}. The current Okkey release in this line is 1.0.0-beta.2.'}
       </Translate>
     </div>
   );

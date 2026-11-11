@@ -56,7 +56,7 @@ The gear opens extra settings for the field. The menu depends on the type.
 | Fixed login password | "Show password" / "Hide password", "Generator". |
 | Configurable secret | Kind: "Password", "Single-line secret", "Multi-line secret". Then reveal and "Generator". For a password the reveal labels are "Show password"; for a secret they are "Show secret". |
 | TOTP | "Enter new TOTP secret". |
-| URL in the login websites section | "Fill on entire site", "Fill only on this URL", "No autofill". This is what the [extension](../apps/extension) uses. |
+| URL in the login websites section | "Fill on entire site", "Fill only on this URL", "No autofill". This is what the [extension](../apps/extension.md) uses. |
 | Phone | "Enable mask" / "Disable mask". The mask hides the number until it is turned off. |
 | CVC/PIN | "Show CVC/CVV" / "Hide CVC/CVV". |
 | Select | "Enter edit mode" / "Exit edit mode". In edit mode the options are "One value per line". Empty list: "No items". |
@@ -74,7 +74,7 @@ URL autofill modes live in the field gear menu. They decide whether the extensio
 
 ## Next steps
 
-- [Categories and templates](./categories)
-- [Item actions](./actions)
-- [Browser extension](../apps/extension)
-- [Item settings](../settings/workspace#items)
+- [Categories and templates](./categories.md)
+- [Item actions](./actions.md)
+- [Browser extension](../apps/extension.md)
+- [Item settings](../workspace/index.md#items)

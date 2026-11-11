@@ -8,13 +8,17 @@
     "build": "docusaurus build",
     "serve": "docusaurus serve",
     "clear": "docusaurus clear",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "docs:sync": "node scripts/sync-docs-version.mjs --write",
+    "docs:check": "node scripts/sync-docs-version.mjs --check",
+    "prebuild": "npm run docs:check"
   },
   "engines": {
     "node": ">=20"
   },
   "dependencies": {
     "@docusaurus/core": "3.10.2",
+    "@docusaurus/plugin-client-redirects": "3.10.2",
     "@docusaurus/preset-classic": "3.10.2",
     "@mdx-js/react": "^3.1.0",
     "clsx": "^2.1.1",

@@ -14,7 +14,7 @@ The category decides which fields a new item starts with, so you do not assemble
 4. "Finance".
 5. "Personal data".
 
-"Secure files" show up when "Allow files in items" is on for the workspace. That setting is available on Free and on Enterprise. How to turn it on is in [item settings](../settings/workspace#items).
+"Secure files" show up when "Allow files in items" is on for the workspace. That setting is available on Free and on Enterprise. How to turn it on is in [item settings](../workspace/index.md#items).
 
 ## Favorites and order
 
@@ -143,6 +143,6 @@ An already saved template is updated in the "Update template" window. After savi
 
 ## Next steps
 
-- [Fields and sections](./fields)
-- [Item actions](./actions)
-- [Item settings](../settings/workspace#items)
+- [Fields and sections](./fields.md)
+- [Item actions](./actions.md)
+- [Item settings](../workspace/index.md#items)

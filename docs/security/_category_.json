@@ -1,0 +1,8 @@
+{
+  "label": "Безопасность",
+  "position": 12,
+  "link": {
+    "type": "doc",
+    "id": "security/index"
+  }
+}

@@ -27,13 +27,13 @@ Sign-in screens have a "Language" switch. In the account menu the item is "Langu
 
 After unlock, search, "Lock", and "Create item" are available. Editing an item opens the web app: "Edit in web".
 
-The menu has the workspace switch, vaults, folders, and sign-out. The "Folder settings" button opens the "Folders" window: create, edit, order, and nesting. See [Folders](../folders).
+The menu has the workspace switch, vaults, folders, and sign-out. The "Folder settings" button opens the "Folders" window: create, edit, order, and nesting. See [Folders](../items/folders.md).
 
 "Archive" and "Delete" run inside the extension. After archive the extension shows "Moved to archive". After delete it shows "Deleted".
 
 ## Device settings
 
-"Device settings" in the extension menu. The settings apply in this browser. The sections match the web app: "Personalization", "Security", "Unlock". The values match the [devices page](../settings/devices).
+"Device settings" in the extension menu. The settings apply in this browser. The sections match the web app: "Personalization", "Security", "Unlock". The values match the [devices page](../account/devices.md).
 
 ### Personalization
 
@@ -71,7 +71,7 @@ If the vault is locked, the extension asks "Unlock the vault to save this login"
 
 ## Generator
 
-The three generators match [Tools](../tools): "Password", "Passphrase", "Username". They work in the extension window and on the website page, on a login or password field. On the website page the username generator is labeled "Username generator".
+The three generators match [Tools](../tools/generator.md): "Password", "Passphrase", "Username". They work in the extension window and on the website page, on a login or password field. On the website page the username generator is labeled "Username generator".
 
 ## Autofill
 
@@ -85,7 +85,7 @@ If the vault is locked, the page has "Unlock". Copying a login or password on a 
 
 ## Next steps
 
-- [Tools](../tools)
-- [Folders](../folders)
-- [Devices](../settings/devices)
-- [Item actions](../items/actions)
+- [Tools](../tools/index.md)
+- [Folders](../items/folders.md)
+- [Devices](../account/devices.md)
+- [Item actions](../items/actions.md)

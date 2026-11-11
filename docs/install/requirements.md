@@ -25,6 +25,6 @@ plans: [free, enterprise]
 
 ## Дальше
 
-- [Этапы установки](./self-hosted)
-- [Первая настройка](./first-setup)
-- [Тарифы](../plans)
+- [Этапы установки](./free.md)
+- [Первая настройка](../getting-started/first-setup.md)
+- [Тарифы](../plans.md)

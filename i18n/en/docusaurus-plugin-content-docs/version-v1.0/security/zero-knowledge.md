@@ -20,6 +20,8 @@ How vault data moves:
 - Sessions and the mail queue.
 - Encrypted files.
 
+Since 1.0.0-beta.3 the device share is stored on the server only in sealed form. A leak of the server database or a server backup does not allow anyone to brute-force the master password offline. See [Server database leak](./server-db-leak.md).
+
 The server creates the sign-in code and sends it by email. If mail is not configured, the code is visible in the background-job logs. The sign-in code is separate from vault contents.
 
 For capsules, the country and city of a request are resolved on the server itself when that function is on. The requester's address is not sent to a third party. On a normal install this function is off.
@@ -31,6 +33,7 @@ The Enterprise plan does not change encryption.
 ## Next steps
 
 - [Protection](./keys.md)
+- [Server database leak](./server-db-leak.md)
 - [Open source](./open-source.md)
 - [Monitoring](../monitoring.md)
 - [Capsules](../capsules.md)

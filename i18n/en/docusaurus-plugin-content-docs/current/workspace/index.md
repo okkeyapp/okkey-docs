@@ -46,6 +46,7 @@ Name, logo, and tile color of the workspace.
 | "Workspace name" | The name members see. It is saved when you leave the field. |
 | "Upload logo", "Remove logo" | The logo file is stored in the personal vault. Without a personal vault, upload is unavailable: "Logo upload is unavailable: personal vault not found." While there is no logo, "or" and "Change color" sit next to the upload button. When a logo is uploaded, the color control is replaced by "Remove logo", and uploading again is still labeled "Upload logo". |
 | "Change color", "Custom color" | One of ten preset colors, or your own color from 3 or 6 hex digits. |
+| "Server mail" | SMTP and the public app address. Only the owner sees the block, and only on self-hosted. See [Email](../install/email.md). |
 
 Deleting the workspace is not shown in this section on Free.
 

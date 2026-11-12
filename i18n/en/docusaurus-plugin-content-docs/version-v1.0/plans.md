@@ -32,7 +32,7 @@ The numbers below come from the self-hosted plan matrix. The personal vault does
 
 The Enterprise card in Change plan also lists "Unlimited storage". Self-hosted already has no storage ceiling on Free. Use the table above for what each plan includes.
 
-## When the Enterprise license ends
+## When the Enterprise license ends {#when-the-enterprise-license-ends}
 
 Nothing is moved to Free. Your data stays available. Enterprise features stop receiving updates. You cannot create new objects in those features or change existing ones. You can still delete.
 
@@ -51,3 +51,5 @@ Nothing is moved to Free. Your data stays available. Enterprise features stop re
 - [Capsules](./capsules.md)
 - [Monitoring](./monitoring.md)
 - [Recovery](./account/recovery.md)
+- [Enterprise](./install/enterprise.md)
+- [Upgrade](./admin/upgrade.md)

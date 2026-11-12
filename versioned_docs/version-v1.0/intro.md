@@ -48,6 +48,7 @@ Okkey - менеджер паролей, который вы ставите у �
 
 - [Тарифы](./plans.md)
 - [Установка self-hosted](./install/index.md)
+- [Администрирование](./admin/index.md)
 - [Возможности](./security/index.md)
 - [Первая настройка](./getting-started/first-setup.md)
 - [Аккаунт](./account/index.md)

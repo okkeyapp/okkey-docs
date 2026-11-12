@@ -22,7 +22,7 @@ To get Enterprise, contact the Okkey team. See [Plans](../plans.md).
 
 The profile and vaults are not chosen in this window. Vault access is set later on the "Member card" or in the vault settings.
 
-The link lasts 14 days. You can send at most 50 addresses at once. A duplicate email of a member or of an invitation already sent is rejected. If there are no seats left, or mail is not configured on the server, the invitation is not saved and does not appear in the list.
+The link lasts 14 days. You can send at most 50 addresses at once. A duplicate email of a member or of an invitation already sent is rejected. If there are no seats left, or mail is not configured on the server, the invitation is not saved and does not appear in the list. How to turn mail on is on [Email](../install/email.md).
 
 On the "Workspace invitation" page, unlock the vault ("Unlock vault") and click "Continue".
 

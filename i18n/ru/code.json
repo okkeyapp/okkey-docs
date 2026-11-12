@@ -87,7 +87,7 @@
     "message": "Версия: {versionLabel}"
   },
   "theme.docs.versions.unreleasedVersionLabel": {
-    "message": "Линия документации {versionLabel}. Текущий релиз Okkey в этой линии - 1.0.0-beta.1.",
+    "message": "Линия документации {versionLabel}. Текущий релиз Okkey в этой линии - 1.0.0-beta.2.",
     "description": "The label used to tell the user that he's browsing an unreleased doc version"
   },
   "theme.docs.versions.unmaintainedVersionLabel": {

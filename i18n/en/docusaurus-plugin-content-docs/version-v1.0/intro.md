@@ -12,7 +12,7 @@ Okkey is a password manager you install yourself. Items are encrypted on your de
 These pages are about self-hosted Okkey. You install it yourself and get the Free plan. An Okkey employee sets up Enterprise. See [Plans](./plans.md).
 
 :::note
-This is the v1.0 docs line. It currently covers release [1.0.0-beta.1](https://github.com/okkeyapp/okkey/releases/tag/v1.0.0-beta.1). Later 1.0.x betas and patches update these same pages.
+This is the v1.0 docs line. It currently covers release [1.0.0-beta.2](https://github.com/okkeyapp/okkey/releases/tag/v1.0.0-beta.2). Later 1.0.x betas and patches update these same pages.
 :::
 
 Clients: web, mobile app, desktop, and a browser extension. The open source is in [okkeyapp/okkey](https://github.com/okkeyapp/okkey).

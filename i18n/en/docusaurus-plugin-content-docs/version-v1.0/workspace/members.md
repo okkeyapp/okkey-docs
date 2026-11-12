@@ -6,29 +6,42 @@ plans: [free, enterprise]
 
 # Members
 
-Invitations and member access to vaults. On Free you cannot invite additional members. On Enterprise an invitation is available.
+Invitations and member access to vaults. The settings section is titled "Workspace members".
 
-To get Enterprise, contact the Okkey team. See [Plans](../plans.md).
+On self-hosted Free you can invite 10 additional members, not counting the owner. Those 10 also include live invitations: status "Unconfirmed", and the link has not expired. A revoked or expired invitation does not take a seat. On Enterprise there is no cap.
 
 On self-hosted, an owner has one workspace on Enterprise too.
 
-## How to invite
+To get Enterprise, contact the Okkey team. See [Plans](../plans.md).
 
-1. Click "Invite".
-2. Enter an email and a role. The default role is "User". "Owner" is not in the list.
-3. "Send invitations". The member receives an email with a link.
+## How to invite {#how-to-invite}
+
+1. Click "Invite". The window "Invite members" opens. The subtitle says new members receive an email with a link.
+2. In the row, enter an email ("Enter member email…") and a role. The default role is "User". "Owner" is not in the list. Another address is added with "Add more". An extra row is removed with "Remove row".
+3. Click "Send invitations (N)". While the mail is going out, you see "Sending invitations…". Success: "Invitations sent".
 
 The profile and vaults are not chosen in this window. Vault access is set later on the "Member card" or in the vault settings.
 
-The link lasts 14 days. You can send at most 50 addresses at once. A duplicate email of a member or of an invitation already sent is rejected.
+The link lasts 14 days. You can send at most 50 addresses at once. A duplicate email of a member or of an invitation already sent is rejected. If there are no seats left, or mail is not configured on the server, the invitation is not saved and does not appear in the list.
 
-On the "Workspace invitation" page, unlock the vault and click "Continue".
+On the "Workspace invitation" page, unlock the vault ("Unlock vault") and click "Continue".
 
-## Member card
+## Member card {#member-card}
 
-Here you change the role and the profile on each shared vault. The owner's role and vault access are locked. A member can be removed, and an invitation can be revoked. The owner cannot be removed.
+Open the member's row. The window title is "Member card".
 
-To save vault access, the vault must be open.
+Here you see "Role" and the block "Vaults and profiles". Vault search: "Search…". If there are no shared vaults, the text is "No shared vaults".
+
+The owner's role and vault access are locked. A member can be removed ("Delete member?"), and an invitation can be revoked ("Delete invitation?", button "Delete invitation"). The owner cannot be removed. An invitation that has not been accepted is marked "Unconfirmed".
+
+To save vault access, the vault must be open. Otherwise the window shows "Unlock your vault to save changes".
+
+## How to check
+
+1. On Free the section has an "Invite" button, not a note that members are missing from the plan.
+2. Send an invitation to a new address with the role "User". The "Additional members" list shows a row with the "Unconfirmed" badge.
+3. The eleventh live invitation, or the eleventh member beyond the owner, does not save.
+4. On the owner's card the role does not change, and there is no button to remove the owner.
 
 ## Next steps
 

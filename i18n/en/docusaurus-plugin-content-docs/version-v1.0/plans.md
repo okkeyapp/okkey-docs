@@ -30,7 +30,7 @@ The numbers below come from the self-hosted plan matrix. The personal vault does
 | Monitoring | no | yes |
 | Storage ceiling | no | no |
 
-The Enterprise card in Change plan also lists "Unlimited storage" and "Priority support". Self-hosted already has no storage ceiling on Free. Use the table above for what each plan includes.
+The Enterprise card in Change plan also lists "Unlimited storage". Self-hosted already has no storage ceiling on Free. Use the table above for what each plan includes.
 
 ## When the Enterprise license ends
 

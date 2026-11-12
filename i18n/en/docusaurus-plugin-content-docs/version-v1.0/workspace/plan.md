@@ -10,7 +10,7 @@ The "Change plan" section in Settings shows the current plan and the request for
 
 On Enterprise the section shows "Current plan: Enterprise". Under it: "You have access to all Okkey features for teams and enterprises".
 
-Next to it is the "Enterprise" card. The text is "All available features for teams and enterprises". The card lines are "Unlimited members", "Unlimited shared vaults", "Unlimited storage", "Custom roles", "Custom profiles", "Priority support", and "And more....". What actually differs from Free is on [Plans](../plans.md).
+Next to it is the "Enterprise" card. The text is "All available features for teams and enterprises". The card lines are "Unlimited members", "Unlimited shared vaults", "Unlimited storage", "Custom roles", "Custom profiles", and "And more....". What actually differs from Free is on [Plans](../plans.md).
 
 The section is visible when the role allows the "Billing" row. Built-in "Owner" and "Admin" have it. "User" cannot open workspace settings. The request button works when the role allows changes on that row.
 

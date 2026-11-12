@@ -14,7 +14,7 @@ The properties below explain why the server cannot read your items.
 - [Server database leak](./server-db-leak.md) - since 1.0.0-beta.3, a leak of the server database or a backup does not allow anyone to brute-force the master password offline.
 - [Open source, including encryption](./open-source.md) - the encryption is published with Okkey.
 
-Menu items: "All items", "Capsules", "Monitoring", "Tools", "Settings".
+Menu items: "All items", "Capsules", "Tools", "Settings". "Monitoring" is on Enterprise.
 
 ## Next steps
 

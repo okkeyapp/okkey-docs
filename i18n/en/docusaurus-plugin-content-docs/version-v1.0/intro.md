@@ -27,7 +27,9 @@ Clients: web, mobile app, desktop, and a browser extension. The open source is i
 - **Folder** - your own grouping of items. Only the folder owner sees it.
 - **Capsule** - an encrypted share of text, a file, or an item by link.
 
-The sidebar has "All items", "Capsules", "Monitoring", "Tools", "Settings", and the "Vaults" and "Folders" sections.
+The sidebar has "All items", "Capsules", "Tools", "Settings", and the "Vaults" and "Folders" sections. "Monitoring" appears on Enterprise.
+
+Free includes capsules, including a file, files in items, built-in roles and profiles, the recovery key, one shared vault, 10 additional members, and the generator, import, and export. On Enterprise, shared vaults and additional members have no limit. Monitoring, trusted devices and contacts, custom roles and profiles, and advanced capsule settings are added. The comparison is on [Plans](./plans.md).
 
 ## Main properties
 
@@ -48,3 +50,4 @@ Every page shows which plans include what that page describes. The comparison is
 - [Self-hosted install](./install/index.md)
 - [Features](./security/index.md)
 - [First-time setup](./getting-started/first-setup.md)
+- [Account](./account/index.md)

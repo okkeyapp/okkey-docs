@@ -30,6 +30,8 @@ If recovery runs in a browser that did not already have the vault, that browser 
 
 A wrong key: "Could not restore with this recovery key. Check the key and try again." Too many attempts: "Too many attempts. Try again later."
 
+A recovery request through a trusted device or trusted contacts is valid for 1 hour.
+
 ## Trusted devices {#trusted-devices}
 
 Enterprise only. The caption is "Helps restore your account through your other trusted devices if you are signed in on them". To turn it on you need at least two trusted devices, and one of them is the current one. Otherwise: "Add another trusted device before enabling this recovery method" and "Add at least 2 trusted devices, including this one, first."

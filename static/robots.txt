@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://docs.okkey.io/sitemap.xml
+Sitemap: https://docs.okkey.io/en/sitemap.xml

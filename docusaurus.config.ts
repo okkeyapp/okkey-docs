@@ -8,6 +8,7 @@ const config: Config = {
   baseUrl: '/',
   organizationName: 'okkeyapp',
   projectName: 'okkey-docs',
+  favicon: 'img/favicon.svg',
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'throw',
   markdown: {
@@ -87,8 +88,13 @@ const config: Config = {
     ],
   ],
   themeConfig: {
+    image: 'img/icon-512.png',
     navbar: {
       title: 'Okkey',
+      logo: {
+        alt: 'Okkey',
+        src: 'img/favicon.svg',
+      },
       items: [
         {
           type: 'docSidebar',

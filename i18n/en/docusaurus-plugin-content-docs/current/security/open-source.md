@@ -14,7 +14,7 @@ Overviews: [Q-Day ready](./qday.md), [Protection](./keys.md).
 
 An Okkey employee sets up Enterprise. The plan changes which workspace features are available. It does not replace encryption.
 
-Free includes built-in roles and built-in profiles. Custom roles, custom profiles, additional members, and shared vaults appear on Enterprise. On self-hosted, an owner has one workspace.
+Free includes built-in roles and built-in profiles. Custom roles and custom profiles appear on Enterprise. Additional members and shared vaults are on Free too: 10 additional members and 1 shared vault. On Enterprise they have no limit. On self-hosted, an owner has one workspace.
 
 ## Next steps
 

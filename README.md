@@ -79,6 +79,7 @@ Folders follow the internal docs sections that matter to people who install and 
 | `intro.md` | О проекте / About |
 | `getting-started/` | Начало работы / Getting started |
 | `install/` | Установка self-hosted / Self-hosted install |
+| `admin/` | Администрирование / Administration |
 | `plans.md` | Тарифы / Plans |
 | `workspace/` | Пространство / Workspace: settings, members, roles, profiles, vaults, plan |
 | `items/` | Записи / Items, with lists and folders |

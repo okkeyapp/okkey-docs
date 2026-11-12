@@ -48,6 +48,7 @@ Every page shows which plans include what that page describes. The comparison is
 
 - [Plans](./plans.md)
 - [Self-hosted install](./install/index.md)
+- [Administration](./admin/index.md)
 - [Features](./security/index.md)
 - [First-time setup](./getting-started/first-setup.md)
 - [Account](./account/index.md)

@@ -51,3 +51,5 @@ plans: [free, enterprise]
 - [Капсулы](./capsules.md)
 - [Мониторинг](./monitoring.md)
 - [Восстановление](./account/recovery.md)
+- [Предприятие](./install/enterprise.md)
+- [Обновление](./admin/upgrade.md)

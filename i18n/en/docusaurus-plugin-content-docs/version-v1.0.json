@@ -15,6 +15,10 @@
     "message": "Self-hosted install",
     "description": "The label for category 'Установка self-hosted' in sidebar 'docs'"
   },
+  "sidebar.docs.category.Администрирование": {
+    "message": "Administration",
+    "description": "The label for category 'Администрирование' in sidebar 'docs'"
+  },
   "sidebar.docs.category.Пространство": {
     "message": "Workspace",
     "description": "The label for category 'Пространство' in sidebar 'docs'"

@@ -8,7 +8,7 @@ import HashRedirect from '@site/src/components/HashRedirect';
 
 # Профиль
 
-«Мои настройки» на Free и на Enterprise. Здесь имя, почта, язык, регион и мастер-пароль. Адрес окна: `?popup=settings`. Пункт «Мастер пароль»: `?popup=settings|vault`.
+«Мои настройки» на тарифе «Бесплатный» и на тарифе «Предприятие». Здесь имя, почта, язык, регион и мастер-пароль. Адрес окна: `?popup=settings`. Пункт «Мастер пароль»: `?popup=settings|vault`.
 
 <HashRedirect map={{"методы-входа": "account/#методы-входа", "двухфакторная-аутентификация": "account/two-factor", "восстановление": "account/recovery", "доверенные-устройства": "account/recovery#доверенные-устройства", "доверенные-контакты": "account/recovery#доверенные-контакты"}} />
 

@@ -80,12 +80,12 @@ Folders follow the internal docs sections that matter to people who install and 
 | `getting-started/` | Начало работы / Getting started |
 | `install/` | Установка self-hosted / Self-hosted install |
 | `plans.md` | Тарифы / Plans |
-| `workspace/` | Пространство / Workspace: settings, members, roles, profiles, vaults |
+| `workspace/` | Пространство / Workspace: settings, members, roles, profiles, vaults, plan |
 | `items/` | Записи / Items, with lists and folders |
 | `capsules.md` | Капсулы / Capsules |
 | `tools/` | Инструменты / Tools: generator, import, export |
-| `monitoring.md` | Мониторинг / Monitoring |
-| `account/` | Аккаунт и устройства / Account and devices |
+| `monitoring.md` | Мониторинг / Monitoring (Enterprise) |
+| `account/` | Аккаунт и устройства / Account and devices: profile, two-factor, recovery, devices, unlock |
 | `apps/` | Приложения / Apps |
 | `security/` | Безопасность / Security |
 

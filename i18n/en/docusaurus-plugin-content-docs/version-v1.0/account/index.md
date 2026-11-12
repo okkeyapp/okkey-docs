@@ -6,24 +6,30 @@ plans: [free, enterprise]
 
 # Account and devices
 
-Personal settings and the device open from the account menu: "My settings" and "Device settings". "My settings" is a window with its own address, `?popup=settings`. Language switches in the web header. "Change server" is in the extension.
+Personal settings open from the account menu: "My settings". That window has its own address, `?popup=settings`. The interface language also switches in the web header. Workspace rules open from the sidebar item "Settings".
 
-Workspace rules open from the sidebar item "Settings".
+The "Sign-in methods" item is not shown in the menu. Sign-in uses email and a code from a message. You can also turn on [two-factor authentication](./two-factor.md).
 
-## Account menu
+## "My settings" menu {#sign-in-methods}
 
 | Item | Where |
 | --- | --- |
-| "General" | [Personal](./personal.md#general) |
-| "Master password" | [Personal](./personal.md#master-password) |
-| "Sign-in methods" | The menu item is not shown. See [personal](./personal.md#sign-in-methods). |
-| "2FA authentication" | [Personal](./personal.md#two-factor-authentication) |
-| "Recovery" | [Personal](./personal.md#recovery) |
+| "General" | [Profile](./profile.md#general) |
+| "Master password" | [Profile](./profile.md#master-password) |
+| "2FA authentication" | [Two-factor authentication](./two-factor.md) |
+| "Recovery" | [Recovery](./recovery.md) |
 | "My devices" | [Devices](./devices.md#my-devices) |
-| "Personalization", "Security", "Unlock" | [Devices](./devices.md) |
+| "Personalization" | [Devices](./devices.md#personalization) |
+| "Security" | [Unlock](./unlock.md#security) |
+| "Unlock" | [Unlock](./unlock.md#unlock) |
+
+The "Device settings" group ("Personalization", "Security", "Unlock") applies only in this browser and is not carried to other devices.
 
 ## Next steps
 
-- [Personal settings](./personal.md)
+- [Profile](./profile.md)
+- [Two-factor authentication](./two-factor.md)
+- [Recovery](./recovery.md)
 - [Devices](./devices.md)
+- [Unlock](./unlock.md)
 - [Workspace settings](../workspace/index.md)

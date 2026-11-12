@@ -33,6 +33,7 @@ A role and a profile do different jobs. A role covers workspace settings. A prof
 | "Profiles" | [Profiles](./profiles.md) |
 | "Members" | [Members](./members.md) |
 | "Vaults" | [Vaults](./vaults.md) |
+| "Change plan" | [Change plan](./plan.md) |
 
 Who can see a section is decided by the role. Built-in roles: "Owner", "Admin", "User". "User" has no access to workspace settings.
 

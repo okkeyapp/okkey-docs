@@ -31,7 +31,7 @@ Archiving clears the favorite. Deleting clears the favorite and the archive flag
 
 "Copy" opens a new item of the same category with the source data. "Create capsule" opens a capsule already bound to the item. "Edit" opens the same card in edit mode.
 
-The "Deletion" zone can ask for the master password, PIN, or biometrics again if you turned that on in [master password](../account/personal.md#master-password).
+The "Deletion" zone can ask for the master password, PIN, or biometrics again if you turned that on in [master password](../account/profile.md#master-password).
 
 In the extension, "Archive" and "Delete" run inside the extension. Editing an item opens the web app.
 

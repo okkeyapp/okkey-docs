@@ -1,66 +1,52 @@
 ---
 title: Devices
-sidebar_position: 3
+sidebar_position: 5
 plans: [free, enterprise]
 ---
 
+import HashRedirect from '@site/src/components/HashRedirect';
+
 # Devices
 
-"My devices" is the list of trusted devices on the account. It is synced. "Device settings" apply only in this browser and are not carried to other devices.
+"My devices" is the list of trusted devices on the account. It is synced. "Device settings" apply only in this browser. The list address is `?popup=settings|devices`.
 
-## My devices
+<HashRedirect map={{"security": "account/unlock#security", "unlock": "account/unlock#unlock"}} />
 
-These are the devices that can open the vault. You can also use them to restore access if the master password is forgotten. Recovery through another device is available on Enterprise. See [Recovery](./personal.md#recovery).
+## My devices {#my-devices}
 
-A "New device" must be confirmed. Until it is confirmed, it does not open the vault. You can rename a device in the "Device actions" menu.
+The section text says these are devices that can open the vault. On Enterprise they can also restore access if the master password is lost. See [Recovery](./recovery.md#trusted-devices).
 
-:::note
-A new device will not open the vault until you confirm it on a device you already trust.
-:::
+A "New device" has to be confirmed. Until it is, it does not open the vault. Signing in again from the same device while approval is still pending replaces the previous request and does not add a duplicate row.
 
-If you sign in again from the same device before it is approved, the new request replaces the previous one, so no duplicate appears in the list.
+The request card shows "IP", "Country", "City", or "Unknown location". The buttons are "Trust device" and "Not now". "Block options": "Block for 1 hour", "Block for 1 day", "Block for 1 week", "Block forever". The "Blocked devices" list shows the deadline or "Blocked permanently". From there: "Unblock" and "Trust".
 
-### Waiting for approval screen
+A device can be renamed from "Device actions": "Rename", the window "Rename device", "Save". "Revoke" removes trust. The current device, marked "Current device", cannot be revoked: "You can't revoke the device you're currently using."
 
-The new device shows "Confirm this device" and "Waiting for approval…". Approve the sign-in on a trusted device. If a trusted device rejects the sign-in or the device is revoked, you see "This device was denied". You can request approval again or restore access with your recovery key.
+### Waiting for approval
 
-If you see an error that too many devices are waiting for approval, reject the extra requests on a trusted device.
+The new device shows "Confirm this device" and "Waiting for approval…". Confirm the sign-in on a trusted device. If the sign-in was rejected, the heading is "This device was denied": you can "Request approval again" or restore access with the recovery key. If the device was blocked, the heading is "This device is blocked": another request is not available until the block ends. A permanent block says "This device is blocked permanently."
 
-## Personalization
+## Personalization {#personalization}
 
-Theme and color for this browser.
+Theme and color of this browser. The address is `?popup=settings|devicePersonalization`. The group caption says the preferences apply only to the current browser.
 
 | Setting | Values |
 | --- | --- |
 | "Theme" | "Light", "Dark", "System". |
-| "Accent color" | Accent palette. |
+| "Accent color" | The accent palette. |
 | "Accent tint" | "Tint neutral surfaces with the selected accent." |
 
-The workspace tile color is set separately, in [workspace general](../workspace/index.md#general).
+The workspace tile color is set separately, in [general workspace settings](../workspace/index.md#general).
 
-## Security
+## How to check
 
-These settings lock the vault on this device.
-
-| Setting | What it does | Values |
-| --- | --- | --- |
-| "Device idle timeout" | After a pause the vault locks. | 60, 300, 900, 1800, 3600, or 14400 seconds. The interface shows seconds, minutes, or hours. |
-| "Lock vault when the device locks" | The vault locks when the device sleeps. | On by default. |
-| "Clear clipboard" | A copied password is cleared from the clipboard. | "Never" (the default), 10, 30, 60, 120, or 300 seconds. "Never" leaves the password in the clipboard. |
-
-## Unlock
-
-PIN and biometrics work only on this device. Other devices still need the master password.
-
-| Setting | What it does |
-| --- | --- |
-| "Biometric unlock" | Opens the vault with the device biometrics. If the system does not provide biometrics, the switch is unavailable. |
-| "PIN code" | 6 digits. The code is stored only on this device. |
-
-The "Confirm access" screen tries biometrics, then PIN, then the master password, when they are enabled.
+1. Sign in in a new browser. "Confirm this device" opens. On a device you already trust, "My devices" shows the "New device" request.
+2. "Trust device" lets the new browser open the vault. "Not now" leaves "This device was denied".
+3. "Rename" changes the name. "Revoke" removes a device from the list, except the current one.
+4. "Personalization": "Dark" changes the theme only in this browser.
 
 ## Next steps
 
-- [Personal settings](./personal.md)
-- [Recovery](./personal.md#recovery)
-- [Browser extension](../apps/extension.md)
+- [Unlock](./unlock.md)
+- [Recovery](./recovery.md)
+- [Profile](./profile.md)

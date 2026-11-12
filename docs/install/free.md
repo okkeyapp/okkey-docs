@@ -101,7 +101,7 @@ CRYPTO_ROLLOUT_MODE=compat
 ```bash
 digest="$(docker image inspect --format '{{index .RepoDigests 0}}' ghcr.io/okkeyapp/api:1.0.0-beta.2)"
 cosign verify \
-  --certificate-identity-regexp 'https://github.com/okkeyapp/okkey/\.github/workflows/publish-images\.yml@refs/(heads/dev|tags/v.+)' \
+  --certificate-identity-regexp '^https://github\.com/okkeyapp/okkey/\.github/workflows/publish-images\.yml@refs/(?:heads/dev|tags/v[0-9]+\.[0-9]+\.[0-9]+(?:-[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?)$' \
   --certificate-oidc-issuer 'https://token.actions.githubusercontent.com' \
   "$digest"
 ```

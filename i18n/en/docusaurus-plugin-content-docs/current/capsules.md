@@ -32,7 +32,7 @@ Contents:
 
 - "Text". Field "Secret text", placeholder "Enter the text you want to share".
 - "File". "Upload file" and "Remove file". On self-hosted this type is available on Free. Size and extensions are the same as in [item settings](./workspace/index.md#items). If a policy turns the type off, the card says: "This capsule type is disabled in workspace settings. You can only delete the capsule."
-- "Item". "Search items", placeholder "Enter text to search". Search uses the title, description, addresses, tags, and open fields in the main part of the item, not secret fields. Then the field scope: "All", "All except", or "Selected".
+- "Item". "Search items", placeholder "Enter text to search". A plain query searches by title, the description shown in the list, and URL. Tags match only a query of the form `#tag`, and only by exact match, ignoring case. Open fields in the main part of the item are searched too. Secret fields are not. Then the field scope: "All", "All except", or "Selected".
 
 "Advanced settings" shows how many blocks are on.
 

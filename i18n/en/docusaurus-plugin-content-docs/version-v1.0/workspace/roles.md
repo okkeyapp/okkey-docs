@@ -18,7 +18,7 @@ Built-in roles cannot be changed or deleted. The list subtitle is "Built-in role
 | "Admin" | "Has full permissions" | The same settings sections as the owner. |
 | "User" | "No access to workspace settings" | Workspace settings are closed. Items are still decided by the vault profile. |
 
-Rows in the permissions table: "General", "Items", "Capsules", "Roles", "Profiles", "Members", "Vaults", "Billing". "Billing & invoices" is not in the settings menu. The "Billing" row belongs to the same matrix.
+Rows in the permissions table: "General", "Items", "Capsules", "Roles", "Profiles", "Members", "Vaults", "Billing". "Billing & invoices" is not in the settings menu. The "Billing" row belongs to the same matrix. There is no separate menu item for this row: the same "Billing" permission controls access to "Change plan".
 
 Access level: "All" applies to every object, "Own" only to objects this member created, "None" means no permission. Creating is turned on separately: it is not the "All" or "Own" level. If you turn view off, the other actions for that section turn off too.
 

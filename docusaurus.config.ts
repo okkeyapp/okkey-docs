@@ -8,6 +8,52 @@ const config: Config = {
   baseUrl: '/',
   organizationName: 'okkeyapp',
   projectName: 'okkey-docs',
+  // Icon links are declared in `headTags` (with types and sizes). The `favicon`
+  // option would emit a second untyped <link rel="icon"> for the SVG.
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        href: '/favicon.ico',
+        sizes: 'any',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        type: 'image/svg+xml',
+        href: '/img/favicon.svg',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        href: '/img/favicon-32x32.png',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        href: '/img/favicon-16x16.png',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: '/img/apple-touch-icon.png',
+      },
+    },
+  ],
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'throw',
   markdown: {
@@ -87,8 +133,13 @@ const config: Config = {
     ],
   ],
   themeConfig: {
+    image: 'img/icon-512.png',
     navbar: {
       title: 'Okkey',
+      logo: {
+        alt: 'Okkey',
+        src: 'img/favicon.svg',
+      },
       items: [
         {
           type: 'docSidebar',

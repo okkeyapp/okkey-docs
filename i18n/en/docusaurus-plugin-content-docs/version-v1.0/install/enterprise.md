@@ -44,7 +44,7 @@ The owner may see "Update available" and the window "System update". The window 
 
 ## When the license ends
 
-Nothing is moved to Free. Your data stays available. Enterprise features stop receiving updates. You cannot create new objects in those features or change existing ones. You can still delete.
+The workspace moves to the Free plan. Your data stays available. Shared vaults and members work within the Free plan limits: one shared vault and up to 10 additional members. Enterprise features (advanced capsule settings, custom roles and profiles, trusted devices and contacts, monitoring) stop receiving updates. You can view and delete them, but you can't create new items or change existing ones.
 
 The same text is on [Plans](../plans.md#when-the-enterprise-license-ends).
 

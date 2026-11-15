@@ -40,7 +40,7 @@ A license key and a license portal are planned. They are not available now: an O
 
 Okkey images are updated the same way as on Free. The steps are on [Upgrade](../admin/upgrade.md).
 
-Anyone who is signed in sees the version at the bottom of the sidebar. "System update" opens from it. The "Enterprise" row is present when the module is installed. Only the owner can apply a package. Details, including the offline package and the error text, are on [Upgrade](../admin/upgrade.md#the-window-in-the-app).
+Anyone who is signed in sees the version at the bottom of the sidebar. "System update" opens from it. The "Enterprise" row is present when the module is installed. Only the owner can apply a package. An offline package, including a combined archive (`.okbundle`, `.zip`), is applied after a successful local check. Details and the error text are on [Upgrade](../admin/upgrade.md#the-window-in-the-app).
 
 ## When the license ends
 

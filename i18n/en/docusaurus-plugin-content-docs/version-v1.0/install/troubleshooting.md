@@ -69,7 +69,7 @@ docker compose -p okkey -f docker-compose.prod.yml --env-file .env up -d --force
 
 ## The sign-in code is not in the mailbox
 
-Until Settings, Mail has a successful test, mail is inactive. The next sign-in opens the master password, not a message with a code. How to turn SMTP on is on [Email](./email.md).
+While mail is not configured on this server, the confirmation code is in the worker logs. Run `docker compose logs worker`. Or sign in with your master password. How to turn SMTP on is on [Email](./email.md).
 
 When mail is already active and the message is still missing, check the worker. Messages from the API wait in the queue while it is stopped.
 

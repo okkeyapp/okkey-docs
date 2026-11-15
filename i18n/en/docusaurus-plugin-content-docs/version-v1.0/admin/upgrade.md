@@ -92,7 +92,7 @@ The image-tag path above is the one described for Docker Compose. The window doe
 
 The block is "Offline package". The text is: "Upload a signed package (.okpkg / .json with payload+signature) or a combined archive (.okbundle, .zip). After a successful local check the package starts applying automatically." The button is "Upload offline package". Several files can be chosen. A chosen file has "Remove file".
 
-A signed package the window could read starts installing on its own, without a second "Update" click. A combined archive the window could read is installed too. If an archive is accepted but cannot be read, the window says: "This combined archive is accepted. It will be applied when this installation can read it." A file larger than 1024 MB says: "The offline package is larger than the allowed size." An unrecognized file says: "The file is not an Okkey offline package." A recognized file with nothing to install right now says: "The package was recognized, but nothing can be applied from it right now."
+After a successful local check the package starts applying automatically. That covers a signed file (`.okpkg` / `.json`) and a combined archive (`.okbundle`, `.zip`). There is no second "Update" click for this. A file larger than 1024 MB says: "The offline package is larger than the allowed size." An unrecognized file says: "The file is not an Okkey offline package." A recognized file with nothing to install right now says: "The package was recognized, but nothing can be applied from it right now."
 
 Someone who is not the owner, when choosing a file, sees: "Only a workspace owner can apply an update." The upload button is disabled for them.
 

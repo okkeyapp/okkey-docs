@@ -76,7 +76,7 @@ Trash retention is set in "Settings", "Items". See [Workspace settings](../works
 ## How to check
 
 1. Sign in as "Owner" or "Admin". "Settings" shows "Mail" between "General" and "Items". "User" has no "Settings" item.
-2. Until a test has succeeded, the status says "Mail is inactive: SMTP is unverified or the test failed." The next sign-in opens the master password, not an email code.
+2. Until a test has succeeded, the status says "Mail is inactive: SMTP is unverified or the test failed." The next sign-in opens the master password. The confirmation code is in the worker logs: `docker compose logs worker`.
 3. Fill in the host, port, encryption, and sender. Choose "Send test email". The mailbox of the person who clicked receives "Okkey SMTP test". The toast is "Test email sent; mail is active". The next sign-in asks for 6 digits.
 4. `docker compose -p okkey -f docker-compose.prod.yml --env-file .env ps` shows `worker` as running.
 

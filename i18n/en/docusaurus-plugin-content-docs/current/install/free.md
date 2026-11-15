@@ -137,7 +137,13 @@ While the database has no users, the first account is created without a message.
 2. That first account does not need a code. "Register with Okkey" opens.
 3. Continue with [first-time setup](../getting-started/first-setup.md).
 
-The next sign-in, while mail is inactive, asks for the master password instead of an email code. Mail becomes active only after a successful test message in Settings, Mail. How that looks is on [Email](./email.md).
+While mail is not configured on this server, the confirmation code is in the worker logs. Run:
+
+```bash
+docker compose logs worker
+```
+
+Or sign in with your master password. Mail becomes active only after a successful test message in Settings, Mail. How that looks is on [Email](./email.md).
 
 ## How to check
 

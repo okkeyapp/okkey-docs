@@ -28,7 +28,7 @@ After confirmation, "Backup codes" appear. These are one-time codes for when the
 
 1. Turn on "Authenticator app", enter a code from the app, and reach "Backup codes". "Download PDF" saves a file.
 2. Sign out and sign in again. When mail is active, "Two-factor authentication" opens after the email code: the field "2FA code" and the button "Verify". While mail is inactive, the same screen opens after the master password. "Use a backup code instead" switches to "Backup code". The same backup code does not work a second time.
-3. "Disable" with a code from the app turns the second factor off. The next sign-in, when mail is active, finishes with the email code. When mail is inactive, it finishes with the master password, and after that you can see "Add an authenticator app?".
+3. "Disable" with a code from the app turns the second factor off. The next sign-in, when mail is active, finishes with the email code. When mail is inactive, it finishes with the master password (the confirmation code is in the worker logs), and after that you can see "Add an authenticator app?".
 
 ## Next steps
 

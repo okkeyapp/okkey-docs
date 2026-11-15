@@ -137,16 +137,7 @@ While the database has no users, the first account is created without a message.
 2. That first account does not need a code. "Register with Okkey" opens.
 3. Continue with [first-time setup](../getting-started/first-setup.md).
 
-The next sign-in and the next account ask for a 6-digit code. Until mail is configured, the worker writes the code to its log. The installer defaults to `EMAIL_PROVIDER=logger` and `DEPLOY_ENV=dev`, so the message text is in the log.
-
-```bash
-cd ~/okkey
-docker compose -p okkey -f docker-compose.prod.yml --env-file .env logs -f worker
-```
-
-Look for the line `email sent`. The code is in the `plainText` field. Digits in the subject are hidden. If the directory is not `~/okkey`, use its lowercase name instead of `okkey`.
-
-How to send real mail is on [Email](./email.md).
+The next sign-in, while mail is inactive, asks for the master password instead of an email code. Mail becomes active only after a successful test message in Settings, Mail. How that looks is on [Email](./email.md).
 
 ## How to check
 

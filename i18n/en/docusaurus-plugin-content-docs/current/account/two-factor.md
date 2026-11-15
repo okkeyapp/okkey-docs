@@ -6,7 +6,7 @@ plans: [free, enterprise]
 
 # Two-factor authentication {#two-factor-authentication}
 
-The second factor means a code from email is not enough to sign in. The menu item is "2FA authentication", and the page heading is "Two-factor authentication". The address is `?popup=settings|twoFactor`. It is available on Free and on Enterprise.
+The second factor means a code from email, or the master password, is not enough to sign in. The menu item is "2FA authentication", and the page heading is "Two-factor authentication". The address is `?popup=settings|twoFactor`. It is available on Free and on Enterprise.
 
 ## Turn it on
 
@@ -27,8 +27,8 @@ After confirmation, "Backup codes" appear. These are one-time codes for when the
 ## How to check
 
 1. Turn on "Authenticator app", enter a code from the app, and reach "Backup codes". "Download PDF" saves a file.
-2. Sign out and sign in again. After the email code, "Two-factor authentication" opens: the field "2FA code" and the button "Verify". "Use a backup code instead" switches to "Backup code". The same backup code does not work a second time.
-3. "Disable" with a code from the app turns the second factor off. The next sign-in finishes with the email code.
+2. Sign out and sign in again. When mail is active, "Two-factor authentication" opens after the email code: the field "2FA code" and the button "Verify". While mail is inactive, the same screen opens after the master password. "Use a backup code instead" switches to "Backup code". The same backup code does not work a second time.
+3. "Disable" with a code from the app turns the second factor off. The next sign-in, when mail is active, finishes with the email code. When mail is inactive, it finishes with the master password, and after that you can see "Add an authenticator app?".
 
 ## Next steps
 

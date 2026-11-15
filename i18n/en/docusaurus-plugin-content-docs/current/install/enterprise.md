@@ -40,7 +40,7 @@ A license key and a license portal are planned. They are not available now: an O
 
 Okkey images are updated the same way as on Free. The steps are on [Upgrade](../admin/upgrade.md).
 
-The owner may see "Update available" and the window "System update". The window has separate lines "Okkey" and "Enterprise". Nothing is installed until you choose "Update". Only the owner can apply an update. If no feed is configured, the window says: "No feed is configured. You can still apply a package file." A package with no signature, or with an invalid signature, is not applied. If the apply fails, the instance stays on the previous version.
+Anyone who is signed in sees the version at the bottom of the sidebar. "System update" opens from it. The "Enterprise" row is present when the module is installed. Only the owner can apply a package. Details, including the offline package and the error text, are on [Upgrade](../admin/upgrade.md#the-window-in-the-app).
 
 ## When the license ends
 

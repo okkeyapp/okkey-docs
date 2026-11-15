@@ -8,7 +8,7 @@ plans: [free, enterprise]
 
 Personal settings open from the account menu: "My settings". That window has its own address, `?popup=settings`. The interface language also switches in the web header. Workspace rules open from the sidebar item "Settings".
 
-The "Sign-in methods" item is not shown in the menu. Sign-in uses email and a code from a message. You can also turn on [two-factor authentication](./two-factor.md).
+The "Sign-in methods" item is not shown in the menu. When mail is active, sign-in uses email and a code from a message. Until mail has passed a test message, the master password opens after the email address. See [Email](../install/email.md). You can also turn on [two-factor authentication](./two-factor.md). A new device is confirmed on "Confirm this device". See [Devices](./devices.md#my-devices).
 
 ## "My settings" menu {#sign-in-methods}
 

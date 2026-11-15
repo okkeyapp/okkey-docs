@@ -18,13 +18,25 @@ The section text says these are devices that can open the vault. On Enterprise t
 
 A "New device" has to be confirmed. Until it is, it does not open the vault. Signing in again from the same device while approval is still pending replaces the previous request and does not add a duplicate row.
 
-The request card shows "IP", "Country", "City", or "Unknown location". The buttons are "Trust device" and "Not now". "Block options": "Block for 1 hour", "Block for 1 day", "Block for 1 week", "Block forever". The "Blocked devices" list shows the deadline or "Blocked permanently". From there: "Unblock" and "Trust".
+On a trusted device with the vault unlocked, a "New device" window opens on its own. The text is: "Someone signed in to your account from an unrecognized device. If this wasn’t you, tap “Not now”." The card shows the device name, the system, the date, "IP", "Country", and "City". An empty country or city says "Unknown location". The button is "Trust device". The toast is "Device trusted". "Not now" rejects the sign-in. The toast on this device is "Device revoked". On the new device the heading becomes "This device was denied".
+
+Next to "Not now" is the "Block options" menu: "Block for 1 hour", "Block for 1 day", "Block forever". The toast is "Device blocked". The "Blocked devices" list shows the deadline or "Blocked permanently". From there: "Unblock" and "Trust". The same request is in "My devices" if the window was closed, or if the vault on the trusted device is still locked.
 
 A device can be renamed from "Device actions": "Rename", the window "Rename device", "Save". "Revoke" removes trust. The current device, marked "Current device", cannot be revoked: "You can't revoke the device you're currently using."
 
 ### Waiting for approval
 
-The new device shows "Confirm this device" and "Waiting for approval…". Confirm the sign-in on a trusted device. If the sign-in was rejected, the heading is "This device was denied": you can "Request approval again" or restore access with the recovery key. If the device was blocked, the heading is "This device is blocked": another request is not available until the block ends. A permanent block says "This device is blocked permanently."
+On the new device the heading is "Confirm this device". The text is: "To unlock your vault, approve this sign-in from one of your trusted devices listed below." The account profile is shown above that. Then "Waiting for approval…" and the heading "Approve from". Under it is the list of devices you already trust: name and system. If the list is empty: "No trusted devices are available yet. Open Okkey on a device you already trust."
+
+The button is "Approve with passkey". While the key is being asked for: "Waiting for the passkey…". If this passkey cannot confirm the device in this browser, the screen asks you to confirm from a trusted device or restore access with the recovery key. If no passkey is set up for a new device: "No passkey is set up to approve a new device. On a device you already trust, unlock Okkey and allow a passkey to approve devices." Cancelled: "Passkey confirmation was cancelled." Too many attempts: "Too many attempts. Wait a few minutes and try again." A confirmation that was already used: "That passkey confirmation was already used. Try again." Any other failure: "Passkey approval failed. Try again, or use a trusted device or your recovery key."
+
+Next to that is the link "Restore with recovery key".
+
+If this sign-in has to be approved again, the text changes to: "This sign-in has to be approved again. Ask someone on a trusted device to approve it." If the browser no longer has the key it uses to sign the device, the text is: "This browser no longer has its device signing key. Restore access with your recovery key — another trusted device is required to approve a key change."
+
+If the sign-in was rejected, the heading is "This device was denied". The text is: "A trusted device rejected this sign-in. You can request approval again." The button is "Request approval again". If the device was blocked, the heading is "This device is blocked". The text is: "A trusted device blocked this sign-in. You can’t request approval again until the block ends." The deadline is "Blocked until: {'{date}'}". A permanent block says "This device is blocked permanently."
+
+After "Trust device", the new device goes to "Vault is locked".
 
 ## Personalization {#personalization}
 
@@ -40,8 +52,8 @@ The workspace tile color is set separately, in [general workspace settings](../w
 
 ## How to check
 
-1. Sign in in a new browser. "Confirm this device" opens. On a device you already trust, "My devices" shows the "New device" request.
-2. "Trust device" lets the new browser open the vault. "Not now" leaves "This device was denied".
+1. Sign in in a new browser. "Confirm this device" opens, with the list "Approve from". On a trusted device with the vault unlocked, "New device" opens on its own.
+2. "Trust device" sends the new browser to "Vault is locked". "Not now" leaves "This device was denied".
 3. "Rename" changes the name. "Revoke" removes a device from the list, except the current one.
 4. "Personalization": "Dark" changes the theme only in this browser.
 

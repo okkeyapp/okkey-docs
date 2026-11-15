@@ -69,7 +69,16 @@ docker compose -p okkey -f docker-compose.prod.yml --env-file .env up -d --force
 
 ## The sign-in code is not in the mailbox
 
-Until SMTP is set, the code is in the worker log, in `plainText` on the line `email sent`. The command is on [Email](./email.md). If the worker is stopped, the message waits in the queue. Check `docker compose ps`: `worker` must be running.
+Until Settings, Mail has a successful test, mail is inactive. The next sign-in opens the master password, not a message with a code. How to turn SMTP on is on [Email](./email.md).
+
+When mail is already active and the message is still missing, check the worker. Messages from the API wait in the queue while it is stopped.
+
+```bash
+cd ~/okkey
+docker compose -p okkey -f docker-compose.prod.yml --env-file .env ps
+```
+
+`worker` must be running. If the directory is not `~/okkey`, use the lowercase directory name instead of `okkey`.
 
 ## How to check that it is up again
 

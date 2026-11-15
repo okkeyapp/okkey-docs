@@ -8,50 +8,61 @@ plans: [free, enterprise]
 
 Mail is used for sign-in codes, invitations, and the plan request. This page is for Free and for Enterprise on your machine.
 
-The first account on an empty database does not need a message. From the second sign-in, the server sends a 6-digit code. See [first-time setup](../getting-started/first-setup.md).
+The first account on an empty database does not need a message. See [first-time setup](../getting-started/first-setup.md).
 
-## Until SMTP is set
+Mail is active only after a test message succeeds. Until then, sign-in codes are not sent by email.
 
-The installer writes `EMAIL_PROVIDER=logger` in `.env`. Messages are not delivered. The worker prints them in its log. That is the default while `DEPLOY_ENV=dev`, which the installer leaves in place.
+## Until mail is active
 
-```bash
-cd ~/okkey
-docker compose -p okkey -f docker-compose.prod.yml --env-file .env logs -f worker
-```
+The installer writes `EMAIL_PROVIDER=logger` in `.env`. That value alone does not turn mail on.
 
-Look for the line `email sent`. The code is in the `plainText` field. Digits in the subject are hidden. If the directory is not `~/okkey`, use the lowercase directory name instead of `okkey`.
+The first time you open "Mail", the fields may be filled from `.env`: `EMAIL_SMTP_HOST`, `EMAIL_SMTP_PORT`, `EMAIL_SMTP_SECURE`, `EMAIL_SMTP_USER`, `EMAIL_SMTP_PASSWORD`, `EMAIL_FROM`, and `PUBLIC_APP_URL`. The status stays inactive. After the first save, empty fields are not filled from `.env` again.
 
-A member invitation is not saved when mail is not configured or the public app address is missing. The plan request goes to `OKKEY_SALES_EMAIL` from `.env`. You set that address at install time. It is not a field in "Server mail".
+The next sign-in, while mail is inactive, uses the master password. After the email address, "Welcome to Okkey" opens. The text is: "Because SMTP is not configured or not active, sign in with your master password. It stays on this device." The field is "Master password", the button is "Sign in". "Sign in with an email code" opens the code screen. "Enter a different email" returns to the address.
 
-## Server mail in settings
+A wrong password says: "Could not sign in. Check your email and master password, or use an email code." Too many attempts: "Too many attempts. Wait a bit and try again." When mail is already active, this screen says: "This server requires an email code."
 
-The workspace owner sets SMTP and the public app address. The section is shown on self-hosted only, and only to the owner. Open "Settings", "General". The block is "Server mail". Its caption is "These settings apply to the whole server, not only this workspace."
+If the second factor is not on yet, a successful master-password sign-in opens "Add an authenticator app?". The text is: "Email is not set up on this server. An authenticator app is a second step if someone learns your master password." The buttons are "Set up authenticator" and "Not now". If the second factor is already on, [two-factor authentication](../account/two-factor.md) opens immediately.
+
+On the code screen, while mail is inactive, a notice says: "Mail is not configured on this server. The confirmation code is in the worker logs." Under it: "Run:" and the command `docker compose logs worker`, and the link "sign in with your master password".
+
+An invitation is not saved when the public app address is missing. While mail is inactive, the invitation message is not sent over SMTP, even if the button says "Invitations sent". A plan request while mail is inactive opens a prepared message in the mail program, addressed to `OKKEY_SALES_EMAIL` from `.env`. That address is not a field in "Mail". See [Change plan](../workspace/plan.md).
+
+## Mail in settings
+
+The section is shown on self-hosted only. Open "Settings", then "Mail". In the menu it sits between "General" and "Items".
+
+The item is visible when the role allows the "Mail" row. "Owner" and "Admin" have it on. "User" has no workspace settings. On Enterprise the same row can be granted to a custom role. If the role can only view, the fields are visible but cannot be edited, and the test button is absent.
+
+The heading is "Mail". The caption is "Configure outgoing email for sign-in codes, workspace invitations, and other notifications."
+
+Above the fields is the status. Active mail: "Mail is active: sign-in codes and notifications are sent over SMTP." Inactive: "Mail is inactive: SMTP is unverified or the test failed." While settings load: "Loading server mail settings…". If they do not load: "Could not load server mail settings".
 
 | Field | Label |
 | --- | --- |
-| SMTP host | The server name. |
-| Port | An integer from 1 to 65535. |
-| Encryption | "None", "STARTTLS", or "TLS". |
-| Username | The SMTP account. |
-| Password | If a password is already saved, leave the field empty. The hint is "Leave blank to keep the current password". Next to it: "A password is saved". |
-| Sender address | The From address. |
-| Public app URL | The address people use to open Okkey. Invitation links are built from it. |
+| "SMTP host" | "Hostname or IP of the SMTP server used to send mail." |
+| "Port" | "SMTP port (1–65535). Common values are 587 or 465." A value that is not an integer in that range: "Port must be an integer from 1 to 65535". |
+| "Encryption" | "None", "STARTTLS", or "TLS". The caption is "How the connection to the SMTP server is encrypted." |
+| "Username" | "SMTP authentication username, if the server requires one." |
+| "Password" | "SMTP password for authenticating with the mail server." If a password is already saved, the field is replaced by "Change password" and a delete button labeled "Clear saved password". A new password uses "Enter a new password". |
+| "Sender address" | "From address used for system emails." |
+| "Public app URL" | "Public base URL used in email links." |
 
-"Save" stores the block. "Send test email" sends a message to the owner's address. Success: "Test email sent". The test needs a host, a port, encryption, and a sender address.
+There is no separate "Save" button. "Send test email" both checks the server and stores the fields. While the message is sending, the label counts down: "Sending… {'{seconds}'}", from 30. Success: the toast "Test email sent; mail is active". The message goes to the email of the person who clicked the button. The subject is "Okkey SMTP test". The status becomes active.
 
-An empty block uses the `.env` values: `EMAIL_SMTP_HOST`, `EMAIL_SMTP_PORT`, `EMAIL_SMTP_SECURE`, `EMAIL_SMTP_USER`, `EMAIL_SMTP_PASSWORD`, `EMAIL_FROM`, and `PUBLIC_APP_URL`. Values saved in "Server mail" win for delivery. The password in the database is sealed with `SESSION_SECRET`. The server response does not return the password itself.
+If the message does not go out, the alert is "Test failed". The text is: "The message was not sent. You can save the settings without activating mail — email sign-in codes stay off until a test succeeds." "Save anyway" appears beside it. The toast is "Server mail settings saved". Mail stays inactive. A failed save says "Could not save server mail settings". A failed send says "Could not send the test email". No answer within 30 seconds: "Could not connect to SMTP within 30 seconds. Check the host, port, and encryption."
 
-While the block has no SMTP host of its own and `.env` still has `EMAIL_PROVIDER=logger`, codes are still written to the worker log.
+The test needs a host and a sender address. The password in the database is sealed with `SESSION_SECRET`. The server response does not return the password itself.
 
 ## If the SMTP password can no longer be read
 
 The password in settings is opened with a key from `SESSION_SECRET`. After you change that secret, the old value does not open. Above the fields you see: "The saved SMTP password can't be read after a server secret change. Please enter it again."
 
-Enter the password again and choose "Save". Or choose "Clear saved password". Delivery then uses the password from `.env` again, if one is set there.
+Enter the password again and send the test email once more. The delete button labeled "Clear saved password" removes the saved password on the next test, or when you choose "Save anyway".
 
 ## Invitations and the worker
 
-An invitation needs the public app address and a mail transport. The link in the message lasts 14 days. See [Members](../workspace/members.md).
+An invitation needs the public app address. The link in the message lasts 14 days. The message is sent over SMTP when mail is active. See [Members](../workspace/members.md).
 
 The API puts messages on a Redis queue. The worker sends them. If the worker is stopped, messages wait in the queue.
 
@@ -64,9 +75,9 @@ Trash retention is set in "Settings", "Items". See [Workspace settings](../works
 
 ## How to check
 
-1. Sign in as the owner. "Settings", "General" shows the "Server mail" block. A member with the "User" role does not see it: they have no "Settings".
-2. Fill in the host, port, encryption, sender, and public URL. Choose "Send test email". The owner's mailbox receives "Okkey SMTP test".
-3. Without SMTP, sign in a second time and run the log command above. The code is in `plainText`.
+1. Sign in as "Owner" or "Admin". "Settings" shows "Mail" between "General" and "Items". "User" has no "Settings" item.
+2. Until a test has succeeded, the status says "Mail is inactive: SMTP is unverified or the test failed." The next sign-in opens the master password, not an email code.
+3. Fill in the host, port, encryption, and sender. Choose "Send test email". The mailbox of the person who clicked receives "Okkey SMTP test". The toast is "Test email sent; mail is active". The next sign-in asks for 6 digits.
 4. `docker compose -p okkey -f docker-compose.prod.yml --env-file .env ps` shows `worker` as running.
 
 ## Next steps

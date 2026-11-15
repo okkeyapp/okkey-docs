@@ -8,12 +8,12 @@ plans: [free, enterprise]
 
 Until Okkey has users, the first account is created without an email. Mail is not required for this step.
 
-Once an account exists, sign-in with the same address uses a one-time code.
+Once an account exists and mail is active, sign-in with the same address uses a one-time code. Until mail has passed a test message, the master password opens after the email address. See [Email](../install/email.md).
 
 ## Screens
 
 1. "Welcome to Okkey". Field "Email", button "Sign in".
-2. If users already exist: "Confirmation code", 6 digits.
+2. If users already exist and mail is active: "Confirmation code", 6 digits. If mail is inactive: the master password and the button "Sign in".
 3. "Sign up for Okkey". Fields: "First name", "Last name", "Master password", "Repeat master password". The password is at least 4 characters, and the two passwords must match. Button "Sign up".
 4. "Save your recovery key". You can "Copy" the key or "Download PDF".
 5. "Vault is locked". Field "Master password", button "Unlock". The vault opens after unlock.

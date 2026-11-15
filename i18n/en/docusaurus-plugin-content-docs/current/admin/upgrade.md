@@ -45,13 +45,56 @@ A database created by v1.0.0-beta.1 has no `schema_migrations` table. That relea
 
 This start path has no scripts that undo a migration already recorded. Take a [backup](./backup-restore.md) before you upgrade. Returning to the old data is on [Rollback](./rollback.md).
 
-## The window in the app
+## The window in the app {#the-window-in-the-app}
 
-The owner may see "Update available" and the window "System update". The window says: "Review what will change. Nothing is installed until you choose Update." The lines are "Okkey" and "Enterprise". The buttons are "Update", "Ignore", and "Close".
+The window exists only on self-hosted, on Free and on Enterprise. Anyone who is signed in can open it. The bottom of the sidebar shows the version, for example `v1.0.0-beta.3`. A build without a release tag shows `v0.0.0-dev`. The address is `?popup=systemUpdate`.
 
-If no feed is configured, the window says: "No feed is configured. You can still apply a package file." The file label is "Offline package". A package with no signature, or with an invalid signature, is not applied. If apply fails, the text says this instance is still on the previous version.
+While the feed has a version newer than the one already opened in this window, the version icon changes. A screen reader also hears "Update available". In the collapsed sidebar the icon stays and the version text is hidden. Opening the window clears that state for the versions it shows.
+
+The title is "System update". The text is: "Review online feed updates, or upload an offline package to apply it after a successful check." "Close" cannot be used while an update is running.
+
+### Online update
+
+The block is "Online update".
+
+If network checks are off (`OKKEY_UPDATE_ISOLATED=true`), the lines are replaced by: "Online updates are disabled in settings. Use an offline package below."
+
+Otherwise the window shows an "Okkey" row. An "Enterprise" row is present when the Enterprise module is installed. A row says "Current version {'{version}'}". When the feed has something newer, it also says "New version {'{version}'}", a short release summary, and a "Release notes" link when the release has an `http` or `https` address. When nothing is newer: "Up to date". When that row's feed could not be read: "{'{component}'} could not be checked."
+
+An empty list with a feed configured says: "This instance is up to date." With no feed: "No feed is configured. You can still upload an offline package below." A feed that could not be read says: "The update feed could not be read. Nothing was applied."
+
+An empty `OKKEY_UPDATE_CORE_FEED_URL` means the core feed at `https://github.com/okkeyapp/okkey/releases/latest/download/feed.json`. The previous name of that setting is `OKKEY_UPDATE_FEED_URL`. A separate Enterprise feed is `OKKEY_UPDATE_ENTERPRISE_FEED_URL`. It is read only when the Enterprise module is installed. An empty value skips that check.
+
+If an Enterprise package needs a newer Okkey and that Okkey is in the same update, the window says: "Enterprise needs Okkey {'{min}'} or newer. Okkey updates first." If that Okkey is not in the update: "Enterprise needs Okkey {'{min}'} or newer, so that package is not included." The button on that row is then disabled.
+
+Only a workspace owner can apply an update. Everyone else sees: "Only a workspace owner can apply an update." They have no "Update" buttons.
+
+When there is something to install, the owner sees "Ignore" and "Update" on the right. A row has its own "Update {'{component}'}" button. "Update" installs Okkey before Enterprise. Before Enterprise, the window waits until the restarted Okkey reports the needed version: "Waiting for Okkey {'{version}'} to come up before Enterprise." If that version never appears: "Okkey did not report {'{version}'} in time. Enterprise was not started."
+
+"Ignore" hides these versions until the feed offers a newer one. For the owner, the hide applies to the installation. For everyone else, it stays in this browser.
+
+While the package downloads: "Downloading package…". Then "Verifying package signature…" and "Applying update…". Success: "Update applied. Okkey is restarting on {'{version}'}." Failure: "Update failed. This instance is still on the previous version." Under that, the same sentence or a more specific one:
+
+| What you see | What it means |
+| --- | --- |
+| "The package has no signature, so it was not applied." | The package has no signature. |
+| "The package signature is invalid, so it was not applied." | The signature did not match. |
+| "Signature verification was interrupted, so the package was not applied." | The check stopped. |
+| "No trusted public key is configured, so the package was not applied." | `.env` has no key the window uses to check the package. For Okkey that is `OKKEY_UPDATE_TRUSTED_PUBLIC_KEY`. For Enterprise it is `OKKEY_UPDATE_ENTERPRISE_TRUSTED_PUBLIC_KEY`. |
+| "The update agent is not available. Nothing was applied." | The service that installs the package did not answer. |
+| "The enterprise package signature was checked, but this installation cannot apply the enterprise module. Okkey was not changed." | There is nowhere to install the Enterprise package on this instance. |
+| "Update core first. This enterprise package needs a newer core, so nothing was changed." | The Enterprise package is newer than the installed Okkey. |
+| "Apply failed. This instance is still on the previous version." | Apply stopped. |
 
 The image-tag path above is the one described for Docker Compose. The window does not replace a database backup before you change versions.
+
+### Offline package
+
+The block is "Offline package". The text is: "Upload a signed package (.okpkg / .json with payload+signature) or a combined archive (.okbundle, .zip). After a successful local check the package starts applying automatically." The button is "Upload offline package". Several files can be chosen. A chosen file has "Remove file".
+
+A signed package the window could read starts installing on its own, without a second "Update" click. A combined archive the window could read is installed too. If an archive is accepted but cannot be read, the window says: "This combined archive is accepted. It will be applied when this installation can read it." A file larger than 1024 MB says: "The offline package is larger than the allowed size." An unrecognized file says: "The file is not an Okkey offline package." A recognized file with nothing to install right now says: "The package was recognized, but nothing can be applied from it right now."
+
+Someone who is not the owner, when choosing a file, sees: "Only a workspace owner can apply an update." The upload button is disabled for them.
 
 ## Versions and releases {#versions-and-releases}
 

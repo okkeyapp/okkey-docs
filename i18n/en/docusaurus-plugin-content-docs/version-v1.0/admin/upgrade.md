@@ -73,7 +73,15 @@ When there is something to install, the owner sees "Ignore" and "Update" on the 
 
 "Ignore" hides these versions until the feed offers a newer one. For the owner, the hide applies to the installation. For everyone else, it stays in this browser.
 
-While the package downloads: "Downloading package…". Then "Verifying package signature…" and "Applying update…". Success: "Update applied. Okkey is restarting on {'{version}'}." Failure: "Update failed. This instance is still on the previous version." Under that, the same sentence or a more specific one:
+While the package downloads: "Downloading package…". Then "Verifying package signature…" and "Applying update…". The result:
+
+- Okkey only: "Update applied. Okkey is restarting on {'{version}'}."
+- Enterprise only: "Update applied. Enterprise {'{version}'} is installed."
+- Both: "Okkey {'{core}'} and Enterprise {'{enterprise}'} were applied."
+- Okkey applied and Enterprise rolled back: "Okkey was applied. Enterprise was not applied." The Enterprise update can be run again.
+- A complete failure: "This instance is still on the previous version."
+
+Under a failure message, the same sentence or a more specific one:
 
 | What you see | What it means |
 | --- | --- |
@@ -84,7 +92,7 @@ While the package downloads: "Downloading package…". Then "Verifying package s
 | "The update agent is not available. Nothing was applied." | The service that installs the package did not answer. |
 | "The enterprise package signature was checked, but this installation cannot apply the enterprise module. Okkey was not changed." | There is nowhere to install the Enterprise package on this instance. |
 | "Update core first. This enterprise package needs a newer core, so nothing was changed." | The Enterprise package is newer than the installed Okkey. |
-| "Apply failed. This instance is still on the previous version." | Apply stopped. |
+| "This instance is still on the previous version." | Apply stopped. |
 
 The image-tag path above is the one described for Docker Compose. The window does not replace a database backup before you change versions.
 

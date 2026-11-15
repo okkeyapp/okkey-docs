@@ -18,7 +18,7 @@ The section text says these are devices that can open the vault. On Enterprise t
 
 A "New device" has to be confirmed. Until it is, it does not open the vault. Signing in again from the same device while approval is still pending replaces the previous request and does not add a duplicate row.
 
-On a trusted device with the vault unlocked, a "New device" window opens on its own. The text is: "Someone signed in to your account from an unrecognized device. If this wasn’t you, tap “Not now”." The card shows the device name, the system, the date, "IP", "Country", and "City". An empty country or city says "Unknown location". The button is "Trust device". The toast is "Device trusted". "Not now" rejects the sign-in. The toast on this device is "Device revoked". On the new device the heading becomes "This device was denied".
+On a trusted device with the vault unlocked, a "New device" window opens on its own. The text is: "Someone signed in to your account from an unrecognized device. If this wasn’t you, tap “Not now”." The card shows the device name, the system, the date, "IP", "Country", and "City". An empty country or city says "Unknown location". The button is "Trust device". The toast is "Device trusted". "Not now" rejects the request. The toast on the trusted device is "This device was denied". On the new device the heading is "This device was denied", and "Request approval again" is available.
 
 Next to "Not now" is the "Block options" menu: "Block for 1 hour", "Block for 1 day", "Block forever". The toast is "Device blocked". The "Blocked devices" list shows the deadline or "Blocked permanently". From there: "Unblock" and "Trust". The same request is in "My devices" if the window was closed, or if the vault on the trusted device is still locked.
 
@@ -53,7 +53,7 @@ The workspace tile color is set separately, in [general workspace settings](../w
 ## How to check
 
 1. Sign in in a new browser. "Confirm this device" opens, with the list "Approve from". On a trusted device with the vault unlocked, "New device" opens on its own.
-2. "Trust device" sends the new browser to "Vault is locked". "Not now" leaves "This device was denied".
+2. "Trust device" sends the new browser to "Vault is locked". "Not now" rejects the request: the trusted device shows the toast "This device was denied", and the new device shows the same heading and "Request approval again".
 3. "Rename" changes the name. "Revoke" removes a device from the list, except the current one.
 4. "Personalization": "Dark" changes the theme only in this browser.
 

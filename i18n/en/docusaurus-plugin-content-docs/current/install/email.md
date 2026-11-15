@@ -26,7 +26,7 @@ If the second factor is not on yet, a successful master-password sign-in opens "
 
 On the code screen, while mail is inactive, a notice says: "Mail is not configured on this server. The confirmation code is in the worker logs." Under it: "Run:" and the command `docker compose logs worker`, and the link "sign in with your master password".
 
-An invitation is not saved when the public app address is missing. While mail is inactive, the invitation message is not sent over SMTP, even if the button says "Invitations sent". A plan request while mail is inactive opens a prepared message in the mail program, addressed to `OKKEY_SALES_EMAIL` from `.env`. That address is not a field in "Mail". See [Change plan](../workspace/plan.md).
+An invitation is not saved when the public app address is missing. While mail is inactive, the invitation is saved with the status "Awaiting send", and the message is not sent over SMTP. Above the invitation form, a notice says mail is not configured and the messages will go out when mail is working. The notice links to these mail settings. After a successful test message, pending invitations that have not expired are sent on their own. The list has "Send again" and "Copy invitation link". The link gives access to accepting the invitation. Pass it only to the recipient, in person. The link lasts 14 days. See [Members](../workspace/members.md). A plan request while mail is inactive opens a prepared message in the mail program, addressed to `OKKEY_SALES_EMAIL` from `.env`. That address is not a field in "Mail". See [Change plan](../workspace/plan.md).
 
 ## Mail in settings
 
@@ -44,7 +44,7 @@ Above the fields is the status. Active mail: "Mail is active: sign-in codes and 
 | "Port" | "SMTP port (1–65535). Common values are 587 or 465." A value that is not an integer in that range: "Port must be an integer from 1 to 65535". |
 | "Encryption" | "None", "STARTTLS", or "TLS". The caption is "How the connection to the SMTP server is encrypted." |
 | "Username" | "SMTP authentication username, if the server requires one." |
-| "Password" | "SMTP password for authenticating with the mail server." If a password is already saved, the field is replaced by "Change password" and a delete button labeled "Clear saved password". A new password uses "Enter a new password". |
+| "Password" | "SMTP password for authenticating with the mail server." If a password is already saved, the field is replaced by the "Change password" button and the "Clear saved password" icon. A new password uses "Enter a new password". |
 | "Sender address" | "From address used for system emails." |
 | "Public app URL" | "Public base URL used in email links." |
 
@@ -58,11 +58,11 @@ The test needs a host and a sender address. The password in the database is seal
 
 The password in settings is opened with a key from `SESSION_SECRET`. After you change that secret, the old value does not open. Above the fields you see: "The saved SMTP password can't be read after a server secret change. Please enter it again."
 
-Enter the password again and send the test email once more. The delete button labeled "Clear saved password" removes the saved password on the next test, or when you choose "Save anyway".
+Enter the password again and send the test email once more. The "Clear saved password" icon removes the saved password on the next test, or when you choose "Save anyway".
 
 ## Invitations and the worker
 
-An invitation needs the public app address. The link in the message lasts 14 days. The message is sent over SMTP when mail is active. See [Members](../workspace/members.md).
+An invitation needs the public app address. The link in the message lasts 14 days. While mail is inactive, the invitation waits with the status "Awaiting send". After a successful test message, those invitations are sent on their own if they have not expired. The message is sent over SMTP when mail is active. See [Members](../workspace/members.md).
 
 The API puts messages on a Redis queue. The worker sends them. If the worker is stopped, messages wait in the queue.
 

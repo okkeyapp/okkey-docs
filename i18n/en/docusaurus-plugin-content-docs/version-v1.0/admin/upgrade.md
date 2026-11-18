@@ -57,7 +57,7 @@ The title is "System update". The text is: "Review online feed updates, or uploa
 
 The block is "Online update".
 
-If network checks are off (`OKKEY_UPDATE_ISOLATED=true`), the lines are replaced by: "Online updates are disabled in settings. Use an offline package below."
+If network checks are off (`OKKEY_UPDATE_ISOLATED=true`), the lines are replaced by: "Online updates are disabled by the server administrator. Use an offline package below."
 
 Otherwise the window shows an "Okkey" row. An "Enterprise" row is present when the Enterprise module is installed. A row says "Current version {'{version}'}". When the feed has something newer, it also says "New version {'{version}'}", a short release summary, and a "Release notes" link when the release has an `http` or `https` address. When nothing is newer: "Up to date". When that row's feed could not be read: "{'{component}'} could not be checked."
 
@@ -76,10 +76,10 @@ When there is something to install, the owner sees "Ignore" and "Update" on the 
 While the package downloads: "Downloading package…". Then "Verifying package signature…" and "Applying update…". The result:
 
 - Okkey only: "Update applied. Okkey is restarting on {'{version}'}."
-- Enterprise only: "Update applied. Enterprise {'{version}'} is installed."
+- Enterprise only: "Update applied. Enterprise {'{version}'} installed."
 - Both: "Okkey {'{core}'} and Enterprise {'{enterprise}'} were applied."
-- Okkey applied and Enterprise rolled back: "Okkey was applied. Enterprise was not applied." The Enterprise update can be run again.
-- A complete failure: "This instance is still on the previous version."
+- Partial package (Okkey applied, Enterprise not): "Okkey {'{core}'} was applied. Enterprise stayed on the previous version. Retry the Enterprise update." Under it: "Okkey was applied. Enterprise was not applied and was rolled back." The button is "Retry Enterprise update".
+- A complete failure: "Update failed. This instance is still on the previous version."
 
 Under a failure message, the same sentence or a more specific one:
 

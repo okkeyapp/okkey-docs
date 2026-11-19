@@ -27,7 +27,7 @@ The "Security" item in "Device settings". The address is `?popup=settings|device
 | Setting | What it does | Values |
 | --- | --- | --- |
 | "Device idle timeout" | After a pause the vault locks. Until you pick a duration yourself, the pause is 15 minutes. | 1, 5, 15, and 30 minutes, 1 hour, and 4 hours. |
-| "Lock vault when the device locks" | The vault locks when the device sleeps. | On by default. |
+| "Lock vault when the device locks" | The vault locks when the device sleeps. | Off by default. If you upgraded and never changed the switch, it stays on. |
 | "Clear clipboard" | A copied password is wiped from the clipboard. | "Never" (the default), 10 and 30 seconds, 1, 2, and 5 minutes. "Never" leaves the password in the clipboard. |
 
 The "Confirm access" screen for zones from the [master password](./profile.md#master-password) tries biometrics, then the PIN, then the master password, when those are turned on.

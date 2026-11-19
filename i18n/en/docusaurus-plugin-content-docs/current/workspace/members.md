@@ -20,7 +20,7 @@ To get Enterprise, contact the Okkey team. See [Plans](../plans.md).
 2. In the row, enter an email ("Enter member email…") and a role. The default role is "User". "Owner" is not in the list. Another address is added with "Add more". An extra row is removed with "Remove row".
 3. Click "Send invitations (N)". While the mail is going out, you see "Sending invitations…". When mail is active, success is "Invitations sent".
 
-While mail is inactive, the invitation is saved with the status "Awaiting send". Above the form, a notice says mail is not configured and the messages will go out when mail is working. The notice links to the mail settings. After a successful test message, pending invitations that have not expired are sent on their own. The invitation list has "Send again" and "Copy invitation link", so you can pass the link yourself. The link gives access to accepting the invitation. Pass it only to the recipient, in person.
+While mail is inactive, the invitation is saved with the status "Pending delivery". Above the form, a notice says mail is not configured and the messages will go out when mail is working. The notice links to the mail settings. After a successful test message, pending invitations that have not expired are sent on their own. The invitation list has "Resend" and "Copy invite link", so you can pass the link yourself. Each press of "Copy invite link" creates a new link; the previous one, including the one from the email, stops working. The invitation expiry is not extended. "Resend" also issues a new link. The link gives access to accepting the invitation. Pass it only to the recipient, in person.
 
 The profile and vaults are not chosen in this window. Vault access is set later on the "Member card" or in the vault settings.
 
@@ -41,7 +41,7 @@ To save vault access, the vault must be open. Otherwise the window shows "Unlock
 ## How to check
 
 1. On Free the section has an "Invite" button, not a note that members are missing from the plan.
-2. Send an invitation to a new address with the role "User". When mail is active, the "Additional members" list shows a row with the "Unconfirmed" badge. When mail is inactive, the status is "Awaiting send".
+2. Send an invitation to a new address with the role "User". When mail is active, the "Additional members" list shows a row with the "Unconfirmed" badge. When mail is inactive, the status is "Pending delivery".
 3. The eleventh live invitation, or the eleventh member beyond the owner, does not save.
 4. On the owner's card the role does not change, and there is no button to remove the owner.
 

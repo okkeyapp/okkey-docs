@@ -154,6 +154,16 @@ Take the core package `okkey-<version>.okpkg` from [public okkey releases](https
 
 `OKKEY_UPDATE_ISOLATED=true` turns off online checks, including the default core feed. Updates then go through an offline package or Compose.
 
+### How to turn it on
+
+In `~/okkey/.env`, set `OKKEY_UPDATE_ISOLATED=true`. On a fresh install the line is already there with `false`; on an older install, add it if it is missing. Then recreate api and update-agent:
+
+```bash
+docker compose -p okkey -f docker-compose.prod.yml --env-file .env up -d api update-agent
+```
+
+The variable is read when the container starts; a plain `restart` does not re-read `.env`. Online rows disappear from the update window, the offline package remains, and images are not pulled from the network.
+
 ### What to download
 
 - Okkey only: from the [okkey releases page](https://github.com/okkeyapp/okkey/releases), the `okkey-<version>.okpkg` file for the tag you need. The same public release also has `feed.json`. There is no combined `.okbundle` in public okkey Releases.

@@ -154,6 +154,16 @@ API и воркер при старте применяют SQL-файлы из `
 
 `OKKEY_UPDATE_ISOLATED=true` отключает онлайн-проверки, в том числе ленту ядра по умолчанию. Обновление тогда - через офлайн-пакет или Compose.
 
+### Как включить
+
+В `~/okkey/.env` поставьте `OKKEY_UPDATE_ISOLATED=true`. На свежей установке строка уже есть со значением `false`; на более старой, если её нет, добавьте. Затем пересоздайте api и update-agent:
+
+```bash
+docker compose -p okkey -f docker-compose.prod.yml --env-file .env up -d api update-agent
+```
+
+Переменная читается при старте контейнера; обычный `restart` `.env` не перечитывает. В окне обновления онлайн-строки пропадают, офлайн-пакет остаётся, образы из сети не скачиваются.
+
 ### Что скачать
 
 - Только Okkey: с [страницы релизов okkey](https://github.com/okkeyapp/okkey/releases) файл `okkey-<version>.okpkg` для нужного тега. Рядом в публичном релизе лежит `feed.json`. Общего архива `.okbundle` в публичных Releases okkey нет.

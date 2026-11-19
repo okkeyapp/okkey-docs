@@ -34,13 +34,13 @@ The card in Change plan lists "Unlimited storage" among its lines. Compare featu
 
 The message goes to `OKKEY_SALES_EMAIL` from `.env`. You set that address during [install](./free.md). Okkey accepts at most 3 requests from one workspace in a rolling 24 hours. The error texts are on [Change plan](../workspace/plan.md).
 
-A license key and a license portal are planned. They are not available now: an Okkey employee turns the plan on.
+A license key and a license portal are planned. They are not available now: an Okkey employee turns the plan on. In this release Enterprise modules are enabled with `ENTERPRISE_MODULES`. A license key is not needed for the modules right now.
 
 ## Updates
 
-Okkey images are updated the same way as on Free. The steps are on [Upgrade](../admin/upgrade.md).
+Okkey images are updated the same way as on Free. The steps are on [Upgrade](../admin/upgrade.md). The Enterprise online feed will arrive in a later release and will require a license key. In this release, update Enterprise with [Compose](../admin/upgrade.md#steps) or with an offline package issued to Enterprise customers with the Enterprise release. For a closed network, see [isolated mode](../admin/upgrade.md#isolated-mode).
 
-Anyone who is signed in sees the version at the bottom of the sidebar. "System update" opens from it. The "Enterprise" row is present when the module is installed. Only the owner can apply a package. An offline package, including a combined archive (`.okbundle`, `.zip`), is applied after a successful local check. Details and the error text are on [Upgrade](../admin/upgrade.md#the-window-in-the-app).
+Anyone who is signed in sees the version at the bottom of the sidebar. "System update" opens from it. The "Enterprise" row is present when the module is installed: the window shows the version and a short SHA when the install reports one. Details for the window and the core feed are on [Upgrade](../admin/upgrade.md#the-window-in-the-app).
 
 ## When the license ends
 

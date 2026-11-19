@@ -26,7 +26,7 @@ The commands assume the directory `~/okkey` and the Compose project `okkey`. If 
 ## What to do next
 
 1. Take a [backup](./backup-restore.md) and restore it once as a test.
-2. Upgrade using [Upgrade](./upgrade.md). Take another backup first.
+2. Upgrade using [Upgrade](./upgrade.md): feeds, the in-app window, isolated mode, and Docker Compose. Take another backup first.
 3. A return to the previous data is on [Rollback](./rollback.md). Changing the image tag does not undo database migrations that have already been applied.
 
 ## How to check

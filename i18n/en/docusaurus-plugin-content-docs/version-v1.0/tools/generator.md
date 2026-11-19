@@ -14,7 +14,7 @@ The refresh button is labeled "Regenerate" for screen readers. Copy uses the too
 
 ## Password {#password}
 
-Length 4–128, default 16. The slider label is "Characters: N". Default sets: "A-Z" on, "a-z" on, "0-9" on, "!@#$%^&*" off. If you turn all four sets off, "a-z" stays on.
+Length 4-128, default 16. The slider label is "Characters: N". Default sets: "A-Z" on, "a-z" on, "0-9" on, "!@#$%^&*" off. If you turn all four sets off, "a-z" stays on.
 
 Next to the value: "Strength:" and "Crack time:". Strength: "Weak", "Fair", "Good", "Strong", "Excellent". Crack time: "Instantly", "Hours", "Days", "Months", "Years", "Decades", "Centuries", "Never". This is an entropy estimate, not a promise of how long a guess would take.
 
@@ -22,9 +22,9 @@ The same generator opens from an item: "Generator" on a password field, then "In
 
 ## Passphrase {#passphrase}
 
-Words come from the EFF large list. The default is 3 words, separator `-`, without capitals and without a digit. Word range: 3–20. The slider label is "Words: N".
+Words come from the EFF large list. The default is 3 words, separator `-`, without capitals and without a digit. Word range: 3-20. The slider label is "Words: N".
 
-"Capitalize" raises the first letter of each word. "Include number" appends one digit 0–9 to a random word. "Word separator" is one character. If you type more, the first character is kept. An empty value is replaced with `-`.
+"Capitalize" raises the first letter of each word. "Include number" appends one digit 0-9 to a random word. "Word separator" is one character. If you type more, the first character is kept. An empty value is replaced with `-`.
 
 ## Username {#username}
 

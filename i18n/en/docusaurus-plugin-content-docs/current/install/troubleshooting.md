@@ -29,13 +29,13 @@ If the API does not start and the log contains `OKKEY_SALES_EMAIL is required`, 
 
 ## No Docker Compose or no cosign
 
-`docker compose plugin is required` — install the Compose plugin and check `docker compose version`.
+`docker compose plugin is required` - install the Compose plugin and check `docker compose version`.
 
-`cosign is not installed` — install [cosign](https://docs.sigstore.dev/cosign/system_config/installation/) and run the script again. The install does not continue without the signature check.
+`cosign is not installed` - install [cosign](https://docs.sigstore.dev/cosign/system_config/installation/) and run the script again. The install does not continue without the signature check.
 
-`cosign verify failed` — the signature of the pulled image did not match. Check that `OKKEY_IMAGE_TAG` is published, and pull the images again. The manual check is on [Install steps](./free.md).
+`cosign verify failed` - the signature of the pulled image did not match. Check that `OKKEY_IMAGE_TAG` is published, and pull the images again. The manual check is on [Install steps](./free.md).
 
-`docker compose pull failed` — the tag is not in GHCR (`ghcr.io/okkeyapp/api`, `web`, `worker`). The tag on this page is `1.0.0-beta.2`.
+`docker compose pull failed` - the tag is not in GHCR (`ghcr.io/okkeyapp/api`, `web`, `worker`). The tag on this page is `1.0.0-beta.2`.
 
 ## The API does not become healthy
 

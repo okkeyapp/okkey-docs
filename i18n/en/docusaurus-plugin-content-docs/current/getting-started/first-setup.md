@@ -25,6 +25,19 @@ Save the recovery key before "Next". After that the screen will not show it agai
 Registration creates a workspace named "Personal" and a "Personal vault". A second workspace cannot be created. This install's plan is Free. An Okkey employee sets up Enterprise. See [Plans](../plans.md).
 Signing in again on this device opens the same "Vault is locked" screen. The account menu has "My settings", "Device settings", and "Log out". Language switches in the header. "Change server" is in the extension.
 
+## Tips
+
+In the sidebar, between "Documentation" and the account menu, there is a "Tips" block. The "Previous tip" and "Next tip" arrows move through unfinished steps. "Dismiss tips" hides the block for this user in this browser.
+
+The tips are:
+
+- "Set up a PIN" - opens "Unlock". See [Unlock](../account/unlock.md).
+- "Enable two-factor authentication" - opens "2FA authentication". See [Two-factor authentication](../account/two-factor.md).
+- "Lock the vault when the device locks" - opens "Security". See [Unlock](../account/unlock.md).
+- "Configure server email" - owner only, self-host only, and only while mail is inactive; opens "Mail". See [Email](../install/email.md).
+
+A completed tip disappears. PIN and vault lock are per-device settings, so the tips can show again in another browser.
+
 ## Next steps
 
 - [Settings](../account/index.md)

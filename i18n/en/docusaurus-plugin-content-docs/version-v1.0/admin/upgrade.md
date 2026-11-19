@@ -51,7 +51,7 @@ For the release this install page is pinned to, `<tag>` is `1.0.0-beta.3` and th
 
 In this release the main Enterprise upgrade path is Docker Compose.
 
-The public `docker-compose.prod.yml` from okkey keeps the same `api`, `web`, and `worker` services. The Enterprise module replaces their images through `OKKEY_API_IMAGE`, `OKKEY_WEB_IMAGE`, and `OKKEY_WORKER_IMAGE`. The tag comes from `OKKEY_ENTERPRISE_IMAGE_TAG`, or from `OKKEY_IMAGE_TAG` when that is empty. The names `enterprise-api`, `enterprise-web`, and `enterprise-worker` appear only as keys inside an Enterprise offline package; there are no separate Compose services with those names.
+The public `docker-compose.prod.yml` from okkey keeps the same `api`, `web`, `worker`, and `update-agent` services. The Enterprise module replaces the `api`, `web`, and `worker` images through `OKKEY_API_IMAGE`, `OKKEY_WEB_IMAGE`, and `OKKEY_WORKER_IMAGE`. The `update-agent` service also takes its image from `OKKEY_API_IMAGE`. The tag comes from `OKKEY_ENTERPRISE_IMAGE_TAG`, or from `OKKEY_IMAGE_TAG` when that is empty. The names `enterprise-api`, `enterprise-web`, and `enterprise-worker` appear only as keys inside an Enterprise offline package; there are no separate Compose services with those names.
 
 When the module is already installed:
 
@@ -66,7 +66,7 @@ curl -fsSL -o docker-compose.prod.yml \
 docker compose -p okkey -f docker-compose.prod.yml --env-file .env pull
 ```
 
-Verify the Enterprise images with cosign — the command on this page is for core images only; see [Versions and releases](#versions-and-releases). Then start:
+Verify the Enterprise images with cosign using the command in [Versions and releases](#versions-and-releases). Then start:
 
 ```bash
 docker compose -p okkey -f docker-compose.prod.yml --env-file .env up -d
@@ -84,7 +84,7 @@ This start path has no scripts that undo a migration already recorded. Take a [b
 
 ## The window in the app {#the-window-in-the-app}
 
-The window exists only on self-hosted, on Free and on Enterprise. Anyone who is signed in can open it. The bottom of the sidebar shows the version, for example `v1.0.0-beta.3`. When the server knows the commit the core was built from, the first 8 characters of its SHA follow in parentheses: `v1.0.0-beta.3 (2bf668f3)`. The full SHA appears in the tooltip. A build without a release tag shows `v0.0.0-dev`. The address is `?popup=systemUpdate`.
+The window exists only on self-hosted, on Free and on Enterprise. Anyone who is signed in can open it. The bottom of the sidebar shows the version, for example `v1.0.0-beta.3`. When the server knows the commit the core was built from, the first 8 characters of its SHA follow in parentheses: `v1.0.0-beta.3 (2bf668f3)`. The full SHA is only in the `data-commit-sha` attribute. `v0.0.0-dev` is shown only when the version is a bare commit SHA. The address is `?popup=systemUpdate`.
 
 While the feed has a version newer than the one already opened in this window, the version icon changes. A screen reader also hears "Update available". In the collapsed sidebar the icon stays and the version text is hidden. Opening the window clears that state for the versions it shows.
 
@@ -134,7 +134,7 @@ Under a failure message, the same sentence or a more specific one:
 | "The enterprise package signature was checked, but this installation cannot apply the enterprise module. Okkey was not changed." | There is nowhere to install the Enterprise package on this instance. |
 | "Update core first. This enterprise package needs a newer core, so nothing was changed." | The Enterprise package is newer than the installed Okkey. |
 | "Okkey was applied. Enterprise was not applied and was rolled back." | The combined archive installed Okkey, and Enterprise rolled back. |
-| "The enterprise license has expired." | The Enterprise feed rejected the check because of the license. |
+| "The enterprise license has expired." | The Enterprise license has expired. |
 | "The offline package is larger than the allowed size." | A package whose zip archive is larger than 1,000,000 bytes. |
 | "Update failed. This instance is still on the previous version." | Apply stopped. |
 
@@ -166,7 +166,7 @@ The window also accepts a combined archive as `.zip` with the same packages.
 If a `.sha256` file was issued with the combined archive, check the checksum:
 
 ```bash
-sha256sum -c okkey-offline-<version>.okbundle.sha256
+echo "$(cat okkey-offline-<version>.okbundle.sha256)  okkey-offline-<version>.okbundle" | sha256sum -c -
 ```
 
 Or compare the hash of the downloaded file with the single line in `.sha256`. After upload, the window checks the package signature again with the trusted keys in `.env`. For a core package, `OKKEY_UPDATE_TRUSTED_PUBLIC_KEY` is enough. For an Enterprise package and for a combined `.okbundle` archive, `OKKEY_UPDATE_ENTERPRISE_TRUSTED_PUBLIC_KEY` is also required. Without the needed key the package is not applied.
@@ -210,7 +210,23 @@ cosign verify \
 
 Repeat for `worker` and `web`. Postgres, Redis, and MinIO are not covered by this signature.
 
-Enterprise images are `ghcr.io/okkeyapp/okkey-enterprise/api`, `ghcr.io/okkeyapp/okkey-enterprise/worker`, and `ghcr.io/okkeyapp/okkey-enterprise/web`. They are signed by the `okkey-enterprise` repository (`publish-images.yml`, same OIDC issuer `https://token.actions.githubusercontent.com`). Verification needs that repository's identity, not the core command above.
+Enterprise images are `ghcr.io/okkeyapp/okkey-enterprise/api`, `ghcr.io/okkeyapp/okkey-enterprise/worker`, and `ghcr.io/okkeyapp/okkey-enterprise/web`. They are signed by the `okkey-enterprise` repository (GitHub Actions workflow `publish-images.yml`, same OIDC issuer `https://token.actions.githubusercontent.com`). Trusted refs are release tags `v*`, branches `release/*` and `hotfix/*` (not `dev`). Verification needs that repository's signature identity, not the core command above. The images are private: run `docker login ghcr.io` before pull and verify. Set your tag in `OKKEY_ENTERPRISE_IMAGE_TAG`:
+
+```bash
+identity_regexp='^https://github\.com/okkeyapp/okkey-enterprise/\.github/workflows/publish-images\.yml@refs/(?:tags/v[0-9]+\.[0-9]+\.[0-9]+(?:-[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?|heads/release/[0-9A-Za-z._-]+|heads/hotfix/[0-9A-Za-z._-]+)$'
+
+for image in \
+  ghcr.io/okkeyapp/okkey-enterprise/api \
+  ghcr.io/okkeyapp/okkey-enterprise/web \
+  ghcr.io/okkeyapp/okkey-enterprise/worker
+do
+  digest_ref="$(docker image inspect --format '{{index .RepoDigests 0}}' "${image}:${OKKEY_ENTERPRISE_IMAGE_TAG}")"
+  cosign verify \
+    --certificate-identity-regexp "${identity_regexp}" \
+    --certificate-oidc-issuer 'https://token.actions.githubusercontent.com' \
+    "${digest_ref}"
+done
+```
 
 Release notes are on the GitHub releases page: [github.com/okkeyapp/okkey/releases](https://github.com/okkeyapp/okkey/releases). A pre-release note says the version is not final yet.
 

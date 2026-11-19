@@ -51,7 +51,7 @@ docker compose -p okkey -f docker-compose.prod.yml --env-file .env up -d
 
 В этом выпуске основной путь обновления Enterprise — Docker Compose.
 
-Публичный `docker-compose.prod.yml` из okkey держит те же сервисы `api`, `web` и `worker`. Модуль Enterprise подменяет их образы через `OKKEY_API_IMAGE`, `OKKEY_WEB_IMAGE` и `OKKEY_WORKER_IMAGE`. Тег берётся из `OKKEY_ENTERPRISE_IMAGE_TAG`, а если он пуст — из `OKKEY_IMAGE_TAG`. Имена `enterprise-api`, `enterprise-web` и `enterprise-worker` встречаются только как ключи внутри офлайн-пакета Enterprise; отдельных сервисов Compose с такими именами нет.
+Публичный `docker-compose.prod.yml` из okkey держит те же сервисы `api`, `web`, `worker` и `update-agent`. Модуль Enterprise подменяет образы `api`, `web` и `worker` через `OKKEY_API_IMAGE`, `OKKEY_WEB_IMAGE` и `OKKEY_WORKER_IMAGE`. Сервис `update-agent` тоже берёт образ из `OKKEY_API_IMAGE`. Тег берётся из `OKKEY_ENTERPRISE_IMAGE_TAG`, а если он пуст - из `OKKEY_IMAGE_TAG`. Имена `enterprise-api`, `enterprise-web` и `enterprise-worker` встречаются только как ключи внутри офлайн-пакета Enterprise; отдельных сервисов Compose с такими именами нет.
 
 Когда модуль уже установлен:
 
@@ -66,7 +66,7 @@ curl -fsSL -o docker-compose.prod.yml \
 docker compose -p okkey -f docker-compose.prod.yml --env-file .env pull
 ```
 
-Проверьте образы Enterprise подписью cosign — команда на странице для ядра не подходит; см. раздел [Версии и релизы](#версии-и-релизы). Затем запустите:
+Проверьте образы Enterprise подписью cosign командой из раздела [Версии и релизы](#версии-и-релизы). Затем запустите:
 
 ```bash
 docker compose -p okkey -f docker-compose.prod.yml --env-file .env up -d
@@ -84,13 +84,13 @@ API и воркер при старте применяют SQL-файлы из `
 
 ## Окно в интерфейсе {#окно-в-интерфейсе}
 
-Окно есть только на self-hosted, на тарифе «Бесплатный» и на тарифе «Предприятие». Его видит любой вошедший. Внизу сайдбара написана версия, например `v1.0.0-beta.3`. Если сервер знает коммит, из которого собрано ядро, в скобках добавляются первые 8 символов его SHA: `v1.0.0-beta.3 (2bf668f3)`. Полный SHA видно во всплывающей подсказке. Сборка без тега релиза показывает `v0.0.0-dev`. Адрес окна: `?popup=systemUpdate`.
+Окно есть только на self-hosted, на тарифе «Бесплатный» и на тарифе «Предприятие». Его видит любой вошедший. Внизу сайдбара написана версия, например `v1.0.0-beta.3`. Если сервер знает коммит, из которого собрано ядро, в скобках добавляются первые 8 символов его SHA: `v1.0.0-beta.3 (2bf668f3)`. Полный SHA лежит в атрибуте `data-commit-sha`. `v0.0.0-dev` показывается, только когда версия - это сам SHA коммита. Адрес окна: `?popup=systemUpdate`.
 
 Пока в ленте есть версия новее той, которую уже открывали в этом окне, значок версии другой. Для чтения с экрана рядом звучит «Доступно обновление». В свёрнутом сайдбаре виден значок, текст версии скрыт. Открытие окна снимает это состояние для показанных версий.
 
 Заголовок окна: «Обновление системы». Текст: «Проверьте онлайн-обновления из ленты или загрузите офлайн-пакет — он применится после успешной проверки.» «Закрыть» не нажимается, пока обновление идёт.
 
-Окно разделено на онлайн-обновление и загрузку офлайн-пакета. Офлайн-пакет после успешной локальной проверки применяется автоматически. В строках окна «Okkey» и, если модуль установлен, «Enterprise» показаны текущая версия и, когда установка сообщает commit, короткий SHA в скобках, например `1.0.0-beta.3 (6e6ee86)`.
+Окно разделено на онлайн-обновление и загрузку офлайн-пакета. Офлайн-пакет после успешной локальной проверки применяется автоматически. В строках окна «Okkey» и, если модуль установлен, «Enterprise» показаны текущая версия и, когда установка сообщает коммит, короткий SHA в скобках, например `1.0.0-beta.3 (6e6ee86)`.
 
 Для Okkey в этом выпуске окно подходит и для онлайн-ленты ядра, и для офлайн-пакета ядра. Для Enterprise основной путь обновления — [Compose](#шаги).
 
@@ -102,7 +102,7 @@ API и воркер при старте применяют SQL-файлы из `
 
 Иначе окно показывает строку «Okkey». Строка «Enterprise» есть, когда модуль Enterprise установлен: в ней видны текущая версия и короткий SHA, когда установка его сообщает. Онлайн-лента Enterprise появится в следующем выпуске.
 
-Для Okkey в строке «Текущая версия {'{version}'}». Если API знает commit, к версии добавляется короткий SHA. Если в ленте ядра есть новее, рядом «Новая версия {'{version}'}», краткий текст выпуска и ссылка «Примечания к выпуску», когда у выпуска есть адрес `http` или `https`. Если новее нет: «Актуальная версия». Если ленту ядра прочитать не удалось: «Не удалось проверить Okkey.»
+Для Okkey в строке «Текущая версия {'{version}'}». Если API знает коммит, к версии добавляется короткий SHA. Если в ленте ядра есть новее, рядом «Новая версия {'{version}'}», краткий текст выпуска и ссылка «Примечания к выпуску», когда у выпуска есть адрес `http` или `https`. Если новее нет: «Актуальная версия». Если ленту ядра прочитать не удалось: «Не удалось проверить Okkey.»
 
 Пустой список при настроенной ленте ядра: «Эта установка уже на актуальной версии.» Если ленты нет: «Лента обновлений не задана. Ниже можно загрузить офлайн-пакет.» Непрочитанная лента: «Не удалось прочитать ленту обновлений. Ничего не применено.»
 
@@ -134,7 +134,7 @@ API и воркер при старте применяют SQL-файлы из `
 | «Подпись пакета Enterprise проверена, но эта установка не может применить модуль Enterprise. Okkey не изменён.» | Пакет Enterprise на этой установке некуда ставить. |
 | «Сначала обновите ядро. Этому пакету Enterprise нужна более новая версия ядра, поэтому ничего не изменено.» | Пакет Enterprise новее, чем установленный Okkey. |
 | «Okkey применён. Enterprise не применён и откачен.» | Общий архив поставил Okkey, а Enterprise откатился. |
-| «Срок лицензии Enterprise истёк.» | Лента Enterprise отклонила проверку из‑за лицензии. |
+| «Срок лицензии Enterprise истёк.» | Лицензия Enterprise истекла. |
 | «Офлайн-пакет больше допустимого размера.» | Пакет, в котором zip-архив больше 1 000 000 байт. |
 | «Обновление не применено. Экземпляр остался на прежней версии.» | Применение оборвалось. |
 
@@ -166,7 +166,7 @@ API и воркер при старте применяют SQL-файлы из `
 Если вместе с общим архивом выдали файл `.sha256`, сверьте контрольную сумму:
 
 ```bash
-sha256sum -c okkey-offline-<version>.okbundle.sha256
+echo "$(cat okkey-offline-<version>.okbundle.sha256)  okkey-offline-<version>.okbundle" | sha256sum -c -
 ```
 
 Либо сравните хеш скачанного файла с одной строкой в `.sha256`. После загрузки окно ещё раз проверяет подпись пакета доверенными ключами из `.env`. Для пакета ядра достаточно `OKKEY_UPDATE_TRUSTED_PUBLIC_KEY`. Для пакета Enterprise и для общего архива `.okbundle` нужен ещё `OKKEY_UPDATE_ENTERPRISE_TRUSTED_PUBLIC_KEY`. Без нужного ключа пакет не применяется.
@@ -210,7 +210,23 @@ cosign verify \
 
 Повторите для `worker` и `web`. Postgres, Redis и MinIO этой подписью не покрыты.
 
-Образы Enterprise — `ghcr.io/okkeyapp/okkey-enterprise/api`, `ghcr.io/okkeyapp/okkey-enterprise/worker` и `ghcr.io/okkeyapp/okkey-enterprise/web`. Их подписывает репозиторий `okkey-enterprise` (workflow `publish-images.yml`, тот же OIDC issuer `https://token.actions.githubusercontent.com`). Для проверки нужна identity этого репозитория, а не команда ядра выше.
+Образы Enterprise - `ghcr.io/okkeyapp/okkey-enterprise/api`, `ghcr.io/okkeyapp/okkey-enterprise/worker` и `ghcr.io/okkeyapp/okkey-enterprise/web`. Их подписывает репозиторий `okkey-enterprise` (процесс GitHub Actions `publish-images.yml`, тот же OIDC issuer `https://token.actions.githubusercontent.com`). Доверенные refs - теги релиза `v*`, ветки `release/*` и `hotfix/*` (не `dev`). Для проверки нужен идентификатор подписи этого репозитория, а не команда ядра выше. Образы закрытые: перед `pull` и проверкой выполните `docker login ghcr.io`. Подставьте свой тег в `OKKEY_ENTERPRISE_IMAGE_TAG`:
+
+```bash
+identity_regexp='^https://github\.com/okkeyapp/okkey-enterprise/\.github/workflows/publish-images\.yml@refs/(?:tags/v[0-9]+\.[0-9]+\.[0-9]+(?:-[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?|heads/release/[0-9A-Za-z._-]+|heads/hotfix/[0-9A-Za-z._-]+)$'
+
+for image in \
+  ghcr.io/okkeyapp/okkey-enterprise/api \
+  ghcr.io/okkeyapp/okkey-enterprise/web \
+  ghcr.io/okkeyapp/okkey-enterprise/worker
+do
+  digest_ref="$(docker image inspect --format '{{index .RepoDigests 0}}' "${image}:${OKKEY_ENTERPRISE_IMAGE_TAG}")"
+  cosign verify \
+    --certificate-identity-regexp "${identity_regexp}" \
+    --certificate-oidc-issuer 'https://token.actions.githubusercontent.com' \
+    "${digest_ref}"
+done
+```
 
 Заметки к релизу лежат на странице релизов GitHub: [github.com/okkeyapp/okkey/releases](https://github.com/okkeyapp/okkey/releases). У предрелиза в заметках есть отметка, что это ещё не финальная версия.
 

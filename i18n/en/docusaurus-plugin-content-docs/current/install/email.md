@@ -6,7 +6,7 @@ plans: [free, enterprise]
 
 # Email
 
-Mail is used for sign-in codes, invitations, and the plan request. This page is for Free and for Enterprise on your machine.
+Mail is used for sign-in codes, invitations by email, and the plan request. Invite links do not need mail. This page is for Free and for Enterprise on your machine.
 
 The first account on an empty database does not need a message. See [first-time setup](../getting-started/first-setup.md).
 
@@ -26,7 +26,7 @@ If the second factor is not on yet, a successful master-password sign-in opens "
 
 On the code screen, while mail is inactive, a notice says: "Mail is not configured on this server. The confirmation code is in the worker logs." Under it: "Run:" and the command `docker compose logs worker`, and the link "sign in with your master password".
 
-An invitation is not saved when the public app address is missing. While mail is inactive, an email invitation is saved with the status "Pending delivery", and the message is not sent over SMTP. Above the form on the "Email" tab, a notice says: "Mail is not configured. Invitations will be sent when mail is working. You can still create invite links." The notice links to "Configure mail". After a successful test message, pending invitations that have not expired are sent on their own. The list has "Resend" and "Copy invite link". The link gives access to accepting the invitation. Pass it only to the recipient, in person. The link lasts 14 days. Invite by link does not need mail - see [Members](../workspace/members.md). A plan request while mail is inactive opens a prepared message in the mail program, addressed to `OKKEY_SALES_EMAIL` from `.env`. That address is not a field in "Mail". See [Change plan](../workspace/plan.md).
+An invitation is not saved when the public app address is missing. While mail is inactive, an email invitation is saved with the status "Pending delivery", and the message is not sent over SMTP. Above the form on the "Email" tab, a notice says: "Mail is not configured. Invitations will be sent when mail is working. You can still create invite links." The notice links to "Configure mail". After a successful test message, pending invitations that have not expired are sent on their own. The list has "Resend" and "Copy invite link". Each press of "Copy invite link" creates a new link; the previous one, including the one from the email, stops working. The invitation expiry is not extended. "Resend" also issues a new link. The link gives access to accepting the invitation. Pass it only to the recipient, in person. The link lasts 14 days. Invite by link does not need mail - see [Members](../workspace/members.md). A plan request while mail is inactive opens a prepared message in the mail program, addressed to `OKKEY_SALES_EMAIL` from `.env`. That address is not a field in "Mail". See [Change plan](../workspace/plan.md).
 
 ## Mail in settings
 

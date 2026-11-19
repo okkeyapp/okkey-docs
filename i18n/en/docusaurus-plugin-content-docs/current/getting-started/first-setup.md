@@ -14,7 +14,7 @@ Once an account exists and mail is active, sign-in with the same address uses a 
 
 1. "Welcome to Okkey". Field "Email", button "Sign in".
 2. If users already exist and mail is active: "Confirmation code", 6 digits. If mail is inactive: the master password and the button "Sign in". The confirmation code is in the worker logs.
-3. "Sign up for Okkey". Fields: "First name", "Last name", "Master password", "Repeat master password". The password is at least 4 characters, and the two passwords must match. Button "Sign up".
+3. "Sign up for Okkey". Fields: "First name", "Last name", "Master password", "Repeat master password". The password is at least 12 characters, and the two passwords must match. Button "Sign up".
 4. "Save your recovery key". You can "Copy" the key or "Download PDF".
 5. "Vault is locked". Field "Master password", button "Unlock". The vault opens after unlock.
 

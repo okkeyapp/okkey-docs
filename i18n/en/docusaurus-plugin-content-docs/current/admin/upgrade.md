@@ -92,7 +92,7 @@ Under a failure message, the same sentence or a more specific one:
 | "The update agent is not available. Nothing was applied." | The service that installs the package did not answer. |
 | "The enterprise package signature was checked, but this installation cannot apply the enterprise module. Okkey was not changed." | There is nowhere to install the Enterprise package on this instance. |
 | "Update core first. This enterprise package needs a newer core, so nothing was changed." | The Enterprise package is newer than the installed Okkey. |
-| "This instance is still on the previous version." | Apply stopped. |
+| "Update failed. This instance is still on the previous version." | Apply stopped. |
 
 The image-tag path above is the one described for Docker Compose. The window does not replace a database backup before you change versions.
 
@@ -100,7 +100,7 @@ The image-tag path above is the one described for Docker Compose. The window doe
 
 The block is "Offline package". The text is: "Upload a signed package (.okpkg / .json with payload+signature) or a combined archive (.okbundle, .zip). After a successful local check the package starts applying automatically." The button is "Upload offline package". Several files can be chosen. A chosen file has "Remove file".
 
-After a successful local check the package starts applying automatically. That covers a signed file (`.okpkg` / `.json`) and a combined archive (`.okbundle`, `.zip`). There is no second "Update" click for this. A file larger than 1024 MB says: "The offline package is larger than the allowed size." An unrecognized file says: "The file is not an Okkey offline package." A recognized file with nothing to install right now says: "The package was recognized, but nothing can be applied from it right now."
+After a successful local check the package starts applying automatically. That covers a signed file (`.okpkg` / `.json`) and a combined archive (`.okbundle`, `.zip`). There is no second "Update" click for this. A zip archive inside the package larger than 1,000,000 bytes, or a package document larger than about 1.33 MB, says: "The offline package is larger than the allowed size." An unrecognized file says: "The file is not an Okkey offline package." A recognized file with nothing to install right now says: "The package was recognized, but nothing can be applied from it right now."
 
 Someone who is not the owner, when choosing a file, sees: "Only a workspace owner can apply an update." The upload button is disabled for them.
 

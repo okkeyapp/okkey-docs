@@ -16,7 +16,7 @@ plans: [free, enterprise]
 
 **Okkey (ядро).** Лента публикуется в GitHub Releases публичного репозитория [okkeyapp/okkey](https://github.com/okkeyapp/okkey/releases). В публичном релизе лежат `feed.json` и пакет `okkey-<version>.okpkg`. По умолчанию окно читает `https://github.com/okkeyapp/okkey/releases/latest/download/feed.json`. Пустой `OKKEY_UPDATE_CORE_FEED_URL` как раз значит эту ленту. Старое имя той же настройки — `OKKEY_UPDATE_FEED_URL`.
 
-**Enterprise.** Отдельная онлайн-лента Enterprise появится в следующем выпуске и потребует ключ лицензии. В этом выпуске модули Enterprise включают через `ENTERPRISE_MODULES`. Ключ лицензии для модулей сейчас не нужен. Обновление Enterprise сейчас — через [Compose](#шаги) или офлайн-пакет, который выдаётся клиентам Enterprise вместе с релизом Enterprise.
+**Enterprise.** Отдельная онлайн-лента Enterprise появится в следующем выпуске и потребует ключа лицензии. В этом выпуске модули Enterprise включают через `ENTERPRISE_MODULES`. Ключ лицензии для модулей сейчас не нужен. Обновление Enterprise сейчас — через [Compose](#шаги) или офлайн-пакет, который выдаётся клиентам Enterprise вместе с релизом Enterprise.
 
 В окне «Обновление системы» строка называется «Okkey». Строка «Enterprise» появляется, когда модуль установлен. Как устроен экран — в разделе [Окно в интерфейсе](#окно-в-интерфейсе).
 
@@ -84,7 +84,7 @@ API и воркер при старте применяют SQL-файлы из `
 
 ## Окно в интерфейсе {#окно-в-интерфейсе}
 
-Окно есть только на self-hosted, на тарифе «Бесплатный» и на тарифе «Предприятие». Его видит любой вошедший. Внизу сайдбара написана версия, например `v1.0.0-beta.3`. Если сервер знает коммит, из которого собрано ядро, в скобках добавляются первые 8 символов его SHA: `v1.0.0-beta.3 (2bf668f3)`. Полный SHA лежит в атрибуте `data-commit-sha`. `v0.0.0-dev` показывается, только когда версия - это сам SHA коммита. Адрес окна: `?popup=systemUpdate`.
+Окно есть только на self-hosted, на тарифе «Бесплатный» и на тарифе «Предприятие». Его видит любой вошедший. Внизу сайдбара написана версия, например `v1.0.0-beta.3`. Если сервер знает коммит, из которого собрано ядро, в скобках добавляются первые 8 символов его SHA: `v1.0.0-beta.3 (2bf668f3)`. Полный SHA лежит в атрибуте `data-commit-sha`. Когда версия - это сам SHA коммита, в сайдбаре показывается `v0.0.0-dev` и короткий SHA в скобках, например `v0.0.0-dev (2bf668f3)`. Адрес окна: `?popup=systemUpdate`.
 
 Пока в ленте есть версия новее той, которую уже открывали в этом окне, значок версии другой. Для чтения с экрана рядом звучит «Доступно обновление». В свёрнутом сайдбаре виден значок, текст версии скрыт. Открытие окна снимает это состояние для показанных версий.
 
@@ -210,7 +210,7 @@ cosign verify \
 
 Повторите для `worker` и `web`. Postgres, Redis и MinIO этой подписью не покрыты.
 
-Образы Enterprise - `ghcr.io/okkeyapp/okkey-enterprise/api`, `ghcr.io/okkeyapp/okkey-enterprise/worker` и `ghcr.io/okkeyapp/okkey-enterprise/web`. Их подписывает репозиторий `okkey-enterprise` (процесс GitHub Actions `publish-images.yml`, тот же OIDC issuer `https://token.actions.githubusercontent.com`). Доверенные refs - теги релиза `v*`, ветки `release/*` и `hotfix/*` (не `dev`). Для проверки нужен идентификатор подписи этого репозитория, а не команда ядра выше. Образы закрытые: перед `pull` и проверкой выполните `docker login ghcr.io`. Подставьте свой тег в `OKKEY_ENTERPRISE_IMAGE_TAG`:
+Образы Enterprise - `ghcr.io/okkeyapp/okkey-enterprise/api`, `ghcr.io/okkeyapp/okkey-enterprise/worker` и `ghcr.io/okkeyapp/okkey-enterprise/web`. Их подписывает репозиторий `okkey-enterprise` (процесс GitHub Actions `publish-images.yml`, тот же издатель OIDC `https://token.actions.githubusercontent.com`). Доверенные теги и ветки - теги релиза `v*`, ветки `release/*` и `hotfix/*` (не `dev`). Для проверки нужен идентификатор подписи этого репозитория, а не команда ядра выше. Образы закрытые: перед `pull` и проверкой выполните `docker login ghcr.io`. Подставьте свой тег в `OKKEY_ENTERPRISE_IMAGE_TAG`:
 
 ```bash
 identity_regexp='^https://github\.com/okkeyapp/okkey-enterprise/\.github/workflows/publish-images\.yml@refs/(?:tags/v[0-9]+\.[0-9]+\.[0-9]+(?:-[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?|heads/release/[0-9A-Za-z._-]+|heads/hotfix/[0-9A-Za-z._-]+)$'

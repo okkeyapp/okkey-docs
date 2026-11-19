@@ -84,7 +84,7 @@ This start path has no scripts that undo a migration already recorded. Take a [b
 
 ## The window in the app {#the-window-in-the-app}
 
-The window exists only on self-hosted, on Free and on Enterprise. Anyone who is signed in can open it. The bottom of the sidebar shows the version, for example `v1.0.0-beta.3`. When the server knows the commit the core was built from, the first 8 characters of its SHA follow in parentheses: `v1.0.0-beta.3 (2bf668f3)`. The full SHA is only in the `data-commit-sha` attribute. `v0.0.0-dev` is shown only when the version is a bare commit SHA. The address is `?popup=systemUpdate`.
+The window exists only on self-hosted, on Free and on Enterprise. Anyone who is signed in can open it. The bottom of the sidebar shows the version, for example `v1.0.0-beta.3`. When the server knows the commit the core was built from, the first 8 characters of its SHA follow in parentheses: `v1.0.0-beta.3 (2bf668f3)`. The full SHA is only in the `data-commit-sha` attribute. When the version is a bare commit SHA, the sidebar shows `v0.0.0-dev` followed by the short SHA in parentheses, for example `v0.0.0-dev (2bf668f3)`. The address is `?popup=systemUpdate`.
 
 While the feed has a version newer than the one already opened in this window, the version icon changes. A screen reader also hears "Update available". In the collapsed sidebar the icon stays and the version text is hidden. Opening the window clears that state for the versions it shows.
 

@@ -32,7 +32,7 @@ The button is "Approve with passkey". While the key is being asked for: "Waiting
 
 Next to that is the link "Restore with recovery key".
 
-If this sign-in has to be approved again, the text changes to: "This sign-in has to be approved again. Ask someone on a trusted device to approve it." If the browser no longer has the key it uses to sign the device, the text is: "This browser no longer has its device signing key. Restore access with your recovery key — another trusted device is required to approve a key change."
+If this sign-in has to be approved again, the text changes to: "This sign-in has to be approved again. Ask someone on a trusted device to approve it." If the browser no longer has the key it uses to sign the device, the text is: "This browser no longer has its device signing key. Restore access with your recovery key - another trusted device is required to approve a key change."
 
 If the sign-in was rejected, the heading is "This device was denied". The text is: "A trusted device rejected this sign-in. You can request approval again." The button is "Request approval again". If the device was blocked, the heading is "This device is blocked". The text is: "A trusted device blocked this sign-in. You can’t request approval again until the block ends." The deadline is "Blocked until: {'{date}'}". A permanent block says "This device is blocked permanently."
 

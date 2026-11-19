@@ -78,7 +78,7 @@ An Enterprise package or image needs a new enough Okkey. Update core first when 
 
 On start, the API and the worker apply the SQL files in `services/api/migrations` in order and record each filename in `schema_migrations`. The two processes take the same Postgres advisory lock, so a start together does not apply one file twice.
 
-A database created by v1.0.0-beta.1 has no `schema_migrations` table. That release applied files `0001`–`0034` with `psql`. On the first start with the migrator, the API recognizes that schema, records `0001`–`0034` as already applied, and runs only the files after `0034`. It does not mark every file applied. A database that matches no known checkpoint is refused. The process does not skip the SQL.
+A database created by v1.0.0-beta.1 has no `schema_migrations` table. That release applied files `0001`-`0034` with `psql`. On the first start with the migrator, the API recognizes that schema, records `0001`-`0034` as already applied, and runs only the files after `0034`. It does not mark every file applied. A database that matches no known checkpoint is refused. The process does not skip the SQL.
 
 This start path has no scripts that undo a migration already recorded. Take a [backup](./backup-restore.md) before you upgrade. Returning to the old data is on [Rollback](./rollback.md).
 

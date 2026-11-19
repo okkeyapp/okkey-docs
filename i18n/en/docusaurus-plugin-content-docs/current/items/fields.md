@@ -62,7 +62,7 @@ The gear opens extra settings for the field. The menu depends on the type.
 | Select | "Enter edit mode" / "Exit edit mode". In edit mode the options are "One value per line". Empty list: "No items". |
 | Multiline text | "Enable click-to-copy" / "Disable click-to-copy". With copy off, one click does not copy the whole text. |
 
-The in-field generator: length 4–128, sets "A-Z", "a-z", "0-9", "!@#$%^&*", "Strength:", "Crack time:", "Regenerate", "Insert", "Cancel".
+The in-field generator: length 4-128, sets "A-Z", "a-z", "0-9", "!@#$%^&*", "Strength:", "Crack time:", "Regenerate", "Insert", "Cancel".
 
 Copying a field on the card is "Copy". Secrets are not included in list search.
 

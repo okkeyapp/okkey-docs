@@ -41,7 +41,7 @@ Above the fields is the status. Active mail: "Mail is active: sign-in codes and 
 | Field | Label |
 | --- | --- |
 | "SMTP host" | "Hostname or IP of the SMTP server used to send mail." |
-| "Port" | "SMTP port (1–65535). Common values are 587 or 465." A value that is not an integer in that range: "Port must be an integer from 1 to 65535". |
+| "Port" | "SMTP port (1-65535). Common values are 587 or 465." A value that is not an integer in that range: "Port must be an integer from 1 to 65535". |
 | "Encryption" | "None", "STARTTLS", or "TLS". The caption is "How the connection to the SMTP server is encrypted." |
 | "Username" | "SMTP authentication username, if the server requires one." |
 | "Password" | "SMTP password for authenticating with the mail server." If a password is already saved, the field is replaced by the "Change password" button and the "Clear saved password" icon. A new password uses "Enter a new password". |
@@ -50,7 +50,7 @@ Above the fields is the status. Active mail: "Mail is active: sign-in codes and 
 
 There is no separate "Save" button. "Send test email" both checks the server and stores the fields. While the message is sending, the label counts down: "Sending… {'{seconds}'}", from 30. Success: the toast "Test email sent; mail is active". The message goes to the email of the person who clicked the button. The subject is "Okkey SMTP test". The status becomes active.
 
-If the message does not go out, the alert is "Test failed". The text is: "The message was not sent. You can save the settings without activating mail — email sign-in codes stay off until a test succeeds." "Save anyway" appears beside it. The toast is "Server mail settings saved". Mail stays inactive. A failed save says "Could not save server mail settings". A failed send says "Could not send the test email". No answer within 30 seconds: "Could not connect to SMTP within 30 seconds. Check the host, port, and encryption."
+If the message does not go out, the alert is "Test failed". The text is: "The message was not sent. You can save the settings without activating mail - email sign-in codes stay off until a test succeeds." "Save anyway" appears beside it. The toast is "Server mail settings saved". Mail stays inactive. A failed save says "Could not save server mail settings". A failed send says "Could not send the test email". No answer within 30 seconds: "Could not connect to SMTP within 30 seconds. Check the host, port, and encryption."
 
 The test needs a host and a sender address. The password in the database is sealed with `SESSION_SECRET`. The server response does not return the password itself.
 

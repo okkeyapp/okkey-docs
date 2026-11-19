@@ -29,17 +29,17 @@ curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.2/deploy
 
 ## Нет Docker Compose или cosign
 
-`docker compose plugin is required` — поставьте плагин Compose и проверьте `docker compose version`.
+`docker compose plugin is required` - поставьте плагин Compose и проверьте `docker compose version`.
 
-`cosign is not installed` — поставьте [cosign](https://docs.sigstore.dev/cosign/system_config/installation/) и запустите скрипт снова. Без проверки подписи установка не продолжается.
+`cosign is not installed` - поставьте [cosign](https://docs.sigstore.dev/cosign/system_config/installation/) и запустите скрипт снова. Без проверки подписи установка не продолжается.
 
-`cosign verify failed` — подпись скачанного образа не сошлась. Проверьте, что тег `OKKEY_IMAGE_TAG` опубликован, и скачайте образы ещё раз. Команда ручной проверки — на странице [Этапы установки](./free.md).
+`cosign verify failed` - подпись скачанного образа не сошлась. Проверьте, что тег `OKKEY_IMAGE_TAG` опубликован, и скачайте образы ещё раз. Команда ручной проверки - на странице [Этапы установки](./free.md).
 
-`docker compose pull failed` — тега нет в GHCR (`ghcr.io/okkeyapp/api`, `web`, `worker`). Для этой страницы тег `1.0.0-beta.2`.
+`docker compose pull failed` - тега нет в GHCR (`ghcr.io/okkeyapp/api`, `web`, `worker`). Для этой страницы тег `1.0.0-beta.2`.
 
 ## API не становится healthy
 
-Скрипт ждёт, пока контейнер `api` станет healthy, и в конце печатает хвост его лога. Частая причина — пароль базы не совпадает с томом.
+Скрипт ждёт, пока контейнер `api` станет healthy, и в конце печатает хвост его лога. Частая причина - пароль базы не совпадает с томом.
 
 Postgres применяет `POSTGRES_PASSWORD` только при первом создании тома. Если `.env` удалили и попытались создать новый, пока том `okkey_okkey-postgres` ещё есть, скрипт останавливается до записи нового пароля. В логе API при уже испорченном пароле бывает `password authentication failed for user "okkey"`.
 
@@ -69,7 +69,7 @@ docker compose -p okkey -f docker-compose.prod.yml --env-file .env up -d --force
 
 ## Кода входа нет в почте
 
-Пока почта на этом сервере не настроена, код подтверждения записан в логах worker. Выполните `docker compose logs worker`. Или войдите с мастер-паролем. Как включить SMTP — на странице [Почта](./email.md).
+Пока почта на этом сервере не настроена, код подтверждения записан в логах worker. Выполните `docker compose logs worker`. Или войдите с мастер-паролем. Как включить SMTP - на странице [Почта](./email.md).
 
 Когда почта уже активна, а письма всё равно нет, проверьте воркер. Письма из API ждут в очереди, пока он остановлен.
 

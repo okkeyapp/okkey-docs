@@ -156,7 +156,7 @@ Take the core package `okkey-<version>.okpkg` from [public okkey releases](https
 
 ### How to turn it on
 
-In `~/okkey/.env`, set `OKKEY_UPDATE_ISOLATED=true` (the line is already there with `false`). Then recreate api and update-agent:
+In `~/okkey/.env`, set `OKKEY_UPDATE_ISOLATED=true`. On a fresh install the line is already there with `false`; on an older install, add it if it is missing. Then recreate api and update-agent:
 
 ```bash
 docker compose -p okkey -f docker-compose.prod.yml --env-file .env up -d api update-agent

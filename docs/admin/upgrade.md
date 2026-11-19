@@ -156,7 +156,7 @@ API и воркер при старте применяют SQL-файлы из `
 
 ### Как включить
 
-В `~/okkey/.env` поставьте `OKKEY_UPDATE_ISOLATED=true` (строка уже есть со значением `false`). Затем пересоздайте api и update-agent:
+В `~/okkey/.env` поставьте `OKKEY_UPDATE_ISOLATED=true`. На свежей установке строка уже есть со значением `false`; на более старой, если её нет, добавьте. Затем пересоздайте api и update-agent:
 
 ```bash
 docker compose -p okkey -f docker-compose.prod.yml --env-file .env up -d api update-agent

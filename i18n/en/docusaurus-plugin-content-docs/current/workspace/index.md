@@ -12,7 +12,7 @@ The sidebar item "Settings" sets the workspace rules: the name, trash retention,
 
 On self-hosted, an owner has one workspace. That is true on Free and on Enterprise.
 
-The page opens on "General". The settings menu has separate items: "Items", "Capsules", "Roles", "Profiles", "Members", "Vaults", and "Change plan". "Billing & invoices" is not in the menu.
+The page opens on "General". The settings menu has separate items: "Mail", "Items", "Capsules", "Roles", "Profiles", "Members", "Vaults", and "Change plan". "Mail" is self-hosted only and sits immediately after "General". "Billing & invoices" is not in the menu.
 
 A role opens settings sections. A profile opens items, fields, and actions inside a vault.
 
@@ -27,6 +27,7 @@ A role and a profile do different jobs. A role covers workspace settings. A prof
 | Section | Page |
 | --- | --- |
 | "General" | [General](#general) |
+| "Mail" | [Email](../install/email.md) |
 | "Items" | [Items](#items) |
 | "Capsules" | [Capsules](#capsules) |
 | "Roles" | [Roles](./roles.md) |
@@ -46,7 +47,6 @@ Name, logo, and tile color of the workspace.
 | "Workspace name" | The name members see. It is saved when you leave the field. |
 | "Upload logo", "Remove logo" | The logo file is stored in the personal vault. Without a personal vault, upload is unavailable: "Logo upload is unavailable: personal vault not found." While there is no logo, "or" and "Change color" sit next to the upload button. When a logo is uploaded, the color control is replaced by "Remove logo", and uploading again is still labeled "Upload logo". |
 | "Change color", "Custom color" | One of ten preset colors, or your own color from 3 or 6 hex digits. |
-| "Server mail" | SMTP and the public app address. Only the owner sees the block, and only on self-hosted. See [Email](../install/email.md). |
 
 Deleting the workspace is not shown in this section on Free.
 
@@ -85,7 +85,7 @@ On Free, advanced settings on the capsule itself cannot be turned on. If a view 
 
 ## How to check
 
-1. Open "Settings". "General" is first, with separate "Items" and "Capsules" next to it.
+1. Open "Settings". "General" is first, then on self-hosted "Mail", then "Items" and "Capsules".
 2. In "Items", the "Allow files in items" switch is available on Free. An empty formats field does not cut extensions, and the file size number stays between 1 and 1024.
 3. In "Capsules" on Free you see "Allow capsules", "Allow capsule types", and "Limit views". The password, expiry, and approval switches are absent.
 4. Set "Limit views" above zero and open "Create capsule". The "Views" block is on, and it cannot be turned off.

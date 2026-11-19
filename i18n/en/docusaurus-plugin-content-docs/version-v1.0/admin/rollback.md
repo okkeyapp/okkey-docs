@@ -43,9 +43,9 @@ docker compose -p okkey -f docker-compose.prod.yml --env-file .env ps
 curl -fsS http://127.0.0.1:4000/health
 ```
 
-The body contains `"status": "ok"`. Open the web app at `PUBLIC_APP_URL` and unlock the vault. An item from before the upgrade is there. With mail unset, the sign-in code is in the worker log again. See [Email](../install/email.md).
+The body contains `"status": "ok"`. Open the web app at `PUBLIC_APP_URL` and unlock the vault. An item from before the upgrade is there. If mail is not configured on this server, the confirmation code is in the worker logs. Run `docker compose logs worker`. Or sign in with your master password. See [Email](../install/email.md).
 
-If you changed `SESSION_SECRET` before the upgrade, the SMTP password in "Server mail" may be unreadable. Enter it again, or choose "Clear saved password". See [Email](../install/email.md).
+If you changed `SESSION_SECRET` before the upgrade, the SMTP password in Settings, Mail may be unreadable. Enter it again and send the test email. See [Email](../install/email.md).
 
 ## Common errors
 

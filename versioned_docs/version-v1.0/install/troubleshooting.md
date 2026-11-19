@@ -69,7 +69,16 @@ docker compose -p okkey -f docker-compose.prod.yml --env-file .env up -d --force
 
 ## Кода входа нет в почте
 
-Пока SMTP не задан, код в логе воркера, поле `plainText` у строки `email sent`. Команда — на странице [Почта](./email.md). Если воркер остановлен, письмо ждёт в очереди. Проверьте `docker compose ps`: сервис `worker` должен быть running.
+Пока почта на этом сервере не настроена, код подтверждения записан в логах worker. Выполните `docker compose logs worker`. Или войдите с мастер-паролем. Как включить SMTP — на странице [Почта](./email.md).
+
+Когда почта уже активна, а письма всё равно нет, проверьте воркер. Письма из API ждут в очереди, пока он остановлен.
+
+```bash
+cd ~/okkey
+docker compose -p okkey -f docker-compose.prod.yml --env-file .env ps
+```
+
+Сервис `worker` должен быть running. Если каталог не `~/okkey`, подставьте имя каталога в нижнем регистре вместо `okkey`.
 
 ## Как проверить, что всё снова живое
 

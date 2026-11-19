@@ -20,6 +20,8 @@ The section is visible when the role allows the "Billing" row. Built-in "Owner" 
 2. Fill in "Reply email" and "Number of workspace members". The number is a whole number, at least 1. "Send" stays disabled until the email contains "@" and the number is set. "Cancel" closes the window.
 3. Click "Send". While the request is still to be sent, the card status is "Submit a connection request". After it is sent: "Connection request submitted" and the date. The button becomes "Send again".
 
+If mail is inactive, "Send" does not send a message from the server. The mail program opens with a prepared message to `OKKEY_SALES_EMAIL`. The card still shows the request as submitted. How to turn mail on is on [Email](../install/email.md).
+
 Okkey accepts at most 3 requests for one workspace in a rolling 24 hours. When the limit is reached, the window closes at once and the card shows "Limit of 3 license requests in 24 hours reached. You can send again at {'{when}'} (about {'{hours}'} h)." The button stays disabled until then.
 
 A bad email in the window shows "Enter a valid email." If sending fails: "Could not send the request. Try again later."

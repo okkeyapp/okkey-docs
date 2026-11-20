@@ -24,7 +24,7 @@ A wrong password says: "Could not sign in. Check your email and master password,
 
 If the second factor is not on yet, a successful master-password sign-in opens "Add an authenticator app?". The text is: "Email is not set up on this server. An authenticator app is a second step if someone learns your master password." The buttons are "Set up authenticator" and "Not now". If the second factor is already on, [two-factor authentication](../account/two-factor.md) opens immediately.
 
-On the code screen, while mail is inactive, a notice says: "Mail is not configured on this server. The confirmation code is in the worker logs." Under it: "Run:" and the command `docker compose logs worker`, and the link "sign in with your master password".
+On the code screen, while mail is inactive, a notice says: "Mail is not configured on this server. The confirmation code is in the worker logs." Under it: "Run:" and the command `docker compose logs worker`, and the link "sign in with your master password". In the logs, look for a line with the marker `[okkey] auth code (mail not configured)`.
 
 An invitation is not saved when the public app address is missing. While mail is inactive, the invitation is saved with the status "Pending delivery", and the message is not sent over SMTP. Above the invitation form, a notice says mail is not configured and the messages will go out when mail is working. The notice links to these mail settings. After a successful test message, pending invitations that have not expired are sent on their own. The list has "Resend" and "Copy invite link". Each press of "Copy invite link" creates a new link; the previous one, including the one from the email, stops working. The invitation expiry is not extended. "Resend" also issues a new link. The link gives access to accepting the invitation. Pass it only to the recipient, in person. The link lasts 14 days. See [Members](../workspace/members.md). A plan request while mail is inactive opens a prepared message in the mail program, addressed to `OKKEY_SALES_EMAIL` from `.env`. That address is not a field in "Mail". See [Change plan](../workspace/plan.md).
 
@@ -47,6 +47,8 @@ Above the fields is the status. Active mail: "Mail is active: sign-in codes and 
 | "Password" | "SMTP password for authenticating with the mail server." If a password is already saved, the field is replaced by the "Change password" button and the "Clear saved password" icon. A new password uses "Enter a new password". |
 | "Sender address" | "From address used for system emails." |
 | "Public app URL" | "Public base URL used in email links." |
+
+Fill in the fields by hand: host, port, encryption, username, password, sender address, and public URL. For Gmail use `smtp.gmail.com`, port `465` or `587`, and a Google app password, not the account password.
 
 There is no separate "Save" button. "Send test email" both checks the server and stores the fields. While the message is sending, the label counts down: "Sending… {'{seconds}'}", from 30. Success: the toast "Test email sent; mail is active". The message goes to the email of the person who clicked the button. The subject is "Okkey SMTP test". The status becomes active.
 
@@ -76,7 +78,7 @@ Trash retention is set in "Settings", "Items". See [Workspace settings](../works
 ## How to check
 
 1. Sign in as "Owner" or "Admin". "Settings" shows "Mail" between "General" and "Items". "User" has no "Settings" item.
-2. Until a test has succeeded, the status says "Mail is inactive: SMTP is unverified or the test failed." The next sign-in opens the master password. The confirmation code is in the worker logs: `docker compose logs worker`.
+2. Until a test has succeeded, the status says "Mail is inactive: SMTP is unverified or the test failed." The next sign-in opens the master password. The confirmation code is in the worker logs (`[okkey] auth code (mail not configured)`): `docker compose logs worker`.
 3. Fill in the host, port, encryption, and sender. Choose "Send test email". The mailbox of the person who clicked receives "Okkey SMTP test". The toast is "Test email sent; mail is active". The next sign-in asks for 6 digits.
 4. `docker compose -p okkey -f docker-compose.prod.yml --env-file .env ps` shows `worker` as running.
 

@@ -137,13 +137,25 @@ While the database has no users, the first account is created without a message.
 2. That first account does not need a code. "Register with Okkey" opens.
 3. Continue with [first-time setup](../getting-started/first-setup.md).
 
-While mail is not configured on this server, the confirmation code is in the worker logs. Run:
+While mail on this server is not active, the confirmation code is written to the worker logs in a line with the marker `[okkey] auth code (mail not configured)`. Run:
 
 ```bash
 docker compose logs worker
 ```
 
-Or sign in with your master password. Mail becomes active only after a successful test message in Settings, Mail. How that looks is on [Email](./email.md).
+Or sign in with your master password.
+
+Configure mail in workspace settings, the "Mail" section. The `EMAIL_SMTP_*`, `EMAIL_FROM`, and `PUBLIC_APP_URL` variables from `.env` only fill the initial field values. Mail becomes active only after a successful "Send test email". How that looks is on [Email](./email.md).
+
+## Isolated update mode
+
+`OKKEY_UPDATE_ISOLATED=true` in `.env` turns off online update checks. Updates then go through an offline package or Compose. After you change the value, recreate api and update-agent:
+
+```bash
+docker compose -p okkey -f docker-compose.prod.yml --env-file .env up -d api update-agent
+```
+
+The variable is read when the container starts; a plain `restart` does not re-read `.env`. Details are in [Upgrade](../admin/upgrade.md#isolated-mode).
 
 ## How to check
 
@@ -162,6 +174,7 @@ In `ps`, `api`, `web`, and `worker` are running, and `api` is healthy. The `/hea
 - [Domain and TLS](./domain-tls.md)
 - [Email](./email.md)
 - [First-time setup](../getting-started/first-setup.md)
+- [Upgrade](../admin/upgrade.md)
 - [If the install stops](./troubleshooting.md)
 - [Backup and restore](../admin/backup-restore.md)
 - [Plans](../plans.md)

@@ -149,7 +149,13 @@ docker compose logs worker
 
 ## Изолированный режим обновлений
 
-`OKKEY_UPDATE_ISOLATED=true` в `.env` отключает онлайн-проверки обновлений. Тогда обновление - только офлайн-пакетом. После смены значения перезапустите api и update-agent. Подробнее - [Обновление](../admin/upgrade.md#изолированный-режим).
+`OKKEY_UPDATE_ISOLATED=true` в `.env` отключает онлайн-проверки обновлений. Обновление тогда - через офлайн-пакет или Compose. После смены значения пересоздайте api и update-agent:
+
+```bash
+docker compose -p okkey -f docker-compose.prod.yml --env-file .env up -d api update-agent
+```
+
+Переменная читается при старте контейнера; обычный `restart` `.env` не перечитывает. Подробнее - [Обновление](../admin/upgrade.md#изолированный-режим).
 
 ## Как проверить
 

@@ -22,11 +22,11 @@ Invitations are available on Free within the quota and on Enterprise.
 2. Choose the delivery method: "Email" or "Invite link".
 3. Pick a role. The default role is "User". "Owner" is not in the list. Another row is added with "Add more". An extra row is removed with "Remove row".
 
-**Email.** In the row, enter an address ("Enter member email…"). Click "Send invitations (N)". While the mail is going out, you see "Sending invitations…". When mail is active, success is "Invitations sent". Email invitations require active server mail. How to turn mail on is on [Email](../install/email.md).
+**Email.** In the row, enter an address ("Enter member email…"). Click "Send invitations (N)". While the mail is going out, you see "Sending invitations…". When mail is active, success is "Invitations sent". How to turn mail on is on [Email](../install/email.md).
 
 While mail is inactive, an email invitation is saved with the status "Pending delivery". Above the form, a notice says mail is not configured and the messages will go out when mail is working. The notice links to the mail settings. After a successful test message, pending invitations that have not expired are sent on their own. The invitation list has "Resend" and "Copy invite link", so you can pass the link yourself. Each press of "Copy invite link" creates a new link; the previous one, including the one from the email, stops working. The invitation expiry is not extended. "Resend" also issues a new link.
 
-**Invite link.** The "Invite link" mode lets you invite without mail. The subtitle says you create invite links to share without sending email. Click "Create invite links (N)". Copy each link and pass it to the recipient in person.
+**Invite link.** The "Invite link" mode lets you invite without mail. The subtitle says you create invite links to share without sending email. Each link expires and can be used once. Click "Create invite links (N)". Copy each link and pass it to the recipient in person.
 
 The link gives access to accepting the invitation. Pass it only to the recipient, in person.
 

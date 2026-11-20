@@ -17,7 +17,7 @@ Once an account exists and mail is active, sign-in with the same address uses a 
 3. "Register with Okkey". Fields: "First name", "Last name", "Master password", "Repeat master password". The password is at least 12 characters, and the two passwords must match. Button "Register".
 4. "Save your recovery key". You can "Copy" the key or "Download PDF".
 5. "Vault is locked". Field "Master password", button "Unlock". The vault opens after unlock.
-6. A short product tour. Buttons "Skip tour" and "Next". A "Tips" banner may appear in the sidebar.
+6. A short product tour. Buttons "Skip tour" and "Next"; on the last step - "OK". A "Tips" banner may appear in the sidebar.
 
 :::warning
 Save the recovery key before "Continue". After that the screen will not show it again, and the server cannot restore the key.

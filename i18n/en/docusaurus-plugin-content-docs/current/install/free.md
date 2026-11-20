@@ -149,7 +149,13 @@ Configure mail in workspace settings, the "Mail" section. The `EMAIL_SMTP_*`, `E
 
 ## Isolated update mode
 
-`OKKEY_UPDATE_ISOLATED=true` in `.env` turns off online update checks. Updates then go only through an offline package. After you change the value, restart api and update-agent. Details are in [Upgrade](../admin/upgrade.md#isolated-mode).
+`OKKEY_UPDATE_ISOLATED=true` in `.env` turns off online update checks. Updates then go through an offline package or Compose. After you change the value, recreate api and update-agent:
+
+```bash
+docker compose -p okkey -f docker-compose.prod.yml --env-file .env up -d api update-agent
+```
+
+The variable is read when the container starts; a plain `restart` does not re-read `.env`. Details are in [Upgrade](../admin/upgrade.md#isolated-mode).
 
 ## How to check
 

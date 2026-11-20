@@ -48,7 +48,7 @@ Above the fields is the status. Active mail: "Mail is active: sign-in codes and 
 | "Sender address" | "From address used for system emails." |
 | "Public app URL" | "Public base URL used in email links." |
 
-Fill in the fields by hand: host, port, encryption, username, password, sender address, and public URL. For Gmail use `smtp.gmail.com`, port `465` or `587`, and a Google app password, not the account password.
+The first time you open the section, the fields are filled once from `.env`. After that you change them here: host, port, encryption, username, password, sender address, and public URL. For Gmail use `smtp.gmail.com`, port `465` or `587`, and a Google app password, not the account password.
 
 There is no separate "Save" button. "Send test email" both checks the server and stores the fields. While the message is sending, the label counts down: "Sending… {'{seconds}'}", from 30. Success: the toast "Test email sent; mail is active". The message goes to the email of the person who clicked the button. The subject is "Okkey SMTP test". The status becomes active.
 

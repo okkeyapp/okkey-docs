@@ -96,7 +96,8 @@ const config: Config = {
           {from: '/features/zero-knowledge', to: '/security/zero-knowledge'},
           {from: '/features/open-source', to: '/security/open-source'},
           {from: '/settings', to: '/account/'},
-          {from: '/settings/personal', to: '/account/personal'},
+          {from: '/settings/personal', to: '/account/profile'},
+          {from: '/account/personal', to: '/account/profile'},
           {from: '/settings/devices', to: '/account/devices'},
           {from: '/settings/workspace', to: '/workspace/'},
           {from: '/vaults', to: '/workspace/vaults'},
@@ -160,7 +161,7 @@ const config: Config = {
     footer: {
       style: 'dark',
       copyright:
-        'Документация Okkey v1.0. Текущий релиз - 1.0.0-beta.2.',
+        'Документация Okkey v1.0. Текущий релиз - 1.0.0-beta.3.',
     },
     colorMode: {
       respectPrefersColorScheme: true,

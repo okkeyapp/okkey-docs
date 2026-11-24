@@ -34,15 +34,15 @@ When access changes, the vault key is rotated.
 - Email sign-in uses a one-time code. The very first account does not need a code.
 - Second factor: "Authenticator app" and "Backup codes".
 - The vault opens with the master password. On this device you can turn on a 6-digit PIN and biometrics. They are not copied to other devices.
-- For some zones you can ask for confirmation again: "Items", "Capsules", "Monitoring", "Tools", "Vault settings", "My settings", the item, capsule, vault, and folder windows, and the "Deletion" action.
+- For some zones you can ask for confirmation again: the "Capsules", "Monitoring" (on Enterprise), "Tools", and "Vault settings" sections; the "My settings", "Items", "Capsules", "Vaults", and "Folders" windows; and the "Deletion" action.
 - A profile decides which items a member sees. A role decides which workspace settings they can open.
 
-Password checks in monitoring run on the device. Only the start of a hash is sent to the breach service. The device does not send the password itself. See [Monitoring](../monitoring.md).
+Password checks in monitoring run on the device. Only a SHA-1 prefix is sent to the breach service. The device does not send the password itself. Monitoring is on Enterprise. See [Monitoring](../monitoring.md).
 
 ## Next steps
 
 - [Server database leak](./server-db-leak.md)
 - [Zero-knowledge](./zero-knowledge.md)
 - [Q-Day ready](./qday.md)
-- [Personal settings](../account/personal.md)
+- [Profile](../account/profile.md)
 - [Monitoring](../monitoring.md)

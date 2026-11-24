@@ -8,55 +8,50 @@ plans: [free, enterprise]
 
 A vault stores items under its own key. Whoever opens the vault sees the items. A member sees only the vaults their profile allows.
 
-Sidebar section "Vaults". Button "Create vault".
+Sidebar section "Vaults". The "Create vault" button is shown when the role may create vaults. It is shown on Free and on Enterprise: shared vaults are part of both plans. On Free you can create one shared vault. The personal vault does not count toward that limit. On Enterprise there is no cap.
 
-## Personal vault
+A second shared vault on Free does not save: the window shows an error, and the vault does not appear in the list.
 
-Each workspace has one personal vault. It is created with the workspace and named "Personal vault". On Free there are no other vaults.
+## Personal vault {#personal-vault-settings}
+
+Each workspace has one personal vault. It is created with the workspace. Until you rename it, it is called "Personal vault", the description is "Your personal vault in this workspace", and the trailing text is "Available only to you".
+
+In the "Edit vault" window the subtitle is "Personal vault". You change "Icon", "Name", and "Description". The text at the bottom is: "Only you can see this personal vault. Other workspace members cannot open it, view its contents, or obtain an access key." You cannot grant access to it or delete it. A second personal vault cannot be created.
 
 Folders inside a vault stay personal: only the folder owner sees the folder. See [Folders](../items/folders.md).
 
-On Free you change the name, icon, and description of the personal vault. A second personal vault cannot be created, and access cannot be granted to other members. The window fields are in [vault settings](#vault-settings). Enterprise is required for shared vaults.
+## Shared vaults {#shared-vault-settings}
 
-## Shared vaults
+In settings this is the "Shared vaults" section, subtitle "Vaults with shared access for workspace members", button "Create". The same window opens from "Create vault" in the sidebar. The window title is "Create vault", subtitle "Shared vault".
 
-On Enterprise you can create vaults for members. In settings this is the "Shared vaults" section and the "Create" button.
+The window sets "Icon", "Name", "Description", and the "Vault access" block. Filters: "All (N)", "With access", "No access", and a profile name. Search: "Search...".
 
-The window sets the icon, name, description, and each member's profile. On create, the owner, admin, and creator get "Extended". Everyone else gets "No access".
+On create, the owner, admin, and creator get "Extended". Everyone else gets "No access". You cannot set your own row to "No access". The owner and admin profile lists are locked. A member who has not accepted is marked "Unconfirmed".
 
 A member can open the vault after the vault key has been encrypted for them. What they see inside is decided by the profile: categories, fields, and the actions "Move to archive", "Add to favorites", "Create capsules", "Copy record". The role does not affect vault contents.
 
-Window details are in [vault settings](#vault-settings).
+While the vault is locked, the vault cannot be saved: "Unlock your vault to save changes".
 
-:::note
-On Free there is no "Shared vaults" section. To get Enterprise, contact the Okkey team.
-:::
-
-In monitoring, the "Shared" scope counts passwords only from these vaults. In the item list, the "Vaults" filter picks one vault.
-
-## Sidebar
-
-"All items" clears the selected vault, folder, search, and filter. A vault in the sidebar keeps only its own items in the list.
+Deleting a shared vault asks "Delete vault?". The text is: "The vault and all items inside it will be deleted. This cannot be undone." Button "Delete".
 
 ## Vault settings {#vault-settings}
 
-### Personal vault {#personal-vault-settings}
+The personal vault and shared vaults are configured in the same "Vaults" section. Personal vault fields are described above, under [Personal vault](#personal-vault-settings). Shared vault fields are described under [Shared vaults](#shared-vault-settings).
 
-One per workspace. Only you can see it. You cannot grant access to it or delete it.
+## Sidebar
 
-On Free, "Edit vault" changes the icon, name, and description.
+"All items" clears the selected vault, folder, category, search, and filter. A vault in the sidebar keeps only its own items in the list. In the item list, the "Vaults" filter picks one vault. The "Shared" scope keeps items from shared vaults only, and "Personal" keeps items from the personal vault only.
 
-### Shared vaults {#shared-vault-settings}
+## How to check
 
-Available on Enterprise. On Free this section is absent.
-
-"Create" opens a shared vault: icon, name, description, and member access. On create, the owner, admin, and creator get the "Extended" profile. Everyone else gets "No access".
-
-Deleting a shared vault also deletes the items in it. While the vault is locked, the vault cannot be saved.
+1. In "Settings", "Vaults" on Free you see both the personal vault and the "Shared vaults" section with "Create".
+2. Create one shared vault. It appears in the sidebar. A second create does not save.
+3. In access, the owner has "Extended", and a new member has "No access". Set the member to "Simple" and open the vault as them: items can be read, and creating an item is unavailable.
+4. The personal vault has no access grant and no delete.
 
 ## Next steps
 
-- [Vault settings](#vault-settings)
 - [Folders](../items/folders.md)
 - [Item lists](../items/lists.md)
+- [Members](./members.md)
 - [Plans](../plans.md)

@@ -1,6 +1,6 @@
 # okkey-docs
 
-Documentation for [Okkey](https://github.com/okkeyapp/okkey), a self-hosted password manager. The site is Docusaurus 3. The default locale is Russian. English is a full translation of the pages. The published docs line is `v1.0`, which tracks the current Okkey release [1.0.0-beta.2](https://github.com/okkeyapp/okkey/releases/tag/v1.0.0-beta.2).
+Documentation for [Okkey](https://github.com/okkeyapp/okkey), a self-hosted password manager. The site is Docusaurus 3. The default locale is Russian. English is a full translation of the pages. The published docs line is `v1.0`, which tracks the current Okkey release [1.0.0-beta.3](https://github.com/okkeyapp/okkey/releases/tag/v1.0.0-beta.3).
 
 The pages describe what a person sees when they install and use Okkey. There are two plans: Free and Enterprise. A person who installs Okkey gets Free. Enterprise is set up by an Okkey employee.
 
@@ -30,10 +30,10 @@ Docs versions follow [Okkey releases](https://github.com/okkeyapp/okkey/releases
 
 Pre-releases and patches do not create a new docs version. They update the same minor version in place:
 
-- `1.0.0-beta.1`, `1.0.0-beta.2`, `1.0.0`, and `1.0.1` all live in `v1.0`.
+- `1.0.0-beta.1`, `1.0.0-beta.2`, `1.0.0-beta.3`, `1.0.0`, and `1.0.1` all live in `v1.0`.
 - A new docs version is cut only when the minor or major number changes. `1.1.0` becomes `v1.1`. `2.0.0` becomes `v2.0`.
 
-The published site is only the snapshots in `versioned_docs/`. The working copy in `docs/` is not served (`includeCurrentVersion: false`). The default version is `v1.0` (`lastVersion`). It currently tracks Okkey `1.0.0-beta.2`. The version dropdown label is `v1.0`. A banner on each page names the current release in that line.
+The published site is only the snapshots in `versioned_docs/`. The working copy in `docs/` is not served (`includeCurrentVersion: false`). The default version is `v1.0` (`lastVersion`). It currently tracks Okkey `1.0.0-beta.3`. The version dropdown label is `v1.0`. A banner on each page names the current release in that line.
 
 - Working copy, the only place you edit: `docs/` (Russian) and `i18n/en/docusaurus-plugin-content-docs/current/` (English).
 - Published copy of the line: `versioned_docs/version-v1.0/` and `i18n/en/docusaurus-plugin-content-docs/version-v1.0/`. Do not edit these by hand.
@@ -79,13 +79,14 @@ Folders follow the internal docs sections that matter to people who install and 
 | `intro.md` | О проекте / About |
 | `getting-started/` | Начало работы / Getting started |
 | `install/` | Установка self-hosted / Self-hosted install |
+| `admin/` | Администрирование / Administration |
 | `plans.md` | Тарифы / Plans |
-| `workspace/` | Пространство / Workspace: settings, members, roles, profiles, vaults |
+| `workspace/` | Пространство / Workspace: settings, members, roles, profiles, vaults, plan |
 | `items/` | Записи / Items, with lists and folders |
 | `capsules.md` | Капсулы / Capsules |
 | `tools/` | Инструменты / Tools: generator, import, export |
-| `monitoring.md` | Мониторинг / Monitoring |
-| `account/` | Аккаунт и устройства / Account and devices |
+| `monitoring.md` | Мониторинг / Monitoring (Enterprise) |
+| `account/` | Аккаунт и устройства / Account and devices: profile, two-factor, recovery, devices, unlock |
 | `apps/` | Приложения / Apps |
 | `security/` | Безопасность / Security |
 

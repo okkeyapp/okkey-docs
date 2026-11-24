@@ -12,7 +12,7 @@ Okkey is a password manager you install yourself. Items are encrypted on your de
 These pages are about self-hosted Okkey. You install it yourself and get the Free plan. An Okkey employee sets up Enterprise. See [Plans](./plans.md).
 
 :::note
-This is the v1.0 docs line. It currently covers release [1.0.0-beta.2](https://github.com/okkeyapp/okkey/releases/tag/v1.0.0-beta.2). Later 1.0.x betas and patches update these same pages.
+This is the v1.0 docs line. It currently covers release [1.0.0-beta.3](https://github.com/okkeyapp/okkey/releases/tag/v1.0.0-beta.3). Later 1.0.x betas and patches update these same pages.
 :::
 
 Clients: web, mobile app, desktop, and a browser extension. The open source is in [okkeyapp/okkey](https://github.com/okkeyapp/okkey).
@@ -27,7 +27,9 @@ Clients: web, mobile app, desktop, and a browser extension. The open source is i
 - **Folder** - your own grouping of items. Only the folder owner sees it.
 - **Capsule** - an encrypted share of text, a file, or an item by link.
 
-The sidebar has "All items", "Capsules", "Monitoring", "Tools", "Settings", and the "Vaults" and "Folders" sections.
+The sidebar has "All items", "Capsules", "Tools", "Settings", and the "Vaults" and "Folders" sections. "Monitoring" appears on Enterprise.
+
+Free includes capsules, including a file, files in items, built-in roles and profiles, the recovery key, one shared vault, 10 additional members, and the generator, import, and export. On Enterprise, shared vaults and additional members have no limit. Monitoring, trusted devices and contacts, custom roles and profiles, and advanced capsule settings are added. The comparison is on [Plans](./plans.md).
 
 ## Main properties
 
@@ -46,5 +48,7 @@ Every page shows which plans include what that page describes. The comparison is
 
 - [Plans](./plans.md)
 - [Self-hosted install](./install/index.md)
+- [Administration](./admin/index.md)
 - [Features](./security/index.md)
 - [First-time setup](./getting-started/first-setup.md)
+- [Account](./account/index.md)

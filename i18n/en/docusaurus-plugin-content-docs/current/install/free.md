@@ -10,9 +10,9 @@ Install Okkey with one command. You do not need to clone the repository.
 
 Only Docker Compose is supported. Kubernetes and Helm are planned and are not part of v1.0.0.
 
-Install files come from release `v1.0.0-beta.2`, and images use the tag `1.0.0-beta.2`. The script checks image signatures with cosign. The check is on by default.
+Install files come from release `v1.0.0-beta.3`, and images use the tag `1.0.0-beta.3`. The script checks image signatures with cosign. The check is on by default.
 
-The commands below stay pinned to `v1.0.0-beta.2`. That is how this install page is written today.
+The commands below stay pinned to `v1.0.0-beta.3`. That is how this install page is written today.
 
 The install runs on Free. An Okkey employee turns on Enterprise. See [Enterprise](./enterprise.md) and [Plans](../plans.md).
 
@@ -30,8 +30,8 @@ Put variables on the right of `|`. `OKKEY_SALES_EMAIL=… curl … | bash` does 
 ## Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.2/deploy/docker/install.sh \
-  | OKKEY_REF=v1.0.0-beta.2 OKKEY_IMAGE_TAG=1.0.0-beta.2 OKKEY_SALES_EMAIL=you@example.com bash
+curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.3/deploy/docker/install.sh \
+  | OKKEY_REF=v1.0.0-beta.3 OKKEY_IMAGE_TAG=1.0.0-beta.3 OKKEY_SALES_EMAIL=you@example.com bash
 ```
 
 Replace `you@example.com` with your address. If a terminal is attached and you omit the variable, the script asks for it.
@@ -63,7 +63,7 @@ On a first install the script writes:
 | `OKKEY_SALES_EMAIL` | Where a plan request is sent. Without it the API does not start. |
 | `OKKEY_UPDATE_AGENT_TOKEN` | The script creates it when the field is empty. |
 
-The file also keeps `OKKEY_IMAGE_TAG=1.0.0-beta.2`, `PUBLIC_APP_URL`, `OKKEY_API_PUBLIC_URL`, device-key sign-in settings, and the encryption policy. Leave that policy as written. Only profile 2 is allowed:
+The file also keeps `OKKEY_IMAGE_TAG=1.0.0-beta.3`, `PUBLIC_APP_URL`, `OKKEY_API_PUBLIC_URL`, device-key sign-in settings, and the encryption policy. Leave that policy as written. Only profile 2 is allowed:
 
 ```text
 DEPLOY_ENV=dev
@@ -83,8 +83,8 @@ Useful installer variables:
 
 | Variable | Meaning |
 | --- | --- |
-| `OKKEY_REF` | Git ref of the install files. For this release: `v1.0.0-beta.2`. |
-| `OKKEY_IMAGE_TAG` | Image tag written on a fresh `.env`. For this release: `1.0.0-beta.2`. |
+| `OKKEY_REF` | Git ref of the install files. For this release: `v1.0.0-beta.3`. |
+| `OKKEY_IMAGE_TAG` | Image tag written on a fresh `.env`. For this release: `1.0.0-beta.3`. |
 | `OKKEY_SALES_EMAIL` | Inbox for plan requests. Required. |
 | `OKKEY_INSTALL_DIR` | Directory. Default `~/okkey`. |
 | `WEB_PORT` / `API_PORT` | Host ports. Defaults `8080` and `4000`. If you set only these, the script writes the same ports into the public URLs. |
@@ -92,34 +92,34 @@ Useful installer variables:
 
 ## Images and the cosign check
 
-Images: `ghcr.io/okkeyapp/api`, `ghcr.io/okkeyapp/web`, and `ghcr.io/okkeyapp/worker`. You can pull them without signing in to the registry. The tag for this release is `1.0.0-beta.2`. Installs do not use the floating tag `latest`.
+Images: `ghcr.io/okkeyapp/api`, `ghcr.io/okkeyapp/web`, and `ghcr.io/okkeyapp/worker`. You can pull them without signing in to the registry. The tag for this release is `1.0.0-beta.3`. Installs do not use the floating tag `latest`.
 
 Before start, the script checks the cosign signature of the pulled digest of `api`, `worker`, and `web`. The signature is keyless, from GitHub Actions, issuer `https://token.actions.githubusercontent.com`. Postgres, Redis, and MinIO are not covered by that check.
 
 To check one image after it has been pulled:
 
 ```bash
-digest="$(docker image inspect --format '{{index .RepoDigests 0}}' ghcr.io/okkeyapp/api:1.0.0-beta.2)"
+digest="$(docker image inspect --format '{{index .RepoDigests 0}}' ghcr.io/okkeyapp/api:1.0.0-beta.3)"
 cosign verify \
   --certificate-identity-regexp '^https://github\.com/okkeyapp/okkey/\.github/workflows/publish-images\.yml@refs/(?:heads/dev|tags/v[0-9]+\.[0-9]+\.[0-9]+(?:-[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?)$' \
   --certificate-oidc-issuer 'https://token.actions.githubusercontent.com' \
   "$digest"
 ```
 
-Repeat for `ghcr.io/okkeyapp/worker:1.0.0-beta.2` and `ghcr.io/okkeyapp/web:1.0.0-beta.2`.
+Repeat for `ghcr.io/okkeyapp/worker:1.0.0-beta.3` and `ghcr.io/okkeyapp/web:1.0.0-beta.3`.
 
 ## Manual install
 
-1. Download the files for release `v1.0.0-beta.2`.
+1. Download the files for release `v1.0.0-beta.3`.
 
 ```bash
 mkdir -p ~/okkey && cd ~/okkey
-curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.2/deploy/docker/docker-compose.prod.yml"
-curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.2/deploy/docker/.env.example"
+curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.3/deploy/docker/docker-compose.prod.yml"
+curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.3/deploy/docker/.env.example"
 cp .env.example .env
 ```
 
-2. In `.env`, replace the passwords and secrets. Leave `OKKEY_IMAGE_TAG=1.0.0-beta.2`. Set a real `OKKEY_SALES_EMAIL`. For an HTTPS site, set `PUBLIC_APP_URL`, `OKKEY_API_PUBLIC_URL`, `CORS_ORIGIN`, `WEBAUTHN_ORIGINS`, and `WEBAUTHN_RP_ID`. Leave the encryption profile as in the example: `2` only.
+2. In `.env`, replace the passwords and secrets. Leave `OKKEY_IMAGE_TAG=1.0.0-beta.3`. Set a real `OKKEY_SALES_EMAIL`. For an HTTPS site, set `PUBLIC_APP_URL`, `OKKEY_API_PUBLIC_URL`, `CORS_ORIGIN`, `WEBAUTHN_ORIGINS`, and `WEBAUTHN_RP_ID`. Leave the encryption profile as in the example: `2` only.
 3. Pull the images and check the signatures with the command above. Then start the containers.
 
 ```bash

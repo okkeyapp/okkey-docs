@@ -15,8 +15,8 @@ plans: [free, enterprise]
 Запустите ещё раз и передайте адрес справа:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.2/deploy/docker/install.sh \
-  | OKKEY_REF=v1.0.0-beta.2 OKKEY_IMAGE_TAG=1.0.0-beta.2 OKKEY_SALES_EMAIL=you@example.com bash
+curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.3/deploy/docker/install.sh \
+  | OKKEY_REF=v1.0.0-beta.3 OKKEY_IMAGE_TAG=1.0.0-beta.3 OKKEY_SALES_EMAIL=you@example.com bash
 ```
 
 Адрес с пробелом, без `@` или без точки в домене скрипт не примет. Проверка идёт до записи файлов: неудачный адрес уже стоящую установку не переписывает.
@@ -25,7 +25,7 @@ curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.2/deploy
 
 ## Переменные не попали в скрипт
 
-`OKKEY_REF=v1.0.0-beta.2 curl … | bash` не передаёт переменную в `bash`. Ставьте их справа от `|`, как в команде выше. Иначе скрипт может скачать файлы не с того ref.
+`OKKEY_REF=v1.0.0-beta.3 curl … | bash` не передаёт переменную в `bash`. Ставьте их справа от `|`, как в команде выше. Иначе скрипт может скачать файлы не с того ref.
 
 ## Нет Docker Compose или cosign
 
@@ -35,7 +35,7 @@ curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.2/deploy
 
 `cosign verify failed` - подпись скачанного образа не сошлась. Проверьте, что тег `OKKEY_IMAGE_TAG` опубликован, и скачайте образы ещё раз. Команда ручной проверки - на странице [Этапы установки](./free.md).
 
-`docker compose pull failed` - тега нет в GHCR (`ghcr.io/okkeyapp/api`, `web`, `worker`). Для этой страницы тег `1.0.0-beta.2`.
+`docker compose pull failed` - тега нет в GHCR (`ghcr.io/okkeyapp/api`, `web`, `worker`). Для этой страницы тег `1.0.0-beta.3`.
 
 ## API не становится healthy
 
@@ -60,7 +60,7 @@ docker compose -p okkey -f docker-compose.prod.yml --env-file .env down -v
 
 ## Регистрация пишет про профиль шифрования
 
-В `.env` должны остаться `DEPLOY_ENV=dev`, `CRYPTO_ALLOWED_PROFILE_VERSIONS=2`, `CRYPTO_ROLLOUT_MODE=compat`. Профиль `1` процесс не примет. Обновите `docker-compose.prod.yml` с тега `v1.0.0-beta.2`, если файл старый и жёстко задаёт другое окружение, затем пересоздайте `api` и `worker`:
+В `.env` должны остаться `DEPLOY_ENV=dev`, `CRYPTO_ALLOWED_PROFILE_VERSIONS=2`, `CRYPTO_ROLLOUT_MODE=compat`. Профиль `1` процесс не примет. Обновите `docker-compose.prod.yml` с тега `v1.0.0-beta.3`, если файл старый и жёстко задаёт другое окружение, затем пересоздайте `api` и `worker`:
 
 ```bash
 cd ~/okkey

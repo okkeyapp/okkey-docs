@@ -10,9 +10,9 @@ plans: [free, enterprise]
 
 Поддерживается только Docker Compose. Kubernetes и Helm запланированы и не входят в v1.0.0.
 
-Файлы установки берутся с релиза `v1.0.0-beta.2`, образы - с тега `1.0.0-beta.2`. Скрипт проверяет подписи образов через cosign. Проверка включена по умолчанию.
+Файлы установки берутся с релиза `v1.0.0-beta.3`, образы - с тега `1.0.0-beta.3`. Скрипт проверяет подписи образов через cosign. Проверка включена по умолчанию.
 
-Команды ниже закреплены на `v1.0.0-beta.2`. Так устроена текущая страница установки.
+Команды ниже закреплены на `v1.0.0-beta.3`. Так устроена текущая страница установки.
 
 Установка работает на тарифе «Бесплатный». Тариф «Предприятие» подключает сотрудник Okkey. См. [Предприятие](./enterprise.md) и [Тарифы](../plans.md).
 
@@ -30,8 +30,8 @@ plans: [free, enterprise]
 ## Установка
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.2/deploy/docker/install.sh \
-  | OKKEY_REF=v1.0.0-beta.2 OKKEY_IMAGE_TAG=1.0.0-beta.2 OKKEY_SALES_EMAIL=you@example.com bash
+curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.3/deploy/docker/install.sh \
+  | OKKEY_REF=v1.0.0-beta.3 OKKEY_IMAGE_TAG=1.0.0-beta.3 OKKEY_SALES_EMAIL=you@example.com bash
 ```
 
 Замените `you@example.com` на свой адрес. Если терминал есть и переменную не задавать, скрипт спросит её сам.
@@ -63,7 +63,7 @@ curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.2/deploy
 | `OKKEY_SALES_EMAIL` | Куда уходит заявка на тариф. Без адреса API не стартует. |
 | `OKKEY_UPDATE_AGENT_TOKEN` | Скрипт создаёт его, если поля не было. |
 
-Рядом остаются `OKKEY_IMAGE_TAG=1.0.0-beta.2`, адреса `PUBLIC_APP_URL` и `OKKEY_API_PUBLIC_URL`, параметры входа по ключу устройства и политика шифрования. Её не меняйте. Допустим только профиль 2:
+Рядом остаются `OKKEY_IMAGE_TAG=1.0.0-beta.3`, адреса `PUBLIC_APP_URL` и `OKKEY_API_PUBLIC_URL`, параметры входа по ключу устройства и политика шифрования. Её не меняйте. Допустим только профиль 2:
 
 ```text
 DEPLOY_ENV=dev
@@ -83,8 +83,8 @@ CRYPTO_ROLLOUT_MODE=compat
 
 | Переменная | Смысл |
 | --- | --- |
-| `OKKEY_REF` | Git-ref файлов установки. Для этого релиза: `v1.0.0-beta.2`. |
-| `OKKEY_IMAGE_TAG` | Тег образов при первой записи `.env`. Для этого релиза: `1.0.0-beta.2`. |
+| `OKKEY_REF` | Git-ref файлов установки. Для этого релиза: `v1.0.0-beta.3`. |
+| `OKKEY_IMAGE_TAG` | Тег образов при первой записи `.env`. Для этого релиза: `1.0.0-beta.3`. |
 | `OKKEY_SALES_EMAIL` | Почта для заявок на тариф. Обязательна. |
 | `OKKEY_INSTALL_DIR` | Каталог. По умолчанию `~/okkey`. |
 | `WEB_PORT` / `API_PORT` | Порты на машине. По умолчанию `8080` и `4000`. Если задать только их, скрипт подставит те же порты в публичные адреса. |
@@ -92,34 +92,34 @@ CRYPTO_ROLLOUT_MODE=compat
 
 ## Образы и проверка cosign
 
-Образы: `ghcr.io/okkeyapp/api`, `ghcr.io/okkeyapp/web`, `ghcr.io/okkeyapp/worker`. Их можно скачать без входа в реестр. Тег этого релиза - `1.0.0-beta.2`. Плавающий тег `latest` для установки не используется.
+Образы: `ghcr.io/okkeyapp/api`, `ghcr.io/okkeyapp/web`, `ghcr.io/okkeyapp/worker`. Их можно скачать без входа в реестр. Тег этого релиза - `1.0.0-beta.3`. Плавающий тег `latest` для установки не используется.
 
 Перед запуском скрипт проверяет подпись cosign у скачанного дайджеста `api`, `worker` и `web`. Подпись без ключа, от GitHub Actions, издатель `https://token.actions.githubusercontent.com`. Образы Postgres, Redis и MinIO этой проверкой не покрыты.
 
 Проверить один образ после скачивания:
 
 ```bash
-digest="$(docker image inspect --format '{{index .RepoDigests 0}}' ghcr.io/okkeyapp/api:1.0.0-beta.2)"
+digest="$(docker image inspect --format '{{index .RepoDigests 0}}' ghcr.io/okkeyapp/api:1.0.0-beta.3)"
 cosign verify \
   --certificate-identity-regexp '^https://github\.com/okkeyapp/okkey/\.github/workflows/publish-images\.yml@refs/(?:heads/dev|tags/v[0-9]+\.[0-9]+\.[0-9]+(?:-[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?)$' \
   --certificate-oidc-issuer 'https://token.actions.githubusercontent.com' \
   "$digest"
 ```
 
-То же для `ghcr.io/okkeyapp/worker:1.0.0-beta.2` и `ghcr.io/okkeyapp/web:1.0.0-beta.2`.
+То же для `ghcr.io/okkeyapp/worker:1.0.0-beta.3` и `ghcr.io/okkeyapp/web:1.0.0-beta.3`.
 
 ## Ручная установка
 
-1. Скачайте файлы релиза `v1.0.0-beta.2`.
+1. Скачайте файлы релиза `v1.0.0-beta.3`.
 
 ```bash
 mkdir -p ~/okkey && cd ~/okkey
-curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.2/deploy/docker/docker-compose.prod.yml"
-curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.2/deploy/docker/.env.example"
+curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.3/deploy/docker/docker-compose.prod.yml"
+curl -fsSL -O "https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.3/deploy/docker/.env.example"
 cp .env.example .env
 ```
 
-2. В `.env` замените пароли и секреты. Оставьте `OKKEY_IMAGE_TAG=1.0.0-beta.2`. Запишите реальный `OKKEY_SALES_EMAIL`. Для сайта с HTTPS задайте `PUBLIC_APP_URL`, `OKKEY_API_PUBLIC_URL`, `CORS_ORIGIN`, `WEBAUTHN_ORIGINS`, `WEBAUTHN_RP_ID`. Профиль шифрования оставьте как в примере: только `2`.
+2. В `.env` замените пароли и секреты. Оставьте `OKKEY_IMAGE_TAG=1.0.0-beta.3`. Запишите реальный `OKKEY_SALES_EMAIL`. Для сайта с HTTPS задайте `PUBLIC_APP_URL`, `OKKEY_API_PUBLIC_URL`, `CORS_ORIGIN`, `WEBAUTHN_ORIGINS`, `WEBAUTHN_RP_ID`. Профиль шифрования оставьте как в примере: только `2`.
 3. Скачайте образы и проверьте подписи командой выше. Затем запустите контейнеры.
 
 ```bash

@@ -12,7 +12,7 @@ The API port is published on `127.0.0.1` only. A browser on that same machine op
 
 The proxy is nginx with OpenSSL 3.5 or newer. The default listener accepts TLS 1.3 only and negotiates the hybrid group `X25519MLKEM768`. That is the post-quantum key exchange on the path between the browser and the proxy. A client without this group does not connect to the main name. A separate name for older clients is off. You turn it on explicitly, on different names, and with an end date. The classical group is not added to the main name.
 
-The commands below stay on release `v1.0.0-beta.2`, the same pin as [Install steps](./free.md).
+The commands below stay on release `v1.0.0-beta.3`, the same pin as [Install steps](./free.md).
 
 ## What to prepare
 
@@ -23,7 +23,7 @@ The commands below stay on release `v1.0.0-beta.2`, the same pin as [Install ste
 Copy the directory from the release:
 
 ```bash
-git clone --depth 1 --branch v1.0.0-beta.2 https://github.com/okkeyapp/okkey.git /tmp/okkey-src
+git clone --depth 1 --branch v1.0.0-beta.3 https://github.com/okkeyapp/okkey.git /tmp/okkey-src
 cp -a /tmp/okkey-src/deploy/docker/proxy ~/okkey/proxy
 ```
 

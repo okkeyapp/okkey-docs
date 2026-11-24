@@ -15,8 +15,8 @@ The script stops and says that `OKKEY_SALES_EMAIL` is required. That happens whe
 Run it again and pass the address on the right:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.2/deploy/docker/install.sh \
-  | OKKEY_REF=v1.0.0-beta.2 OKKEY_IMAGE_TAG=1.0.0-beta.2 OKKEY_SALES_EMAIL=you@example.com bash
+curl -fsSL https://raw.githubusercontent.com/okkeyapp/okkey/v1.0.0-beta.3/deploy/docker/install.sh \
+  | OKKEY_REF=v1.0.0-beta.3 OKKEY_IMAGE_TAG=1.0.0-beta.3 OKKEY_SALES_EMAIL=you@example.com bash
 ```
 
 An address with a space, with no `@`, or with no dot in the domain is rejected. The check runs before files are written: a bad address does not rewrite an install that is already in place.
@@ -25,7 +25,7 @@ If the API does not start and the log contains `OKKEY_SALES_EMAIL is required`, 
 
 ## Variables did not reach the script
 
-`OKKEY_REF=v1.0.0-beta.2 curl … | bash` does not pass the variable into `bash`. Put them on the right of `|`, as in the command above. Otherwise the script can download files from the wrong ref.
+`OKKEY_REF=v1.0.0-beta.3 curl … | bash` does not pass the variable into `bash`. Put them on the right of `|`, as in the command above. Otherwise the script can download files from the wrong ref.
 
 ## No Docker Compose or no cosign
 
@@ -35,7 +35,7 @@ If the API does not start and the log contains `OKKEY_SALES_EMAIL is required`, 
 
 `cosign verify failed` - the signature of the pulled image did not match. Check that `OKKEY_IMAGE_TAG` is published, and pull the images again. The manual check is on [Install steps](./free.md).
 
-`docker compose pull failed` - the tag is not in GHCR (`ghcr.io/okkeyapp/api`, `web`, `worker`). The tag on this page is `1.0.0-beta.2`.
+`docker compose pull failed` - the tag is not in GHCR (`ghcr.io/okkeyapp/api`, `web`, `worker`). The tag on this page is `1.0.0-beta.3`.
 
 ## The API does not become healthy
 
@@ -60,7 +60,7 @@ If the proxy says `/etc/nginx/certs/fullchain.pem` or `privkey.pem` is missing, 
 
 ## Registration talks about the encryption profile
 
-`.env` must keep `DEPLOY_ENV=dev`, `CRYPTO_ALLOWED_PROFILE_VERSIONS=2`, and `CRYPTO_ROLLOUT_MODE=compat`. Profile `1` is refused at startup. Refresh `docker-compose.prod.yml` from tag `v1.0.0-beta.2` if the file is old and hardcodes another environment, then recreate `api` and `worker`:
+`.env` must keep `DEPLOY_ENV=dev`, `CRYPTO_ALLOWED_PROFILE_VERSIONS=2`, and `CRYPTO_ROLLOUT_MODE=compat`. Profile `1` is refused at startup. Refresh `docker-compose.prod.yml` from tag `v1.0.0-beta.3` if the file is old and hardcodes another environment, then recreate `api` and `worker`:
 
 ```bash
 cd ~/okkey

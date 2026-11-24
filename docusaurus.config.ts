@@ -161,7 +161,7 @@ const config: Config = {
     footer: {
       style: 'dark',
       copyright:
-        'Документация Okkey v1.0. Текущий релиз - 1.0.0-beta.2.',
+        'Документация Okkey v1.0. Текущий релиз - 1.0.0-beta.3.',
     },
     colorMode: {
       respectPrefersColorScheme: true,

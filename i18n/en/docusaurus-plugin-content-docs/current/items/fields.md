@@ -35,6 +35,8 @@ Labels of types you can add:
 
 "Password" and CVC are already on the "Login / Password" and "Credit card" presets.
 
+"Loyalty card", "Vehicle", and "Travel booking" are built from "Text", "Date", "Select", and "Multiline text". They have no URL field, so extension autofill modes do not apply to them.
+
 An address splits into "Street", "House / building", "Apartment", "City/Town/Suburb", "State/Province", "ZIP/Postal code", "Country". Country search: "Search countries", empty - "No countries found".
 
 File: "Upload file", "Delete file". Size limit and extensions come from the workspace settings. The hint shows the maximum.

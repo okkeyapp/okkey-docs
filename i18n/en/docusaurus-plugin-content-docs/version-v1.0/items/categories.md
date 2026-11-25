@@ -109,7 +109,7 @@ Extra section "Wallet": "wallet address".
 
 ## Personal data group
 
-Order in the group is set separately: "Personal data", "Passport", "Secure files", "Secure note".
+Order in the group is set separately: "Personal data", "Passport", "Loyalty card", "Vehicle", "Travel booking", "Secure files", "Secure note".
 
 ### Personal data
 
@@ -124,6 +124,22 @@ The "initials" field was removed from the template. If it remains on an old item
 ### Passport
 
 Passport section, preset fields: "type", "issuing country", "number", "full name", "gender", "nationality", "issuing authority", "date of birth", "place of birth", "issue date", "expiry date".
+
+### Loyalty card
+
+One section. Fields can be deleted and renamed: "loyalty program", "card number", "barcode / QR", "expiry date" (date), "notes" (multiline text).
+
+### Vehicle
+
+Vehicle section, fields can be deleted and renamed: "make / model", "licence plate", "VIN", "inspection / MOT due" (date), "notes" (multiline text).
+
+Extra section "Insurance": "policy number", "insurer", "valid until" (date). Also deletable.
+
+### Travel booking
+
+One section. Fields can be deleted and renamed: "transport type" (select), "carrier", "flight / trip number", "departure date / time" (text), "from", "to", "booking reference (PNR)", "passengers", "seats", "notes" (multiline text).
+
+"transport type" options: "Flight", "Train", "Bus", "Ferry", "Other".
 
 ### Secure files
 

@@ -8,7 +8,7 @@ plans: [free, enterprise]
 
 Self-hosted Okkey has two plans: Free and Enterprise. You install Okkey yourself, and that install runs on Free. An Okkey employee turns on Enterprise. To get Enterprise, write to the Okkey team from [Change plan](./workspace/plan.md).
 
-On self-hosted, an owner has one workspace. That is true on Free and on Enterprise.
+On self-hosted, an owner has one workspace. That is true on Free and on Enterprise. Invited people join that same workspace. They do not get a separate personal workspace. If someone is removed, they can no longer sign in to this server.
 
 ## What's included
 
@@ -34,7 +34,9 @@ The Enterprise card in Change plan also lists "Unlimited storage". Self-hosted a
 
 ## When the Enterprise license ends {#when-the-enterprise-license-ends}
 
-The workspace moves to the Free plan. Your data stays available. Shared vaults and members work within the Free plan limits: one shared vault and up to 10 additional members. Enterprise features (advanced capsule settings, custom roles and profiles, trusted devices and contacts, monitoring) stop receiving updates. You can view and delete them, but you can't create new items or change existing ones.
+The workspace moves to the Free plan. Your data stays available. Shared vaults and members work within the Free plan limits: one shared vault and up to 10 additional members. Enterprise features (advanced capsule settings, custom roles and profiles, trusted devices and contacts, monitoring) stop receiving updates. You cannot create or change Enterprise features; you can still view and delete what is already there.
+
+For the last 30 days before expiry, a reminder appears in Change plan. The 30, 7, and 1 day reminder emails go to the owner only when SMTP is set through the environment variables `EMAIL_SMTP_HOST` and `EMAIL_FROM`. Mail settings from the setup wizard or from Settings, Mail are not used for these emails yet. The owner renews with a new license file - see [Change plan](./workspace/plan.md) and [Enterprise](./install/enterprise.md).
 
 ## How to check
 

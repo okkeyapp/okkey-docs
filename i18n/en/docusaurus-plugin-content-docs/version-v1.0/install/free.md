@@ -129,6 +129,10 @@ docker compose -p okkey -f docker-compose.prod.yml --env-file .env up -d
 
 For access from other machines, put the [proxy](./domain-tls.md) in front. The install itself does not enable HTTPS. The API port stays on `127.0.0.1`.
 
+## First-run wizard
+
+After install, a setup wizard opens. On the "Server" step you fill in "Public app URL" - it is needed for mail, invitations, and the license (the same address as `PUBLIC_APP_URL`). There is no open registration: new people join only by invitation.
+
 ## First sign-in without mail
 
 While the database has no users, the first account is created without a message. Open the address the installer printed.

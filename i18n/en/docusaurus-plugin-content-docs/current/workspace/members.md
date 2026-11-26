@@ -10,7 +10,7 @@ Invitations and member access to vaults. The settings section is titled "Workspa
 
 On self-hosted Free you can invite 10 additional members, not counting the owner. Those 10 also include live invitations: status "Unconfirmed", and the link has not expired. A revoked or expired invitation does not take a seat. On Enterprise there is no cap.
 
-On self-hosted, an owner has one workspace on Enterprise too. The owner creates that workspace during first-time server setup. An invited person joins the owner's workspace right away; they do not get a separate personal workspace. A second workspace cannot be created. Removing someone from the workspace means they lose access to the server: they cannot sign in again until they are invited again. Registration without an invitation is not available on self-hosted.
+On self-hosted, an owner has one workspace on Enterprise too. The owner creates that workspace during first-time server setup. An invited person joins the owner's workspace right away; they do not get a separate personal workspace. A second workspace cannot be created. Removing someone from the workspace means they lose access to the server. Registration without an invitation is not available on self-hosted.
 
 To get Enterprise, contact the Okkey team. See [Plans](../plans.md).
 
@@ -72,7 +72,7 @@ To save vault access, the vault must be open. Otherwise the window shows "Unlock
 3. Create a link on the "Invite link" tab, open it in another browser, and join. The new person joins the owner's workspace; there is no separate personal workspace.
 4. The eleventh live invitation, or the eleventh member beyond the owner, does not save.
 5. On the owner's card the role does not change, and there is no button to remove the owner.
-6. Remove a member. They can no longer sign in to the server until they are invited again.
+6. Remove a member. They can no longer sign in to the server.
 
 ## Next steps
 

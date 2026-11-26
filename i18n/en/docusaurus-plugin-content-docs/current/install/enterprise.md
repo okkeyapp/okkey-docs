@@ -38,11 +38,11 @@ The message goes to `OKKEY_SALES_EMAIL` from `.env`. You set that address during
 
 An Okkey employee turns on Enterprise. They issue a license file for your server: the workspace owner copies the instance fingerprint in "Settings", "Change plan" and sends it to the Okkey team.
 
-Only the workspace owner uploads the file, in the same "Change plan" section. You can also place the file on the server and set `OKKEY_LICENSE_FILE` to its path. The check runs on your server; day-to-day work does not need a constant connection to the license portal.
+Only the workspace owner uploads the file, in the same "Change plan" section. The check runs on your server; day-to-day work does not need a constant connection to the license portal.
 
 "Public app URL" (set on the "Server" step of the first-run wizard or in "Settings", "Mail", the same value as `PUBLIC_APP_URL`) must match the address the license was issued for. A license is not issued or accepted for `localhost`.
 
-Renewal is a new file, uploaded again by the owner. For the last 30 days before expiry, a reminder appears in the plan section. At 30, 7, and 1 day before expiry, a message also goes to the owner if mail is configured on the server. Without configured mail, only the in-app reminder remains.
+Renewal is a new file, uploaded again by the owner. For the last 30 days before expiry, a reminder appears in the plan section. The 30, 7, and 1 day reminder emails go to the owner only when SMTP is set through the environment variables `EMAIL_SMTP_HOST` and `EMAIL_FROM`. Mail settings from the setup wizard or from Settings, Mail are not used for these emails yet. Without that SMTP in the environment, only the in-app reminder remains.
 
 Until a license file is installed, an Okkey employee can still enable Enterprise features at install time, as before.
 

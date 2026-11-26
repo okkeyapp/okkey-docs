@@ -10,7 +10,7 @@ import HashRedirect from '@site/src/components/HashRedirect';
 
 The sidebar item "Settings" sets the workspace rules: the name, trash retention, files, capsules, who can see settings, and who can see items.
 
-On self-hosted, an owner has one workspace. That is true on Free and on Enterprise. The owner creates that workspace during first-time server setup. A new person appears only by invitation and joins the owner's workspace right away. A second workspace cannot be created, and there is no workspace switcher. A removed member loses access to the server: they cannot sign in again until they are invited again. A personal vault inside the workspace is not a separate workspace.
+On self-hosted, an owner has one workspace. That is true on Free and on Enterprise. The owner creates that workspace during first-time server setup. A new person appears only by invitation and joins the owner's workspace right away. A second workspace cannot be created, and there is no workspace switcher. A removed member loses access to the server. A personal vault inside the workspace is not a separate workspace.
 
 The page opens on "General". The settings menu has separate items: "Mail", "Items", "Capsules", "Roles", "Profiles", "Members", "Vaults", and "Change plan". "Mail" is self-hosted only and sits immediately after "General". "Billing & invoices" is not in the menu.
 

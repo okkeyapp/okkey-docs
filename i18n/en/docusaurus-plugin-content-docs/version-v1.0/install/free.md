@@ -131,7 +131,7 @@ For access from other machines, put the [proxy](./domain-tls.md) in front. The i
 
 ## First-run wizard
 
-After install, a setup wizard opens. On the "Server" step you set the public app address - it is needed for mail, invitations, and the license (the same address as `PUBLIC_APP_URL`). There is no open registration: new people join only by invitation.
+After install, a setup wizard opens. On the "Server" step you fill in "Public app URL" - it is needed for mail, invitations, and the license (the same address as `PUBLIC_APP_URL`). There is no open registration: new people join only by invitation.
 
 ## First sign-in without mail
 

@@ -36,7 +36,7 @@ The Enterprise card in Change plan also lists "Unlimited storage". Self-hosted a
 
 The workspace moves to the Free plan. Your data stays available. Shared vaults and members work within the Free plan limits: one shared vault and up to 10 additional members. Enterprise features (advanced capsule settings, custom roles and profiles, trusted devices and contacts, monitoring) stop receiving updates. You cannot create or change Enterprise features; you can still view and delete what is already there.
 
-At 30, 7, and 1 day before expiry, a reminder appears in Change plan. If mail is configured on the server, a message goes to the owner. The owner renews with a new license file - see [Change plan](./workspace/plan.md) and [Enterprise](./install/enterprise.md).
+For the last 30 days before expiry, a reminder appears in Change plan. At 30, 7, and 1 day before expiry, a message also goes to the owner if mail is configured on the server. The owner renews with a new license file - see [Change plan](./workspace/plan.md) and [Enterprise](./install/enterprise.md).
 
 ## How to check
 

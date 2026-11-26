@@ -41,7 +41,7 @@ In the members list a link invitation is labelled "Invite link". "Copy invite li
 The link lets anyone who has it join with the chosen role. Share it only with the person you invite.
 :::
 
-Any signed-in user with the link can accept it - the email is not matched. On self-hosted the person has no other workspace on this server: the link is how they register and join the single workspace (or join it if they already have an allowed account). Registration without an invitation is not available on self-hosted. A revoked, expired, or used link stops working. Each press of "Copy invite link" creates a new link; the previous one stops working. The invitation expiry is not extended.
+Any signed-in user with the link can accept it - the email is not matched. On self-hosted the person has no other workspace on this server: the link is how they register and join the single workspace. Registration without an invitation is not available on self-hosted. A revoked, expired, or used link stops working. Each press of "Copy invite link" creates a new link; the previous one stops working. The invitation expiry is not extended.
 
 Invite by link does not need mail. The link is built from the public app URL set in "Mail" (or `PUBLIC_APP_URL`). Without it the invitation cannot be created.
 

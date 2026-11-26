@@ -34,17 +34,31 @@ The card in Change plan lists "Unlimited storage" among its lines. Compare featu
 
 The message goes to `OKKEY_SALES_EMAIL` from `.env`. You set that address during [install](./free.md). Okkey accepts at most 3 requests from one workspace in a rolling 24 hours. The error texts are on [Change plan](../workspace/plan.md).
 
-A license key and a license portal are planned. They are not available now: an Okkey employee turns the plan on. In this release Enterprise modules are enabled with `ENTERPRISE_MODULES`. A license key is not needed for the modules right now.
+## License file {#license-file}
+
+An Okkey employee turns on Enterprise. They issue a license file for your server: the workspace owner copies the instance fingerprint in "Settings", "Change plan" and sends it to the Okkey team.
+
+Only the workspace owner uploads the file, in the same "Change plan" section. You can also place the file on the server and set the path in `OKKEY_LICENSE_FILE`. Verification runs on your server; day-to-day work does not need a permanent connection to a license portal.
+
+The public app address (set in the first-run wizard or in "Settings", "Mail"; the same value as `PUBLIC_APP_URL`) must match the address the license was issued for. Licenses are not issued or accepted for `localhost`. The match is required even in a closed network with no outbound traffic: the public address on the server must match the address in the license file.
+
+Renewal is a new file, uploaded again by the owner. At 30, 7, and 1 day before expiry, a reminder appears in the plan section. If mail is configured on the server, a message goes to the owner.
+
+Until a license file is installed, an Okkey employee can enable Enterprise features at install time, as before. That temporary arrangement will change when a license becomes mandatory.
+
+Details for the upload screen are on [Change plan](../workspace/plan.md#license-file).
 
 ## Updates
 
-Okkey images are updated the same way as on Free. The steps are on [Upgrade](../admin/upgrade.md). The Enterprise online feed will arrive in a later release and will require a license key. In this release, update Enterprise with [Compose](../admin/upgrade.md#steps) or with an offline package issued to Enterprise customers with the Enterprise release. For a closed network, see [isolated mode](../admin/upgrade.md#isolated-mode).
+Okkey images are updated the same way as on Free. The steps are on [Upgrade](../admin/upgrade.md). Update Enterprise with [Compose](../admin/upgrade.md#steps) or with an offline package issued to Enterprise customers with the Enterprise release. For a closed network, see [isolated mode](../admin/upgrade.md#isolated-mode).
 
 Anyone who is signed in sees the version at the bottom of the sidebar. "System update" opens from it. The "Enterprise" row is present when the module is installed: the window shows the version and a short SHA when the install reports one. Details for the window and the core feed are on [Upgrade](../admin/upgrade.md#the-window-in-the-app).
 
 ## When the license ends
 
-The workspace moves to the Free plan. Your data stays available. Shared vaults and members work within the Free plan limits: one shared vault and up to 10 additional members. Enterprise features (advanced capsule settings, custom roles and profiles, trusted devices and contacts, monitoring) stop receiving updates. You can view and delete them, but you can't create new items or change existing ones.
+The workspace moves to the Free plan. Your data stays available. Shared vaults and members work within the Free plan limits: one shared vault and up to 10 additional members. Enterprise features (advanced capsule settings, custom roles and profiles, trusted devices and contacts, monitoring) stop receiving updates. You can view and delete them. You cannot create new Enterprise features or change existing ones.
+
+At 30, 7, and 1 day before expiry, the owner sees a reminder in Change plan. Renewal is a new license file, uploaded again by the owner.
 
 The same text is on [Plans](../plans.md#when-the-enterprise-license-ends).
 

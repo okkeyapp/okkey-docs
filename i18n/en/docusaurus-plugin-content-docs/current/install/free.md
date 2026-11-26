@@ -145,6 +145,8 @@ docker compose logs worker
 
 Or sign in with your master password. Mail becomes active only after a successful test message in Settings, Mail. How that looks is on [Email](./email.md).
 
+At the server step in the first-run wizard you set the public app address (the same "Public app URL" field in Settings, Mail, and the `PUBLIC_APP_URL` variable). It is needed for emails, invitations, and the license. There is no open registration on the server: new people join only by invitation.
+
 ## How to check
 
 On the same machine:

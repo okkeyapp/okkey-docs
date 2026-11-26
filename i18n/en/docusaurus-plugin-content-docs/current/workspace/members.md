@@ -10,7 +10,7 @@ Invitations and member access to vaults. The settings section is titled "Workspa
 
 On self-hosted Free you can invite 10 additional members, not counting the owner. Those 10 also include live invitations: status "Unconfirmed", and the link has not expired. A revoked or expired invitation does not take a seat. On Enterprise there is no cap.
 
-On self-hosted, an owner has one workspace on Enterprise too.
+On self-hosted, an owner has one workspace on Enterprise too. The workspace is created at first-time setup. New people join only by invitation into that workspace. There is no open registration on the server: without an invitation a new account is not created. A second workspace cannot be created, and there is no workspace switcher. A personal vault is not a separate workspace. After a member is removed or an invitation is revoked, that person loses access to this server.
 
 To get Enterprise, contact the Okkey team. See [Plans](../plans.md).
 
@@ -45,7 +45,7 @@ Any signed-in user with the link can accept it - the email is not matched. A rev
 
 Invite by link does not need mail. The link is built from the public app URL set in "Mail" (or `PUBLIC_APP_URL`). Without it the invitation cannot be created.
 
-If the person has no account on this server yet, registration still needs the code from the email. While server mail is not active, the server administrator can find the code in the worker logs.
+On self-hosted, an invite link is the main way to add someone to the server. Without an invitation (by email or by link), registration on this server is not available. If the person has no account yet, registration via the link still needs the code from the email when mail is active. While server mail is not active, the server administrator can find the code in the worker logs.
 
 The link lasts 14 days and is single-use. You can create at most 50 at once. A link invitation takes a seat the same way as an email invitation: a live invitation with status "Unconfirmed" counts toward the Free cap.
 
@@ -69,9 +69,10 @@ To save vault access, the vault must be open. Otherwise the window shows "Unlock
 
 1. On Free the section has an "Invite" button, not a note that members are missing from the plan.
 2. Send an invitation to a new address with the role "User". When mail is active, the "Additional members" list shows a row with the "Unconfirmed" badge. When mail is inactive, the status is "Pending delivery".
-3. Create a link on the "Invite link" tab, open it in another browser, and join.
+3. Create a link on the "Invite link" tab, open it in another browser, and join. Without an invitation, registration on this server does not open.
 4. The eleventh live invitation, or the eleventh member beyond the owner, does not save.
 5. On the owner's card the role does not change, and there is no button to remove the owner.
+6. Remove a member. After that they cannot sign in to this server. There is no workspace switcher: every invited person stays in the owner's workspace.
 
 ## Next steps
 

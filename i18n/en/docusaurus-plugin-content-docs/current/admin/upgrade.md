@@ -16,7 +16,7 @@ The commands below assume the directory `~/okkey` and the project `okkey`. For a
 
 **Okkey (core).** The feed is published in GitHub Releases of the public [okkeyapp/okkey](https://github.com/okkeyapp/okkey/releases) repository. A public release includes `feed.json` and the `okkey-<version>.okpkg` package. By default the window reads `https://github.com/okkeyapp/okkey/releases/latest/download/feed.json`. An empty `OKKEY_UPDATE_CORE_FEED_URL` means that feed. The previous name of the same setting is `OKKEY_UPDATE_FEED_URL`.
 
-**Enterprise.** A separate Enterprise online feed will arrive in a later release and will require a license key. In this release Enterprise modules are enabled with `ENTERPRISE_MODULES`. A license key is not needed for the modules right now. Update Enterprise with [Compose](#steps) or with an offline package issued to Enterprise customers with the Enterprise release.
+**Enterprise.** Update Enterprise with [Compose](#steps) or with an offline package issued to Enterprise customers with the Enterprise release.
 
 In the System update window the row is named "Okkey". An "Enterprise" row appears when the module is installed. The full screen is in [The window in the app](#the-window-in-the-app).
 
@@ -100,7 +100,7 @@ The block is "Online update".
 
 If network checks are off (`OKKEY_UPDATE_ISOLATED=true`), the lines are replaced by: "Online updates are disabled by the server administrator. Use an offline package below." Details are in [Isolated mode](#isolated-mode).
 
-Otherwise the window shows an "Okkey" row. An "Enterprise" row is present when the Enterprise module is installed: it shows the current version and a short SHA when the install reports one. The Enterprise online feed will arrive in a later release.
+Otherwise the window shows an "Okkey" row. An "Enterprise" row is present when the Enterprise module is installed: it shows the current version and a short SHA when the install reports one. For Enterprise the main upgrade path is [Compose](#steps) or an offline package.
 
 For Okkey a row says "Current version {'{version}'}". When the API knows the commit, a short SHA is appended to the version. When the core feed has something newer, it also says "New version {'{version}'}", a short release summary, and a "Release notes" link when the release has an `http` or `https` address. When nothing is newer: "Up to date". When the core feed could not be read: "Okkey could not be checked."
 

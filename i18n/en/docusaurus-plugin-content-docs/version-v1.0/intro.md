@@ -21,7 +21,7 @@ Clients: web, mobile app, desktop, and a browser extension. The open source is i
 
 - **User** - an account.
 - **Device** - a trusted sign-in device. A new device must be confirmed explicitly.
-- **Workspace** - a group of vaults and members. On self-hosted, an owner has one workspace.
+- **Workspace** - a group of vaults and members. On self-hosted, an owner has one workspace: it is created at first-time setup. Invited users join that same workspace and do not get a separate personal workspace.
 - **Vault** - a container of items with its own key.
 - **Item** - a login, a card, a note, and other categories.
 - **Folder** - your own grouping of items. Only the folder owner sees it.

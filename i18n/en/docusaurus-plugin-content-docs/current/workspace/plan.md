@@ -26,11 +26,20 @@ Okkey accepts at most 3 requests for one workspace in a rolling 24 hours. When t
 
 A bad email in the window shows "Enter a valid email." If sending fails: "Could not send the request. Try again later."
 
+## License file
+
+On self-hosted, only the workspace owner sees the instance fingerprint, the "Copy fingerprint" button, and "Upload license file". Admins and regular members do not get this block.
+
+The file is checked on your server; day-to-day work does not need internet access to the license portal. Success: "License accepted." Failure: "License rejected" with a clear reason. When the license is about to expire, the text is: "License expires in {'{days}'} days. Renew with a new offline license file."
+
+Renewal is a new file, uploaded again by the owner. How to get the file and which public address you need are on [Enterprise](../install/enterprise.md).
+
 ## How to check
 
 1. Sign in as the owner on Free. Settings, Change plan shows "Current plan: Free" and the "Enterprise" card with "Send a request".
 2. Sign in as a member with the "User" role. There is no "Settings" item.
 3. Send a request with a working email and a member count. The card shows the sent time and "Send again".
+4. Sign in as the owner and open Change plan: the fingerprint, "Copy fingerprint", and "Upload license file" are visible. An admin who is not the owner does not see this block.
 
 ## Next steps
 

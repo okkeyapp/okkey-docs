@@ -28,7 +28,7 @@ A bad email in the window shows "Enter a valid email." If sending fails: "Could 
 
 ## License file
 
-On an Enterprise install, only the workspace owner sees the instance fingerprint, the "Copy fingerprint" button, and "Upload license file". Admins and regular members do not get this block.
+On an install where an Okkey employee has already connected Enterprise, only the workspace owner sees the instance fingerprint, the "Copy fingerprint" button, and "Upload license file" - including before a valid file is uploaded and when the file was rejected or expired. Admins and regular members do not get this block. Until a valid file is in place, Enterprise features stay off.
 
 The file is checked on your server; day-to-day work does not need internet access to the license portal. Success: "License accepted." Failure: "License rejected" with the reason in parentheses. When the license is about to expire, the text is: "License expires in {'{days}'} day(s). Renew with a new offline license file."
 
@@ -36,10 +36,11 @@ Renewal is a new file, uploaded again by the owner. How to get the file and whic
 
 ## How to check
 
-1. Sign in as the owner on Free. Settings, Change plan shows "Current plan: Free" and the "Enterprise" card with "Send a request".
+1. Free-only install: sign in as the owner. Settings, Change plan shows "Current plan: Free" and the "Enterprise" card with "Send a request".
 2. Sign in as a member with the "User" role. There is no "Settings" item.
 3. Send a request with a working email and a member count. The card shows the sent time and "Send again".
-4. On an Enterprise install, sign in as the owner and open Change plan: the fingerprint, "Copy fingerprint", and "Upload license file" are visible. An admin who is not the owner does not see this block.
+4. An Okkey employee has already connected Enterprise, but there is no license file yet: sign in as the owner and open Change plan - the fingerprint, "Copy fingerprint", and "Upload license file" are visible; Enterprise features stay off. An admin who is not the owner does not see this block.
+5. After a valid license file is uploaded: "Current plan: Enterprise", and Enterprise features are on.
 
 ## Next steps
 

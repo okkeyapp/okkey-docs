@@ -44,7 +44,7 @@ Only the workspace owner uploads the file, in the same "Change plan" section. Th
 
 Renewal is a new file, uploaded again by the owner. For the last 30 days before expiry, a reminder appears in the plan section. The 30, 7, and 1 day reminder emails go to the owner only when SMTP is set through the environment variables `EMAIL_SMTP_HOST` and `EMAIL_FROM`. Mail settings from the setup wizard or from Settings, Mail are not used for these emails yet. Without that SMTP in the environment, only the in-app reminder remains.
 
-Until a license file is installed, an Okkey employee can still enable Enterprise features at install time, as before.
+Enterprise features turn on only after the owner uploads a valid license file. Without a file, or if the file is not accepted, those features stay off. After an Okkey employee has already connected the plan, the owner sees the instance fingerprint in Change plan and can upload a file even when there is no license yet.
 
 Screen details are on [Change plan](../workspace/plan.md).
 
@@ -62,7 +62,9 @@ The same text is on [Plans](../plans.md#when-the-enterprise-license-ends).
 
 ## How to check
 
-While the plan is Free, the sidebar has no "Monitoring", and Change plan shows the "Enterprise" card and "Send a request". After the plan is turned on, the block title is "Current plan: Enterprise".
+1. On an install that is Free only, the sidebar has no "Monitoring", and Change plan shows the "Enterprise" card and "Send a request".
+2. After an Okkey employee has connected Enterprise, but before a valid license file (or if the file is not accepted or has expired), the owner sees the "Enterprise license" block in Change plan, the instance fingerprint, "Copy fingerprint", and "Upload license file". Enterprise features are still off; the sidebar has no "Monitoring".
+3. After a valid file is uploaded: Change plan shows "Signed license is active." and the title "Current plan: Enterprise"; the sidebar has "Monitoring".
 
 ## Next steps
 

@@ -6,11 +6,13 @@ plans: [free, enterprise]
 
 # Change plan
 
-The "Change plan" section in Settings shows the current plan and the request for Enterprise. On Free the block title is "Current plan: Free". Under it: "You have access to all basic Okkey features."
+The "Change plan" section in Settings depends on whether an Okkey employee has connected Enterprise and whether a valid license file is in place.
 
-On Enterprise the section shows "Current plan: Enterprise". Under it: "You have access to all Okkey features for teams and enterprises".
+On an install that is Free only, the block title is "Current plan: Free". Under it: "You have access to all basic Okkey features." Next to it is the "Enterprise" card. The text is "All available features for teams and enterprises". The card lines are "Unlimited members", "Unlimited shared vaults", "Unlimited storage", "Custom roles", "Custom profiles", and "And more....". What actually differs from Free is on [Plans](../plans.md).
 
-Next to it is the "Enterprise" card. The text is "All available features for teams and enterprises". The card lines are "Unlimited members", "Unlimited shared vaults", "Unlimited storage", "Custom roles", "Custom profiles", and "And more....". What actually differs from Free is on [Plans](../plans.md).
+After an Okkey employee has connected Enterprise, but before a valid license file (or if the file is not accepted or has expired), the owner sees the "Enterprise license" block, the instance fingerprint, "Copy fingerprint", and "Upload license file". Enterprise features stay off. There is no "Send a request" card on this screen.
+
+After a valid file is uploaded, the title is "Current plan: Enterprise". Under it: "You have access to all Okkey features for teams and enterprises". Enterprise features are on.
 
 The section is visible when the role allows the "Billing" row. Built-in "Owner" and "Admin" have it. "User" cannot open workspace settings. The request button works when the role allows changes on that row.
 
@@ -28,7 +30,7 @@ A bad email in the window shows "Enter a valid email." If sending fails: "Could 
 
 ## License file
 
-On an Enterprise install, only the workspace owner sees the instance fingerprint, the "Copy fingerprint" button, and "Upload license file". Admins and regular members do not get this block.
+After an Okkey employee has connected Enterprise, only the workspace owner sees the instance fingerprint, the "Copy fingerprint" button, and "Upload license file". Admins and regular members do not get this block. The panel is available before a file is uploaded and when the file is invalid or expired: Enterprise features turn on only with a valid file.
 
 The file is checked on your server; day-to-day work does not need internet access to the license portal. Success: "License accepted." Failure: "License rejected" with the reason in parentheses. When the license is about to expire, the text is: "License expires in {'{days}'} day(s). Renew with a new offline license file."
 
@@ -36,10 +38,11 @@ Renewal is a new file, uploaded again by the owner. How to get the file and whic
 
 ## How to check
 
-1. Sign in as the owner on Free. Settings, Change plan shows "Current plan: Free" and the "Enterprise" card with "Send a request".
+1. Sign in as the owner on an install that is Free only. Settings, Change plan shows "Current plan: Free" and the "Enterprise" card with "Send a request".
 2. Sign in as a member with the "User" role. There is no "Settings" item.
 3. Send a request with a working email and a member count. The card shows the sent time and "Send again".
-4. On an Enterprise install, sign in as the owner and open Change plan: the fingerprint, "Copy fingerprint", and "Upload license file" are visible. An admin who is not the owner does not see this block.
+4. After an Okkey employee has connected Enterprise, but before a valid file, sign in as the owner: Change plan shows "Enterprise license", the fingerprint, "Copy fingerprint", and "Upload license file". Enterprise features are still off. An admin who is not the owner does not see the fingerprint and upload block.
+5. After a valid file is uploaded: "Signed license is active." and "Current plan: Enterprise"; Enterprise features are on.
 
 ## Next steps
 
